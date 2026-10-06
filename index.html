@@ -1,10 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <!-- ================================
-       BASIC META
-  ================================= -->
+<html lang="ar" dir="rtl">
 
+<head>
   <meta charset="UTF-8">
 
   <meta
@@ -14,7 +11,7 @@
 
   <meta
     name="description"
-    content="NOIRÉ — A contemporary specialty coffee experience built around exceptional coffee, thoughtful craft and unforgettable moments."
+    content="TRANSIT CAFE — تجربة قهوة ومشروبات بطابع فاخر وعصري."
   >
 
   <meta
@@ -22,375 +19,215 @@
     content="#080807"
   >
 
-  <meta name="robots" content="index, follow">
+  <title>TRANSIT CAFE | Coffee • Culture • Experience</title>
 
-  <title>NOIRÉ — Specialty Coffee</title>
-
-
-  <!-- ================================
-       OPEN GRAPH
-  ================================= -->
-
-  <meta
-    property="og:title"
-    content="NOIRÉ — Specialty Coffee"
-  >
-
-  <meta
-    property="og:description"
-    content="Coffee beyond ordinary."
-  >
-
-  <meta
-    property="og:type"
-    content="website"
-  >
-
-
-  <!-- ================================
-       FONTS
-  ================================= -->
-
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
     rel="stylesheet"
   >
 
-
-  <!-- ================================
-       MAIN STYLESHEET
-  ================================= -->
-
+  <!-- Main CSS -->
   <link rel="stylesheet" href="style.css">
-
 </head>
 
 
 <body>
 
-  <!-- =========================================
+  <!-- =====================================================
        PRELOADER
-  ========================================= -->
+  ====================================================== -->
 
-  <div
-    class="preloader"
-    id="preloader"
-    aria-hidden="true"
-  >
+  <div class="preloader" id="preloader">
 
     <div class="preloader-inner">
 
+      <span class="preloader-line"></span>
+
       <div class="preloader-logo">
-        NOIR<span>É</span>
+        TRANSIT
       </div>
 
-      <div class="preloader-line">
-        <span></span>
-      </div>
-
-      <div class="preloader-text">
-        SPECIALTY COFFEE
-      </div>
+      <p>
+        COFFEE • CULTURE • EXPERIENCE
+      </p>
 
     </div>
 
   </div>
 
 
-  <!-- =========================================
-       CUSTOM CURSOR
-  ========================================= -->
+  <!-- =====================================================
+       CURSOR
+  ====================================================== -->
 
-  <div
-    class="cursor"
-    id="cursor"
-    aria-hidden="true"
-  ></div>
-
-  <div
-    class="cursor-follower"
-    id="cursorFollower"
-    aria-hidden="true"
-  ></div>
+  <div id="cursor"></div>
+  <div id="cursorFollower"></div>
 
 
-  <!-- =========================================
-       NOISE / GRAIN
-  ========================================= -->
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
 
-  <div
-    class="noise"
-    aria-hidden="true"
-  ></div>
+  <header class="site-header">
 
-
-  <!-- =========================================
-       NAVIGATION
-  ========================================= -->
-
-  <header
-    class="site-header"
-    id="siteHeader"
-  >
-
-    <nav
-      class="navbar"
-      aria-label="Main navigation"
-    >
-
-      <!-- LOGO -->
+    <div class="header-inner">
 
       <a
         href="#home"
         class="logo magnetic"
-        aria-label="NOIRÉ home"
+        aria-label="TRANSIT CAFE"
       >
-        NOIR<span>É</span>
+        TRANSIT
       </a>
 
 
-      <!-- DESKTOP NAV -->
+      <nav class="desktop-nav">
 
-      <ul class="nav-links">
+        <a href="#home">الرئيسية</a>
 
-        <li>
-          <a
-            href="#story"
-            class="nav-link"
-          >
-            Story
-          </a>
-        </li>
+        <a href="#story">عن ترانزيت</a>
 
-        <li>
-          <a
-            href="#experience"
-            class="nav-link"
-          >
-            Experience
-          </a>
-        </li>
+        <a href="#experience">التجربة</a>
 
-        <li>
-          <a
-            href="#menu"
-            class="nav-link"
-          >
-            Menu
-          </a>
-        </li>
+        <a href="#menu">المنيو</a>
 
-        <li>
-          <a
-            href="#gallery"
-            class="nav-link"
-          >
-            Gallery
-          </a>
-        </li>
+        <a href="#gallery">المعرض</a>
 
-        <li>
-          <a
-            href="#night"
-            class="nav-link"
-          >
-            Night
-          </a>
-        </li>
+        <a href="#visit">تواصل معنا</a>
 
-      </ul>
+      </nav>
 
-
-      <!-- NAV ACTION -->
 
       <a
-        href="#reservation"
-        class="nav-button magnetic"
+        href="#menu"
+        class="header-button magnetic"
       >
-        <span>Reserve</span>
-        <span class="button-arrow">↗</span>
+        اكتشف المنيو
       </a>
 
-
-      <!-- MOBILE BUTTON -->
 
       <button
         class="menu-toggle"
-        id="menuToggle"
         type="button"
-        aria-label="Open navigation"
+        aria-label="فتح القائمة"
         aria-expanded="false"
       >
 
         <span></span>
         <span></span>
+        <span></span>
 
       </button>
-
-    </nav>
-
-
-    <!-- =====================================
-         MOBILE NAVIGATION
-    ====================================== -->
-
-    <div
-      class="mobile-menu"
-      id="mobileMenu"
-      aria-hidden="true"
-    >
-
-      <div class="mobile-menu-inner">
-
-        <div class="mobile-menu-label">
-          NAVIGATION
-        </div>
-
-        <a href="#story">
-          <span>01</span>
-          Story
-        </a>
-
-        <a href="#experience">
-          <span>02</span>
-          Experience
-        </a>
-
-        <a href="#menu">
-          <span>03</span>
-          Menu
-        </a>
-
-        <a href="#gallery">
-          <span>04</span>
-          Gallery
-        </a>
-
-        <a href="#night">
-          <span>05</span>
-          Night
-        </a>
-
-        <a href="#reservation">
-          <span>06</span>
-          Reservation
-        </a>
-
-      </div>
 
     </div>
 
   </header>
 
 
+  <!-- =====================================================
+       MOBILE MENU
+  ====================================================== -->
+
+  <div
+    class="mobile-menu"
+    aria-hidden="true"
+  >
+
+    <div class="mobile-menu-inner">
+
+      <a href="#home">
+        الرئيسية
+      </a>
+
+      <a href="#story">
+        عن ترانزيت
+      </a>
+
+      <a href="#experience">
+        التجربة
+      </a>
+
+      <a href="#menu">
+        المنيو
+      </a>
+
+      <a href="#gallery">
+        المعرض
+      </a>
+
+      <a href="#visit">
+        تواصل معنا
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       MAIN
+  ====================================================== -->
+
   <main>
 
 
-    <!-- =========================================
+    <!-- ===================================================
          HERO
-    ========================================= -->
+    ==================================================== -->
 
     <section
       class="hero"
       id="home"
-      aria-label="NOIRÉ introduction"
     >
 
-      <!-- BACKGROUND -->
-
-      <div
-        class="hero-media"
-        data-parallax="0.08"
-      >
+      <div class="hero-media">
 
         <img
-          src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=2400&q=90"
-          alt="Specialty coffee being prepared"
-          fetchpriority="high"
+          src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=2200&q=90"
+          alt="TRANSIT CAFE"
         >
 
       </div>
 
 
-      <!-- DARK CINEMATIC OVERLAY -->
+      <div class="hero-overlay"></div>
 
-      <div
-        class="hero-overlay"
-        aria-hidden="true"
-      ></div>
-
-
-      <!-- HERO CONTENT -->
 
       <div class="hero-content">
 
-        <div
-          class="eyebrow reveal"
-          data-delay="100"
-        >
-          <span class="eyebrow-line"></span>
+        <span class="eyebrow">
+          COFFEE • CULTURE • EXPERIENCE
+        </span>
 
-          <span>
-            Specialty Coffee
-          </span>
-
-          <span class="eyebrow-dot">•</span>
-
-          <span>
-            Since 2018
-          </span>
-        </div>
-
-
-        <h1
-          class="hero-title"
-          data-split-text
-        >
-          Coffee
-          <br>
-
-          <em>Beyond</em>
-
-          <br>
-
-          Ordinary.
+        <h1>
+          TRANSIT
         </h1>
 
+        <p class="hero-subtitle">
+          مش مجرد كافيه.
+          <br>
+          دي تجربة ليها طابعها الخاص.
+        </p>
 
-        <div class="hero-bottom reveal">
 
-          <p class="hero-description">
-
-            A contemporary coffee house built around
-            exceptional beans, thoughtful craft and
-            the art of slowing down.
-
-          </p>
-
+        <div class="hero-actions">
 
           <a
-            href="#experience"
-            class="hero-scroll magnetic"
+            href="#menu"
+            class="primary-button magnetic"
           >
+            اكتشف التجربة
+          </a>
 
-            <span class="scroll-text">
-              Discover
-            </span>
-
-            <span class="scroll-line"></span>
-
-            <span class="scroll-arrow">
-              ↓
-            </span>
-
+          <a
+            href="#story"
+            class="text-button"
+          >
+            اعرف قصتنا
           </a>
 
         </div>
@@ -398,153 +235,111 @@
       </div>
 
 
-      <!-- HERO SIDE INFO -->
+      <div class="hero-bottom">
 
-      <div
-        class="hero-side-info"
-        aria-hidden="true"
-      >
+        <span>
+          ABOU KEBER • SHARQIA
+        </span>
 
-        <span>25° 12' N</span>
-
-        <span class="vertical-line"></span>
-
-        <span>31° 18' E</span>
-
-      </div>
-
-
-      <!-- HERO COUNTER -->
-
-      <div
-        class="hero-counter"
-        aria-hidden="true"
-      >
-
-        <span>01</span>
-
-        <span>/</span>
-
-        <span>05</span>
+        <span>
+          SCROLL TO EXPLORE
+        </span>
 
       </div>
 
     </section>
 
 
-    <!-- =========================================
-         INTRO / STORY
-    ========================================= -->
+    <!-- ===================================================
+         STORY
+    ==================================================== -->
 
     <section
-      class="story section"
+      class="story section reveal"
       id="story"
     >
 
-      <div class="section-label reveal">
+      <div class="container">
 
-        <span>01</span>
-
-        <span class="label-line"></span>
-
-        <span>THE STORY</span>
-
-      </div>
-
-
-      <div class="story-grid">
-
-        <div class="story-heading reveal">
-
-          <p class="micro-label">
-            OUR PHILOSOPHY
-          </p>
-
-          <h2 class="display-title">
-
-            Crafted
-
-            <br>
-
-            with
-
-            <em>intention.</em>
-
-          </h2>
-
+        <div class="section-label">
+          01 / THE STORY
         </div>
 
 
-        <div class="story-content reveal">
+        <div class="story-grid">
 
-          <p class="large-copy">
+          <div class="story-title">
 
-            NOIRÉ was created around a simple idea:
+            <span class="eyebrow">
+              ABOUT TRANSIT
+            </span>
 
-            exceptional coffee deserves an
-            exceptional atmosphere.
+            <h2>
+              مكان معمول
+              <br>
+              <em>للحظات اللي بتفرق.</em>
+            </h2>
 
-          </p>
-
-
-          <p class="body-copy">
-
-            From carefully selected origins to the
-            final pour, every detail is considered.
-
-            Not to impress.
-
-            But to create a moment worth remembering.
-
-          </p>
+          </div>
 
 
-          <div class="story-signature">
-            Slow coffee.
-            <span>Deep moments.</span>
+          <div class="story-copy">
+
+            <p>
+              في TRANSIT، القهوة مش مجرد مشروب.
+              هي جزء من تجربة كاملة تجمع بين
+              التفاصيل، الأجواء، والمذاق.
+            </p>
+
+            <p>
+              مكان تقدر تبدأ فيه يومك،
+              تقابل أصحابك، أو تاخد وقتك
+              بعيد عن الزحمة.
+            </p>
+
+
+            <div class="signature">
+              TRANSIT
+            </div>
+
           </div>
 
         </div>
 
-      </div>
+
+        <div class="stats-grid">
+
+          <div class="stat">
+
+            <strong>01</strong>
+
+            <span>
+              UNIQUE EXPERIENCE
+            </span>
+
+          </div>
 
 
-      <!-- STORY STATS -->
+          <div class="stat">
 
-      <div class="story-stats reveal">
+            <strong>∞</strong>
 
-        <div class="stat">
+            <span>
+              MOMENTS TO REMEMBER
+            </span>
 
-          <strong>08</strong>
-
-          <span>
-            YEARS OF<br>
-            CRAFT
-          </span>
-
-        </div>
+          </div>
 
 
-        <div class="stat">
+          <div class="stat">
 
-          <strong>12</strong>
+            <strong>24</strong>
 
-          <span>
-            ORIGINS<br>
-            SOURCED
-          </span>
+            <span>
+              HOURS OF THE DAY
+            </span>
 
-        </div>
-
-
-        <div class="stat">
-
-          <strong>01</strong>
-
-          <span>
-            SIGNATURE<br>
-            EXPERIENCE
-          </span>
+          </div>
 
         </div>
 
@@ -553,163 +348,118 @@
     </section>
 
 
-    <!-- =========================================
+    <!-- ===================================================
          EXPERIENCE
-    ========================================= -->
+    ==================================================== -->
 
     <section
-      class="experience section-dark"
+      class="experience section"
       id="experience"
     >
 
-      <div class="experience-top">
+      <div class="container">
 
-        <div class="section-label reveal">
+        <div class="section-heading reveal">
 
-          <span>02</span>
+          <span class="eyebrow">
+            THE EXPERIENCE
+          </span>
 
-          <span class="label-line"></span>
-
-          <span>EXPERIENCE</span>
-
-        </div>
-
-
-        <div class="experience-intro reveal">
-
-          <h2 class="display-title">
-
-            More than
-
-            <br>
-
-            <em>coffee.</em>
-
+          <h2>
+            أكتر من مجرد
+            <em>قهوة.</em>
           </h2>
 
-
-          <p>
-            Designed for mornings that matter,
-            conversations that last and nights
-            that shouldn't end too early.
-          </p>
-
         </div>
 
-      </div>
+
+        <div class="experience-grid">
 
 
-      <!-- EXPERIENCE CARDS -->
+          <article class="experience-card reveal">
 
-      <div class="experience-grid">
-
-        <!-- LARGE -->
-
-        <article
-          class="experience-card experience-card-large reveal"
-        >
-
-          <div class="card-image">
-
-            <img
-              src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1600&q=85"
-              alt="Elegant coffee house interior"
-              loading="lazy"
-            >
-
-          </div>
-
-
-          <div class="card-overlay"></div>
-
-
-          <div class="card-content">
-
-            <span class="card-number">
-              01 / MORNING RITUAL
-            </span>
-
-            <h3>
-              The First Pour
-            </h3>
-
-            <span class="card-arrow">
-              ↗
-            </span>
-
-          </div>
-
-        </article>
-
-
-        <!-- RIGHT COLUMN -->
-
-        <div class="experience-column">
-
-          <article
-            class="experience-card reveal"
-          >
-
-            <div class="card-image">
+            <div class="experience-image">
 
               <img
-                src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1400&q=85"
-                alt="Barista preparing specialty coffee"
+                src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=1200&q=85"
+                alt="Coffee experience"
                 loading="lazy"
               >
 
             </div>
 
-            <div class="card-overlay"></div>
+            <div class="experience-info">
 
-            <div class="card-content">
-
-              <span class="card-number">
-                02 / CRAFT
-              </span>
+              <span>01</span>
 
               <h3>
-                The Art of Coffee
+                Specialty Coffee
               </h3>
 
-              <span class="card-arrow">
-                ↗
-              </span>
+              <p>
+                مذاق متوازن وتجربة قهوة
+                بتفاصيل تستحق التجربة.
+              </p>
 
             </div>
 
           </article>
 
 
-          <article
-            class="experience-card reveal"
-          >
+          <article class="experience-card reveal">
 
-            <div class="card-image">
+            <div class="experience-image">
 
               <img
-                src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=1400&q=85"
-                alt="Coffee and atmosphere"
+                src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=85"
+                alt="Cafe atmosphere"
                 loading="lazy"
               >
 
             </div>
 
-            <div class="card-overlay"></div>
+            <div class="experience-info">
 
-            <div class="card-content">
-
-              <span class="card-number">
-                03 / ATMOSPHERE
-              </span>
+              <span>02</span>
 
               <h3>
-                Your Place
+                The Atmosphere
               </h3>
 
-              <span class="card-arrow">
-                ↗
-              </span>
+              <p>
+                تصميم وأجواء معمولة عشان
+                تخليك تستمتع بكل لحظة.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="experience-card reveal">
+
+            <div class="experience-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=85"
+                alt="Cafe gathering"
+                loading="lazy"
+              >
+
+            </div>
+
+            <div class="experience-info">
+
+              <span>03</span>
+
+              <h3>
+                Your Moment
+              </h3>
+
+              <p>
+                مكان للشغل، القعدة،
+                الكلام، أو حتى لحظتك الخاصة.
+              </p>
 
             </div>
 
@@ -722,668 +472,426 @@
     </section>
 
 
-    <!-- =========================================
-         SIGNATURE MENU
-    ========================================= -->
+    <!-- ===================================================
+         MENU
+    ==================================================== -->
 
     <section
       class="menu-section section"
       id="menu"
     >
 
-      <div class="menu-header">
+      <div class="container">
 
-        <div>
+        <div class="section-heading reveal">
 
-          <div class="section-label reveal">
+          <span class="eyebrow">
+            THE MENU
+          </span>
 
-            <span>03</span>
-
-            <span class="label-line"></span>
-
-            <span>SIGNATURE MENU</span>
-
-          </div>
-
-
-          <h2 class="display-title reveal">
-
-            Made to be
-
-            <br>
-
-            <em>remembered.</em>
-
+          <h2>
+            اختار
+            <em>مزاجك.</em>
           </h2>
 
         </div>
 
 
-        <p class="menu-intro reveal">
-
-          Carefully sourced ingredients.
-          Precise preparation.
-          Nothing unnecessary.
-
-        </p>
-
-      </div>
-
-
-      <!-- MENU FILTER -->
-
-      <div
-        class="menu-filters reveal"
-        role="tablist"
-        aria-label="Menu categories"
-      >
-
-        <button
-          class="filter-button active"
-          data-filter="all"
-          type="button"
-        >
-          All
-        </button>
-
-        <button
-          class="filter-button"
-          data-filter="coffee"
-          type="button"
-        >
-          Coffee
-        </button>
-
-        <button
-          class="filter-button"
-          data-filter="signature"
-          type="button"
-        >
-          Signatures
-        </button>
-
-        <button
-          class="filter-button"
-          data-filter="cold"
-          type="button"
-        >
-          Cold
-        </button>
-
-      </div>
-
-
-      <!-- MENU LIST -->
-
-      <div
-        class="menu-list"
-        id="menuList"
-      >
-
-        <!-- ITEM -->
-
-        <article
-          class="menu-item reveal"
-          data-category="coffee"
-        >
-
-          <span class="menu-index">
-            01
-          </span>
-
-          <div class="menu-item-main">
-
-            <h3>
-              Noiré Espresso
-            </h3>
-
-            <p>
-              Deep chocolate, caramel and
-              a subtle roasted finish.
-            </p>
-
-          </div>
-
-          <span class="menu-tag">
-            CLASSIC
-          </span>
-
-          <span class="menu-price">
-            85
-          </span>
-
-          <span class="menu-currency">
-            EGP
-          </span>
-
-        </article>
-
-
-        <!-- ITEM -->
-
-        <article
-          class="menu-item reveal"
-          data-category="coffee"
-        >
-
-          <span class="menu-index">
-            02
-          </span>
-
-          <div class="menu-item-main">
-
-            <h3>
-              Velvet Latte
-            </h3>
-
-            <p>
-              Silky microfoam balanced with
-              our signature espresso.
-            </p>
-
-          </div>
-
-          <span class="menu-tag">
-            MILK
-          </span>
-
-          <span class="menu-price">
-            110
-          </span>
-
-          <span class="menu-currency">
-            EGP
-          </span>
-
-        </article>
-
-
-        <!-- ITEM -->
-
-        <article
-          class="menu-item reveal"
-          data-category="signature"
-        >
-
-          <span class="menu-index">
-            03
-          </span>
-
-          <div class="menu-item-main">
-
-            <h3>
-              Black Honey
-            </h3>
-
-            <p>
-              Espresso, honey and textured
-              milk with a warm finish.
-            </p>
-
-          </div>
-
-          <span class="menu-tag">
-            SIGNATURE
-          </span>
-
-          <span class="menu-price">
-            120
-          </span>
-
-          <span class="menu-currency">
-            EGP
-          </span>
-
-        </article>
-
-
-        <!-- ITEM -->
-
-        <article
-          class="menu-item reveal"
-          data-category="cold"
-        >
-
-          <span class="menu-index">
-            04
-          </span>
-
-          <div class="menu-item-main">
-
-            <h3>
-              Cold Noir
-            </h3>
-
-            <p>
-              Slow brewed cold coffee with
-              dark cocoa notes.
-            </p>
-
-          </div>
-
-          <span class="menu-tag">
-            COLD
-          </span>
-
-          <span class="menu-price">
-            105
-          </span>
-
-          <span class="menu-currency">
-            EGP
-          </span>
-
-        </article>
-
-
-        <!-- ITEM -->
-
-        <article
-          class="menu-item reveal"
-          data-category="signature"
-        >
-
-          <span class="menu-index">
-            05
-          </span>
-
-          <div class="menu-item-main">
-
-            <h3>
-              Signature Mocha
-            </h3>
-
-            <p>
-              Single origin espresso,
-              dark chocolate and cream.
-            </p>
-
-          </div>
-
-          <span class="menu-tag">
-            SIGNATURE
-          </span>
-
-          <span class="menu-price">
-            125
-          </span>
-
-          <span class="menu-currency">
-            EGP
-          </span>
-
-        </article>
-
-      </div>
-
-
-      <!-- MENU CTA -->
-
-      <div class="menu-cta reveal">
-
-        <a
-          href="#reservation"
-          class="outline-button magnetic"
-        >
-
-          <span>
-            Explore the full menu
-          </span>
-
-          <span>
-            ↗
-          </span>
-
-        </a>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================================
-         CINEMATIC GALLERY
-    ========================================= -->
-
-    <section
-      class="gallery section-dark"
-      id="gallery"
-    >
-
-      <div class="gallery-header">
-
-        <div class="section-label reveal">
-
-          <span>04</span>
-
-          <span class="label-line"></span>
-
-          <span>THE GALLERY</span>
+        <div class="menu-filters">
+
+          <button
+            class="filter-button active"
+            data-filter="all"
+          >
+            الكل
+          </button>
+
+          <button
+            class="filter-button"
+            data-filter="coffee"
+          >
+            قهوة
+          </button>
+
+          <button
+            class="filter-button"
+            data-filter="cold"
+          >
+            مشروبات باردة
+          </button>
+
+          <button
+            class="filter-button"
+            data-filter="signature"
+          >
+            Signature
+          </button>
 
         </div>
 
 
-        <h2 class="display-title reveal">
-
-          Moments
-
-          <br>
-
-          <em>between.</em>
-
-        </h2>
-
-      </div>
+        <div class="menu-list">
 
 
-      <div class="gallery-grid">
-
-        <figure class="gallery-item gallery-item-large reveal">
-
-          <img
-            src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=1600&q=85"
-            alt="Coffee cup on table"
-            loading="lazy"
+          <article
+            class="menu-item reveal"
+            data-category="coffee"
           >
 
-          <figcaption>
-            The quiet beginning.
-          </figcaption>
+            <div class="menu-number">
+              01
+            </div>
 
-        </figure>
+            <div class="menu-info">
+
+              <h3>
+                Espresso
+              </h3>
+
+              <p>
+                Classic espresso experience
+              </p>
+
+            </div>
+
+            <div class="menu-price">
+              — EGP
+            </div>
+
+          </article>
 
 
-        <figure class="gallery-item reveal">
-
-          <img
-            src="https://images.unsplash.com/photo-1510707577719-ae7c14805e32?auto=format&fit=crop&w=1200&q=85"
-            alt="Coffee beans"
-            loading="lazy"
+          <article
+            class="menu-item reveal"
+            data-category="coffee"
           >
 
-          <figcaption>
-            Origin.
-          </figcaption>
+            <div class="menu-number">
+              02
+            </div>
 
-        </figure>
+            <div class="menu-info">
+
+              <h3>
+                Latte
+              </h3>
+
+              <p>
+                Smooth & creamy
+              </p>
+
+            </div>
+
+            <div class="menu-price">
+              — EGP
+            </div>
+
+          </article>
 
 
-        <figure class="gallery-item reveal">
-
-          <img
-            src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1200&q=85"
-            alt="Roasted coffee beans"
-            loading="lazy"
+          <article
+            class="menu-item reveal"
+            data-category="signature"
           >
 
-          <figcaption>
-            Craft.
-          </figcaption>
+            <div class="menu-number">
+              03
+            </div>
 
-        </figure>
+            <div class="menu-info">
+
+              <h3>
+                Signature Coffee
+              </h3>
+
+              <p>
+                A special TRANSIT creation
+              </p>
+
+            </div>
+
+            <div class="menu-price">
+              — EGP
+            </div>
+
+          </article>
 
 
-        <figure class="gallery-item gallery-item-wide reveal">
-
-          <img
-            src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1800&q=85"
-            alt="Barista making coffee"
-            loading="lazy"
+          <article
+            class="menu-item reveal"
+            data-category="cold"
           >
 
-          <figcaption>
-            The final pour.
-          </figcaption>
+            <div class="menu-number">
+              04
+            </div>
 
-        </figure>
+            <div class="menu-info">
+
+              <h3>
+                Iced Coffee
+              </h3>
+
+              <p>
+                Cold, smooth & refreshing
+              </p>
+
+            </div>
+
+            <div class="menu-price">
+              — EGP
+            </div>
+
+          </article>
+
+        </div>
+
+
+        <div class="menu-action">
+
+          <a
+            href="menu.html"
+            class="primary-button magnetic"
+          >
+            مشاهدة المنيو كاملة
+          </a>
+
+        </div>
 
       </div>
 
     </section>
 
 
-    <!-- =========================================
-         NIGHT EXPERIENCE
-    ========================================= -->
+    <!-- ===================================================
+         GALLERY
+    ==================================================== -->
 
     <section
-      class="night-section"
-      id="night"
+      class="gallery section"
+      id="gallery"
     >
 
-      <div
-        class="night-media"
-        data-parallax="0.04"
-      >
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <span class="eyebrow">
+            TRANSIT MOMENTS
+          </span>
+
+          <h2>
+            شوف
+            <em>التجربة.</em>
+          </h2>
+
+        </div>
+
+
+        <div class="gallery-grid">
+
+          <div class="gallery-item reveal">
+
+            <img
+              src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1400&q=85"
+              alt="TRANSIT atmosphere"
+              loading="lazy"
+            >
+
+          </div>
+
+
+          <div class="gallery-item reveal">
+
+            <img
+              src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1400&q=85"
+              alt="Coffee"
+              loading="lazy"
+            >
+
+          </div>
+
+
+          <div class="gallery-item reveal">
+
+            <img
+              src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1400&q=85"
+              alt="Cafe drink"
+              loading="lazy"
+            >
+
+          </div>
+
+
+          <div class="gallery-item reveal">
+
+            <img
+              src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1400&q=85"
+              alt="Coffee cup"
+              loading="lazy"
+            >
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         NIGHT
+    ==================================================== -->
+
+    <section class="night-section">
+
+      <div class="night-media">
 
         <img
-          src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=2400&q=90"
-          alt="Elegant cafe at night"
+          src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=2200&q=90"
+          alt="TRANSIT at night"
           loading="lazy"
         >
 
       </div>
 
-
       <div class="night-overlay"></div>
 
 
-      <div class="night-content">
+      <div class="night-content reveal">
 
-        <div class="section-label reveal">
+        <span class="eyebrow">
+          AFTER DARK
+        </span>
 
-          <span>05</span>
-
-          <span class="label-line"></span>
-
-          <span>AFTER DARK</span>
-
-        </div>
-
-
-        <h2 class="night-title reveal">
-
-          Stay
-
-          <br>
-
-          a little
-
-          <br>
-
-          <em>longer.</em>
-
+        <h2>
+          خليك
+          <em>شوية.</em>
         </h2>
 
-
-        <p class="night-description reveal">
-
-          When the city gets quieter,
-          NOIRÉ changes.
-
-          Lower lights, deeper conversations
-          and coffee designed for the night.
-
+        <p>
+          لما الدنيا تهدى،
+          TRANSIT بيبقى له طعم تاني.
         </p>
-
-
-        <a
-          href="#reservation"
-          class="gold-button magnetic reveal"
-        >
-
-          <span>
-            Discover the Night
-          </span>
-
-          <span>
-            ↗
-          </span>
-
-        </a>
 
       </div>
 
     </section>
 
 
-    <!-- =========================================
+    <!-- ===================================================
          QUOTE
-    ========================================= -->
+    ==================================================== -->
 
     <section class="quote-section section">
 
-      <div
-        class="quote-mark reveal"
-        aria-hidden="true"
-      >
-        “
-      </div>
+      <div class="container">
 
+        <div class="quote reveal">
 
-      <blockquote class="quote-text reveal">
+          <span>
+            “
+          </span>
 
-        Great coffee isn't just something
-        you drink.
+          <blockquote>
+            كل لحظة حلوة
+            تستحق المكان الصح.
+          </blockquote>
 
-        <br>
+          <small>
+            TRANSIT CAFE
+          </small>
 
-        It's somewhere you
-        <em>go.</em>
-
-      </blockquote>
-
-
-      <div class="quote-author reveal">
-
-        <span></span>
-
-        NOIRÉ — SPECIALTY COFFEE
-
-        <span></span>
+        </div>
 
       </div>
 
     </section>
 
 
-    <!-- =========================================
-         RESERVATION / VISIT
-    ========================================= -->
+    <!-- ===================================================
+         VISIT
+    ==================================================== -->
 
     <section
-      class="reservation section-dark"
-      id="reservation"
+      class="visit section"
+      id="visit"
     >
 
-      <div class="reservation-grid">
+      <div class="container">
 
-        <div class="reservation-copy reveal">
+        <div class="visit-grid">
 
-          <div class="section-label">
+          <div class="visit-title reveal">
 
-            <span>06</span>
+            <span class="eyebrow">
+              VISIT TRANSIT
+            </span>
 
-            <span class="label-line"></span>
-
-            <span>YOUR TABLE</span>
+            <h2>
+              مستنيينك
+              <em>في ترانزيت.</em>
+            </h2>
 
           </div>
 
 
-          <h2 class="display-title">
+          <div class="visit-details reveal">
 
-            Make a
+            <div class="detail">
 
-            <br>
-
-            <em>moment.</em>
-
-          </h2>
-
-
-          <p>
-            Whether it's your first coffee of the day
-            or the last conversation of the night,
-            there's always a place for you at NOIRÉ.
-          </p>
-
-        </div>
-
-
-        <div class="reservation-card reveal">
-
-          <div class="reservation-card-top">
-
-            <span>
-              VISIT US
-            </span>
-
-            <span>
-              07
-            </span>
-
-          </div>
-
-
-          <div class="reservation-details">
-
-            <div>
-
-              <small>
+              <span>
                 LOCATION
-              </small>
+              </span>
+
+              <strong>
+                أبو كبير — الشرقية
+              </strong>
 
               <p>
-                Downtown District
+                بعد مطعم الصياد
               </p>
 
             </div>
 
 
-            <div>
+            <div class="detail">
 
-              <small>
-                HOURS
-              </small>
+              <span>
+                OPEN DAILY
+              </span>
 
-              <p>
-                Daily<br>
-                08:00 — 01:00
-              </p>
+              <strong>
+                08:00 AM — 02:00 AM
+              </strong>
+
+            </div>
+
+
+            <div class="detail">
+
+              <span>
+                CALL / WHATSAPP
+              </span>
+
+              <strong>
+                01030516417
+              </strong>
 
             </div>
 
 
-            <div>
-
-              <small>
-                CONTACT
-              </small>
-
-              <p>
-                +20 000 000 0000
-              </p>
-
-            </div>
+            <a
+              href="https://wa.me/201030516417"
+              class="primary-button magnetic"
+              target="_blank"
+              rel="noopener"
+            >
+              تواصل معنا
+            </a>
 
           </div>
-
-
-          <a
-            href="tel:+200000000000"
-            class="gold-button reservation-button magnetic"
-          >
-
-            <span>
-              Call to Reserve
-            </span>
-
-            <span>
-              ↗
-            </span>
-
-          </a>
 
         </div>
 
@@ -1394,89 +902,58 @@
   </main>
 
 
-  <!-- =========================================
+  <!-- =====================================================
        FOOTER
-  ========================================= -->
+  ====================================================== -->
 
   <footer class="site-footer">
 
-    <div class="footer-main">
+    <div class="container">
 
-      <div class="footer-title reveal">
+      <div class="footer-main">
 
-        See you
+        <div class="footer-brand">
 
-        <br>
-
-        at <em>NOIRÉ.</em>
-
-      </div>
-
-
-      <div class="footer-grid">
-
-        <div class="footer-column">
-
-          <span class="footer-label">
-            VISIT
-          </span>
+          <div class="footer-logo">
+            TRANSIT
+          </div>
 
           <p>
-            Downtown District
-          </p>
-
-          <p>
-            Open Daily — 08:00 / 01:00
+            Coffee • Culture • Experience
           </p>
 
         </div>
 
 
-        <div class="footer-column">
+        <div class="footer-links">
 
-          <span class="footer-label">
-            EXPLORE
-          </span>
-
-          <a href="#story">
-            Our Story
-          </a>
-
-          <a href="#experience">
-            Experience
+          <a href="#home">
+            الرئيسية
           </a>
 
           <a href="#menu">
-            Menu
+            المنيو
           </a>
 
           <a href="#gallery">
-            Gallery
+            المعرض
           </a>
 
-          <a href="#night">
-            Night
+          <a href="#visit">
+            تواصل معنا
           </a>
 
         </div>
 
 
-        <div class="footer-column">
+        <div class="footer-contact">
 
-          <span class="footer-label">
-            CONNECT
+          <span>
+            PHONE
           </span>
 
-          <a href="#">
-            Instagram
-          </a>
-
-          <a href="#">
-            Facebook
-          </a>
-
-          <a href="#reservation">
-            Contact
+          <a href="tel:01030516417">
+            01030516417
           </a>
 
         </div>
@@ -1487,15 +964,11 @@
       <div class="footer-bottom">
 
         <span>
-          © 2026 NOIRÉ Coffee House
+          © TRANSIT CAFE
         </span>
 
         <span>
-          Crafted with intention.
-        </span>
-
-        <span>
-          Specialty Coffee / Since 2018
+          COFFEE • CULTURE • EXPERIENCE
         </span>
 
       </div>
@@ -1505,25 +978,26 @@
   </footer>
 
 
-  <!-- =========================================
+  <!-- =====================================================
        BACK TO TOP
-  ========================================= -->
+  ====================================================== -->
 
   <button
-    class="back-to-top magnetic"
-    id="backToTop"
+    id="backTop"
+    class="back-top"
     type="button"
-    aria-label="Back to top"
+    aria-label="العودة للأعلى"
   >
     ↑
   </button>
 
 
-  <!-- =========================================
+  <!-- =====================================================
        JAVASCRIPT
-  ========================================= -->
+  ====================================================== -->
 
   <script src="script.js"></script>
 
 </body>
+
 </html>
