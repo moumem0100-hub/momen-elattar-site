@@ -1,86 +1,42 @@
-/* =========================================================
-   TRANSIT — MAIN SCRIPT
-   Premium Coffee Experience
-   ========================================================= */
-
 document.addEventListener("DOMContentLoaded", () => {
   "use strict";
 
   const body = document.body;
-
-  const preloader = document.getElementById("preloader");
   const header = document.querySelector(".site-header");
+  const preloader = document.getElementById("preloader");
 
-  const cursor = document.getElementById("cursor");
-  const cursorFollower =
-    document.getElementById("cursorFollower");
-
-  const menuToggle =
-    document.querySelector(".menu-toggle");
-
-  const mobileMenu =
-    document.querySelector(".mobile-menu");
-
-  const mobileLinks =
-    document.querySelectorAll(".mobile-menu a");
-
-  const backTop =
-    document.getElementById("backTop");
-
-  const reducedMotion =
-    window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-  const finePointer =
-    window.matchMedia(
-      "(pointer: fine)"
-    ).matches;
-
-
-  /* =========================================================
+  /* =========================
      PRELOADER
-     ========================================================= */
+  ========================= */
 
-  body.classList.add("is-loading");
-
-  const finishLoading = () => {
-    body.classList.remove("is-loading");
-    body.classList.add("page-loaded");
-
-    if (preloader) {
-      preloader.classList.add("hidden");
-
+  if (preloader) {
+    window.addEventListener("load", () => {
       setTimeout(() => {
-        preloader.style.display = "none";
-      }, 800);
-    }
-  };
+        preloader.classList.add("hidden");
+        body.classList.add("page-loaded");
 
-  window.addEventListener(
-    "load",
-    () => {
-      setTimeout(
-        finishLoading,
-        reducedMotion ? 100 : 1000
-      );
-    },
-    { once: true }
-  );
+        setTimeout(() => {
+          preloader.style.display = "none";
+        }, 700);
+      }, 900);
+    });
+  } else {
+    body.classList.add("page-loaded");
+  }
 
 
-  /* =========================================================
+  /* =========================
      HEADER
-     ========================================================= */
+  ========================= */
 
-  const updateHeader = () => {
+  function updateHeader() {
     if (!header) return;
 
     header.classList.toggle(
       "scrolled",
       window.scrollY > 50
     );
-  };
+  }
 
   updateHeader();
 
@@ -91,83 +47,105 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
 
-  /* =========================================================
+  /* =========================
      MOBILE MENU
-     ========================================================= */
+  ========================= */
 
-  const openMenu = () => {
-    if (!menuToggle || !mobileMenu) return;
+  const menuButton =
+    document.querySelector(".menu-toggle");
 
-    menuToggle.classList.add("active");
-    mobileMenu.classList.add("open");
+  const mobileMenu =
+    document.querySelector(".mobile-menu");
 
-    menuToggle.setAttribute(
-      "aria-expanded",
-      "true"
-    );
+  if (menuButton && mobileMenu) {
 
-    mobileMenu.setAttribute(
-      "aria-hidden",
-      "false"
-    );
+    menuButton.addEventListener("click", () => {
+      const isOpen =
+        mobileMenu.classList.toggle("open");
 
-    body.classList.add("menu-open");
-  };
+      menuButton.classList.toggle(
+        "active",
+        isOpen
+      );
 
-  const closeMenu = () => {
-    if (!menuToggle || !mobileMenu) return;
+      menuButton.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
 
-    menuToggle.classList.remove("active");
-    mobileMenu.classList.remove("open");
+      mobileMenu.setAttribute(
+        "aria-hidden",
+        String(!isOpen)
+      );
 
-    menuToggle.setAttribute(
-      "aria-expanded",
-      "false"
-    );
-
-    mobileMenu.setAttribute(
-      "aria-hidden",
-      "true"
-    );
-
-    body.classList.remove("menu-open");
-  };
-
-  if (menuToggle && mobileMenu) {
-    menuToggle.addEventListener(
-      "click",
-      () => {
-        if (
-          mobileMenu.classList.contains("open")
-        ) {
-          closeMenu();
-        } else {
-          openMenu();
-        }
-      }
-    );
-
-    mobileLinks.forEach((link) => {
-      link.addEventListener(
-        "click",
-        closeMenu
+      body.classList.toggle(
+        "menu-open",
+        isOpen
       );
     });
+
+
+    mobileMenu
+      .querySelectorAll("a")
+      .forEach((link) => {
+
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("open");
+          menuButton.classList.remove("active");
+
+          menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+          mobileMenu.setAttribute(
+            "aria-hidden",
+            "true"
+          );
+
+          body.classList.remove(
+            "menu-open"
+          );
+        });
+      });
+
 
     document.addEventListener(
       "keydown",
       (event) => {
+
         if (event.key === "Escape") {
-          closeMenu();
+
+          mobileMenu.classList.remove(
+            "open"
+          );
+
+          menuButton.classList.remove(
+            "active"
+          );
+
+          body.classList.remove(
+            "menu-open"
+          );
+
+          menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+          mobileMenu.setAttribute(
+            "aria-hidden",
+            "true"
+          );
         }
       }
     );
   }
 
 
-  /* =========================================================
+  /* =========================
      SMOOTH SCROLL
-     ========================================================= */
+  ========================= */
 
   document
     .querySelectorAll('a[href^="#"]')
@@ -177,13 +155,15 @@ document.addEventListener("DOMContentLoaded", () => {
         "click",
         (event) => {
 
-          const id =
+          const href =
             link.getAttribute("href");
 
-          if (!id || id === "#") return;
+          if (!href || href === "#") {
+            return;
+          }
 
           const target =
-            document.querySelector(id);
+            document.querySelector(href);
 
           if (!target) return;
 
@@ -194,284 +174,71 @@ document.addEventListener("DOMContentLoaded", () => {
               ? header.offsetHeight
               : 0;
 
-          const position =
+          const top =
             target.getBoundingClientRect().top +
             window.scrollY -
             headerHeight;
 
           window.scrollTo({
-            top: position,
-            behavior: reducedMotion
-              ? "auto"
-              : "smooth"
+            top,
+            behavior: "smooth"
           });
         }
       );
     });
 
 
-  /* =========================================================
+  /* =========================
      SCROLL REVEAL
-     ========================================================= */
+  ========================= */
 
-  const revealItems =
+  const revealElements =
     document.querySelectorAll(".reveal");
 
-  if (revealItems.length) {
+  if ("IntersectionObserver" in window) {
 
-    if (
-      reducedMotion ||
-      !("IntersectionObserver" in window)
-    ) {
+    const observer =
+      new IntersectionObserver(
+        (entries, observer) => {
 
-      revealItems.forEach((item) => {
-        item.classList.add("visible");
-      });
+          entries.forEach((entry) => {
 
-    } else {
+            if (!entry.isIntersecting) {
+              return;
+            }
 
-      const observer =
-        new IntersectionObserver(
-          (entries, obs) => {
+            entry.target.classList.add(
+              "visible"
+            );
 
-            entries.forEach((entry) => {
+            observer.unobserve(
+              entry.target
+            );
+          });
 
-              if (!entry.isIntersecting) {
-                return;
-              }
-
-              const delay =
-                Number(
-                  entry.target.dataset.delay || 0
-                );
-
-              setTimeout(() => {
-                entry.target.classList.add(
-                  "visible"
-                );
-              }, delay);
-
-              obs.unobserve(entry.target);
-            });
-          },
-          {
-            threshold: 0.12,
-            rootMargin:
-              "0px 0px -50px 0px"
-          }
-        );
-
-      revealItems.forEach((item) => {
-        observer.observe(item);
-      });
-    }
-  }
-
-
-  /* =========================================================
-     CUSTOM CURSOR
-     ========================================================= */
-
-  if (
-    cursor &&
-    cursorFollower &&
-    finePointer &&
-    !reducedMotion
-  ) {
-
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
-
-    let followerX = mouseX;
-    let followerY = mouseY;
-
-    document.addEventListener(
-      "mousemove",
-      (event) => {
-        mouseX = event.clientX;
-        mouseY = event.clientY;
-
-        cursor.style.left =
-          `${mouseX}px`;
-
-        cursor.style.top =
-          `${mouseY}px`;
-      }
-    );
-
-    const moveFollower = () => {
-
-      followerX +=
-        (mouseX - followerX) * 0.12;
-
-      followerY +=
-        (mouseY - followerY) * 0.12;
-
-      cursorFollower.style.left =
-        `${followerX}px`;
-
-      cursorFollower.style.top =
-        `${followerY}px`;
-
-      requestAnimationFrame(
-        moveFollower
-      );
-    };
-
-    moveFollower();
-
-    const interactive =
-      document.querySelectorAll(
-        "a, button, .magnetic, " +
-        ".experience-card, " +
-        ".gallery-item, " +
-        ".menu-item"
-      );
-
-    interactive.forEach((element) => {
-
-      element.addEventListener(
-        "mouseenter",
-        () => {
-          cursor.classList.add(
-            "cursor-hover"
-          );
-
-          cursorFollower.classList.add(
-            "cursor-hover"
-          );
+        },
+        {
+          threshold: 0.12
         }
       );
 
-      element.addEventListener(
-        "mouseleave",
-        () => {
-          cursor.classList.remove(
-            "cursor-hover"
-          );
+    revealElements.forEach((element) => {
+      observer.observe(element);
+    });
 
-          cursorFollower.classList.remove(
-            "cursor-hover"
-          );
-        }
-      );
+  } else {
+
+    revealElements.forEach((element) => {
+      element.classList.add("visible");
     });
   }
 
 
-  /* =========================================================
-     MAGNETIC BUTTONS
-     ========================================================= */
-
-  if (
-    finePointer &&
-    !reducedMotion
-  ) {
-
-    document
-      .querySelectorAll(".magnetic")
-      .forEach((element) => {
-
-        element.addEventListener(
-          "mousemove",
-          (event) => {
-
-            const rect =
-              element.getBoundingClientRect();
-
-            const x =
-              event.clientX -
-              rect.left -
-              rect.width / 2;
-
-            const y =
-              event.clientY -
-              rect.top -
-              rect.height / 2;
-
-            element.style.transform =
-              `translate(${x * 0.12}px, ${y * 0.12}px)`;
-          }
-        );
-
-        element.addEventListener(
-          "mouseleave",
-          () => {
-            element.style.transform = "";
-          }
-        );
-      });
-  }
-
-
-  /* =========================================================
-     PARALLAX
-     ========================================================= */
-
-  if (!reducedMotion) {
-
-    const parallaxElements =
-      document.querySelectorAll(
-        ".hero-media, .night-media"
-      );
-
-    let ticking = false;
-
-    const updateParallax = () => {
-
-      parallaxElements.forEach(
-        (element) => {
-
-          const rect =
-            element.getBoundingClientRect();
-
-          const screen =
-            window.innerHeight;
-
-          if (
-            rect.bottom < 0 ||
-            rect.top > screen
-          ) {
-            return;
-          }
-
-          const distance =
-            (rect.top + rect.height / 2) -
-            screen / 2;
-
-          const movement =
-            distance * -0.035;
-
-          element.style.transform =
-            `translate3d(0, ${movement}px, 0)`;
-        }
-      );
-
-      ticking = false;
-    };
-
-    window.addEventListener(
-      "scroll",
-      () => {
-
-        if (!ticking) {
-          requestAnimationFrame(
-            updateParallax
-          );
-
-          ticking = true;
-        }
-      },
-      { passive: true }
-    );
-  }
-
-
-  /* =========================================================
+  /* =========================
      MENU FILTER
-     ========================================================= */
+  ========================= */
 
-  const filters =
+  const filterButtons =
     document.querySelectorAll(
       ".filter-button"
     );
@@ -481,83 +248,127 @@ document.addEventListener("DOMContentLoaded", () => {
       ".menu-item"
     );
 
-  if (
-    filters.length &&
-    menuItems.length
-  ) {
+  filterButtons.forEach((button) => {
 
-    filters.forEach((button) => {
+    button.addEventListener("click", () => {
 
-      button.addEventListener(
-        "click",
-        () => {
+      const selected =
+        button.dataset.filter;
 
-          const filter =
-            button.dataset.filter;
+      filterButtons.forEach((item) => {
+        item.classList.remove("active");
+      });
 
-          filters.forEach((item) => {
-            item.classList.remove(
-              "active"
-            );
-          });
+      button.classList.add("active");
 
-          button.classList.add(
-            "active"
+      menuItems.forEach((item) => {
+
+        const category =
+          item.dataset.category;
+
+        if (
+          selected === "all" ||
+          category === selected
+        ) {
+          item.classList.remove(
+            "hidden"
           );
+        } else {
+          item.classList.add(
+            "hidden"
+          );
+        }
 
-          menuItems.forEach((item) => {
+      });
+    });
 
-            const category =
-              item.dataset.category;
+  });
 
-            const show =
-              filter === "all" ||
-              category === filter;
 
-            if (show) {
-              item.classList.remove(
-                "hidden"
-              );
-            } else {
-              item.classList.add(
-                "hidden"
-              );
-            }
-          });
+  /* =========================
+     PARALLAX
+  ========================= */
+
+  const parallaxElements =
+    document.querySelectorAll(
+      ".hero-media, .night-media"
+    );
+
+  if (parallaxElements.length) {
+
+    let ticking = false;
+
+    function updateParallax() {
+
+      parallaxElements.forEach(
+        (element) => {
+
+          const rect =
+            element.getBoundingClientRect();
+
+          const viewport =
+            window.innerHeight;
+
+          if (
+            rect.bottom < 0 ||
+            rect.top > viewport
+          ) {
+            return;
+          }
+
+          const distance =
+            (rect.top - viewport / 2) *
+            -0.025;
+
+          element.style.transform =
+            `translate3d(0, ${distance}px, 0)`;
         }
       );
-    });
+
+      ticking = false;
+    }
+
+    window.addEventListener(
+      "scroll",
+      () => {
+
+        if (!ticking) {
+
+          requestAnimationFrame(
+            updateParallax
+          );
+
+          ticking = true;
+        }
+
+      },
+      { passive: true }
+    );
   }
 
 
-  /* =========================================================
+  /* =========================
      BACK TO TOP
-     ========================================================= */
+  ========================= */
 
-  const updateBackTop = () => {
-
-    if (!backTop) return;
-
-    if (window.scrollY > 600) {
-      backTop.classList.add(
-        "visible"
-      );
-    } else {
-      backTop.classList.remove(
-        "visible"
-      );
-    }
-  };
-
-  updateBackTop();
-
-  window.addEventListener(
-    "scroll",
-    updateBackTop,
-    { passive: true }
-  );
+  const backTop =
+    document.getElementById("backTop");
 
   if (backTop) {
+
+    window.addEventListener(
+      "scroll",
+      () => {
+
+        backTop.classList.toggle(
+          "visible",
+          window.scrollY > 600
+        );
+
+      },
+      { passive: true }
+    );
+
 
     backTop.addEventListener(
       "click",
@@ -565,43 +376,87 @@ document.addEventListener("DOMContentLoaded", () => {
 
         window.scrollTo({
           top: 0,
-          behavior: reducedMotion
-            ? "auto"
-            : "smooth"
+          behavior: "smooth"
         });
+
       }
     );
   }
 
 
-  /* =========================================================
+  /* =========================
+     MAGNETIC BUTTONS
+  ========================= */
+
+  const magnetic =
+    document.querySelectorAll(
+      ".magnetic"
+    );
+
+  if (
+    window.matchMedia(
+      "(pointer: fine)"
+    ).matches
+  ) {
+
+    magnetic.forEach((element) => {
+
+      element.addEventListener(
+        "mousemove",
+        (event) => {
+
+          const rect =
+            element.getBoundingClientRect();
+
+          const x =
+            event.clientX -
+            rect.left -
+            rect.width / 2;
+
+          const y =
+            event.clientY -
+            rect.top -
+            rect.height / 2;
+
+          element.style.transform =
+            `translate(${x * 0.1}px, ${y * 0.1}px)`;
+        }
+      );
+
+
+      element.addEventListener(
+        "mouseleave",
+        () => {
+          element.style.transform = "";
+        }
+      );
+
+    });
+  }
+
+
+  /* =========================
      RESIZE
-     ========================================================= */
+  ========================= */
 
   window.addEventListener(
     "resize",
     () => {
 
       if (
-        window.innerWidth > 900
+        window.innerWidth > 900 &&
+        mobileMenu
       ) {
-        closeMenu();
+        mobileMenu.classList.remove(
+          "open"
+        );
+
+        body.classList.remove(
+          "menu-open"
+        );
       }
+
     }
   );
 
-
-  /* =========================================================
-     TRANSIT
-     ========================================================= */
-
-  console.log(
-    "%cTRANSIT",
-    "font-size:28px;font-weight:700;letter-spacing:8px;"
-  );
-
-  console.log(
-    "%cCoffee • Culture • Experience",
-    "font-size:12px;letter-spacing:3px;"
-  );
 });
