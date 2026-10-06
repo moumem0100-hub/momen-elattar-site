@@ -1,14 +1,104 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="ar">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Transit Cafe</title>
-<style>body{background:#000;color:#fff;text-align:center;font-family:Arial;padding:0;margin:0}.top{background:#e8c27a;color:#000;padding:15px;font-weight:bold}img{width:90%;max-width:320px;border-radius:20px;border:3px solid #e8c27a;margin:20px auto;display:block}</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TRANSIT CAFE - مؤمن العطار</title>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,700;6..96,800&family=Cairo:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root{--gold:#e8c27a;--bg:#060606;--card:#141414;--border:#222}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:#f5f2eb;font-family:'Cairo',sans-serif;overflow-x:hidden}
+.topbar{background:var(--gold);color:#000;text-align:center;padding:10px;font-weight:800;font-size:13px;letter-spacing:.5px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(6,6,6,.92);backdrop-filter:blur(10px);z-index:10}
+.logo{font-family:'Bodoni Moda';font-size:26px;letter-spacing:1px}
+.logo span{color:var(--gold)}
+.wrap{max-width:1180px;margin:auto;padding:40px 20px}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:32px;align-items:center}
+.hero h1{font-family:'Bodoni Moda';font-size:68px;line-height:.88}
+.hero h1 em{color:var(--gold);font-style:italic;display:block}
+.hero p.lead{color:#9a9a9a;margin-top:18px;line-height:1.8;font-size:16px}
+.hero p.lead b{color:var(--gold)}
+.cta{margin-top:26px;display:flex;gap:10px;flex-wrap:wrap}
+.btn{padding:13px 22px;border-radius:28px;font-weight:800;text-decoration:none;display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;font-family:'Cairo';transition:.2s}
+.btn.gold{background:var(--gold);color:#000}
+.btn.gold:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(232,194,122,.3)}
+.btn.wa{background:#25D366;color:#fff}
+.btn.dark{background:#191919;color:#fff;border:1px solid #2a2a2a}
+.owner-wrap{position:relative}
+.owner-img{width:100%;height:580px;object-fit:cover;border-radius:22px;border:3px solid var(--gold);box-shadow:0 25px 60px rgba(0,0,0,.7),0 0 0 1px rgba(232,194,122,.15);object-position:top center;background:#111}
+.badge{position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);background:var(--gold);color:#000;padding:8px 20px;border-radius:24px;font-weight:800;font-size:12px;white-space:nowrap;box-shadow:0 6px 16px rgba(0,0,0,.3)}
+.meta{display:flex;gap:16px;margin-top:18px;color:#666;font-size:13px;flex-wrap:wrap}
+.meta i{color:var(--gold)}
+.menu{margin-top:70px}
+.menu h2{font-family:'Bodoni Moda';font-size:54px;text-align:center;line-height:.9}
+.menu h2 em{color:var(--gold);font-style:italic}
+.menu .sub{text-align:center;color:#777;margin-top:10px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;transition:.2s}
+.card:hover{border-color:var(--gold);transform:translateY(-2px)}
+.price{color:var(--gold);font-weight:800;font-family:'Bodoni Moda'}
+.footer{border-top:1px solid #222;margin-top:60px;padding:20px;text-align:center;color:#555;font-size:12px;line-height:1.8}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.hero h1{font-size:46px}.owner-img{height:480px}.grid{grid-template-columns:1fr}.menu h2{font-size:38px}}
+</style>
 </head>
 <body>
-<div class="top">TRANSIT CAFE - مؤمن العطار</div>
-<h2 style="color:#e8c27a">01030516417</h2>
-<img src="owner.jpg">
+<div class="topbar">TRANSIT CAFE - OWNER MOMEN AL-ATTAR - 01030516417 - فودافون كاش 01132674811</div>
+<nav>
+<div class="logo">TRANSIT <span>CAFE</span></div>
+<div style="display:flex;gap:8px">
+<a class="btn wa" href="https://wa.me/201030516417"><i class="fab fa-whatsapp"></i> واتساب</a>
+</div>
+</nav>
+
+<div class="wrap">
+<div class="hero">
+<div>
+<h1>A taste of <em>morning delight</em></h1>
+<p class="lead">أنا <b>مؤمن آل العطار</b> صاحب ترانزيت كافيه - أبو كبير بعد مطعم الصياد.<br>كافيه فخم بطعم اليوم الحلو، مستنيكم تنورونا كل يوم بقهوتنا وحلوياتنا.</p>
+<div class="cta">
+<a class="btn gold" href="tel:01030516417"><i class="fa fa-phone"></i> 01030516417</a>
+<a class="btn wa" href="https://wa.me/201030516417"><i class="fab fa-whatsapp"></i> كلمنا واتساب</a>
+<a class="btn dark" href="#menu"><i class="fa fa-utensils"></i> المنيو</a>
+</div>
+<div class="meta">
+<span><i class="fa fa-location-dot"></i> أبو كبير - بعد الصياد</span>
+<span><i class="fa fa-clock"></i> مفتوح يومياً من 8 الصبح</span>
+<span><i class="fa fa-star"></i> قهوة فخمة</span>
+</div>
+</div>
+
+<div class="owner-wrap">
+<img class="owner-img" src="owner.jpg" alt="Momen Al-Attar - Transit Cafe Owner" onerror="this.src='https://via.placeholder.com/600x800/111/e8c27a?text=Momen+Al-Attar'">
+<div class="badge">OWNER • MOMEN AL-ATTAR</div>
+</div>
+</div>
+
+<div class="menu" id="menu">
+<h2>Small plates, <em>big flavors.</em></h2>
+<p class="sub">منيو ترانزيت - أسعارنا حلوة وطعم أحلى</p>
+<div class="grid" id="grid"></div>
+</div>
+
+<div class="footer">
+© 2026 Transit Cafe - Momen Al-Attar - 01030516417<br>
+فودافون كاش: 01132674811 - أبو كبير، الشرقية<br>
+Made with <span style="color:var(--gold)">♥</span> in Abu Kebir
+</div>
+</div>
+
+<script>
+const items=[
+{n:"Pancakes",p:110},{n:"Cappuccino",p:65},{n:"Eggs Benedict",p:95},{n:"Waffles",p:95},
+{n:"Avocado Toast",p:105},{n:"French Toast",p:100},{n:"Salmon Bagel",p:135},{n:"Muffin",p:55},
+{n:"Cold Brew",p:70},{n:"Latte",p:70},{n:"Spanish Latte",p:85},{n:"Mocha",p:80},
+{n:"Ice Coffee",p:75},{n:"Milkshake",p:90},{n:"Tea",p:40},{n:"Hot Chocolate",p:75}
+];
+const grid=document.getElementById('grid');
+items.forEach(it=>{
+  grid.innerHTML+=`<div class="card"><span>${it.n}</span><span class="price">${it.p}ج</span></div>`;
+});
+</script>
 </body>
 </html>
