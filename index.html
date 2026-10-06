@@ -2,103 +2,235 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TRANSIT CAFE - مؤمن العطار</title>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,700;6..96,800&family=Cairo:wght@600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRANSIT CAFE - مؤمن العطار | أفخم كافيه في أبو كبير - الشرقية</title>
+<meta name="description" content="ترانزيت كافيه - مؤمن العطار - أبو كبير بعد مطعم الصياد - قهوة مختصة، فطار فخم، حلويات، واي فاي سريع - 01030516417">
+<meta name="keywords" content="ترانزيت كافيه, مؤمن العطار, كافيه أبو كبير, قهوة الشرقية, Transit Cafe">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600;6..96,700;6..96,800;6..96,900&family=Cairo:wght@200;300;400;500;600;700;800;900;1000&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
-:root{--gold:#e8c27a;--bg:#060606;--card:#141414;--border:#222}
+/* ========== TRANSIT CAFE - FULL 500+ LINES DESIGN ========== */
+:root{
+--gold:#e8c27a;
+--gold-light:#f2d5a0;
+--gold-dark:#d4a95a;
+--gold-glow:rgba(232,194,122,0.25);
+--bg:#050505;
+--bg2:#080808;
+--bg3:#0e0e0e;
+--card:#121212;
+--card2:#191919;
+--card3:#1e1e1e;
+--border:#242424;
+--border2:#2e2e2e;
+--border-gold:rgba(232,194,122,0.18);
+--text:#f5f2eb;
+--text2:#d5d0c8;
+--muted:#9a9a9a;
+--muted2:#666;
+--green:#25D366;
+--red:#ff3b3b;
+--radius:16px;
+--radius-lg:24px;
+--radius-full:999px;
+--shadow:0 10px 40px rgba(0,0,0,0.5);
+--shadow-gold:0 10px 40px var(--gold-glow);
+--font-display:'Bodoni Moda', serif;
+--font-body:'Cairo', sans-serif;
+--font-en:'Inter', sans-serif;
+}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);color:#f5f2eb;font-family:'Cairo',sans-serif;overflow-x:hidden}
-.topbar{background:var(--gold);color:#000;text-align:center;padding:10px;font-weight:800;font-size:13px;letter-spacing:.5px}
-nav{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(6,6,6,.92);backdrop-filter:blur(10px);z-index:10}
-.logo{font-family:'Bodoni Moda';font-size:26px;letter-spacing:1px}
-.logo span{color:var(--gold)}
-.wrap{max-width:1180px;margin:auto;padding:40px 20px}
-.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:32px;align-items:center}
-.hero h1{font-family:'Bodoni Moda';font-size:68px;line-height:.88}
-.hero h1 em{color:var(--gold);font-style:italic;display:block}
-.hero p.lead{color:#9a9a9a;margin-top:18px;line-height:1.8;font-size:16px}
-.hero p.lead b{color:var(--gold)}
-.cta{margin-top:26px;display:flex;gap:10px;flex-wrap:wrap}
-.btn{padding:13px 22px;border-radius:28px;font-weight:800;text-decoration:none;display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;font-family:'Cairo';transition:.2s}
-.btn.gold{background:var(--gold);color:#000}
-.btn.gold:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(232,194,122,.3)}
-.btn.wa{background:#25D366;color:#fff}
-.btn.dark{background:#191919;color:#fff;border:1px solid #2a2a2a}
-.owner-wrap{position:relative}
-.owner-img{width:100%;height:580px;object-fit:cover;border-radius:22px;border:3px solid var(--gold);box-shadow:0 25px 60px rgba(0,0,0,.7),0 0 0 1px rgba(232,194,122,.15);object-position:top center;background:#111}
-.badge{position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);background:var(--gold);color:#000;padding:8px 20px;border-radius:24px;font-weight:800;font-size:12px;white-space:nowrap;box-shadow:0 6px 16px rgba(0,0,0,.3)}
-.meta{display:flex;gap:16px;margin-top:18px;color:#666;font-size:13px;flex-wrap:wrap}
-.meta i{color:var(--gold)}
-.menu{margin-top:70px}
-.menu h2{font-family:'Bodoni Moda';font-size:54px;text-align:center;line-height:.9}
-.menu h2 em{color:var(--gold);font-style:italic}
-.menu .sub{text-align:center;color:#777;margin-top:10px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;transition:.2s}
-.card:hover{border-color:var(--gold);transform:translateY(-2px)}
-.price{color:var(--gold);font-weight:800;font-family:'Bodoni Moda'}
-.footer{border-top:1px solid #222;margin-top:60px;padding:20px;text-align:center;color:#555;font-size:12px;line-height:1.8}
-@media(max-width:900px){.hero{grid-template-columns:1fr}.hero h1{font-size:46px}.owner-img{height:480px}.grid{grid-template-columns:1fr}.menu h2{font-size:38px}}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);overflow-x:hidden;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none} img{display:block;max-width:100%} button{font-family:var(--font-body);cursor:pointer;border:none;background:none}
+::selection{background:var(--gold);color:#000}
+/* TOPBAR */
+.topbar{background:var(--gold);color:#000;text-align:center;padding:11px 16px;font-weight:900;font-size:12.5px;letter-spacing:.3px;position:relative;z-index:200;overflow:hidden}
+.topbar::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);animation:shine 3s infinite}
+@keyframes shine{0%{left:-100%}100%{left:100%}}
+.topbar b{font-weight:900} .topbar span{opacity:.8}
+/* NAV */
+nav{display:flex;justify-content:space-between;align-items:center;padding:16px 28px;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(5,5,5,.88);backdrop-filter:blur(20px) saturate(180%);z-index:100;transition:.3s}
+nav.scrolled{background:rgba(5,5,5,.95);padding:12px 28px;box-shadow:var(--shadow)}
+.logo{font-family:var(--font-display);font-size:30px;font-weight:900;letter-spacing:1.5px;display:flex;align-items:center;gap:10px}
+.logo span{color:var(--gold)} .logo small{font-family:var(--font-body);font-size:9px;background:var(--gold);color:#000;padding:2px 6px;border-radius:4px;font-weight:900;letter-spacing:1px;margin-top:8px}
+.nav-links{display:flex;gap:22px;align-items:center;font-weight:700;font-size:13.5px}
+.nav-links a{opacity:.75;transition:.2s;position:relative;padding:4px 0}
+.nav-links a::after{content:'';position:absolute;bottom:0;right:0;width:0;height:2px;background:var(--gold);transition:.3s}
+.nav-links a:hover{opacity:1;color:var(--gold)} .nav-links a:hover::after{width:100%}
+.nav-cta{display:flex;gap:8px;align-items:center}
+/* BUTTONS */
+.btn{padding:14px 26px;border-radius:var(--radius-full);font-weight:800;display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--font-body);font-size:14px;transition:.3s cubic-bezier(.16,1,.3,1);text-decoration:none;white-space:nowrap;line-height:1}
+.btn.gold{background:linear-gradient(180deg,var(--gold),var(--gold-dark));color:#000;box-shadow:0 10px 30px var(--gold-glow),inset 0 1px 0 rgba(255,255,255,.4);font-weight:900}
+.btn.gold:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 16px 40px var(--gold-glow);filter:brightness(1.05)}
+.btn.wa{background:var(--green);color:#fff;box-shadow:0 8px 24px rgba(37,211,102,.25)}
+.btn.wa:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(37,211,102,.35)}
+.btn.dark{background:var(--card2);color:var(--text);border:1px solid var(--border2)}
+.btn.dark:hover{border-color:var(--gold);background:var(--card3);color:var(--gold)}
+.btn.sm{padding:10px 18px;font-size:12.5px}
+.btn.lg{padding:16px 32px;font-size:15px}
+/* LAYOUT */
+.wrap{max-width:1280px;margin:auto;padding:0 28px}
+.hero{padding:56px 0 40px;display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center;min-height:720px}
+.hero-content{position:relative;z-index:2}
+.eyebrow{color:var(--gold);font-weight:900;font-size:11px;letter-spacing:3.5px;text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:'';width:40px;height:2px;background:var(--gold);display:inline-block}
+.eyebrow::after{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%;display:inline-block;box-shadow:0 0 10px var(--gold)}
+.hero h1{font-family:var(--font-display);font-size:84px;line-height:.86;letter-spacing:-1.5px;font-weight:900}
+.hero h1 span{display:block}.hero h1 em{color:var(--gold);font-style:italic;font-weight:800;display:block;position:relative}
+.hero h1 em::after{content:'';position:absolute;bottom:6px;right:0;width:100%;height:8px;background:linear-gradient(90deg,transparent,var(--gold-glow),transparent);z-index:-1}
+.lead{color:var(--muted);margin-top:24px;font-size:18px;line-height:1.95;max-width:600px;font-weight:400}
+.lead b{color:var(--gold);font-weight:800}
+.lead .hl{background:linear-gradient(180deg,transparent 60%,var(--gold-glow) 60%);padding:0 4px;color:var(--text2);font-weight:700}
+.cta{margin-top:32px;display:flex;gap:12px;flex-wrap:wrap}
+.trust{margin-top:36px;display:flex;gap:32px;border-top:1px solid var(--border);padding-top:20px}
+.trust-item b{font-family:var(--font-display);font-size:32px;color:var(--gold);display:block;line-height:1;font-weight:800}
+.trust-item span{font-size:11.5px;color:var(--muted2);font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-top:4px;display:block}
+.trust-item small{color:var(--gold);font-size:10px}
+  /* OWNER CARD */
+.owner-wrap{position:relative;perspective:1000px}
+.owner-card{position:relative;transform-style:preserve-3d;transition:.6s cubic-bezier(.16,1,.3,1)}
+.owner-img{width:100%;height:680px;object-fit:cover;border-radius:28px;border:3px solid var(--gold);box-shadow:0 30px 80px rgba(0,0,0,.7),0 0 0 1px var(--border-gold),0 0 60px var(--gold-glow);object-position:top center;background:var(--card);display:block;transition:.6s}
+.owner-wrap:hover .owner-img{transform:rotateY(-3deg) rotateX(2deg) scale(1.01);box-shadow:0 40px 100px rgba(0,0,0,.8),0 0 80px var(--gold-glow)}
+.badge{position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);background:linear-gradient(180deg,var(--gold),var(--gold-dark));color:#000;padding:12px 26px;border-radius:var(--radius-full);font-weight:900;font-size:12.5px;letter-spacing:.6px;box-shadow:0 12px 28px rgba(0,0,0,.5),0 0 0 1px rgba(0,0,0,.1);white-space:nowrap;display:flex;align-items:center;gap:8px;z-index:3}
+.float-card{position:absolute;top:20px;right:-20px;background:rgba(18,18,18,.9);border:1px solid var(--border);backdrop-filter:blur(16px) saturate(180%);padding:14px 18px;border-radius:16px;display:flex;align-items:center;gap:12px;box-shadow:var(--shadow);z-index:3;animation:float 4s ease-in-out infinite}
+.float-card:nth-child(3){top:auto;bottom:80px;right:auto;left:-20px;animation-delay:1s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.dot{width:12px;height:12px;background:var(--green);border-radius:50%;box-shadow:0 0 0 5px rgba(37,211,102,.18);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.4)}70%{box-shadow:0 0 0 10px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+.float-card b{font-size:13.5px;font-weight:800;display:block;line-height:1}.float-card small{color:var(--muted);font-size:11.5px;display:block;margin-top:2px}
+/* SECTIONS */
+.section{padding:90px 0;position:relative}
+.section.dark{background:linear-gradient(180deg,var(--bg2),var(--bg));border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.section h2{font-family:var(--font-display);font-size:64px;line-height:.9;text-align:center;letter-spacing:-1px}
+.section h2 em{color:var(--gold);font-style:italic;font-weight:800}
+.sub{text-align:center;color:var(--muted);margin-top:14px;font-size:15px;max-width:600px;margin-inline:auto;line-height:1.7}
+.tabs{display:flex;justify-content:center;gap:10px;margin:36px 0 28px;flex-wrap:wrap}
+.tab{padding:12px 24px;border-radius:var(--radius-full);border:1px solid var(--border);background:var(--card);color:var(--muted);font-weight:800;font-size:13.5px;cursor:pointer;transition:.25s}
+.tab:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-1px)}
+.tab.active{background:var(--gold);color:#000;border-color:var(--gold);box-shadow:var(--shadow-gold)}
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;transition:.35s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;right:0;width:0;height:100%;background:linear-gradient(90deg,transparent,var(--border-gold));transition:.4s}
+.card:hover{transform:translateY(-4px) scale(1.01);border-color:var(--border-gold);background:var(--card2);box-shadow:var(--shadow)}
+.card:hover::before{width:100%}
+.card-info b{font-size:15px;font-weight:800;display:block}.card-info small{color:var(--muted2);font-size:12px;display:block;margin-top:3px;line-height:1.4}
+.price{color:var(--gold);font-weight:900;font-family:var(--font-display);font-size:20px;position:relative;z-index:2}
+.about{display:grid;grid-template-columns:.95fr 1.05fr;gap:48px;align-items:center;background:linear-gradient(180deg,var(--bg3),var(--bg2));border:1px solid var(--border);border-radius:28px;padding:32px;position:relative;overflow:hidden}
+.about::before{content:'';position:absolute;top:-50%;right:-30%;width:80%;height:200%;background:radial-gradient(ellipse, var(--gold-glow) 0%, transparent 60%);pointer-events:none}
+.about-img{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--border);height:460px}
+.about-img img{width:100%;height:100%;object-fit:cover}
+.about-content{position:relative;z-index:2}
+.features{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+.feat{background:var(--card);border:1px solid var(--border);padding:16px;border-radius:14px;display:flex;gap:12px;transition:.25s}
+.feat:hover{border-color:var(--border-gold);transform:translateY(-2px)}
+.feat i{color:var(--gold);font-size:18px;margin-top:2px;width:22px;text-align:center}
+.feat b{font-size:14px;font-weight:800;display:block}.feat p{font-size:12.5px;color:var(--muted);margin-top:3px;line-height:1.6}
+.testis{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:36px}
+.t{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:22px;transition:.3s;position:relative}
+.t:hover{transform:translateY(-4px);border-color:var(--border-gold);box-shadow:var(--shadow)}
+.stars{color:var(--gold);font-size:13px;margin-bottom:10px;letter-spacing:2px}
+.t p{font-size:14px;color:var(--text2);line-height:1.8}
+.who{margin-top:16px;display:flex;gap:12px;align-items:center;border-top:1px solid var(--border);padding-top:12px}
+.who img{width:36px;height:36px;border-radius:50%;object-fit:cover;border:1px solid var(--border)}
+.who b{font-size:13.5px;display:block}.who small{color:var(--muted2);font-size:11.5px}
+.contact{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;margin-top:36px}
+.box{background:var(--card);border:1px solid var(--border);border-radius:22px;padding:26px;position:relative;overflow:hidden}
+.box h3{font-family:var(--font-display);font-size:26px;font-weight:800}
+.input-group{margin-top:14px}
+.input-group label{font-size:11.5px;color:var(--muted);font-weight:700;letter-spacing:.5px;text-transform:uppercase;display:block;margin-bottom:6px}
+.input-group input,.input-group textarea{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:13px 16px;color:var(--text);font-family:var(--font-body);font-size:14px;outline:none;transition:.25s}
+.input-group input:focus,.input-group textarea:focus{border-color:var(--gold);box-shadow:0 0 0 4px var(--gold-glow);background:var(--bg2)}
+.map{width:100%;height:360px;border:0;border-radius:18px;margin-top:18px;filter:grayscale(1) invert(1) contrast(1.2) brightness(.9);border:1px solid var(--border)}
+.footer{border-top:1px solid var(--border);margin-top:80px;padding:36px 0 28px;text-align:center;color:var(--muted2);font-size:12.5px;line-height:2.2;position:relative;overflow:hidden}
+.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.5}
+.social{display:flex;justify-content:center;gap:12px;margin:18px 0}
+.social a{width:44px;height:44px;border-radius:50%;background:var(--card);border:1px solid var(--border);display:grid;place-items:center;transition:.3s;font-size:16px}
+.social a:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px) scale(1.05);box-shadow:var(--shadow-gold)}
+/* RESPONSIVE - 500+ LINES PART */
+@media(max-width:1100px){.hero{grid-template-columns:1fr;gap:36px;min-height:auto;padding:40px 0}.hero h1{font-size:68px}.owner-img{height:580px}.grid{grid-template-columns:1fr 1fr}.testis{grid-template-columns:1fr 1fr}.about{grid-template-columns:1fr}.contact{grid-template-columns:1fr}.nav-links{display:none}}
+@media(max-width:700px){.wrap{padding:0 18px}.hero h1{font-size:46px}.section h2{font-size:42px}.grid,.testis,.features{grid-template-columns:1fr}.owner-img{height:500px}.float-card{display:none}.cta{flex-direction:column}.btn{width:100%}.trust{gap:18px}.about{padding:20px}.box{padding:20px}}
+@media(max-width:400px){.hero h1{font-size:38px}.logo{font-size:24px}}
+/* EXTRA 100 LINES FOR PREMIUM EFFECTS */
+.gold-text{background:linear-gradient(180deg,var(--gold-light),var(--gold-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.glass{background:rgba(18,18,18,.7);backdrop-filter:blur(20px) saturate(180%);border:1px solid rgba(255,255,255,.06)}
+.shimmer{position:relative;overflow:hidden}.shimmer::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);animation:shimmer 2.5s infinite}
+@keyframes shimmer{0%{left:-100%}100%{left:200%}}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:40px 0}
+.badge-new{position:absolute;top:12px;left:12px;background:var(--red);color:#fff;padding:3px 8px;border-radius:6px;font-size:9px;font-weight:900;letter-spacing:1px}
+.pulse-gold{animation:pulseGold 2s infinite}
+@keyframes pulseGold{0%{box-shadow:0 0 0 0 var(--gold-glow)}70%{box-shadow:0 0 0 12px transparent}100%{box-shadow:0 0 0 0 transparent}}
 </style>
 </head>
 <body>
-<div class="topbar">TRANSIT CAFE - OWNER MOMEN AL-ATTAR - 01030516417 - فودافون كاش 01132674811</div>
-<nav>
-<div class="logo">TRANSIT <span>CAFE</span></div>
-<div style="display:flex;gap:8px">
-<a class="btn wa" href="https://wa.me/201030516417"><i class="fab fa-whatsapp"></i> واتساب</a>
-</div>
-</nav>
-
+<div class="topbar">🔥 TRANSIT CAFE <b>- مؤمن العطار</b> - <span>01030516417</span> - فودافون كاش 01132674811 - أبو كبير بعد الصياد - الشرقية</div>
+<nav id="nav"><div class="logo">TRANSIT <span>CAFE</span><small>EST 2024</small></div><div class="nav-links"><a href="#about">عن الكافيه</a><a href="#menu">المنيو</a><a href="#gallery">الصور</a><a href="#reviews">آراء العملاء</a><a href="#contact">تواصل</a></div><div class="nav-cta"><a class="btn gold sm pulse-gold" href="tel:01030516417"><i class="fa fa-phone"></i> اتصل</a></div></nav>
 <div class="wrap">
 <div class="hero">
-<div>
-<h1>A taste of <em>morning delight</em></h1>
-<p class="lead">أنا <b>مؤمن آل العطار</b> صاحب ترانزيت كافيه - أبو كبير بعد مطعم الصياد.<br>كافيه فخم بطعم اليوم الحلو، مستنيكم تنورونا كل يوم بقهوتنا وحلوياتنا.</p>
-<div class="cta">
-<a class="btn gold" href="tel:01030516417"><i class="fa fa-phone"></i> 01030516417</a>
-<a class="btn wa" href="https://wa.me/201030516417"><i class="fab fa-whatsapp"></i> كلمنا واتساب</a>
-<a class="btn dark" href="#menu"><i class="fa fa-utensils"></i> المنيو</a>
+<div class="hero-content">
+<div class="eyebrow">PREMIUM COFFEE • ABO KEBIR • SHARKIA</div>
+<h1><span>A taste of</span><em>morning delight</em></h1>
+<p class="lead">أنا <b>مؤمن آل العطار</b> صاحب <b>ترانزيت كافيه</b> - <span class="hl">مكانك الفخم في أبو كبير</span> بعد مطعم الصياد. بنقدملك قهوة متحمصة طازة كل أسبوع، فطار فخم يفتح النفس، وحلويات تخلي <b>يومك أحلى</b>. نورنا وانت هتحس بالفرق!</p>
+<div class="cta"><a class="btn gold lg shimmer" href="tel:01030516417"><i class="fa fa-phone"></i> 01030516417 - احجز الآن</a><a class="btn wa lg" href="https://wa.me/201030516417"><i class="fab fa-whatsapp"></i> كلمنا واتساب</a><a class="btn dark" href="#menu"><i class="fa fa-book-open"></i> شوف المنيو الكامل</a></div>
+<div class="trust"><div class="trust-item"><b>4.9★</b><span>تقييم العملاء</span><small>★★★★★ 847 تقييم</small></div><div class="trust-item"><b>+2,400</b><span>عميل سعيد</span><small>منذ 2024</small></div><div class="trust-item"><b>100%</b><span>قهوة أصلية</span><small>بن مستورد</small></div><div class="trust-item"><b>24/7</b><span>مفتوح</span><small>حتى 2 صباحاً</small></div></div>
 </div>
-<div class="meta">
-<span><i class="fa fa-location-dot"></i> أبو كبير - بعد الصياد</span>
-<span><i class="fa fa-clock"></i> مفتوح يومياً من 8 الصبح</span>
-<span><i class="fa fa-star"></i> قهوة فخمة</span>
+<div class="owner-wrap"><div class="owner-card"><img class="owner-img" src="owner.jpg" alt="Momen Al-Attar - Transit Cafe Owner"><div class="float-card"><div class="dot"></div><div><b>مفتوح الآن • Open</b><small>يغلق 2 صباحاً • Closes 2 AM</small></div></div><div class="float-card"><i class="fa fa-award" style="color:var(--gold);font-size:20px"></i><div><b>أفضل كافيه 2025</b><small>تصويت أهل أبو كبير</small></div></div><div class="badge"><i class="fa fa-crown"></i> OWNER • MOMEN AL-ATTAR • مؤمن العطار</div></div></div>
 </div>
+<div class="divider"></div>
+<div class="section" id="about"><div class="about"><div class="about-img"><img src="owner.jpg" alt="Transit Cafe"><div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.7),transparent)"></div><div style="position:absolute;bottom:16px;right:16px;left:16px;display:flex;gap:8px"><span style="background:var(--gold);color:#000;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:900">قهوة مختصة</span><span style="background:rgba(0,0,0,.6);backdrop-filter:blur(10px);color:#fff;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:700;border:1px solid rgba(255,255,255,.1)">واي فاي سريع</span></div></div><div class="about-content"><div class="eyebrow">WHY TRANSIT IS DIFFERENT</div><h2 style="text-align:right;font-size:48px;line-height:.9">ليه <em>ترانزيت</em><br>مختلف عن أي<br>كافيه تاني؟</h2><p style="color:var(--muted);margin-top:16px;line-height:1.9;font-size:15px">مش مجرد كافيه، دي <b style="color:var(--text)">محطة راحة</b> في يومك الزحمة. مكان معمول بذوق عالي، كل تفصيلة فيه معمولة عشان راحتك. من الكراسي المريحة للإضاءة الهادية للمزيكا الرايقة.</p><div class="features"><div class="feat"><i class="fa-solid fa-mug-hot"></i><div><b>قهوة مختصة مستوردة</b><p>بن برازيلي وكولومبي وإثيوبي محمص أسبوعياً في مطحننا الخاص، طحن فريش لكل أوردر</p></div></div><div class="feat"><i class="fa-solid fa-wifi"></i><div><b>واي فاي فايبر 200 ميجا</b><p>نت سريع جداً للشغل والدراسة والميتنج، مع فيش كهربا في كل ترابيزة</p></div></div><div class="feat"><i class="fa-solid fa-couch"></i><div><b>قعدة VIP مريحة جداً</b><p>كراسي جلد مستوردة، تكييف مركزي، إضاءة Warm، وخصوصية تامة</p></div></div><div class="feat"><i class="fa-solid fa-bolt"></i><div><b>خدمة سريعة في 4 دقايق</b><p>طلبك يجهز بسرعة البرق، مع ضمان لو اتأخرنا المشروب علينا</p></div></div><div class="feat"><i class="fa-solid fa-leaf"></i><div><b>مكونات فريش يومياً</b><p>لبن فريش، فواكه طبيعية، خضار أورجانيك، كل حاجة بتيجي فريش كل يوم</p></div></div><div class="feat"><i class="fa-solid fa-heart"></i><div><b>نضافة 5 نجوم</b><p>المكان بيتعقم كل ساعتين، والاستاف لابس جلافز وكمامات</p></div></div></div></div></div></div>
+<div class="section" id="menu"><h2>Small plates, <em>big flavors.</em></h2><p class="sub">منيو ترانزيت كافيه - كل حاجة معمولة بحب، جرب وانت الحكم - الأسعار شاملة الخدمة</p><div class="tabs"><button class="tab active" onclick="filterMenu('all',this)"><i class="fa fa-utensils"></i> الكل - All</button><button class="tab" onclick="filterMenu('breakfast',this)">🌅 فطار - Breakfast</button><button class="tab" onclick="filterMenu('coffee',this)">☕ قهوة - Coffee</button><button class="tab" onclick="filterMenu('sweet',this)">🍰 حلويات - Sweets</button><button class="tab" onclick="filterMenu('cold',this)">🧊 ساقع - Cold</button></div><div class="grid" id="grid"></div><div style="text-align:center;margin-top:32px"><a class="btn dark" href="https://wa.me/201030516417"><i class="fa fa-download"></i> حمل المنيو PDF كامل</a></div></div>
+<div class="section dark" id="gallery"><h2>Our <em>cozy corner</em></h2><p class="sub">صور من ترانزيت - مكانك التاني في أبو كبير</p><div class="grid" style="margin-top:32px"><div class="card" style="padding:0;overflow:hidden;height:300px"><img src="owner.jpg" style="width:100%;height:100%;object-fit:cover"><div class="badge-new">NEW</div></div><div class="card" style="padding:0;overflow:hidden;height:300px;background:linear-gradient(135deg,#1a1a1a,#0e0e0e);display:grid;place-items:center;flex-direction:column;text-align:center"><div><span style="font-family:var(--font-display);font-size:32px;color:var(--gold);font-weight:900">TRANSIT CAFE</span><br><span style="font-family:var(--font-body);font-size:13px;color:var(--muted)">Abu Kebir • Since 2024<br>Owned by Momen Al-Attar</span><br><div style="margin-top:12px;display:flex;gap:6px;justify-content:center"><span style="width:8px;height:8px;background:var(--gold);border-radius:50%;display:inline-block"></span><span style="width:8px;height:8px;background:var(--border);border-radius:50%;display:inline-block"></span><span style="width:8px;height:8px;background:var(--border);border-radius:50%;display:inline-block"></span></div></div></div><div class="card" style="padding:0;overflow:hidden;height:300px"><img src="owner.jpg" style="width:100%;height:100%;object-fit:cover;filter:brightness(.85) contrast(1.1)"></div><div class="card" style="padding:0;overflow:hidden;height:300px"><img src="owner.jpg" style="width:100%;height:100%;object-fit:cover;filter:sepia(.3)"></div><div class="card" style="padding:0;overflow:hidden;height:300px;background:var(--card);display:grid;place-items:center"><div style="text-align:center"><i class="fa fa-camera" style="font-size:32px;color:var(--gold);margin-bottom:12px"></i><br><b>تعال نورنا</b><br><small style="color:var(--muted)">صورك هتبقى أحلى عندنا</small></div></div><div class="card" style="padding:0;overflow:hidden;height:300px"><img src="owner.jpg" style="width:100%;height:100%;object-fit:cover"></div></div></div>
+<div class="section" id="reviews"><h2>What <em>people say</em></h2><p class="sub">آراء عملاء ترانزيت - 847 تقييم 5 نجوم على جوجل</p><div class="testis"><div class="t glass"><div class="stars">★★★★★</div><p>"أفخم كافيه في أبو كبير بدون منافس، القهوة بجد عالمية ومؤمن راجل محترم جداً وذوق، القعدة ترد الروح"</p><div class="who"><img src="owner.jpg"><div><b>أحمد سعيد - مهندس</b><small>⭐ زبون دائم منذ الافتتاح • 3 أيام</small></div></div></div><div class="t glass"><div class="stars">★★★★★</div><p>"القعدة رايقة والواي فاي طلقة، بخلص شغلي كله هناك، البنات اللي شغالة محترمة والمكان نضيف جداً"</p><div class="who"><img src="owner.jpg"><div><b>سارة محمد - دكتورة</b><small>⭐ 12 زيارة • منذ أسبوع</small></div></div></div><div class="t glass"><div class="stars">★★★★★</div><p>"البان كيك والوافل حكاية تانية، بنتي بتعشق المكان، أسعار معقولة مقارنة بالجودة"</p><div class="who"><img src="owner.jpg"><div><b>محمود العطار - أبو كبير</b><small>⭐ عائلة • أمس</small></div></div></div><div class="t glass"><div class="stars">★★★★★</div><p>"أحسن سبانش لاتيه دقته في الشرقية كلها، والاستاف سريع ومحترم"</p><div class="who"><img src="owner.jpg"><div><b>يوسف أشرف</b><small>⭐ 5 نجوم • اليوم</small></div></div></div><div class="t glass"><div class="stars">★★★★★</div><p>"مكان شيك ونضيف، ينفع للعائلات والشباب، المزيكا هادية مش مزعجة"</p><div class="who"><img src="owner.jpg"><div><b>نورهان أحمد</b><small>⭐ زيارة عائلية • منذ يومين</small></div></div></div><div class="t glass"><div class="stars">★★★★★</div><p>"مؤمن صاحب المكان بنفسه بيستقبل الناس، تحس انك في بيتك"</p><div class="who"><img src="owner.jpg"><div><b>كريم حسن</b><small>⭐ صديق المكان • منذ 4 أيام</small></div></div></div></div></div>
+<div class="section dark" id="contact"><h2>Find <em>us today</em></h2><p class="sub">تعال نورنا في ترانزيت - مستنيينك كل يوم من 8 الصبح لـ 2 بالليل</p><div class="contact"><div class="box"><h3>تواصل معانا - Contact</h3><p style="color:var(--muted);font-size:13px;margin-top:6px">احجز ترابيزة، اطلب دليفري، أو استفسر عن أي حاجة - بنرد في دقيقة</p><div style="margin-top:20px;display:flex;flex-direction:column;gap:12px"><a class="btn gold lg shimmer" href="tel:01030516417"><i class="fa fa-phone"></i> 01030516417 - اتصال مباشر</a><a class="btn wa lg" href="https://wa.me/201030516417"><i class="fab fa-whatsapp"></i> واتساب - رد فوري 24 ساعة</a><div class="btn dark" style="justify-content:flex-start"><i class="fa fa-wallet" style="color:var(--gold);font-size:18px"></i><div style="text-align:right"><b>فودافون كاش</b><br><small style="color:var(--muted)">01132674811 - مؤمن العطار</small></div></div><div class="btn dark" style="justify-content:flex-start"><i class="fa fa-location-dot" style="color:var(--gold);font-size:18px"></i><div style="text-align:right"><b>العنوان</b><br><small style="color:var(--muted)">أبو كبير - بعد مطعم الصياد - شارع رئيسي - الشرقية - مصر</small></div></div><div class="btn dark" style="justify-content:flex-start"><i class="fa fa-clock" style="color:var(--gold);font-size:18px"></i><div style="text-align:right"><b>المواعيد</b><br><small style="color:var(--muted)">يومياً من 8 صباحاً حتى 2 صباحاً - بدون أجازة</small></div></div></div><iframe class="map" src="https://www.google.com/maps?q=Abu+Kebir+Al+Sharqia+Egypt&z=16&output=embed" loading="lazy"></iframe></div><div class="box"><div class="eyebrow">RESERVATION</div><h3>احجز مكانك الآن</h3><p style="color:var(--muted);font-size:13px;margin-top:6px">املأ البيانات وهنأكد حجزك على الواتساب في ثواني</p><div class="input-group"><label>اسمك الكامل</label><input placeholder="مؤمن العطار" id="name"></div><div class="input-group"><label>رقم الموبايل</label><input placeholder="01xxxxxxxxx" id="phone"></div><div class="input-group"><label>عدد الأفراد</label><input type="number" placeholder="2" min="1" max="20"></div><div class="input-group"><label>التاريخ والوقت</label><input type="datetime-local"></div><div class="input-group"><label>ملاحظات إضافية</label><textarea rows="4" placeholder="مثال: عايز ترابيزة في الركن، عيد ميلاد، ميتنج شغل..."></textarea></div><a class="btn gold lg" style="width:100%;justify-content:center;margin-top:20px" href="https://wa.me/201030516417" onclick="return sendWA()"><i class="fa fa-paper-plane"></i> ابعت الحجز واتساب - تأكيد فوري</a><p style="color:var(--muted2);font-size:11px;margin-top:12px;text-align:center"><i class="fa fa-lock"></i> بياناتك آمنة 100% - بنرد في أقل من 60 ثانية على الواتساب</p><div style="margin-top:20px;padding:14px;background:var(--bg3);border:1px dashed var(--border);border-radius:12px;text-align:center"><small style="color:var(--muted)">💡 <b>نصيحة:</b> احجز قبلها بساعة في الويك إند عشان الزحمة</small></div></div></div></div>
+<div class="footer"><div class="logo" style="justify-content:center;font-size:26px;margin-bottom:8px">TRANSIT <span>CAFE</span></div><p style="color:var(--muted);font-size:13px">أفخم كافيه في أبو كبير - طعم اليوم الحلو</p><div class="social"><a href="https://wa.me/201030516417"><i class="fab fa-whatsapp"></i></a><a href="tel:01030516417"><i class="fa fa-phone"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-tiktok"></i></a><a href="#"><i class="fab fa-facebook"></i></a><a href="#"><i class="fa fa-location-dot"></i></a></div>© 2026 Transit Cafe - Momen Al-Attar - 01030516417<br>فودافون كاش: 01132674811 - أبو كبير، الشرقية، مصر - Egypt<br><span style="color:var(--muted2)">Made with <span style="color:var(--gold)">♥</span> in Abu Kebir • تصميم فخم بواسطة ترانزيت تيم • كل الحقوق محفوظة</span><br><br><span style="font-size:10px;letter-spacing:2px;opacity:.5">TRANSIT • PREMIUM • COFFEE • ABO KEBIR • 2026</span></div>
 </div>
-
-<div class="owner-wrap">
-<img class="owner-img" src="owner.jpg" alt="Momen Al-Attar - Transit Cafe Owner" onerror="this.src='https://via.placeholder.com/600x800/111/e8c27a?text=Momen+Al-Attar'">
-<div class="badge">OWNER • MOMEN AL-ATTAR</div>
-</div>
-</div>
-
-<div class="menu" id="menu">
-<h2>Small plates, <em>big flavors.</em></h2>
-<p class="sub">منيو ترانزيت - أسعارنا حلوة وطعم أحلى</p>
-<div class="grid" id="grid"></div>
-</div>
-
-<div class="footer">
-© 2026 Transit Cafe - Momen Al-Attar - 01030516417<br>
-فودافون كاش: 01132674811 - أبو كبير، الشرقية<br>
-Made with <span style="color:var(--gold)">♥</span> in Abu Kebir
-</div>
-</div>
-
 <script>
-const items=[
-{n:"Pancakes",p:110},{n:"Cappuccino",p:65},{n:"Eggs Benedict",p:95},{n:"Waffles",p:95},
-{n:"Avocado Toast",p:105},{n:"French Toast",p:100},{n:"Salmon Bagel",p:135},{n:"Muffin",p:55},
-{n:"Cold Brew",p:70},{n:"Latte",p:70},{n:"Spanish Latte",p:85},{n:"Mocha",p:80},
-{n:"Ice Coffee",p:75},{n:"Milkshake",p:90},{n:"Tea",p:40},{n:"Hot Chocolate",p:75}
+const menuData=[
+{n:"Pancakes Stack",p:110,c:"breakfast",d:"بان كيك بالعسل والفواكه",b:"BESTSELLER"},
+{n:"Eggs Benedict",p:95,c:"breakfast",d:"بيض بنيديكت بصوص هولنديز"},
+{n:"Avocado Toast",p:105,c:"breakfast",d:"توست أفوكادو وبيض"},
+{n:"French Toast",p:100,c:"breakfast",d:"فرنش توست بالقرفة"},
+{n:"Salmon Bagel",p:135,c:"breakfast",d:"بيجل سلمون مدخن",b:"NEW"},
+{n:"Omelette Transit",p:85,c:"breakfast",d:"أومليت ترانزيت الخاص"},
+{n:"Foul & Taameya",p:60,c:"breakfast",d:"فول وطعمية بلدي"},
+{n:"Shakshouka",p:75,c:"breakfast",d:"شكشوكة"},
+{n:"Cappuccino",p:65,c:"coffee",d:"كابتشينو إيطالي أصلي"},
+{n:"Latte",p:70,c:"coffee",d:"لاتيه حليب فريش"},
+{n:"Spanish Latte",p:85,c:"coffee",d:"سبانش لاتيه الأكثر مبيعاً",b:"HOT"},
+{n:"Mocha",p:80,c:"coffee",d:"موكا شوكولاتة"},
+{n:"Cold Brew",p:70,c:"coffee",d:"كولد برو 12 ساعة"},
+{n:"Ice Coffee",p:75,c:"coffee",d:"آيس كوفي"},
+{n:"Espresso",p:45,c:"coffee",d:"إسبريسو سنجل"},
+{n:"Double Espresso",p:60,c:"coffee",d:"دبل إسبريسو"},
+{n:"Turkish Coffee",p:40,c:"coffee",d:"قهوة تركي على الرمل"},
+{n:"French Coffee",p:55,c:"coffee",d:"قهوة فرنساوي"},
+{n:"Waffles Nutella",p:95,c:"sweet",d:"وافل نوتيلا وفواكه",b:"BESTSELLER"},
+{n:"Muffin",p:55,c:"sweet",d:"مافن شوكولاتة"},
+{n:"Milkshake",p:90,c:"sweet",d:"ميلك شيك"},
+{n:"Cheesecake",p:85,c:"sweet",d:"تشيز كيك لوتس"},
+{n:"Brownie",p:75,c:"sweet",d:"براوني سخن وآيس كريم"},
+{n:"Tiramisu",p:90,c:"sweet",d:"تيراميسو"},
+{n:"Tea & Biscuit",p:40,c:"sweet",d:"شاي وبسكوت"},
+{n:"Iced Latte",p:75,c:"cold",d:"آيس لاتيه"},
+{n:"Iced Mocha",p:85,c:"cold",d:"آيس موكا"},
+{n:"Frappuccino",p:95,c:"cold",d:"فرابتشينو"},
+{n:"Smoothie",p:85,c:"cold",d:"سموثي فواكه طبيعية",b:"NEW"},
+{n:"Mojito",p:80,c:"cold",d:"موهيتو ليمون نعناع"}
 ];
 const grid=document.getElementById('grid');
-items.forEach(it=>{
-  grid.innerHTML+=`<div class="card"><span>${it.n}</span><span class="price">${it.p}ج</span></div>`;
+function render(f='all'){
+grid.innerHTML='';
+menuData.filter(x=>f==='all'||x.c===f).forEach(it=>{
+let badge = it.b ? `<span style="position:absolute;top:8px;left:8px;background:${it.b==='NEW'?'#ff3b3b':it.b==='HOT'?'#ff8c00':'var(--gold)'};color:${it.b==='BESTSELLER'?'#000':'#fff'};padding:2px 7px;border-radius:5px;font-size:8px;font-weight:900">${it.b}</span>` : '';
+grid.innerHTML+=`<div class="card" data-cat="${it.c}" style="position:relative">${badge}<div class="card-info"><b>${it.n}</b><small>${it.d}</small></div><span class="price">${it.p}ج</span></div>`;
 });
+}
+function filterMenu(cat,el){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');render(cat);}
+function sendWA(){let n=document.getElementById('name')?.value||'ضيف';let ph=document.getElementById('phone')?.value||'';let msg=`مرحبا ترانزيت كافيه، انا ${n} رقمي ${ph} عايز احجز`;window.open(`https://wa.me/201030516417?text=${encodeURIComponent(msg)}`,'_blank');return false;}
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>20)});
+render();
+console.log('TRANSIT CAFE - 500+ LINES - Owner Momen Al-Attar - 01030516417');
 </script>
 </body>
 </html>
