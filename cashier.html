@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>TRANSIT CAFE | Cashier</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Bodoni+Moda:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+:root{
+  --gold:#d7ad55;
+  --gold2:#f3d486;
+  --bg:#080808;
+  --panel:#111;
+  --panel2:#171717;
+  --line:rgba(215,173,85,.22);
+  --text:#fff;
+  --muted:#888;
+  --green:#25d366;
+  --red:#e05252;
+}
+
+body{
+  background:
+    radial-gradient(circle at 10% 0%,rgba(215,173,85,.10),transparent 28%),
+    var(--bg);
+  color:var(--text);
+  font-family:Cairo,sans-serif;
+  min-height:100vh;
+}
+
+button,input,select{
+  font-family:Cairo,sans-serif;
+}
+
+/* HEADER */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(8,8,8,.94);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid var(--line);
+}
+
+.header{
+  max-width:1400px;
+  margin:auto;
+  min-height:75px;
+  padding:10px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.logo{
+  font-family:"Bodoni Moda",serif;
+  color:var(--gold2);
+  font-size:24px;
+}
+
+.logo small{
+  display:block;
+  text-align:center;
+  color:#666;
+  font-family:Cairo;
+  font-size:8px;
+  letter-spacing:3px;
+}
+
+.header-right{
+  display:flex;
+  gap:9px;
+  align-items:center;
+}
+
+.badge{
+  border:1px solid var(--line);
+  background:#121212;
+  color:#aaa;
+  padding:8px 12px;
+  border-radius:10px;
+  font-size:11px;
+}
+
+/* DASHBOARD */
+
+.dashboard{
+  max-width:1400px;
+  margin:auto;
+  padding:22px 18px 40px;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-bottom:20px;
+}
+
+.stat{
+  background:linear-gradient(145deg,#171717,#0e0e0e);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:17px;
+  padding:18px;
+}
+
+.stat-icon{
+  font-size:22px;
+}
+
+.stat-title{
+  color:#777;
+  font-size:11px;
+  margin-top:8px;
+}
+
+.stat-value{
+  color:var(--gold2);
+  font-size:23px;
+  font-weight:800;
+  margin-top:3px;
+}
+
+/* LAYOUT */
+
+.cashier{
+  display:grid;
+  grid-template-columns:1fr 390px;
+  gap:18px;
+  align-items:start;
+}
+
+/* PRODUCTS */
+
+.products-panel{
+  background:var(--panel);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:22px;
+  overflow:hidden;
+}
+
+.panel-head{
+  padding:18px;
+  border-bottom:1px solid #242424;
+}
+
+.panel-head h2{
+  font-size:20px;
+}
+
+.panel-head p{
+  color:#666;
+  font-size:11px;
+  margin-top:3px;
+}
+
+.search{
+  width:100%;
+  margin-top:14px;
+  padding:13px 15px;
+  background:#181818;
+  border:1px solid #292929;
+  border-radius:12px;
+  color:#fff;
+  outline:none;
+}
+
+.categories{
+  display:flex;
+  gap:8px;
+  padding:14px 18px;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+
+.categories::-webkit-scrollbar{
+  display:none;
+}
+
+.cat{
+  flex:0 0 auto;
+  border:1px solid var(--line);
+  background:#151515;
+  color:#aaa;
+  padding:8px 14px;
+  border-radius:25px;
+  cursor:pointer;
+}
+
+.cat.active,
+.cat:hover{
+  background:var(--gold);
+  color:#111;
+}
+
+.products{
+  padding:0 18px 20px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:11px;
+}
+
+.product{
+  background:#171717;
+  border:1px solid rgba(255,255,255,.05);
+  border-radius:15px;
+  padding:14px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.product:hover{
+  transform:translateY(-2px);
+  border-color:var(--line);
+}
+
+.product-icon{
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#202020;
+  font-size:22px;
+}
+
+.product-name{
+  font-weight:800;
+  margin-top:9px;
+  font-size:14px;
+}
+
+.product-price{
+  color:var(--gold2);
+  font-weight:800;
+  font-size:13px;
+  margin-top:3px;
+}
+
+/* ORDER */
+
+.order-panel{
+  position:sticky;
+  top:95px;
+  background:var(--panel);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:22px;
+  overflow:hidden;
+}
+
+.order-head{
+  padding:18px;
+  border-bottom:1px solid #242424;
+}
+
+.order-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.order-title h2{
+  font-size:20px;
+}
+
+.clear{
+  border:0;
+  background:#291515;
+  color:#e77;
+  padding:7px 10px;
+  border-radius:9px;
+  cursor:pointer;
+  font-size:11px;
+}
+
+.order-info{
+  padding:15px 18px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
+}
+
+.field label{
+  display:block;
+  color:#777;
+  font-size:10px;
+  margin-bottom:4px;
+}
+
+.field input,
+.field select{
+  width:100%;
+  background:#181818;
+  border:1px solid #292929;
+  color:#fff;
+  padding:10px;
+  border-radius:10px;
+  outline:none;
+}
+
+.cart{
+  max-height:400px;
+  overflow:auto;
+  padding:0 18px;
+}
+
+.empty{
+  color:#666;
+  text-align:center;
+  padding:45px 10px;
+}
+
+.cart-item{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  padding:13px 0;
+  border-bottom:1px solid #242424;
+}
+
+.item-name{
+  font-weight:700;
+  font-size:13px;
+}
+
+.item-price{
+  color:#777;
+  font-size:10px;
+}
+
+.quantity{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.quantity button{
+  width:27px;
+  height:27px;
+  border:1px solid var(--line);
+  background:#181818;
+  color:#fff;
+  border-radius:7px;
+  cursor:pointer;
+}
+
+.quantity b{
+  min-width:20px;
+  text-align:center;
+}
+
+.item-total{
+  color:var(--gold2);
+  font-weight:800;
+  font-size:12px;
+}
+
+.summary{
+  border-top:1px solid #292929;
+  margin-top:10px;
+  padding:16px 18px;
+}
+
+.summary-row{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:9px;
+  color:#999;
+  font-size:13px;
+}
+
+.summary-row.total{
+  color:#fff;
+  font-size:21px;
+  font-weight:800;
+  padding-top:8px;
+  border-top:1px solid #292929;
+}
+
+.payment{
+  padding:0 18px 16px;
+}
+
+.payment-title{
+  color:#777;
+  font-size:11px;
+  margin-bottom:8px;
+}
+
+.payment-methods{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:7px;
+}
+
+.payment-method{
+  border:1px solid #292929;
+  background:#181818;
+  color:#aaa;
+  border-radius:10px;
+  padding:9px 4px;
+  cursor:pointer;
+  font-size:11px;
+}
+
+.payment-method.active{
+  border-color:var(--gold);
+  background:rgba(215,173,85,.12);
+  color:var(--gold2);
+}
+
+.cash-box{
+  display:none;
+  margin-top:9px;
+}
+
+.cash-box.show{
+  display:block;
+}
+
+.cash-box input{
+  width:100%;
+  background:#181818;
+  border:1px solid #292929;
+  color:#fff;
+  padding:11px;
+  border-radius:10px;
+  outline:none;
+}
+
+.change{
+  color:var(--green);
+  font-size:12px;
+  margin-top:6px;
+}
+
+.actions{
+  padding:0 18px 18px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+
+.action{
+  border:0;
+  padding:13px;
+  border-radius:11px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.print{
+  background:var(--gold);
+  color:#111;
+}
+
+.save{
+  background:#1c492b;
+  color:#9ff0b6;
+}
+
+/* TOAST */
+
+.toast{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  z-index:999;
+  background:#181818;
+  border:1px solid var(--line);
+  color:#fff;
+  padding:13px 18px;
+  border-radius:12px;
+  transform:translateY(100px);
+  opacity:0;
+  transition:.3s;
+  font-size:12px;
+}
+
+.toast.show{
+  transform:translateY(0);
+  opacity:1;
+}
+
+/* PRINT */
+
+.receipt{
+  display:none;
+}
+
+/* MOBILE */
+
+@media(max-width:1000px){
+
+  .cashier{
+    grid-template-columns:1fr;
+  }
+
+  .order-panel{
+    position:relative;
+    top:auto;
+  }
+
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:650px){
+
+  .header{
+    padding:10px 12px;
+  }
+
+  .logo{
+    font-size:19px;
+  }
+
+  .badge{
+    display:none;
+  }
+
+  .dashboard{
+    padding:15px 10px 30px;
+  }
+
+  .stats{
+    gap:8px;
+  }
+
+  .stat{
+    padding:13px;
+  }
+
+  .stat-value{
+    font-size:18px;
+  }
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+    padding:0 10px 15px;
+  }
+
+  .panel-head{
+    padding:14px;
+  }
+
+  .categories{
+    padding:12px 10px;
+  }
+
+  .order-info{
+    padding:13px 12px;
+  }
+
+  .cart{
+    padding:0 12px;
+  }
+
+  .summary,
+  .payment,
+  .actions{
+    padding-left:12px;
+    padding-right:12px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header">
+
+    <div class="logo">
+      TRANSIT CAFE
+      <small>CASHIER SYSTEM</small>
+    </div>
+
+    <div class="header-right">
+      <div class="badge">👤 CASHIER</div>
+      <div class="badge" id="clock">--:--</div>
+    </div>
+
+  </div>
+</header>
+
+<main class="dashboard">
+
+  <!-- STATS -->
+
+  <div class="stats">
+
+    <div class="stat">
+      <div class="stat-icon">💰</div>
+      <div class="stat-title">مبيعات اليوم</div>
+      <div class="stat-value" id="todaySales">0 ج.م</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-icon">🧾</div>
+      <div class="stat-title">الفواتير</div>
+      <div class="stat-value" id="todayOrders">0</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-icon">🛒</div>
+      <div class="stat-title">الطلب الحالي</div>
+      <div class="stat-value" id="currentTotal">0 ج.م</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-icon">☕</div>
+      <div class="stat-title">الحالة</div>
+      <div class="stat-value">مفتوح</div>
+    </div>
+
+  </div>
+
+  <!-- CASHIER -->
+
+  <div class="cashier">
+
+    <!-- PRODUCTS -->
+
+    <section class="products-panel">
+
+      <div class="panel-head">
+        <h2>🛍️ المنتجات</h2>
+        <p>اضغط على المنتج لإضافته للطلب</p>
+
+        <input
+          class="search"
+          id="search"
+          placeholder="🔎 ابحث عن منتج..."
+          oninput="renderProducts()"
+        >
+      </div>
+
+      <div class="categories">
+
+        <button class="cat active" onclick="setCategory('all',this)">
+          الكل
+        </button>
+
+        <button class="cat" onclick="setCategory('breakfast',this)">
+          🍳 فطار
+        </button>
+
+        <button class="cat" onclick="setCategory('coffee',this)">
+          ☕ قهوة
+        </button>
+
+        <button class="cat" onclick="setCategory('cold',this)">
+          🧊 ساقع
+        </button>
+
+        <button class="cat" onclick="setCategory('cans',this)">
+          🥤 كانزات
+        </button>
+
+        <button class="cat" onclick="setCategory('dessert',this)">
+          🍰 حلويات
+        </button>
+
+      </div>
+
+      <div class="products" id="products"></div>
+
+    </section>
+
+    <!-- ORDER -->
+
+    <aside class="order-panel">
+
+      <div class="order-head">
+
+        <div class="order-title">
+
+          <h2>🧾 الطلب الحالي</h2>
+
+          <button class="clear" onclick="clearCart()">
+            مسح الطلب
+          </button>
+
+        </div>
+
+      </div>
+
+      <div class="order-info">
+
+        <div class="field">
+
+          <label>رقم الترابيزة</label>
+
+          <select id="table">
+            <option>تيك أواي</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+            <option>11</option>
+            <option>12</option>
+          </select>
+
+        </div>
+
+        <div class="field">
+
+          <label>اسم العميل</label>
+
+          <input
+            id="customer"
+            placeholder="اختياري"
+          >
+
+        </div>
+
+      </div>
+
+      <div class="cart" id="cart">
+
+        <div class="empty">
+          🛒<br>
+          مفيش منتجات في الطلب
+        </div>
+
+      </div>
+
+      <div class="summary">
+
+        <div class="summary-row">
+          <span>عدد المنتجات</span>
+          <span id="itemsCount">0</span>
+        </div>
+
+        <div class="summary-row">
+          <span>الإجمالي</span>
+          <span id="subtotal">0 ج.م</span>
+        </div>
+
+        <div class="summary-row total">
+          <span>المطلوب</span>
+          <span id="total">0 ج.م</span>
+        </div>
+
+      </div>
+
+      <div class="payment">
+
+        <div class="payment-title">
+          طريقة الدفع
+        </div>
+
+        <div class="payment-methods">
+
+          <button
+            class="payment-method active"
+            onclick="setPayment('cash',this)"
+          >
+            💵 نقدي
+          </button>
+
+          <button
+            class="payment-method"
+            onclick="setPayment('card',this)"
+          >
+            💳 بطاقة
+          </button>
+
+          <button
+            class="payment-method"
+            onclick="setPayment('vodafone',this)"
+          >
+            📱 Vodafone
+          </button>
+
+        </div>
+
+        <div class="cash-box" id="cashBox">
+
+          <input
+            id="paid"
+            type="number"
+            placeholder="المبلغ المدفوع"
+            oninput="calculateChange()"
+          >
+
+          <div class="change" id="change">
+            الباقي: 0 ج.م
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="actions">
+
+        <button class="action print" onclick="printReceipt()">
+          🖨️ طباعة
+        </button>
+
+        <button class="action save" onclick="completeOrder()">
+          ✓ إتمام البيع
+        </button>
+
+      </div>
+
+    </aside>
+
+  </div>
+
+</main>
+
+<div class="toast" id="toast"></div>
+
+<!-- PRINT RECEIPT -->
+
+<div class="receipt" id="receipt"></div>
+
+<script>
+
+const productsData=[
+
+/* BREAKFAST */
+
+{id:1,name:"بان كيك بالعسل",price:110,cat:"breakfast",icon:"🥞"},
+{id:2,name:"بيض بنيديكت",price:95,cat:"breakfast",icon:"🍳"},
+{id:3,name:"أفوكادو توست",price:105,cat:"breakfast",icon:"🥑"},
+{id:4,name:"شكشوكة ترانزيت",price:75,cat:"breakfast",icon:"🍅"},
+{id:5,name:"فول وطعمية بلدي",price:60,cat:"breakfast",icon:"🥙"},
+{id:6,name:"أومليت جبنة",price:85,cat:"breakfast",icon:"🍳"},
+
+/* COFFEE */
+
+{id:7,name:"كابتشينو",price:65,cat:"coffee",icon:"☕"},
+{id:8,name:"لاتيه",price:70,cat:"coffee",icon:"☕"},
+{id:9,name:"سبانش لاتيه",price:85,cat:"coffee",icon:"🥛"},
+{id:10,name:"موكا",price:80,cat:"coffee",icon:"🍫"},
+{id:11,name:"إسبريسو",price:45,cat:"coffee",icon:"☕"},
+{id:12,name:"قهوة تركي",price:40,cat:"coffee",icon:"☕"},
+
+/* COLD */
+
+{id:13,name:"آيس كوفي",price:75,cat:"cold",icon:"🧊"},
+{id:14,name:"آيس لاتيه",price:75,cat:"cold",icon:"🧊"},
+{id:15,name:"موهيتو",price:80,cat:"cold",icon:"🍋"},
+{id:16,name:"فرابتشينو",price:95,cat:"cold",icon:"🥤"},
+{id:17,name:"ميلك شيك",price:90,cat:"cold",icon:"🥛"},
+
+/* CANS */
+
+{id:18,name:"Red Bull",price:90,cat:"cans",icon:"🥤"},
+{id:19,name:"Red Bull Sugar Free",price:90,cat:"cans",icon:"🥤"},
+{id:20,name:"Fury",price:35,cat:"cans",icon:"🥤"},
+{id:21,name:"Sting",price:30,cat:"cans",icon:"🥤"},
+{id:22,name:"Pepsi",price:25,cat:"cans",icon:"🥤"},
+{id:23,name:"Pepsi Diet",price:25,cat:"cans",icon:"🥤"},
+{id:24,name:"7UP",price:25,cat:"cans",icon:"🥤"},
+{id:25,name:"Mirinda",price:25,cat:"cans",icon:"🥤"},
+{id:26,name:"مياه معدنية",price:15,cat:"cans",icon:"💧"},
+
+/* DESSERT */
+
+{id:27,name:"وافل نوتيلا",price:95,cat:"dessert",icon:"🧇"},
+{id:28,name:"تشيز كيك",price:85,cat:"dessert",icon:"🍰"},
+{id:29,name:"براوني",price:75,cat:"dessert",icon:"🍫"}
+
+];
+
+let category="all";
+let cart=[];
+let payment="cash";
+
+
+/* CLOCK */
+
+function updateClock(){
+
+  const now=new Date();
+
+  document.getElementById("clock")
+    .textContent=
+      now.toLocaleTimeString("ar-EG",{
+        hour:"2-digit",
+        minute:"2-digit"
+      });
+
+}
+
+setInterval(updateClock,1000);
+updateClock();
+
+
+/* PRODUCTS */
+
+function renderProducts(){
+
+  const search=
+    document.getElementById("search")
+    .value
+    .toLowerCase()
+    .trim();
+
+  const list=
+    productsData.filter(product=>{
+
+      const categoryMatch=
+        category==="all" ||
+        product.cat===category;
+
+      const searchMatch=
+        product.name
+        .toLowerCase()
+        .includes(search);
+
+      return categoryMatch && searchMatch;
+
+    });
+
+  document.getElementById("products")
+    .innerHTML=
+      list.map(product=>`
+
+        <div
+          class="product"
+          onclick="addProduct(${product.id})"
+        >
+
+          <div class="product-icon">
+            ${product.icon}
+          </div>
+
+          <div class="product-name">
+            ${product.name}
+          </div>
+
+          <div class="product-price">
+            ${product.price} ج.م
+          </div>
+
+        </div>
+
+      `).join("");
+
+}
+
+
+function setCategory(cat,button){
+
+  category=cat;
+
+  document
+    .querySelectorAll(".cat")
+    .forEach(x=>x.classList.remove("active"));
+
+  button.classList.add("active");
+
+  renderProducts();
+
+}
+
+
+/* CART */
+
+function addProduct(id){
+
+  const product=
+    productsData.find(x=>x.id===id);
+
+  const existing=
+    cart.find(x=>x.id===id);
+
+  if(existing){
+
+    existing.qty++;
+
+  }else{
+
+    cart.push({
+      ...product,
+      qty:1
+    });
+
+  }
+
+  renderCart();
+
+  toast("تمت إضافة "+product.name+" ✓");
+
+}
+
+
+function renderCart(){
+
+  const container=
+    document.getElementById("cart");
+
+  if(!cart.length){
+
+    container.innerHTML=`
+      <div class="empty">
+        🛒<br>
+        مفيش منتجات في الطلب
+      </div>
+    `;
+
+  }else{
+
+    container.innerHTML=
+      cart.map((item,index)=>`
+
+        <div class="cart-item">
+
+          <div>
+            <div class="item-name">
+              ${item.icon} ${item.name}
+            </div>
+
+            <div class="item-price">
+              ${item.price} ج.م
+            </div>
+          </div>
+
+          <div class="quantity">
+
+            <button
+              onclick="changeQty(${index},-1)"
+            >
+              −
+            </button>
+
+            <b>${item.qty}</b>
+
+            <button
+              onclick="changeQty(${index},1)"
+            >
+              +
+            </button>
+
+          </div>
+
+          <div class="item-total">
+            ${item.price*item.qty}
+          </div>
+
+        </div>
+
+      `).join("");
+
+  }
+
+  updateSummary();
+
+}
+
+
+function changeQty(index,amount){
+
+  cart[index].qty+=amount;
+
+  if(cart[index].qty<=0){
+    cart.splice(index,1);
+  }
+
+  renderCart();
+
+}
+
+
+function clearCart(){
+
+  if(!cart.length)return;
+
+  if(confirm("متأكد إنك عايز تمسح الطلب؟")){
+
+    cart=[];
+
+    document.getElementById("paid").value="";
+
+    renderCart();
+
+  }
+
+}
+
+
+/* SUMMARY */
+
+function updateSummary(){
+
+  let total=0;
+  let count=0;
+
+  cart.forEach(item=>{
+
+    total+=item.price*item.qty;
+    count+=item.qty;
+
+  });
+
+  document.getElementById("itemsCount")
+    .textContent=count;
+
+  document.getElementById("subtotal")
+    .textContent=total+" ج.م";
+
+  document.getElementById("total")
+    .textContent=total+" ج.م";
+
+  document.getElementById("currentTotal")
+    .textContent=total+" ج.م";
+
+  calculateChange();
+
+}
+
+
+/* PAYMENT */
+
+function setPayment(type,button){
+
+  payment=type;
+
+  document
+    .querySelectorAll(".payment-method")
+    .forEach(x=>x.classList.remove("active"));
+
+  button.classList.add("active");
+
+  const cashBox=
+    document.getElementById("cashBox");
+
+  if(type==="cash"){
+
+    cashBox.classList.add("show");
+
+  }else{
+
+    cashBox.classList.remove("show");
+
+  }
+
+}
+
+
+function calculateChange(){
+
+  const total=
+    cart.reduce(
+      (sum,item)=>sum+item.price*item.qty,
+      0
+    );
+
+  const paid=
+    Number(
+      document.getElementById("paid").value
+    ) || 0;
+
+  const change=
+    Math.max(0,paid-total);
+
+  document.getElementById("change")
+    .textContent=
+      "الباقي: "+change+" ج.م";
+
+}
+
+
+/* COMPLETE SALE */
+
+function completeOrder(){
+
+  if(!cart.length){
+
+    toast("الطلب فاضي");
+
+    return;
+
+  }
+
+  const total=
+    cart.reduce(
+      (sum,item)=>sum+item.price*item.qty,
+      0
+    );
+
+  if(payment==="cash"){
+
+    const paid=
+      Number(
+        document.getElementById("paid").value
+      ) || 0;
+
+    if(paid<total){
+
+      toast("المبلغ المدفوع أقل من الإجمالي");
+
+      return;
+
+    }
+
+  }
+
+  const orders=
+    JSON.parse(
+      localStorage.getItem("transitSales") || "[]"
+    );
+
+  orders.push({
+
+    id:Date.now(),
+
+    time:new Date().toISOString(),
+
+    table:
+      document.getElementById("table").value,
+
+    customer:
+      document.getElementById("customer").value,
+
+    payment:payment,
+
+    total:total,
+
+    items:[...cart]
+
+  });
+
+  localStorage.setItem(
+    "transitSales",
+    JSON.stringify(orders)
+  );
+
+  toast("تم إتمام البيع بنجاح ✓");
+
+  cart=[];
+
+  document.getElementById("paid").value="";
+  document.getElementById("customer").value="";
+
+  renderCart();
+  updateStats();
+
+}
+
+
+/* STATS */
+
+function updateStats(){
+
+  const orders=
+    JSON.parse(
+      localStorage.getItem("transitSales") || "[]"
+    );
+
+  const today=
+    new Date().toDateString();
+
+  const todayOrders=
+    orders.filter(order=>
+      new Date(order.time).toDateString()===today
+    );
+
+  const sales=
+    todayOrders.reduce(
+      (sum,order)=>sum+order.total,
+      0
+    );
+
+  document.getElementById("todaySales")
+    .textContent=sales+" ج.م";
+
+  document.getElementById("todayOrders")
+    .textContent=todayOrders.length;
+
+}
+
+
+/* PRINT */
+
+function printReceipt(){
+
+  if(!cart.length){
+
+    toast("الطلب فاضي");
+
+    return;
+
+  }
+
+  const total=
+    cart.reduce(
+      (sum,item)=>sum+item.price*item.qty,
+      0
+    );
+
+  const table=
+    document.getElementById("table").value;
+
+  const customer=
+    document.getElementById("customer").value || "عميل";
+
+  const receipt=document.getElementById("receipt");
+
+  receipt.innerHTML=`
+
+    <div style="
+      width:280px;
+      margin:auto;
+      font-family:Arial;
+      color:#000;
+      direction:rtl;
+      text-align:center;
+    ">
+
+      <h2>TRANSIT CAFE</h2>
+
+      <div>
+        أبو كبير — الشرقية
+      </div>
+
+      <hr>
+
+      <div>
+        ${new Date().toLocaleString("ar-EG")}
+      </div>
+
+      <div>
+        الترابيزة: ${table}
+      </div>
+
+      <div>
+        العميل: ${customer}
+      </div>
+
+      <hr>
+
+      ${
+        cart.map(item=>`
+          <div style="
+            display:flex;
+            justify-content:space-between;
+            margin:8px 0;
+          ">
+            <span>
+              ${item.name} × ${item.qty}
+            </span>
+            <b>
+              ${item.price*item.qty}
+            </b>
+          </div>
+        `).join("")
+      }
+
+      <hr>
+
+      <h3>
+        الإجمالي: ${total} ج.م
+      </h3>
+
+      <p>
+        شكرًا لزيارتكم ❤️
+      </p>
+
+    </div>
+
+  `;
+
+  const printWindow=
+    window.open("","PRINT","width=400,height=700");
+
+  printWindow.document.write(`
+    <html>
+      <head>
+        <title>TRANSIT CAFE Receipt</title>
+      </head>
+      <body>
+        ${receipt.innerHTML}
+      </body>
+    </html>
+  `);
+
+  printWindow.document.close();
+
+  printWindow.focus();
+
+  printWindow.print();
+
+  printWindow.close();
+
+}
+
+
+/* TOAST */
+
+function toast(message){
+
+  const element=
+    document.getElementById("toast");
+
+  element.textContent=message;
+
+  element.classList.add("show");
+
+  setTimeout(()=>{
+    element.classList.remove("show");
+  },1800);
+
+}
+
+
+/* START */
+
+renderProducts();
+renderCart();
+updateStats();
+
+</script>
+
+</body>
+</html>
