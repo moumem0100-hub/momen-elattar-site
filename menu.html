@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TRANSIT CAFE | Digital Menu</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+:root{
+    --gold:#d6ad60;
+    --gold2:#f0d08a;
+    --bg:#080808;
+    --card:#111111;
+    --card2:#171717;
+    --text:#fff;
+    --muted:#a9a9a9;
+    --border:rgba(214,173,96,.18);
+}
+
+body{
+    font-family:"Cairo",sans-serif;
+    background:
+        radial-gradient(circle at top right,rgba(214,173,96,.12),transparent 30%),
+        radial-gradient(circle at bottom left,rgba(214,173,96,.07),transparent 25%),
+        var(--bg);
+    color:var(--text);
+    min-height:100vh;
+}
+
+/* HEADER */
+
+.header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(8,8,8,.90);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--border);
+}
+
+.header-inner{
+    max-width:1100px;
+    margin:auto;
+    padding:15px 18px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo{
+    width:48px;
+    height:48px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid var(--gold);
+    color:var(--gold2);
+    font-family:"Bodoni Moda",serif;
+    font-size:13px;
+    text-align:center;
+    line-height:1.1;
+}
+
+.brand h1{
+    font-family:"Bodoni Moda",serif;
+    font-size:20px;
+    letter-spacing:1px;
+}
+
+.brand p{
+    color:var(--muted);
+    font-size:10px;
+}
+
+.site-btn{
+    text-decoration:none;
+    color:#111;
+    background:linear-gradient(135deg,var(--gold2),var(--gold));
+    padding:9px 14px;
+    border-radius:12px;
+    font-size:12px;
+    font-weight:800;
+}
+
+/* HERO */
+
+.hero{
+    max-width:1100px;
+    margin:auto;
+    padding:35px 18px 20px;
+    text-align:center;
+}
+
+.eyebrow{
+    color:var(--gold2);
+    font-size:11px;
+    letter-spacing:2px;
+    margin-bottom:8px;
+}
+
+.hero h2{
+    font-family:"Bodoni Moda",serif;
+    font-size:clamp(34px,8vw,65px);
+    line-height:1;
+    margin-bottom:12px;
+}
+
+.hero h2 span{
+    color:var(--gold2);
+}
+
+.hero p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* SEARCH */
+
+.search-wrap{
+    max-width:700px;
+    margin:25px auto 18px;
+    padding:0 18px;
+}
+
+.search{
+    width:100%;
+    background:#111;
+    border:1px solid var(--border);
+    border-radius:17px;
+    padding:15px 18px;
+    color:#fff;
+    outline:none;
+    font-family:inherit;
+    font-size:14px;
+    transition:.25s;
+}
+
+.search:focus{
+    border-color:var(--gold);
+    box-shadow:0 0 25px rgba(214,173,96,.08);
+}
+
+/* CATEGORIES */
+
+.categories{
+    max-width:1100px;
+    margin:auto;
+    padding:5px 18px 25px;
+    display:flex;
+    gap:9px;
+    overflow-x:auto;
+    scrollbar-width:none;
+}
+
+.categories::-webkit-scrollbar{
+    display:none;
+}
+
+.cat{
+    flex:0 0 auto;
+    border:1px solid var(--border);
+    background:#111;
+    color:#bbb;
+    padding:9px 16px;
+    border-radius:100px;
+    cursor:pointer;
+    font-family:inherit;
+    font-weight:700;
+    font-size:12px;
+    transition:.25s;
+}
+
+.cat.active,
+.cat:hover{
+    color:#111;
+    background:linear-gradient(135deg,var(--gold2),var(--gold));
+    border-color:transparent;
+}
+
+/* MENU */
+
+.menu{
+    max-width:1100px;
+    margin:auto;
+    padding:0 18px 150px;
+}
+
+.section-title{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:28px 0 15px;
+}
+
+.section-title h3{
+    font-size:18px;
+}
+
+.line{
+    height:1px;
+    flex:1;
+    background:linear-gradient(to left,transparent,var(--border));
+}
+
+/* PRODUCTS */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:13px;
+}
+
+.product{
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(145deg,#151515,#0e0e0e);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:10px;
+    transition:.25s;
+}
+
+.product:hover{
+    transform:translateY(-3px);
+    border-color:rgba(214,173,96,.45);
+}
+
+.product-image{
+    height:130px;
+    border-radius:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:58px;
+    position:relative;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 30% 20%,rgba(255,255,255,.16),transparent 25%),
+        linear-gradient(135deg,#292929,#101010);
+    border:1px solid rgba(255,255,255,.06);
+}
+
+.product-image::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to top,rgba(0,0,0,.4),transparent);
+}
+
+.product-info{
+    padding:12px 3px 3px;
+}
+
+.product-name{
+    font-size:14px;
+    font-weight:800;
+    margin-bottom:3px;
+}
+
+.product-desc{
+    font-size:10px;
+    color:#8f8f8f;
+    min-height:18px;
+}
+
+.product-bottom{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:5px;
+    margin-top:10px;
+}
+
+.price{
+    color:var(--gold2);
+    font-size:15px;
+    font-weight:800;
+}
+
+.price small{
+    font-size:9px;
+    color:#888;
+    font-weight:500;
+}
+
+.add{
+    width:35px;
+    height:35px;
+    border:0;
+    border-radius:11px;
+    cursor:pointer;
+    background:linear-gradient(135deg,var(--gold2),var(--gold));
+    color:#111;
+    font-size:20px;
+    font-weight:800;
+    transition:.2s;
+}
+
+.add:active{
+    transform:scale(.9);
+}
+
+/* EMPTY */
+
+.empty{
+    text-align:center;
+    color:#777;
+    padding:40px 10px;
+    display:none;
+}
+
+/* CART */
+
+.cart-bar{
+    position:fixed;
+    z-index:200;
+    bottom:15px;
+    left:15px;
+    right:15px;
+    max-width:600px;
+    margin:auto;
+    background:rgba(20,20,20,.94);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(214,173,96,.35);
+    border-radius:20px;
+    padding:11px;
+    box-shadow:0 15px 50px rgba(0,0,0,.55);
+    display:none;
+}
+
+.cart-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.cart-count{
+    display:flex;
+    align-items:center;
+    gap:9px;
+}
+
+.cart-icon{
+    width:43px;
+    height:43px;
+    border-radius:14px;
+    background:#242424;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+}
+
+.cart-info strong{
+    display:block;
+    font-size:13px;
+}
+
+.cart-info span{
+    color:var(--gold2);
+    font-size:11px;
+}
+
+.view-cart{
+    border:0;
+    background:linear-gradient(135deg,var(--gold2),var(--gold));
+    color:#111;
+    padding:12px 17px;
+    border-radius:13px;
+    font-family:inherit;
+    font-weight:800;
+    cursor:pointer;
+}
+
+/* MODAL */
+
+.modal{
+    position:fixed;
+    inset:0;
+    z-index:500;
+    background:rgba(0,0,0,.75);
+    backdrop-filter:blur(8px);
+    display:none;
+    align-items:flex-end;
+    justify-content:center;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    width:100%;
+    max-width:650px;
+    max-height:90vh;
+    overflow:auto;
+    background:#101010;
+    border:1px solid var(--border);
+    border-radius:28px 28px 0 0;
+    padding:20px;
+    animation:up .3s ease;
+}
+
+@keyframes up{
+    from{transform:translateY(100%)}
+    to{transform:translateY(0)}
+}
+
+.modal-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:15px;
+}
+
+.modal-head h3{
+    font-size:20px;
+}
+
+.close{
+    width:36px;
+    height:36px;
+    border:1px solid var(--border);
+    background:#181818;
+    color:#fff;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+/* CART ITEMS */
+
+.cart-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    padding:13px 0;
+    border-bottom:1px solid #222;
+}
+
+.cart-item-name{
+    font-size:13px;
+    font-weight:700;
+}
+
+.cart-item-price{
+    color:var(--gold2);
+    font-size:11px;
+    margin-top:3px;
+}
+
+.qty{
+    display:flex;
+    align-items:center;
+    gap:7px;
+}
+
+.qty button{
+    width:30px;
+    height:30px;
+    border:1px solid var(--border);
+    background:#181818;
+    color:#fff;
+    border-radius:9px;
+    cursor:pointer;
+}
+
+.qty span{
+    min-width:20px;
+    text-align:center;
+    font-weight:800;
+}
+
+.total{
+    display:flex;
+    justify-content:space-between;
+    padding:18px 0;
+    font-size:17px;
+    font-weight:800;
+}
+
+.total span:last-child{
+    color:var(--gold2);
+}
+
+/* FORM */
+
+.form{
+    display:grid;
+    gap:10px;
+    margin-top:8px;
+}
+
+.input,
+.select{
+    width:100%;
+    padding:13px;
+    background:#171717;
+    border:1px solid #292929;
+    color:#fff;
+    border-radius:13px;
+    outline:none;
+    font-family:inherit;
+}
+
+.input:focus,
+.select:focus{
+    border-color:var(--gold);
+}
+
+.order-btn{
+    width:100%;
+    border:0;
+    padding:15px;
+    border-radius:14px;
+    background:linear-gradient(135deg,var(--gold2),var(--gold));
+    color:#111;
+    font-family:inherit;
+    font-weight:900;
+    font-size:14px;
+    cursor:pointer;
+    margin-top:8px;
+}
+
+/* TOAST */
+
+.toast{
+    position:fixed;
+    z-index:1000;
+    top:80px;
+    left:50%;
+    transform:translateX(-50%) translateY(-20px);
+    background:#1b1b1b;
+    border:1px solid var(--border);
+    color:#fff;
+    padding:12px 18px;
+    border-radius:14px;
+    font-size:12px;
+    opacity:0;
+    pointer-events:none;
+    transition:.3s;
+}
+
+.toast.show{
+    opacity:1;
+    transform:translateX(-50%) translateY(0);
+}
+
+/* DESKTOP */
+
+@media(min-width:700px){
+    .grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .product-image{
+        height:180px;
+    }
+
+    .modal{
+        align-items:center;
+    }
+
+    .modal-box{
+        border-radius:25px;
+    }
+}
+
+@media(max-width:380px){
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .product-image{
+        height:170px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="header-inner">
+
+        <div class="brand">
+            <div class="logo">
+                TRANSIT<br>CAFE
+            </div>
+
+            <div>
+                <h1>TRANSIT CAFE</h1>
+                <p>DIGITAL MENU • ABO KEBIR</p>
+            </div>
+        </div>
+
+        <a class="site-btn" href="index.html">
+            الموقع الرئيسي
+        </a>
+
+    </div>
+</header>
+
+<section class="hero">
+
+    <div class="eyebrow">
+        PREMIUM COFFEE • FOOD • DRINKS
+    </div>
+
+    <h2>
+        اختار مزاجك<br>
+        <span>واستمتع باللحظة.</span>
+    </h2>
+
+    <p>
+        منيو ترانزيت كافيه الرقمية
+    </p>
+
+</section>
+
+<div class="search-wrap">
+    <input
+        class="search"
+        id="search"
+        type="search"
+        placeholder="ابحث عن مشروب أو أكلة..."
+    >
+</div>
+
+<div class="categories">
+
+    <button class="cat active" data-category="all">
+        الكل
+    </button>
+
+    <button class="cat" data-category="breakfast">
+        🍳 فطار
+    </button>
+
+    <button class="cat" data-category="coffee">
+        ☕ قهوة
+    </button>
+
+    <button class="cat" data-category="cold">
+        🧊 ساقع
+    </button>
+
+    <button class="cat" data-category="cans">
+        🥤 كانزات
+    </button>
+
+    <button class="cat" data-category="dessert">
+        🍰 حلويات
+    </button>
+
+</div>
+
+<main class="menu">
+
+    <div class="section-title">
+        <h3>قائمة ترانزيت</h3>
+        <div class="line"></div>
+    </div>
+
+    <div class="grid" id="products"></div>
+
+    <div class="empty" id="empty">
+        مفيش منتج بالاسم ده 😅
+    </div>
+
+</main>
+
+<!-- CART BAR -->
+
+<div class="cart-bar" id="cartBar">
+
+    <div class="cart-inner">
+
+        <div class="cart-count">
+
+            <div class="cart-icon">
+                🛒
+            </div>
+
+            <div class="cart-info">
+                <strong>
+                    طلبك الحالي
+                </strong>
+
+                <span id="cartSummary">
+                    0 منتج • 0 ج.م
+                </span>
+            </div>
+
+        </div>
+
+        <button class="view-cart" onclick="openCart()">
+            عرض الطلب
+        </button>
+
+    </div>
+
+</div>
+
+<!-- CART MODAL -->
+
+<div class="modal" id="modal">
+
+    <div class="modal-box">
+
+        <div class="modal-head">
+
+            <h3>
+                🛒 طلبك
+            </h3>
+
+            <button class="close" onclick="closeCart()">
+                ×
+            </button>
+
+        </div>
+
+        <div id="cartItems"></div>
+
+        <div class="total">
+            <span>الإجمالي</span>
+            <span id="total">0 ج.م</span>
+        </div>
+
+        <div class="form">
+
+            <input
+                class="input"
+                id="customer"
+                placeholder="اسمك (اختياري)"
+            >
+
+            <select class="select" id="table">
+
+                <option value="تيك أواي">
+                    🥡 تيك أواي
+                </option>
+
+                <option value="ترابيزة 1">
+                    ترابيزة 1
+                </option>
+
+                <option value="ترابيزة 2">
+                    ترابيزة 2
+                </option>
+
+                <option value="ترابيزة 3">
+                    ترابيزة 3
+                </option>
+
+                <option value="ترابيزة 4">
+                    ترابيزة 4
+                </option>
+
+                <option value="ترابيزة 5">
+                    ترابيزة 5
+                </option>
+
+                <option value="ترابيزة 6">
+                    ترابيزة 6
+                </option>
+
+                <option value="ترابيزة 7">
+                    ترابيزة 7
+                </option>
+
+                <option value="ترابيزة 8">
+                    ترابيزة 8
+                </option>
+
+                <option value="ترابيزة 9">
+                    ترابيزة 9
+                </option>
+
+                <option value="ترابيزة 10">
+                    ترابيزة 10
+                </option>
+
+                <option value="ترابيزة 11">
+                    ترابيزة 11
+                </option>
+
+                <option value="ترابيزة 12">
+                    ترابيزة 12
+                </option>
+
+            </select>
+
+            <button class="order-btn" onclick="sendOrder()">
+                📲 إرسال الطلب على واتساب
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+
+const products = [
+
+    /* BREAKFAST */
+
+    {
+        id:1,
+        category:"breakfast",
+        name:"بان كيك بالعسل",
+        desc:"بان كيك طازة بالعسل",
+        price:110,
+        icon:"🥞"
+    },
+
+    {
+        id:2,
+        category:"breakfast",
+        name:"بيض بنيديكت",
+        desc:"بيض بطريقة بنيديكت",
+        price:95,
+        icon:"🍳"
+    },
+
+    {
+        id:3,
+        category:"breakfast",
+        name:"أفوكادو توست",
+        desc:"توست بالأفوكادو الطازج",
+        price:105,
+        icon:"🥑"
+    },
+
+    {
+        id:4,
+        category:"breakfast",
+        name:"شكشوكة ترانزيت",
+        desc:"شكشوكة على طريقة ترانزيت",
+        price:75,
+        icon:"🍳"
+    },
+
+    {
+        id:5,
+        category:"breakfast",
+        name:"فول وطعمية بلدي",
+        desc:"فطار مصري أصيل",
+        price:60,
+        icon:"🫘"
+    },
+
+    {
+        id:6,
+        category:"breakfast",
+        name:"أومليت جبنة",
+        desc:"أومليت بالجبنة",
+        price:85,
+        icon:"🍳"
+    },
+
+    /* COFFEE */
+
+    {
+        id:7,
+        category:"coffee",
+        name:"كابتشينو",
+        desc:"إسبريسو وحليب ورغوة",
+        price:65,
+        icon:"☕"
+    },
+
+    {
+        id:8,
+        category:"coffee",
+        name:"لاتيه",
+        desc:"قهوة ناعمة بالحليب",
+        price:70,
+        icon:"☕"
+    },
+
+    {
+        id:9,
+        category:"coffee",
+        name:"سبانش لاتيه",
+        desc:"لاتيه بنكهة سبانش",
+        price:85,
+        icon:"🥛"
+    },
+
+    {
+        id:10,
+        category:"coffee",
+        name:"موكا",
+        desc:"قهوة وشوكولاتة",
+        price:80,
+        icon:"🍫"
+    },
+
+    {
+        id:11,
+        category:"coffee",
+        name:"إسبريسو",
+        desc:"شوت إسبريسو مركز",
+        price:45,
+        icon:"☕"
+    },
+
+    {
+        id:12,
+        category:"coffee",
+        name:"قهوة تركي",
+        desc:"قهوة تركي أصيلة",
+        price:40,
+        icon:"☕"
+    },
+
+    /* COLD */
+
+    {
+        id:13,
+        category:"cold",
+        name:"آيس كوفي",
+        desc:"قهوة مثلجة منعشة",
+        price:75,
+        icon:"🧊"
+    },
+
+    {
+        id:14,
+        category:"cold",
+        name:"آيس لاتيه",
+        desc:"لاتيه مثلج",
+        price:75,
+        icon:"🥛"
+    },
+
+    {
+        id:15,
+        category:"cold",
+        name:"موهيتو",
+        desc:"مشروب منعش بالنعناع",
+        price:80,
+        icon:"🍋"
+    },
+
+    {
+        id:16,
+        category:"cold",
+        name:"فرابتشينو",
+        desc:"قهوة باردة كريمية",
+        price:95,
+        icon:"🥤"
+    },
+
+    {
+        id:17,
+        category:"cold",
+        name:"ميلك شيك",
+        desc:"ميلك شيك كريمي",
+        price:90,
+        icon:"🥤"
+    },
+
+    /* CANS */
+
+    {
+        id:18,
+        category:"cans",
+        name:"Red Bull",
+        desc:"مشروب طاقة",
+        price:90,
+        icon:"🔴"
+    },
+
+    {
+        id:19,
+        category:"cans",
+        name:"Red Bull Sugar Free",
+        desc:"مشروب طاقة بدون سكر",
+        price:90,
+        icon:"⚪"
+    },
+
+    {
+        id:20,
+        category:"cans",
+        name:"Fury",
+        desc:"مشروب طاقة",
+        price:35,
+        icon:"⚡"
+    },
+
+    {
+        id:21,
+        category:"cans",
+        name:"Sting",
+        desc:"مشروب طاقة",
+        price:30,
+        icon:"🔴"
+    },
+
+    {
+        id:22,
+        category:"cans",
+        name:"Pepsi",
+        desc:"بيبسي كان",
+        price:25,
+        icon:"🥤"
+    },
+
+    {
+        id:23,
+        category:"cans",
+        name:"Pepsi Diet",
+        desc:"بيبسي دايت",
+        price:25,
+        icon:"🥤"
+    },
+
+    {
+        id:24,
+        category:"cans",
+        name:"7UP",
+        desc:"مشروب غازي",
+        price:25,
+        icon:"🟢"
+    },
+
+    {
+        id:25,
+        category:"cans",
+        name:"Mirinda",
+        desc:"مشروب غازي",
+        price:25,
+        icon:"🟠"
+    },
+
+    {
+        id:26,
+        category:"cans",
+        name:"مياه معدنية",
+        desc:"مياه معدنية",
+        price:15,
+        icon:"💧"
+    },
+
+    /* DESSERT */
+
+    {
+        id:27,
+        category:"dessert",
+        name:"وافل نوتيلا",
+        desc:"وافل بصوص نوتيلا",
+        price:95,
+        icon:"🧇"
+    },
+
+    {
+        id:28,
+        category:"dessert",
+        name:"تشيز كيك",
+        desc:"تشيز كيك كريمي",
+        price:85,
+        icon:"🍰"
+    },
+
+    {
+        id:29,
+        category:"dessert",
+        name:"براوني",
+        desc:"براوني شوكولاتة",
+        price:75,
+        icon:"🍫"
+    }
+
+];
+
+let cart = [];
+
+let currentCategory = "all";
+
+const productsEl = document.getElementById("products");
+const emptyEl = document.getElementById("empty");
+const searchEl = document.getElementById("search");
+const cartBar = document.getElementById("cartBar");
+const cartSummary = document.getElementById("cartSummary");
+
+function renderProducts(){
+
+    const search = searchEl.value.toLowerCase().trim();
+
+    const filtered = products.filter(p => {
+
+        const categoryMatch =
+            currentCategory === "all" ||
+            p.category === currentCategory;
+
+        const searchMatch =
+            p.name.toLowerCase().includes(search) ||
+            p.desc.toLowerCase().includes(search);
+
+        return categoryMatch && searchMatch;
+
+    });
+
+    productsEl.innerHTML = "";
+
+    if(filtered.length === 0){
+
+        emptyEl.style.display = "block";
+
+        return;
+
+    }
+
+    emptyEl.style.display = "none";
+
+    filtered.forEach(product => {
+
+        const card = document.createElement("div");
+
+        card.className = "product";
+
+        card.innerHTML = `
+
+            <div class="product-image">
+                ${product.icon}
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-name">
+                    ${product.name}
+                </div>
+
+                <div class="product-desc">
+                    ${product.desc}
+                </div>
+
+                <div class="product-bottom">
+
+                    <div class="price">
+                        ${product.price}
+                        <small>ج.م</small>
+                    </div>
+
+                    <button
+                        class="add"
+                        onclick="addToCart(${product.id})"
+                    >
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+        `;
+
+        productsEl.appendChild(card);
+
+    });
+
+}
+
+function addToCart(id){
+
+    const product = products.find(p => p.id === id);
+
+    const existing = cart.find(p => p.id === id);
+
+    if(existing){
+
+        existing.qty++;
+
+    }else{
+
+        cart.push({
+            ...product,
+            qty:1
+        });
+
+    }
+
+    updateCart();
+
+    showToast("تم إضافة " + product.name + " للطلب ✓");
+
+}
+
+function changeQty(id, amount){
+
+    const item = cart.find(p => p.id === id);
+
+    if(!item) return;
+
+    item.qty += amount;
+
+    if(item.qty <= 0){
+
+        cart = cart.filter(p => p.id !== id);
+
+    }
+
+    updateCart();
+
+    renderCart();
+
+}
+
+function updateCart(){
+
+    const count = cart.reduce(
+        (sum,item) => sum + item.qty,
+        0
+    );
+
+    const total = cart.reduce(
+        (sum,item) => sum + item.price * item.qty,
+        0
+    );
+
+    if(count > 0){
+
+        cartBar.style.display = "block";
+
+        cartSummary.textContent =
+            `${count} منتج • ${total} ج.م`;
+
+    }else{
+
+        cartBar.style.display = "none";
+
+    }
+
+}
+
+function openCart(){
+
+    if(cart.length === 0){
+
+        showToast("ضيف حاجة للطلب الأول");
+
+        return;
+
+    }
+
+    renderCart();
+
+    document.getElementById("modal")
+        .classList.add("show");
+
+}
+
+function closeCart(){
+
+    document.getElementById("modal")
+        .classList.remove("show");
+
+}
+
+function renderCart(){
+
+    const container =
+        document.getElementById("cartItems");
+
+    container.innerHTML = "";
+
+    let total = 0;
+
+    cart.forEach(item => {
+
+        total += item.price * item.qty;
+
+        const row =
+            document.createElement("div");
+
+        row.className = "cart-item";
+
+        row.innerHTML = `
+
+            <div>
+
+                <div class="cart-item-name">
+                    ${item.icon} ${item.name}
+                </div>
+
+                <div class="cart-item-price">
+                    ${item.price * item.qty} ج.م
+                </div>
+
+            </div>
+
+            <div class="qty">
+
+                <button onclick="changeQty(${item.id},-1)">
+                    −
+                </button>
+
+                <span>
+                    ${item.qty}
+                </span>
+
+                <button onclick="changeQty(${item.id},1)">
+                    +
+                </button>
+
+            </div>
+
+        `;
+
+        container.appendChild(row);
+
+    });
+
+    document.getElementById("total").textContent =
+        total + " ج.م";
+
+}
+
+function sendOrder(){
+
+    if(cart.length === 0){
+
+        showToast("الطلب فاضي");
+
+        return;
+
+    }
+
+    const customer =
+        document.getElementById("customer").value.trim()
+        || "عميل";
+
+    const table =
+        document.getElementById("table").value;
+
+    let total = 0;
+
+    let message =
+        "☕ *TRANSIT CAFE*\n" +
+        "━━━━━━━━━━━━━━\n" +
+        "🧾 *طلب جديد*\n\n";
+
+    cart.forEach(item => {
+
+        const subtotal =
+            item.price * item.qty;
+
+        total += subtotal;
+
+        message +=
+            `${item.icon} ${item.name}\n` +
+            `الكمية: ${item.qty}\n` +
+            `السعر: ${subtotal} ج.م\n\n`;
+
+    });
+
+    message +=
+        "━━━━━━━━━━━━━━\n" +
+        `👤 الاسم: ${customer}\n` +
+        `📍 المكان: ${table}\n` +
+        `💰 الإجمالي: ${total} ج.م\n\n` +
+        "TRANSIT CAFE - ABO KEBIR";
+
+    const phone = "201030516417";
+
+    const url =
+        "https://wa.me/" +
+        phone +
+        "?text=" +
+        encodeURIComponent(message);
+
+    window.open(url,"_blank");
+
+}
+
+function showToast(message){
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+    setTimeout(() => {
+
+        toast.classList.remove("show");
+
+    },2000);
+
+}
+
+/* CATEGORY */
+
+document.querySelectorAll(".cat")
+.forEach(button => {
+
+    button.addEventListener("click",() => {
+
+        document.querySelectorAll(".cat")
+        .forEach(b => b.classList.remove("active"));
+
+        button.classList.add("active");
+
+        currentCategory =
+            button.dataset.category;
+
+        renderProducts();
+
+        window.scrollTo({
+            top:250,
+            behavior:"smooth"
+        });
+
+    });
+
+});
+
+/* SEARCH */
+
+searchEl.addEventListener(
+    "input",
+    renderProducts
+);
+
+/* CLOSE MODAL */
+
+document.getElementById("modal")
+.addEventListener("click",e => {
+
+    if(e.target.id === "modal"){
+
+        closeCart();
+
+    }
+
+});
+
+/* START */
+
+renderProducts();
+
+</script>
+
+</body>
+</html>
