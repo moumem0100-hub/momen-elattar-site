@@ -1,1473 +1,3015 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>TRANSIT CAFE | Digital Menu</title>
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#090909">
+
+<meta name="description"
+      content="TRANSIT CAFE - Digital Menu | أبو كبير | Owner: مؤمن العطار">
+
+<title>
+TRANSIT CAFE | Digital Menu
+</title>
+
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600;6..96,700&display=swap"
+      rel="stylesheet">
 
 <style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
+
+/* =========================
+   ROOT
+========================= */
 
 :root{
+
     --gold:#d6ad60;
-    --gold2:#f0d08a;
-    --bg:#080808;
-    --card:#111111;
-    --card2:#171717;
-    --text:#fff;
-    --muted:#a9a9a9;
+    --gold-light:#f4d892;
+    --gold-dark:#9c7534;
+
+    --black:#070707;
+    --black-2:#0c0c0c;
+    --black-3:#121212;
+
+    --white:#ffffff;
+    --gray:#999999;
+    --gray-2:#666666;
+
     --border:rgba(214,173,96,.18);
+
+    --shadow:
+        0 20px 60px rgba(0,0,0,.45);
+
+}
+
+
+/* =========================
+   RESET
+========================= */
+
+*{
+
+    margin:0;
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
 }
 
 body{
-    font-family:"Cairo",sans-serif;
+
     background:
-        radial-gradient(circle at top right,rgba(214,173,96,.12),transparent 30%),
-        radial-gradient(circle at bottom left,rgba(214,173,96,.07),transparent 25%),
-        var(--bg);
-    color:var(--text);
+
+        radial-gradient(
+            circle at 90% 0%,
+            rgba(214,173,96,.12),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 0% 60%,
+            rgba(214,173,96,.06),
+            transparent 30%
+        ),
+
+        var(--black);
+
+    color:var(--white);
+
+    font-family:"Cairo",sans-serif;
+
     min-height:100vh;
+
 }
 
-/* HEADER */
+
+/* =========================
+   HEADER
+========================= */
 
 .header{
+
     position:sticky;
+
     top:0;
-    z-index:100;
-    background:rgba(8,8,8,.90);
-    backdrop-filter:blur(18px);
-    border-bottom:1px solid var(--border);
+
+    z-index:1000;
+
+    background:
+        rgba(7,7,7,.88);
+
+    backdrop-filter:
+        blur(20px);
+
+    border-bottom:
+        1px solid var(--border);
+
 }
+
 
 .header-inner{
-    max-width:1100px;
+
+    max-width:1200px;
+
     margin:auto;
-    padding:15px 18px;
+
+    padding:
+        13px 18px;
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
     gap:15px;
+
 }
+
 
 .brand{
+
     display:flex;
+
     align-items:center;
+
     gap:12px;
+
 }
+
 
 .logo{
+
     width:48px;
+
     height:48px;
-    border-radius:14px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+
+    border-radius:15px;
+
     border:1px solid var(--gold);
-    color:var(--gold2);
-    font-family:"Bodoni Moda",serif;
-    font-size:13px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
     text-align:center;
-    line-height:1.1;
-}
 
-.brand h1{
+    color:var(--gold-light);
+
     font-family:"Bodoni Moda",serif;
-    font-size:20px;
+
+    font-size:9px;
+
+    line-height:1.1;
+
+    letter-spacing:.5px;
+
+    box-shadow:
+        inset 0 0 20px rgba(214,173,96,.05);
+
+}
+
+
+.brand-title{
+
+    font-family:"Bodoni Moda",serif;
+
+    font-size:19px;
+
     letter-spacing:1px;
+
 }
 
-.brand p{
-    color:var(--muted);
-    font-size:10px;
+
+.brand-sub{
+
+    color:var(--gray);
+
+    font-size:9px;
+
+    letter-spacing:1.5px;
+
 }
 
-.site-btn{
+
+.main-btn{
+
     text-decoration:none;
+
     color:#111;
-    background:linear-gradient(135deg,var(--gold2),var(--gold));
-    padding:9px 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold-light),
+            var(--gold)
+        );
+
+    padding:
+        9px 13px;
+
     border-radius:12px;
-    font-size:12px;
-    font-weight:800;
+
+    font-size:11px;
+
+    font-weight:900;
+
+    white-space:nowrap;
+
 }
 
-/* HERO */
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
+
     max-width:1100px;
+
     margin:auto;
-    padding:35px 18px 20px;
+
+    padding:
+        48px 20px 20px;
+
     text-align:center;
+
 }
 
-.eyebrow{
-    color:var(--gold2);
-    font-size:11px;
-    letter-spacing:2px;
-    margin-bottom:8px;
+
+.hero-label{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:var(--gold-light);
+
+    border:
+        1px solid var(--border);
+
+    background:
+        rgba(214,173,96,.05);
+
+    padding:
+        7px 13px;
+
+    border-radius:100px;
+
+    font-size:10px;
+
+    letter-spacing:1.5px;
+
+    margin-bottom:20px;
+
 }
 
-.hero h2{
+
+.dot{
+
+    width:6px;
+
+    height:6px;
+
+    border-radius:50%;
+
+    background:var(--gold);
+
+    box-shadow:
+        0 0 12px var(--gold);
+
+}
+
+
+.hero h1{
+
     font-family:"Bodoni Moda",serif;
-    font-size:clamp(34px,8vw,65px);
-    line-height:1;
-    margin-bottom:12px;
+
+    font-size:
+        clamp(42px,11vw,88px);
+
+    line-height:.95;
+
+    font-weight:600;
+
+    letter-spacing:-2px;
+
 }
 
-.hero h2 span{
-    color:var(--gold2);
+
+.hero h1 span{
+
+    display:block;
+
+    color:var(--gold-light);
+
 }
 
-.hero p{
-    color:var(--muted);
+
+.hero-description{
+
+    color:#aaa;
+
     font-size:13px;
+
+    line-height:2;
+
+    max-width:520px;
+
+    margin:
+        20px auto 0;
+
 }
 
-/* SEARCH */
 
-.search-wrap{
-    max-width:700px;
-    margin:25px auto 18px;
-    padding:0 18px;
+/* =========================
+   OWNER
+========================= */
+
+.owner-card{
+
+    max-width:620px;
+
+    margin:
+        28px auto 0;
+
+    padding:
+        14px 18px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.04),
+            rgba(214,173,96,.04)
+        );
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.25);
+
 }
+
+
+.owner-icon{
+
+    width:38px;
+
+    height:38px;
+
+    border-radius:12px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold-light),
+            var(--gold)
+        );
+
+    color:#111;
+
+    font-size:18px;
+
+}
+
+
+.owner-text{
+
+    text-align:right;
+
+}
+
+
+.owner-label{
+
+    color:#777;
+
+    font-size:9px;
+
+    letter-spacing:1.5px;
+
+}
+
+
+.owner-name{
+
+    color:var(--gold-light);
+
+    font-size:15px;
+
+    font-weight:900;
+
+}
+
+
+/* =========================
+   INFO STRIP
+========================= */
+
+.info-strip{
+
+    max-width:1000px;
+
+    margin:
+        25px auto 0;
+
+    padding:
+        0 18px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:8px;
+
+}
+
+
+.info-box{
+
+    border:
+        1px solid var(--border);
+
+    background:
+        rgba(255,255,255,.025);
+
+    border-radius:15px;
+
+    padding:11px 8px;
+
+    text-align:center;
+
+}
+
+
+.info-box strong{
+
+    display:block;
+
+    color:var(--gold-light);
+
+    font-size:12px;
+
+}
+
+
+.info-box span{
+
+    color:#777;
+
+    font-size:8px;
+
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-area{
+
+    max-width:760px;
+
+    margin:
+        35px auto 18px;
+
+    padding:
+        0 18px;
+
+}
+
+
+.search-box{
+
+    position:relative;
+
+}
+
 
 .search{
+
     width:100%;
-    background:#111;
-    border:1px solid var(--border);
+
+    padding:
+        16px 48px 16px 18px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    border:
+        1px solid var(--border);
+
     border-radius:17px;
-    padding:15px 18px;
+
     color:#fff;
+
     outline:none;
+
     font-family:inherit;
-    font-size:14px;
-    transition:.25s;
+
+    font-size:13px;
+
+    transition:.3s;
+
 }
+
 
 .search:focus{
-    border-color:var(--gold);
-    box-shadow:0 0 25px rgba(214,173,96,.08);
+
+    border-color:
+        rgba(214,173,96,.65);
+
+    box-shadow:
+        0 0 30px rgba(214,173,96,.08);
+
 }
 
-/* CATEGORIES */
+
+.search-icon{
+
+    position:absolute;
+
+    right:17px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:var(--gold);
+
+    font-size:18px;
+
+}
+
+
+/* =========================
+   CATEGORIES
+========================= */
 
 .categories{
+
     max-width:1100px;
+
     margin:auto;
-    padding:5px 18px 25px;
+
+    padding:
+        5px 18px 28px;
+
     display:flex;
+
     gap:9px;
+
     overflow-x:auto;
+
     scrollbar-width:none;
+
 }
+
 
 .categories::-webkit-scrollbar{
+
     display:none;
+
 }
 
-.cat{
-    flex:0 0 auto;
-    border:1px solid var(--border);
-    background:#111;
-    color:#bbb;
-    padding:9px 16px;
+
+.category{
+
+    flex:
+        0 0 auto;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        #101010;
+
+    color:#999;
+
+    padding:
+        10px 17px;
+
     border-radius:100px;
-    cursor:pointer;
+
     font-family:inherit;
-    font-weight:700;
-    font-size:12px;
+
+    font-size:11px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
     transition:.25s;
+
 }
 
-.cat.active,
-.cat:hover{
+
+.category.active{
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold-light),
+            var(--gold)
+        );
+
     color:#111;
-    background:linear-gradient(135deg,var(--gold2),var(--gold));
+
     border-color:transparent;
+
+    box-shadow:
+        0 8px 25px rgba(214,173,96,.15);
+
 }
 
-/* MENU */
+
+/* =========================
+   MENU
+========================= */
 
 .menu{
+
     max-width:1100px;
+
     margin:auto;
-    padding:0 18px 150px;
+
+    padding:
+        0 18px 150px;
+
 }
 
-.section-title{
+
+.menu-heading{
+
     display:flex;
+
     align-items:center;
-    gap:12px;
-    margin:28px 0 15px;
+
+    gap:14px;
+
+    margin:
+        15px 0 18px;
+
 }
 
-.section-title h3{
-    font-size:18px;
+
+.menu-heading h2{
+
+    font-family:"Bodoni Moda",serif;
+
+    font-size:25px;
+
 }
 
-.line{
-    height:1px;
+
+.menu-line{
+
     flex:1;
-    background:linear-gradient(to left,transparent,var(--border));
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            to left,
+            transparent,
+            var(--border)
+        );
+
 }
 
-/* PRODUCTS */
 
-.grid{
+/* =========================
+   PRODUCTS GRID
+========================= */
+
+.products{
+
     display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:13px;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    gap:12px;
+
 }
+
 
 .product{
+
     position:relative;
+
     overflow:hidden;
-    background:linear-gradient(145deg,#151515,#0e0e0e);
-    border:1px solid var(--border);
-    border-radius:20px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #151515,
+            #0d0d0d
+        );
+
     padding:10px;
-    transition:.25s;
+
+    transition:
+        transform .25s,
+        border-color .25s;
+
 }
+
 
 .product:hover{
-    transform:translateY(-3px);
-    border-color:rgba(214,173,96,.45);
+
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(214,173,96,.45);
+
 }
 
-.product-image{
-    height:130px;
-    border-radius:15px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:58px;
-    position:relative;
+
+.product-visual{
+
+    height:145px;
+
+    border-radius:17px;
+
     overflow:hidden;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
     background:
-        radial-gradient(circle at 30% 20%,rgba(255,255,255,.16),transparent 25%),
-        linear-gradient(135deg,#292929,#101010);
-    border:1px solid rgba(255,255,255,.06);
+
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(255,255,255,.14),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            145deg,
+            #292929,
+            #0e0e0e
+        );
+
 }
 
-.product-image::after{
+
+.product-visual::before{
+
     content:"";
+
     position:absolute;
-    inset:0;
-    background:linear-gradient(to top,rgba(0,0,0,.4),transparent);
+
+    width:100px;
+
+    height:100px;
+
+    border-radius:50%;
+
+    background:
+        rgba(214,173,96,.08);
+
+    filter:blur(5px);
+
 }
 
-.product-info{
-    padding:12px 3px 3px;
+
+.product-icon{
+
+    position:relative;
+
+    z-index:2;
+
+    font-size:62px;
+
+    filter:
+        drop-shadow(
+            0 12px 12px rgba(0,0,0,.5)
+        );
+
 }
+
+
+.product-tag{
+
+    position:absolute;
+
+    top:9px;
+
+    right:9px;
+
+    z-index:4;
+
+    padding:
+        5px 8px;
+
+    border-radius:8px;
+
+    background:
+        rgba(0,0,0,.65);
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    color:var(--gold-light);
+
+    font-size:8px;
+
+    font-weight:800;
+
+}
+
+
+.product-content{
+
+    padding:
+        13px 3px 3px;
+
+}
+
 
 .product-name{
+
     font-size:14px;
-    font-weight:800;
-    margin-bottom:3px;
+
+    font-weight:900;
+
 }
 
-.product-desc{
-    font-size:10px;
-    color:#8f8f8f;
+
+.product-description{
+
+    color:#777;
+
+    font-size:9px;
+
+    margin-top:3px;
+
     min-height:18px;
+
 }
+
 
 .product-bottom{
+
+    margin-top:11px;
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
-    gap:5px;
-    margin-top:10px;
+
+    gap:8px;
+
 }
 
-.price{
-    color:var(--gold2);
-    font-size:15px;
-    font-weight:800;
+
+.product-price{
+
+    color:var(--gold-light);
+
+    font-size:16px;
+
+    font-weight:900;
+
 }
 
-.price small{
+
+.currency{
+
+    color:#777;
+
     font-size:9px;
-    color:#888;
-    font-weight:500;
+
+    font-weight:600;
+
 }
 
-.add{
-    width:35px;
-    height:35px;
+
+.add-button{
+
+    width:37px;
+
+    height:37px;
+
     border:0;
-    border-radius:11px;
-    cursor:pointer;
-    background:linear-gradient(135deg,var(--gold2),var(--gold));
+
+    border-radius:12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold-light),
+            var(--gold)
+        );
+
     color:#111;
-    font-size:20px;
-    font-weight:800;
+
+    font-size:22px;
+
+    font-weight:900;
+
+    cursor:pointer;
+
     transition:.2s;
+
 }
 
-.add:active{
-    transform:scale(.9);
+
+.add-button:active{
+
+    transform:scale(.88);
+
 }
 
-/* EMPTY */
+
+/* =========================
+   EMPTY
+========================= */
 
 .empty{
-    text-align:center;
-    color:#777;
-    padding:40px 10px;
+
     display:none;
+
+    text-align:center;
+
+    padding:50px 20px;
+
+    color:#777;
+
 }
 
-/* CART */
+
+/* =========================
+   CART BAR
+========================= */
 
 .cart-bar{
+
     position:fixed;
-    z-index:200;
+
+    z-index:2000;
+
     bottom:15px;
+
     left:15px;
+
     right:15px;
-    max-width:600px;
+
+    max-width:650px;
+
     margin:auto;
-    background:rgba(20,20,20,.94);
-    backdrop-filter:blur(20px);
-    border:1px solid rgba(214,173,96,.35);
-    border-radius:20px;
-    padding:11px;
-    box-shadow:0 15px 50px rgba(0,0,0,.55);
+
     display:none;
+
+    padding:10px;
+
+    border:
+        1px solid rgba(214,173,96,.35);
+
+    border-radius:20px;
+
+    background:
+        rgba(17,17,17,.94);
+
+    backdrop-filter:
+        blur(20px);
+
+    box-shadow:
+        0 20px 70px rgba(0,0,0,.6);
+
 }
+
 
 .cart-inner{
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
     gap:10px;
+
 }
 
-.cart-count{
+
+.cart-left{
+
     display:flex;
+
     align-items:center;
-    gap:9px;
+
+    gap:10px;
+
 }
+
 
 .cart-icon{
-    width:43px;
-    height:43px;
+
+    width:44px;
+
+    height:44px;
+
     border-radius:14px;
-    background:#242424;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
+    background:#222;
+
     font-size:20px;
+
 }
 
-.cart-info strong{
-    display:block;
-    font-size:13px;
+
+.cart-title{
+
+    font-size:12px;
+
+    font-weight:900;
+
 }
 
-.cart-info span{
-    color:var(--gold2);
-    font-size:11px;
+
+.cart-summary{
+
+    color:var(--gold-light);
+
+    font-size:10px;
+
+    margin-top:2px;
+
 }
 
-.view-cart{
+
+.cart-button{
+
     border:0;
-    background:linear-gradient(135deg,var(--gold2),var(--gold));
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold-light),
+            var(--gold)
+        );
+
     color:#111;
-    padding:12px 17px;
+
     border-radius:13px;
+
+    padding:
+        12px 17px;
+
     font-family:inherit;
-    font-weight:800;
+
+    font-weight:900;
+
+    font-size:11px;
+
     cursor:pointer;
+
 }
 
-/* MODAL */
+
+/* =========================
+   MODAL
+========================= */
 
 .modal{
+
     position:fixed;
+
     inset:0;
-    z-index:500;
-    background:rgba(0,0,0,.75);
-    backdrop-filter:blur(8px);
+
+    z-index:5000;
+
+    background:
+        rgba(0,0,0,.78);
+
+    backdrop-filter:
+        blur(10px);
+
     display:none;
+
     align-items:flex-end;
+
     justify-content:center;
+
 }
+
 
 .modal.show{
+
     display:flex;
+
 }
+
 
 .modal-box{
+
     width:100%;
+
     max-width:650px;
-    max-height:90vh;
+
+    max-height:92vh;
+
     overflow:auto;
-    background:#101010;
-    border:1px solid var(--border);
-    border-radius:28px 28px 0 0;
+
+    background:
+        #101010;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        28px 28px 0 0;
+
     padding:20px;
-    animation:up .3s ease;
+
+    animation:
+        slideUp .3s ease;
+
 }
 
-@keyframes up{
-    from{transform:translateY(100%)}
-    to{transform:translateY(0)}
+
+@keyframes slideUp{
+
+    from{
+        transform:translateY(100%);
+    }
+
+    to{
+        transform:translateY(0);
+    }
+
 }
+
 
 .modal-head{
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
     margin-bottom:15px;
+
 }
 
-.modal-head h3{
-    font-size:20px;
+
+.modal-title{
+
+    font-family:"Bodoni Moda",serif;
+
+    font-size:24px;
+
 }
+
 
 .close{
-    width:36px;
-    height:36px;
-    border:1px solid var(--border);
+
+    width:38px;
+
+    height:38px;
+
+    border:
+        1px solid var(--border);
+
     background:#181818;
-    color:#fff;
+
+    color:white;
+
     border-radius:12px;
+
     cursor:pointer;
-    font-size:18px;
+
+    font-size:20px;
+
 }
 
-/* CART ITEMS */
+
+/* =========================
+   CART ITEMS
+========================= */
 
 .cart-item{
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
-    gap:10px;
-    padding:13px 0;
-    border-bottom:1px solid #222;
+
+    gap:12px;
+
+    padding:
+        14px 0;
+
+    border-bottom:
+        1px solid #222;
+
 }
+
 
 .cart-item-name{
+
     font-size:13px;
-    font-weight:700;
+
+    font-weight:800;
+
 }
+
 
 .cart-item-price{
-    color:var(--gold2);
-    font-size:11px;
+
+    color:var(--gold-light);
+
+    font-size:10px;
+
     margin-top:3px;
+
 }
 
-.qty{
+
+.quantity{
+
     display:flex;
+
     align-items:center;
+
     gap:7px;
+
 }
 
-.qty button{
+
+.quantity button{
+
     width:30px;
+
     height:30px;
-    border:1px solid var(--border);
-    background:#181818;
-    color:#fff;
+
+    border:
+        1px solid var(--border);
+
     border-radius:9px;
+
+    background:#181818;
+
+    color:white;
+
     cursor:pointer;
+
 }
 
-.qty span{
+
+.quantity span{
+
     min-width:20px;
+
     text-align:center;
-    font-weight:800;
+
+    font-weight:900;
+
 }
+
 
 .total{
+
     display:flex;
+
     justify-content:space-between;
-    padding:18px 0;
-    font-size:17px;
-    font-weight:800;
+
+    padding:
+        18px 0;
+
+    font-size:18px;
+
+    font-weight:900;
+
 }
+
 
 .total span:last-child{
-    color:var(--gold2);
+
+    color:var(--gold-light);
+
 }
 
-/* FORM */
+
+/* =========================
+   FORM
+========================= */
 
 .form{
+
     display:grid;
+
     gap:10px;
-    margin-top:8px;
+
 }
+
 
 .input,
 .select{
+
     width:100%;
-    padding:13px;
+
+    padding:14px;
+
     background:#171717;
-    border:1px solid #292929;
+
+    border:
+        1px solid #292929;
+
     color:#fff;
+
     border-radius:13px;
+
     outline:none;
+
     font-family:inherit;
+
+    font-size:12px;
+
 }
+
 
 .input:focus,
 .select:focus{
+
     border-color:var(--gold);
+
 }
 
-.order-btn{
+
+.order-button{
+
     width:100%;
+
     border:0;
-    padding:15px;
+
+    margin-top:5px;
+
+    padding:16px;
+
     border-radius:14px;
-    background:linear-gradient(135deg,var(--gold2),var(--gold));
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold-light),
+            var(--gold)
+        );
+
     color:#111;
+
     font-family:inherit;
+
+    font-size:13px;
+
     font-weight:900;
-    font-size:14px;
+
     cursor:pointer;
-    margin-top:8px;
+
 }
 
-/* TOAST */
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+
+    text-align:center;
+
+    padding:
+        10px 20px 120px;
+
+    color:#555;
+
+    font-size:9px;
+
+}
+
+
+.footer strong{
+
+    color:var(--gold);
+
+}
+
+
+/* =========================
+   TOAST
+========================= */
 
 .toast{
+
     position:fixed;
-    z-index:1000;
-    top:80px;
+
+    z-index:9000;
+
+    top:85px;
+
     left:50%;
-    transform:translateX(-50%) translateY(-20px);
-    background:#1b1b1b;
-    border:1px solid var(--border);
+
+    transform:
+        translateX(-50%)
+        translateY(-20px);
+
+    background:#191919;
+
+    border:
+        1px solid var(--border);
+
     color:#fff;
-    padding:12px 18px;
+
+    padding:
+        12px 18px;
+
     border-radius:14px;
-    font-size:12px;
+
+    font-size:11px;
+
     opacity:0;
+
     pointer-events:none;
+
     transition:.3s;
+
 }
+
 
 .toast.show{
+
     opacity:1;
-    transform:translateX(-50%) translateY(0);
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+
 }
 
-/* DESKTOP */
+
+/* =========================
+   DESKTOP
+========================= */
 
 @media(min-width:700px){
-    .grid{
-        grid-template-columns:repeat(3,1fr);
+
+    .products{
+
+        grid-template-columns:
+            repeat(3,1fr);
+
     }
 
-    .product-image{
-        height:180px;
+    .product-visual{
+
+        height:190px;
+
     }
 
     .modal{
+
         align-items:center;
+
     }
 
     .modal-box{
+
         border-radius:25px;
+
     }
+
 }
+
 
 @media(max-width:380px){
-    .grid{
+
+    .products{
+
         grid-template-columns:1fr;
+
     }
 
-    .product-image{
-        height:170px;
+    .product-visual{
+
+        height:175px;
+
     }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- =========================
+     HEADER
+========================= -->
+
 <header class="header">
-    <div class="header-inner">
 
-        <div class="brand">
-            <div class="logo">
-                TRANSIT<br>CAFE
-            </div>
+<div class="header-inner">
 
-            <div>
-                <h1>TRANSIT CAFE</h1>
-                <p>DIGITAL MENU • ABO KEBIR</p>
-            </div>
-        </div>
+<div class="brand">
 
-        <a class="site-btn" href="index.html">
-            الموقع الرئيسي
-        </a>
+<div class="logo">
 
-    </div>
+TRANSIT<br>
+CAFE
+
+</div>
+
+<div>
+
+<div class="brand-title">
+TRANSIT CAFE
+</div>
+
+<div class="brand-sub">
+ABO KEBIR • PREMIUM CAFE
+</div>
+
+</div>
+
+</div>
+
+
+<a
+class="main-btn"
+href="index.html">
+
+الموقع الرئيسي
+
+</a>
+
+</div>
+
 </header>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
-    <div class="eyebrow">
-        PREMIUM COFFEE • FOOD • DRINKS
-    </div>
+<div class="hero-label">
 
-    <h2>
-        اختار مزاجك<br>
-        <span>واستمتع باللحظة.</span>
-    </h2>
+<span class="dot"></span>
 
-    <p>
-        منيو ترانزيت كافيه الرقمية
-    </p>
+DIGITAL MENU
+
+</div>
+
+
+<h1>
+
+TRANSIT
+
+<span>CAFE</span>
+
+</h1>
+
+
+<p class="hero-description">
+
+أهلاً بيك في ترانزيت كافيه.
+<br>
+
+اختار طلبك واستمتع بتجربة مختلفة
+من أول رشفة لآخر لقمة.
+
+</p>
+
+
+
+<!-- OWNER -->
+
+<div class="owner-card">
+
+<div class="owner-icon">
+♛
+</div>
+
+
+<div class="owner-text">
+
+<div class="owner-label">
+OWNER &amp; FOUNDER
+</div>
+
+<div class="owner-name">
+مؤمن العطار
+</div>
+
+</div>
+
+</div>
 
 </section>
 
-<div class="search-wrap">
-    <input
-        class="search"
-        id="search"
-        type="search"
-        placeholder="ابحث عن مشروب أو أكلة..."
-    >
+
+
+<!-- =========================
+     INFO
+========================= -->
+
+<div class="info-strip">
+
+<div class="info-box">
+
+<strong>
+أبو كبير
+</strong>
+
+<span>
+SHARQIA
+</span>
+
 </div>
+
+
+<div class="info-box">
+
+<strong>
+8 AM — 2 AM
+</strong>
+
+<span>
+DAILY
+</span>
+
+</div>
+
+
+<div class="info-box">
+
+<strong>
+PREMIUM
+</strong>
+
+<span>
+COFFEE &amp; FOOD
+</span>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================
+     SEARCH
+========================= -->
+
+<div class="search-area">
+
+<div class="search-box">
+
+<span class="search-icon">
+⌕
+</span>
+
+<input
+id="search"
+class="search"
+type="search"
+placeholder="ابحث عن قهوة، أكل، مشروب..."
+>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================
+     CATEGORIES
+========================= -->
 
 <div class="categories">
 
-    <button class="cat active" data-category="all">
-        الكل
-    </button>
+<button
+class="category active"
+data-category="all">
 
-    <button class="cat" data-category="breakfast">
-        🍳 فطار
-    </button>
+الكل
 
-    <button class="cat" data-category="coffee">
-        ☕ قهوة
-    </button>
+</button>
 
-    <button class="cat" data-category="cold">
-        🧊 ساقع
-    </button>
 
-    <button class="cat" data-category="cans">
-        🥤 كانزات
-    </button>
+<button
+class="category"
+data-category="breakfast">
 
-    <button class="cat" data-category="dessert">
-        🍰 حلويات
-    </button>
+🍳 فطار
+
+</button>
+
+
+<button
+class="category"
+data-category="coffee">
+
+☕ قهوة
+
+</button>
+
+
+<button
+class="category"
+data-category="cold">
+
+🧊 ساقع
+
+</button>
+
+
+<button
+class="category"
+data-category="cans">
+
+🥤 كانزات
+
+</button>
+
+
+<button
+class="category"
+data-category="dessert">
+
+🍰 حلويات
+
+</button>
 
 </div>
+
+
+
+<!-- =========================
+     MENU
+========================= -->
 
 <main class="menu">
 
-    <div class="section-title">
-        <h3>قائمة ترانزيت</h3>
-        <div class="line"></div>
-    </div>
 
-    <div class="grid" id="products"></div>
+<div class="menu-heading">
 
-    <div class="empty" id="empty">
-        مفيش منتج بالاسم ده 😅
-    </div>
+<h2>
+Our Menu
+</h2>
+
+<div class="menu-line"></div>
+
+</div>
+
+
+<div
+id="products"
+class="products">
+</div>
+
+
+<div
+id="empty"
+class="empty">
+
+مفيش منتجات مطابقة للبحث 🔎
+
+</div>
 
 </main>
 
-<!-- CART BAR -->
 
-<div class="cart-bar" id="cartBar">
 
-    <div class="cart-inner">
+<!-- =========================
+     FOOTER
+========================= -->
 
-        <div class="cart-count">
+<footer class="footer">
 
-            <div class="cart-icon">
-                🛒
-            </div>
+<div>
+TRANSIT CAFE
+</div>
 
-            <div class="cart-info">
-                <strong>
-                    طلبك الحالي
-                </strong>
+<div>
+Owner &amp; Founder:
+<strong>
+مؤمن العطار
+</strong>
+</div>
 
-                <span id="cartSummary">
-                    0 منتج • 0 ج.م
-                </span>
-            </div>
+<div style="margin-top:6px">
+ABO KEBIR • SHARQIA
+</div>
 
-        </div>
+</footer>
 
-        <button class="view-cart" onclick="openCart()">
-            عرض الطلب
-        </button>
 
-    </div>
+
+<!-- =========================
+     CART BAR
+========================= -->
+
+<div
+id="cartBar"
+class="cart-bar">
+
+<div class="cart-inner">
+
+
+<div class="cart-left">
+
+<div class="cart-icon">
+🛒
+</div>
+
+
+<div>
+
+<div class="cart-title">
+طلبك الحالي
+</div>
+
+<div
+id="cartSummary"
+class="cart-summary">
+
+0 منتج • 0 ج.م
 
 </div>
 
-<!-- CART MODAL -->
-
-<div class="modal" id="modal">
-
-    <div class="modal-box">
-
-        <div class="modal-head">
-
-            <h3>
-                🛒 طلبك
-            </h3>
-
-            <button class="close" onclick="closeCart()">
-                ×
-            </button>
-
-        </div>
-
-        <div id="cartItems"></div>
-
-        <div class="total">
-            <span>الإجمالي</span>
-            <span id="total">0 ج.م</span>
-        </div>
-
-        <div class="form">
-
-            <input
-                class="input"
-                id="customer"
-                placeholder="اسمك (اختياري)"
-            >
-
-            <select class="select" id="table">
-
-                <option value="تيك أواي">
-                    🥡 تيك أواي
-                </option>
-
-                <option value="ترابيزة 1">
-                    ترابيزة 1
-                </option>
-
-                <option value="ترابيزة 2">
-                    ترابيزة 2
-                </option>
-
-                <option value="ترابيزة 3">
-                    ترابيزة 3
-                </option>
-
-                <option value="ترابيزة 4">
-                    ترابيزة 4
-                </option>
-
-                <option value="ترابيزة 5">
-                    ترابيزة 5
-                </option>
-
-                <option value="ترابيزة 6">
-                    ترابيزة 6
-                </option>
-
-                <option value="ترابيزة 7">
-                    ترابيزة 7
-                </option>
-
-                <option value="ترابيزة 8">
-                    ترابيزة 8
-                </option>
-
-                <option value="ترابيزة 9">
-                    ترابيزة 9
-                </option>
-
-                <option value="ترابيزة 10">
-                    ترابيزة 10
-                </option>
-
-                <option value="ترابيزة 11">
-                    ترابيزة 11
-                </option>
-
-                <option value="ترابيزة 12">
-                    ترابيزة 12
-                </option>
-
-            </select>
-
-            <button class="order-btn" onclick="sendOrder()">
-                📲 إرسال الطلب على واتساب
-            </button>
-
-        </div>
-
-    </div>
+</div>
 
 </div>
 
-<div class="toast" id="toast"></div>
+
+<button
+class="cart-button"
+onclick="openCart()">
+
+عرض الطلب
+
+</button>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =========================
+     CART MODAL
+========================= -->
+
+<div
+id="modal"
+class="modal">
+
+<div class="modal-box">
+
+
+<div class="modal-head">
+
+<div class="modal-title">
+طلبك
+</div>
+
+<button
+class="close"
+onclick="closeCart()">
+
+×
+
+</button>
+
+</div>
+
+
+<div id="cartItems">
+</div>
+
+
+<div class="total">
+
+<span>
+الإجمالي
+</span>
+
+<span id="total">
+0 ج.م
+</span>
+
+</div>
+
+
+
+<div class="form">
+
+
+<input
+id="customer"
+class="input"
+placeholder="اسمك (اختياري)"
+>
+
+
+<select
+id="table"
+class="select">
+
+<option value="تيك أواي">
+🥡 تيك أواي
+</option>
+
+<option value="ترابيزة 1">
+ترابيزة 1
+</option>
+
+<option value="ترابيزة 2">
+ترابيزة 2
+</option>
+
+<option value="ترابيزة 3">
+ترابيزة 3
+</option>
+
+<option value="ترابيزة 4">
+ترابيزة 4
+</option>
+
+<option value="ترابيزة 5">
+ترابيزة 5
+</option>
+
+<option value="ترابيزة 6">
+ترابيزة 6
+</option>
+
+<option value="ترابيزة 7">
+ترابيزة 7
+</option>
+
+<option value="ترابيزة 8">
+ترابيزة 8
+</option>
+
+<option value="ترابيزة 9">
+ترابيزة 9
+</option>
+
+<option value="ترابيزة 10">
+ترابيزة 10
+</option>
+
+<option value="ترابيزة 11">
+ترابيزة 11
+</option>
+
+<option value="ترابيزة 12">
+ترابيزة 12
+</option>
+
+</select>
+
+
+<button
+class="order-button"
+onclick="sendOrder()">
+
+📲 إرسال الطلب على واتساب
+
+</button>
+
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div
+id="toast"
+class="toast">
+</div>
+
+
 
 <script>
 
+/* =========================
+   PRODUCTS
+========================= */
+
 const products = [
 
-    /* BREAKFAST */
+/* BREAKFAST */
 
-    {
-        id:1,
-        category:"breakfast",
-        name:"بان كيك بالعسل",
-        desc:"بان كيك طازة بالعسل",
-        price:110,
-        icon:"🥞"
-    },
+{
+id:1,
+category:"breakfast",
+name:"بان كيك بالعسل",
+desc:"بان كيك طازج بالعسل",
+price:110,
+icon:"🥞",
+tag:"BREAKFAST"
+},
 
-    {
-        id:2,
-        category:"breakfast",
-        name:"بيض بنيديكت",
-        desc:"بيض بطريقة بنيديكت",
-        price:95,
-        icon:"🍳"
-    },
+{
+id:2,
+category:"breakfast",
+name:"بيض بنيديكت",
+desc:"بيض بطريقة بنيديكت",
+price:95,
+icon:"🍳",
+tag:"BREAKFAST"
+},
 
-    {
-        id:3,
-        category:"breakfast",
-        name:"أفوكادو توست",
-        desc:"توست بالأفوكادو الطازج",
-        price:105,
-        icon:"🥑"
-    },
+{
+id:3,
+category:"breakfast",
+name:"أفوكادو توست",
+desc:"توست بالأفوكادو الطازج",
+price:105,
+icon:"🥑",
+tag:"BREAKFAST"
+},
 
-    {
-        id:4,
-        category:"breakfast",
-        name:"شكشوكة ترانزيت",
-        desc:"شكشوكة على طريقة ترانزيت",
-        price:75,
-        icon:"🍳"
-    },
+{
+id:4,
+category:"breakfast",
+name:"شكشوكة ترانزيت",
+desc:"شكشوكة على طريقة ترانزيت",
+price:75,
+icon:"🍳",
+tag:"SIGNATURE"
+},
 
-    {
-        id:5,
-        category:"breakfast",
-        name:"فول وطعمية بلدي",
-        desc:"فطار مصري أصيل",
-        price:60,
-        icon:"🫘"
-    },
+{
+id:5,
+category:"breakfast",
+name:"فول وطعمية بلدي",
+desc:"فطار مصري أصيل",
+price:60,
+icon:"🫘",
+tag:"EGYPTIAN"
+},
 
-    {
-        id:6,
-        category:"breakfast",
-        name:"أومليت جبنة",
-        desc:"أومليت بالجبنة",
-        price:85,
-        icon:"🍳"
-    },
+{
+id:6,
+category:"breakfast",
+name:"أومليت جبنة",
+desc:"أومليت بالجبنة",
+price:85,
+icon:"🍳",
+tag:"BREAKFAST"
+},
 
-    /* COFFEE */
 
-    {
-        id:7,
-        category:"coffee",
-        name:"كابتشينو",
-        desc:"إسبريسو وحليب ورغوة",
-        price:65,
-        icon:"☕"
-    },
+/* COFFEE */
 
-    {
-        id:8,
-        category:"coffee",
-        name:"لاتيه",
-        desc:"قهوة ناعمة بالحليب",
-        price:70,
-        icon:"☕"
-    },
+{
+id:7,
+category:"coffee",
+name:"كابتشينو",
+desc:"إسبريسو وحليب ورغوة",
+price:65,
+icon:"☕",
+tag:"COFFEE"
+},
 
-    {
-        id:9,
-        category:"coffee",
-        name:"سبانش لاتيه",
-        desc:"لاتيه بنكهة سبانش",
-        price:85,
-        icon:"🥛"
-    },
+{
+id:8,
+category:"coffee",
+name:"لاتيه",
+desc:"قهوة ناعمة بالحليب",
+price:70,
+icon:"☕",
+tag:"COFFEE"
+},
 
-    {
-        id:10,
-        category:"coffee",
-        name:"موكا",
-        desc:"قهوة وشوكولاتة",
-        price:80,
-        icon:"🍫"
-    },
+{
+id:9,
+category:"coffee",
+name:"سبانش لاتيه",
+desc:"لاتيه بنكهة سبانش",
+price:85,
+icon:"🥛",
+tag:"POPULAR"
+},
 
-    {
-        id:11,
-        category:"coffee",
-        name:"إسبريسو",
-        desc:"شوت إسبريسو مركز",
-        price:45,
-        icon:"☕"
-    },
+{
+id:10,
+category:"coffee",
+name:"موكا",
+desc:"قهوة وشوكولاتة",
+price:80,
+icon:"🍫",
+tag:"COFFEE"
+},
 
-    {
-        id:12,
-        category:"coffee",
-        name:"قهوة تركي",
-        desc:"قهوة تركي أصيلة",
-        price:40,
-        icon:"☕"
-    },
+{
+id:11,
+category:"coffee",
+name:"إسبريسو",
+desc:"شوت إسبريسو مركز",
+price:45,
+icon:"☕",
+tag:"CLASSIC"
+},
 
-    /* COLD */
+{
+id:12,
+category:"coffee",
+name:"قهوة تركي",
+desc:"قهوة تركي أصيلة",
+price:40,
+icon:"☕",
+tag:"CLASSIC"
+},
 
-    {
-        id:13,
-        category:"cold",
-        name:"آيس كوفي",
-        desc:"قهوة مثلجة منعشة",
-        price:75,
-        icon:"🧊"
-    },
 
-    {
-        id:14,
-        category:"cold",
-        name:"آيس لاتيه",
-        desc:"لاتيه مثلج",
-        price:75,
-        icon:"🥛"
-    },
+/* COLD */
 
-    {
-        id:15,
-        category:"cold",
-        name:"موهيتو",
-        desc:"مشروب منعش بالنعناع",
-        price:80,
-        icon:"🍋"
-    },
+{
+id:13,
+category:"cold",
+name:"آيس كوفي",
+desc:"قهوة مثلجة منعشة",
+price:75,
+icon:"🧊",
+tag:"COLD"
+},
 
-    {
-        id:16,
-        category:"cold",
-        name:"فرابتشينو",
-        desc:"قهوة باردة كريمية",
-        price:95,
-        icon:"🥤"
-    },
+{
+id:14,
+category:"cold",
+name:"آيس لاتيه",
+desc:"لاتيه مثلج",
+price:75,
+icon:"🥛",
+tag:"COLD"
+},
 
-    {
-        id:17,
-        category:"cold",
-        name:"ميلك شيك",
-        desc:"ميلك شيك كريمي",
-        price:90,
-        icon:"🥤"
-    },
+{
+id:15,
+category:"cold",
+name:"موهيتو",
+desc:"مشروب منعش بالنعناع",
+price:80,
+icon:"🍋",
+tag:"POPULAR"
+},
 
-    /* CANS */
+{
+id:16,
+category:"cold",
+name:"فرابتشينو",
+desc:"قهوة باردة كريمية",
+price:95,
+icon:"🥤",
+tag:"SIGNATURE"
+},
 
-    {
-        id:18,
-        category:"cans",
-        name:"Red Bull",
-        desc:"مشروب طاقة",
-        price:90,
-        icon:"🔴"
-    },
+{
+id:17,
+category:"cold",
+name:"ميلك شيك",
+desc:"ميلك شيك كريمي",
+price:90,
+icon:"🥤",
+tag:"COLD"
+},
 
-    {
-        id:19,
-        category:"cans",
-        name:"Red Bull Sugar Free",
-        desc:"مشروب طاقة بدون سكر",
-        price:90,
-        icon:"⚪"
-    },
 
-    {
-        id:20,
-        category:"cans",
-        name:"Fury",
-        desc:"مشروب طاقة",
-        price:35,
-        icon:"⚡"
-    },
+/* CANS */
 
-    {
-        id:21,
-        category:"cans",
-        name:"Sting",
-        desc:"مشروب طاقة",
-        price:30,
-        icon:"🔴"
-    },
+{
+id:18,
+category:"cans",
+name:"Red Bull",
+desc:"مشروب طاقة",
+price:90,
+icon:"🔴",
+tag:"CAN"
+},
 
-    {
-        id:22,
-        category:"cans",
-        name:"Pepsi",
-        desc:"بيبسي كان",
-        price:25,
-        icon:"🥤"
-    },
+{
+id:19,
+category:"cans",
+name:"Red Bull Sugar Free",
+desc:"مشروب طاقة بدون سكر",
+price:90,
+icon:"⚪",
+tag:"CAN"
+},
 
-    {
-        id:23,
-        category:"cans",
-        name:"Pepsi Diet",
-        desc:"بيبسي دايت",
-        price:25,
-        icon:"🥤"
-    },
+{
+id:20,
+category:"cans",
+name:"Fury",
+desc:"مشروب طاقة",
+price:35,
+icon:"⚡",
+tag:"CAN"
+},
 
-    {
-        id:24,
-        category:"cans",
-        name:"7UP",
-        desc:"مشروب غازي",
-        price:25,
-        icon:"🟢"
-    },
+{
+id:21,
+category:"cans",
+name:"Sting",
+desc:"مشروب طاقة",
+price:30,
+icon:"🔴",
+tag:"CAN"
+},
 
-    {
-        id:25,
-        category:"cans",
-        name:"Mirinda",
-        desc:"مشروب غازي",
-        price:25,
-        icon:"🟠"
-    },
+{
+id:22,
+category:"cans",
+name:"Pepsi",
+desc:"بيبسي كان",
+price:25,
+icon:"🥤",
+tag:"CAN"
+},
 
-    {
-        id:26,
-        category:"cans",
-        name:"مياه معدنية",
-        desc:"مياه معدنية",
-        price:15,
-        icon:"💧"
-    },
+{
+id:23,
+category:"cans",
+name:"Pepsi Diet",
+desc:"بيبسي دايت",
+price:25,
+icon:"🥤",
+tag:"CAN"
+},
 
-    /* DESSERT */
+{
+id:24,
+category:"cans",
+name:"7UP",
+desc:"مشروب غازي",
+price:25,
+icon:"🟢",
+tag:"CAN"
+},
 
-    {
-        id:27,
-        category:"dessert",
-        name:"وافل نوتيلا",
-        desc:"وافل بصوص نوتيلا",
-        price:95,
-        icon:"🧇"
-    },
+{
+id:25,
+category:"cans",
+name:"Mirinda",
+desc:"مشروب غازي",
+price:25,
+icon:"🟠",
+tag:"CAN"
+},
 
-    {
-        id:28,
-        category:"dessert",
-        name:"تشيز كيك",
-        desc:"تشيز كيك كريمي",
-        price:85,
-        icon:"🍰"
-    },
+{
+id:26,
+category:"cans",
+name:"مياه معدنية",
+desc:"مياه معدنية",
+price:15,
+icon:"💧",
+tag:"WATER"
+},
 
-    {
-        id:29,
-        category:"dessert",
-        name:"براوني",
-        desc:"براوني شوكولاتة",
-        price:75,
-        icon:"🍫"
-    }
+
+/* DESSERT */
+
+{
+id:27,
+category:"dessert",
+name:"وافل نوتيلا",
+desc:"وافل بصوص نوتيلا",
+price:95,
+icon:"🧇",
+tag:"DESSERT"
+},
+
+{
+id:28,
+category:"dessert",
+name:"تشيز كيك",
+desc:"تشيز كيك كريمي",
+price:85,
+icon:"🍰",
+tag:"DESSERT"
+},
+
+{
+id:29,
+category:"dessert",
+name:"براوني",
+desc:"براوني شوكولاتة",
+price:75,
+icon:"🍫",
+tag:"DESSERT"
+}
 
 ];
+
+
+/* =========================
+   STATE
+========================= */
 
 let cart = [];
 
 let currentCategory = "all";
 
-const productsEl = document.getElementById("products");
-const emptyEl = document.getElementById("empty");
-const searchEl = document.getElementById("search");
-const cartBar = document.getElementById("cartBar");
-const cartSummary = document.getElementById("cartSummary");
+
+/* =========================
+   ELEMENTS
+========================= */
+
+const productsEl =
+document.getElementById("products");
+
+const emptyEl =
+document.getElementById("empty");
+
+const searchEl =
+document.getElementById("search");
+
+const cartBar =
+document.getElementById("cartBar");
+
+const cartSummary =
+document.getElementById("cartSummary");
+
+
+/* =========================
+   RENDER PRODUCTS
+========================= */
 
 function renderProducts(){
 
-    const search = searchEl.value.toLowerCase().trim();
+const search =
+searchEl.value
+.toLowerCase()
+.trim();
 
-    const filtered = products.filter(p => {
 
-        const categoryMatch =
-            currentCategory === "all" ||
-            p.category === currentCategory;
+const filtered =
+products.filter(product=>{
 
-        const searchMatch =
-            p.name.toLowerCase().includes(search) ||
-            p.desc.toLowerCase().includes(search);
+const categoryMatch =
+currentCategory === "all" ||
+product.category === currentCategory;
 
-        return categoryMatch && searchMatch;
 
-    });
+const searchMatch =
+product.name
+.toLowerCase()
+.includes(search)
+||
+product.desc
+.toLowerCase()
+.includes(search);
 
-    productsEl.innerHTML = "";
 
-    if(filtered.length === 0){
+return categoryMatch &&
+searchMatch;
 
-        emptyEl.style.display = "block";
+});
 
-        return;
 
-    }
+productsEl.innerHTML = "";
 
-    emptyEl.style.display = "none";
 
-    filtered.forEach(product => {
+if(filtered.length === 0){
 
-        const card = document.createElement("div");
+emptyEl.style.display =
+"block";
 
-        card.className = "product";
-
-        card.innerHTML = `
-
-            <div class="product-image">
-                ${product.icon}
-            </div>
-
-            <div class="product-info">
-
-                <div class="product-name">
-                    ${product.name}
-                </div>
-
-                <div class="product-desc">
-                    ${product.desc}
-                </div>
-
-                <div class="product-bottom">
-
-                    <div class="price">
-                        ${product.price}
-                        <small>ج.م</small>
-                    </div>
-
-                    <button
-                        class="add"
-                        onclick="addToCart(${product.id})"
-                    >
-                        +
-                    </button>
-
-                </div>
-
-            </div>
-        `;
-
-        productsEl.appendChild(card);
-
-    });
+return;
 
 }
+
+
+emptyEl.style.display =
+"none";
+
+
+filtered.forEach(product=>{
+
+const card =
+document.createElement("article");
+
+card.className =
+"product";
+
+
+card.innerHTML = `
+
+<div class="product-visual">
+
+<div class="product-tag">
+${product.tag}
+</div>
+
+<div class="product-icon">
+${product.icon}
+</div>
+
+</div>
+
+
+<div class="product-content">
+
+<div class="product-name">
+${product.name}
+</div>
+
+<div class="product-description">
+${product.desc}
+</div>
+
+
+<div class="product-bottom">
+
+<div class="product-price">
+
+${product.price}
+
+<span class="currency">
+ج.م
+</span>
+
+</div>
+
+
+<button
+class="add-button"
+onclick="addToCart(${product.id})">
+
++
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+
+productsEl.appendChild(card);
+
+});
+
+}
+
+
+/* =========================
+   ADD TO CART
+========================= */
 
 function addToCart(id){
 
-    const product = products.find(p => p.id === id);
+const product =
+products.find(p=>p.id===id);
 
-    const existing = cart.find(p => p.id === id);
 
-    if(existing){
+const existing =
+cart.find(p=>p.id===id);
 
-        existing.qty++;
 
-    }else{
+if(existing){
 
-        cart.push({
-            ...product,
-            qty:1
-        });
+existing.qty++;
 
-    }
+}else{
 
-    updateCart();
+cart.push({
 
-    showToast("تم إضافة " + product.name + " للطلب ✓");
+...product,
+
+qty:1
+
+});
+
+}
+
+
+updateCart();
+
+showToast(
+"تم إضافة " +
+product.name +
+" ✓"
+);
 
 }
 
-function changeQty(id, amount){
 
-    const item = cart.find(p => p.id === id);
+/* =========================
+   CHANGE QUANTITY
+========================= */
 
-    if(!item) return;
+function changeQty(id,amount){
 
-    item.qty += amount;
+const item =
+cart.find(p=>p.id===id);
 
-    if(item.qty <= 0){
 
-        cart = cart.filter(p => p.id !== id);
+if(!item) return;
 
-    }
 
-    updateCart();
+item.qty += amount;
 
-    renderCart();
+
+if(item.qty <= 0){
+
+cart =
+cart.filter(
+p=>p.id!==id
+);
 
 }
+
+
+updateCart();
+
+renderCart();
+
+}
+
+
+/* =========================
+   UPDATE CART
+========================= */
 
 function updateCart(){
 
-    const count = cart.reduce(
-        (sum,item) => sum + item.qty,
-        0
-    );
+const count =
+cart.reduce(
+(sum,item)=>
+sum + item.qty,
+0
+);
 
-    const total = cart.reduce(
-        (sum,item) => sum + item.price * item.qty,
-        0
-    );
 
-    if(count > 0){
+const total =
+cart.reduce(
+(sum,item)=>
+sum +
+(item.price * item.qty),
+0
+);
 
-        cartBar.style.display = "block";
 
-        cartSummary.textContent =
-            `${count} منتج • ${total} ج.م`;
+if(count > 0){
 
-    }else{
+cartBar.style.display =
+"block";
 
-        cartBar.style.display = "none";
 
-    }
+cartSummary.textContent =
+count +
+" منتج • " +
+total +
+" ج.م";
+
+}else{
+
+cartBar.style.display =
+"none";
 
 }
+
+}
+
+
+/* =========================
+   OPEN CART
+========================= */
 
 function openCart(){
 
-    if(cart.length === 0){
+if(cart.length === 0){
 
-        showToast("ضيف حاجة للطلب الأول");
+showToast(
+"ضيف حاجة للطلب الأول"
+);
 
-        return;
-
-    }
-
-    renderCart();
-
-    document.getElementById("modal")
-        .classList.add("show");
+return;
 
 }
+
+
+renderCart();
+
+
+document
+.getElementById("modal")
+.classList.add("show");
+
+}
+
+
+/* =========================
+   CLOSE CART
+========================= */
 
 function closeCart(){
 
-    document.getElementById("modal")
-        .classList.remove("show");
+document
+.getElementById("modal")
+.classList.remove("show");
 
 }
+
+
+/* =========================
+   RENDER CART
+========================= */
 
 function renderCart(){
 
-    const container =
-        document.getElementById("cartItems");
+const container =
+document.getElementById("cartItems");
 
-    container.innerHTML = "";
 
-    let total = 0;
+container.innerHTML = "";
 
-    cart.forEach(item => {
 
-        total += item.price * item.qty;
+let total = 0;
 
-        const row =
-            document.createElement("div");
 
-        row.className = "cart-item";
+cart.forEach(item=>{
 
-        row.innerHTML = `
+const subtotal =
+item.price *
+item.qty;
 
-            <div>
 
-                <div class="cart-item-name">
-                    ${item.icon} ${item.name}
-                </div>
+total += subtotal;
 
-                <div class="cart-item-price">
-                    ${item.price * item.qty} ج.م
-                </div>
 
-            </div>
+const row =
+document.createElement("div");
 
-            <div class="qty">
 
-                <button onclick="changeQty(${item.id},-1)">
-                    −
-                </button>
+row.className =
+"cart-item";
 
-                <span>
-                    ${item.qty}
-                </span>
 
-                <button onclick="changeQty(${item.id},1)">
-                    +
-                </button>
+row.innerHTML = `
 
-            </div>
+<div>
 
-        `;
+<div class="cart-item-name">
 
-        container.appendChild(row);
+${item.icon}
+${item.name}
 
-    });
+</div>
 
-    document.getElementById("total").textContent =
-        total + " ج.م";
+<div class="cart-item-price">
+
+${subtotal} ج.م
+
+</div>
+
+</div>
+
+
+<div class="quantity">
+
+<button
+onclick="changeQty(${item.id},-1)">
+
+−
+
+</button>
+
+
+<span>
+
+${item.qty}
+
+</span>
+
+
+<button
+onclick="changeQty(${item.id},1)">
+
++
+
+</button>
+
+</div>
+
+`;
+
+
+container.appendChild(row);
+
+});
+
+
+document
+.getElementById("total")
+.textContent =
+total + " ج.م";
 
 }
+
+
+/* =========================
+   SEND WHATSAPP ORDER
+========================= */
 
 function sendOrder(){
 
-    if(cart.length === 0){
+if(cart.length === 0){
 
-        showToast("الطلب فاضي");
+showToast(
+"الطلب فاضي"
+);
 
-        return;
-
-    }
-
-    const customer =
-        document.getElementById("customer").value.trim()
-        || "عميل";
-
-    const table =
-        document.getElementById("table").value;
-
-    let total = 0;
-
-    let message =
-        "☕ *TRANSIT CAFE*\n" +
-        "━━━━━━━━━━━━━━\n" +
-        "🧾 *طلب جديد*\n\n";
-
-    cart.forEach(item => {
-
-        const subtotal =
-            item.price * item.qty;
-
-        total += subtotal;
-
-        message +=
-            `${item.icon} ${item.name}\n` +
-            `الكمية: ${item.qty}\n` +
-            `السعر: ${subtotal} ج.م\n\n`;
-
-    });
-
-    message +=
-        "━━━━━━━━━━━━━━\n" +
-        `👤 الاسم: ${customer}\n` +
-        `📍 المكان: ${table}\n` +
-        `💰 الإجمالي: ${total} ج.م\n\n` +
-        "TRANSIT CAFE - ABO KEBIR";
-
-    const phone = "201030516417";
-
-    const url =
-        "https://wa.me/" +
-        phone +
-        "?text=" +
-        encodeURIComponent(message);
-
-    window.open(url,"_blank");
+return;
 
 }
+
+
+const customer =
+document
+.getElementById("customer")
+.value
+.trim()
+|| "عميل";
+
+
+const table =
+document
+.getElementById("table")
+.value;
+
+
+let total = 0;
+
+
+let message =
+
+"☕ *TRANSIT CAFE*\n" +
+
+"━━━━━━━━━━━━━━\n" +
+
+"👑 *Owner: مؤمن العطار*\n\n" +
+
+"🧾 *طلب جديد*\n\n";
+
+
+cart.forEach(item=>{
+
+const subtotal =
+item.price *
+item.qty;
+
+
+total += subtotal;
+
+
+message +=
+
+item.icon +
+" *" +
+item.name +
+"*\n" +
+
+"الكمية: " +
+item.qty +
+"\n" +
+
+"السعر: " +
+subtotal +
+" ج.م\n\n";
+
+});
+
+
+message +=
+
+"━━━━━━━━━━━━━━\n" +
+
+"👤 الاسم: " +
+customer +
+"\n" +
+
+"📍 المكان: " +
+table +
+"\n" +
+
+"💰 *الإجمالي: " +
+total +
+" ج.م*\n\n" +
+
+"TRANSIT CAFE\n" +
+
+"ABO KEBIR • SHARQIA";
+
+
+const phone =
+"201030516417";
+
+
+const url =
+
+"https://wa.me/" +
+
+phone +
+
+"?text=" +
+
+encodeURIComponent(message);
+
+
+window.open(
+url,
+"_blank"
+);
+
+}
+
+
+/* =========================
+   TOAST
+========================= */
 
 function showToast(message){
 
-    const toast =
-        document.getElementById("toast");
+const toast =
+document.getElementById("toast");
 
-    toast.textContent = message;
 
-    toast.classList.add("show");
+toast.textContent =
+message;
 
-    setTimeout(() => {
 
-        toast.classList.remove("show");
+toast.classList.add("show");
 
-    },2000);
+
+setTimeout(()=>{
+
+toast.classList.remove("show");
+
+},2000);
 
 }
 
-/* CATEGORY */
 
-document.querySelectorAll(".cat")
-.forEach(button => {
+/* =========================
+   CATEGORIES
+========================= */
 
-    button.addEventListener("click",() => {
+document
+.querySelectorAll(".category")
+.forEach(button=>{
 
-        document.querySelectorAll(".cat")
-        .forEach(b => b.classList.remove("active"));
+button.addEventListener(
+"click",
+()=>{
 
-        button.classList.add("active");
-
-        currentCategory =
-            button.dataset.category;
-
-        renderProducts();
-
-        window.scrollTo({
-            top:250,
-            behavior:"smooth"
-        });
-
-    });
-
-});
-
-/* SEARCH */
-
-searchEl.addEventListener(
-    "input",
-    renderProducts
+document
+.querySelectorAll(".category")
+.forEach(btn=>
+btn.classList.remove("active")
 );
 
-/* CLOSE MODAL */
 
-document.getElementById("modal")
-.addEventListener("click",e => {
+button.classList.add("active");
 
-    if(e.target.id === "modal"){
 
-        closeCart();
+currentCategory =
+button.dataset.category;
 
-    }
+
+renderProducts();
+
+
+window.scrollTo({
+
+top:260,
+
+behavior:"smooth"
 
 });
 
-/* START */
+});
+
+});
+
+
+/* =========================
+   SEARCH
+========================= */
+
+searchEl.addEventListener(
+"input",
+renderProducts
+);
+
+
+/* =========================
+   CLOSE MODAL
+========================= */
+
+document
+.getElementById("modal")
+.addEventListener(
+"click",
+event=>{
+
+if(
+event.target.id === "modal"
+){
+
+closeCart();
+
+}
+
+});
+
+
+/* =========================
+   START
+========================= */
 
 renderProducts();
 
 </script>
 
 </body>
+
 </html>
