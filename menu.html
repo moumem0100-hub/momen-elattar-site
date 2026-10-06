@@ -1,3015 +1,1695 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRANSIT CAFE | Digital Menu</title>
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-
-<meta name="theme-color" content="#090909">
-
-<meta name="description"
-      content="TRANSIT CAFE - Digital Menu | أبو كبير | Owner: مؤمن العطار">
-
-<title>
-TRANSIT CAFE | Digital Menu
-</title>
-
-<link rel="preconnect"
-      href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600;6..96,700&display=swap"
-      rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-
-/* =========================
-   ROOT
-========================= */
-
 :root{
-
-    --gold:#d6ad60;
-    --gold-light:#f4d892;
-    --gold-dark:#9c7534;
-
-    --black:#070707;
-    --black-2:#0c0c0c;
-    --black-3:#121212;
-
-    --white:#ffffff;
-    --gray:#999999;
-    --gray-2:#666666;
-
-    --border:rgba(214,173,96,.18);
-
-    --shadow:
-        0 20px 60px rgba(0,0,0,.45);
-
+  --gold:#d99b35;
+  --gold2:#ffd477;
+  --cream:#fff1d0;
+  --bg:#070707;
+  --card:#101010;
+  --line:rgba(255,196,91,.28);
+  --muted:#aaa;
 }
 
-
-/* =========================
-   RESET
-========================= */
-
 *{
-
-    margin:0;
-    padding:0;
-
-    box-sizing:border-box;
-
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 html{
-
-    scroll-behavior:smooth;
-
+  scroll-behavior:smooth;
 }
 
 body{
-
-    background:
-
-        radial-gradient(
-            circle at 90% 0%,
-            rgba(214,173,96,.12),
-            transparent 30%
-        ),
-
-        radial-gradient(
-            circle at 0% 60%,
-            rgba(214,173,96,.06),
-            transparent 30%
-        ),
-
-        var(--black);
-
-    color:var(--white);
-
-    font-family:"Cairo",sans-serif;
-
-    min-height:100vh;
-
+  background:
+    radial-gradient(circle at 20% 10%,rgba(255,167,46,.13),transparent 25%),
+    radial-gradient(circle at 90% 30%,rgba(255,188,70,.09),transparent 25%),
+    #050505;
+  color:#fff;
+  font-family:Cairo,sans-serif;
+  overflow-x:hidden;
 }
 
+/* ===== BACKGROUND ===== */
 
-/* =========================
-   HEADER
-========================= */
-
-.header{
-
-    position:sticky;
-
-    top:0;
-
-    z-index:1000;
-
-    background:
-        rgba(7,7,7,.88);
-
-    backdrop-filter:
-        blur(20px);
-
-    border-bottom:
-        1px solid var(--border);
-
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+  background:
+    linear-gradient(115deg,transparent 20%,rgba(255,191,76,.035),transparent 45%),
+    radial-gradient(circle at 50% 50%,transparent 30%,rgba(0,0,0,.8) 100%);
 }
 
-
-.header-inner{
-
-    max-width:1200px;
-
-    margin:auto;
-
-    padding:
-        13px 18px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:15px;
-
+.particles{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+  overflow:hidden;
 }
 
+.particles span{
+  position:absolute;
+  width:3px;
+  height:3px;
+  background:var(--gold2);
+  border-radius:50%;
+  opacity:.4;
+  animation:float 8s infinite ease-in-out;
+}
+
+.particles span:nth-child(1){left:8%;top:20%;animation-delay:1s}
+.particles span:nth-child(2){left:20%;top:70%;animation-delay:3s}
+.particles span:nth-child(3){left:45%;top:15%;animation-delay:2s}
+.particles span:nth-child(4){left:70%;top:60%;animation-delay:4s}
+.particles span:nth-child(5){left:90%;top:25%;animation-delay:1.5s}
+.particles span:nth-child(6){left:55%;top:85%;animation-delay:5s}
+
+@keyframes float{
+  0%,100%{transform:translateY(0);opacity:.15}
+  50%{transform:translateY(-35px);opacity:.8}
+}
+
+/* ===== NAV ===== */
+
+.nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  height:72px;
+  border-bottom:1px solid var(--line);
+  background:rgba(5,5,5,.82);
+  backdrop-filter:blur(18px);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 5%;
+}
 
 .brand{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
+  display:flex;
+  align-items:center;
+  gap:12px;
 }
-
 
 .logo{
-
-    width:48px;
-
-    height:48px;
-
-    border-radius:15px;
-
-    border:1px solid var(--gold);
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-    color:var(--gold-light);
-
-    font-family:"Bodoni Moda",serif;
-
-    font-size:9px;
-
-    line-height:1.1;
-
-    letter-spacing:.5px;
-
-    box-shadow:
-        inset 0 0 20px rgba(214,173,96,.05);
-
+  width:48px;
+  height:48px;
+  border:1px solid var(--gold);
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  color:var(--gold2);
+  font-size:23px;
+  box-shadow:0 0 25px rgba(217,155,53,.2);
 }
 
-
-.brand-title{
-
-    font-family:"Bodoni Moda",serif;
-
-    font-size:19px;
-
-    letter-spacing:1px;
-
+.brand strong{
+  font-family:"Playfair Display",serif;
+  letter-spacing:2px;
+  font-size:20px;
 }
 
-
-.brand-sub{
-
-    color:var(--gray);
-
-    font-size:9px;
-
-    letter-spacing:1.5px;
-
+.brand small{
+  display:block;
+  color:#aaa;
+  font-size:9px;
+  letter-spacing:3px;
 }
 
-
-.main-btn{
-
-    text-decoration:none;
-
-    color:#111;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--gold-light),
-            var(--gold)
-        );
-
-    padding:
-        9px 13px;
-
-    border-radius:12px;
-
-    font-size:11px;
-
-    font-weight:900;
-
-    white-space:nowrap;
-
+.home{
+  text-decoration:none;
+  color:#111;
+  background:linear-gradient(135deg,var(--gold2),var(--gold));
+  padding:10px 18px;
+  border-radius:30px;
+  font-weight:800;
+  transition:.3s;
 }
 
+.home:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 25px rgba(255,200,90,.35);
+}
 
-/* =========================
-   HERO
-========================= */
+/* ===== HERO ===== */
 
 .hero{
-
-    max-width:1100px;
-
-    margin:auto;
-
-    padding:
-        48px 20px 20px;
-
-    text-align:center;
-
+  width:min(1400px,92%);
+  min-height:430px;
+  margin:30px auto 0;
+  position:relative;
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:28px;
+  display:flex;
+  align-items:center;
+  padding:55px;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.96) 0%,rgba(0,0,0,.72) 45%,rgba(0,0,0,.2)),
+    url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1800&q=90")
+    center/cover;
+  box-shadow:0 30px 80px rgba(0,0,0,.7);
 }
 
-
-.hero-label{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    gap:8px;
-
-    color:var(--gold-light);
-
-    border:
-        1px solid var(--border);
-
-    background:
-        rgba(214,173,96,.05);
-
-    padding:
-        7px 13px;
-
-    border-radius:100px;
-
-    font-size:10px;
-
-    letter-spacing:1.5px;
-
-    margin-bottom:20px;
-
+.hero::after{
+  content:"";
+  position:absolute;
+  width:450px;
+  height:450px;
+  right:-180px;
+  top:-180px;
+  border-radius:50%;
+  background:rgba(255,184,67,.15);
+  filter:blur(70px);
+  animation:pulse 5s infinite alternate;
 }
 
-
-.dot{
-
-    width:6px;
-
-    height:6px;
-
-    border-radius:50%;
-
-    background:var(--gold);
-
-    box-shadow:
-        0 0 12px var(--gold);
-
+@keyframes pulse{
+  from{transform:scale(.8);opacity:.3}
+  to{transform:scale(1.2);opacity:.7}
 }
 
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:600px;
+  animation:heroIn 1s ease;
+}
+
+@keyframes heroIn{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.overline{
+  letter-spacing:7px;
+  color:var(--gold2);
+  font-size:13px;
+  margin-bottom:12px;
+}
 
 .hero h1{
-
-    font-family:"Bodoni Moda",serif;
-
-    font-size:
-        clamp(42px,11vw,88px);
-
-    line-height:.95;
-
-    font-weight:600;
-
-    letter-spacing:-2px;
-
+  font-family:"Playfair Display",serif;
+  font-size:clamp(55px,9vw,110px);
+  line-height:.85;
+  letter-spacing:-4px;
 }
-
 
 .hero h1 span{
-
-    display:block;
-
-    color:var(--gold-light);
-
+  display:block;
+  color:var(--gold2);
 }
 
-
-.hero-description{
-
-    color:#aaa;
-
-    font-size:13px;
-
-    line-height:2;
-
-    max-width:520px;
-
-    margin:
-        20px auto 0;
-
+.hero p{
+  margin:25px 0;
+  color:#ddd;
+  line-height:2;
+  max-width:450px;
 }
 
-
-/* =========================
-   OWNER
-========================= */
-
-.owner-card{
-
-    max-width:620px;
-
-    margin:
-        28px auto 0;
-
-    padding:
-        14px 18px;
-
-    border:
-        1px solid var(--border);
-
-    border-radius:18px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.04),
-            rgba(214,173,96,.04)
-        );
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:12px;
-
-    box-shadow:
-        0 15px 40px rgba(0,0,0,.25);
-
+.owner{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  border:1px solid var(--gold);
+  border-radius:30px;
+  padding:8px 18px;
+  color:#f7d58d;
+  background:rgba(0,0,0,.45);
 }
 
+/* ===== INFO ===== */
 
-.owner-icon{
-
-    width:38px;
-
-    height:38px;
-
-    border-radius:12px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--gold-light),
-            var(--gold)
-        );
-
-    color:#111;
-
-    font-size:18px;
-
+.info{
+  width:min(1400px,92%);
+  margin:20px auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:rgba(15,15,15,.75);
+  backdrop-filter:blur(15px);
+  overflow:hidden;
 }
-
-
-.owner-text{
-
-    text-align:right;
-
-}
-
-
-.owner-label{
-
-    color:#777;
-
-    font-size:9px;
-
-    letter-spacing:1.5px;
-
-}
-
-
-.owner-name{
-
-    color:var(--gold-light);
-
-    font-size:15px;
-
-    font-weight:900;
-
-}
-
-
-/* =========================
-   INFO STRIP
-========================= */
-
-.info-strip{
-
-    max-width:1000px;
-
-    margin:
-        25px auto 0;
-
-    padding:
-        0 18px;
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:8px;
-
-}
-
 
 .info-box{
-
-    border:
-        1px solid var(--border);
-
-    background:
-        rgba(255,255,255,.025);
-
-    border-radius:15px;
-
-    padding:11px 8px;
-
-    text-align:center;
-
+  padding:20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:15px;
+  border-left:1px solid var(--line);
 }
 
-
-.info-box strong{
-
-    display:block;
-
-    color:var(--gold-light);
-
-    font-size:12px;
-
+.info-box:last-child{
+  border-left:0;
 }
 
-
-.info-box span{
-
-    color:#777;
-
-    font-size:8px;
-
+.info-icon{
+  width:48px;
+  height:48px;
+  border:1px solid var(--gold);
+  border-radius:14px;
+  display:grid;
+  place-items:center;
+  color:var(--gold2);
+  font-size:20px;
 }
 
-
-/* =========================
-   SEARCH
-========================= */
-
-.search-area{
-
-    max-width:760px;
-
-    margin:
-        35px auto 18px;
-
-    padding:
-        0 18px;
-
+.info strong{
+  display:block;
+  color:#fff;
 }
 
-
-.search-box{
-
-    position:relative;
-
+.info small{
+  color:#999;
+  letter-spacing:2px;
 }
 
+/* ===== TOOLBAR ===== */
+
+.toolbar{
+  width:min(1400px,92%);
+  margin:30px auto 18px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  align-items:center;
+}
 
 .search{
-
-    width:100%;
-
-    padding:
-        16px 48px 16px 18px;
-
-    background:
-        rgba(255,255,255,.035);
-
-    border:
-        1px solid var(--border);
-
-    border-radius:17px;
-
-    color:#fff;
-
-    outline:none;
-
-    font-family:inherit;
-
-    font-size:13px;
-
-    transition:.3s;
-
+  flex:1;
+  min-width:240px;
+  position:relative;
 }
 
-
-.search:focus{
-
-    border-color:
-        rgba(214,173,96,.65);
-
-    box-shadow:
-        0 0 30px rgba(214,173,96,.08);
-
+.search input{
+  width:100%;
+  height:52px;
+  border:1px solid #333;
+  border-radius:30px;
+  background:#0d0d0d;
+  color:#fff;
+  padding:0 50px 0 20px;
+  outline:none;
+  font-family:inherit;
+  transition:.3s;
 }
 
-
-.search-icon{
-
-    position:absolute;
-
-    right:17px;
-
-    top:50%;
-
-    transform:translateY(-50%);
-
-    color:var(--gold);
-
-    font-size:18px;
-
+.search input:focus{
+  border-color:var(--gold);
+  box-shadow:0 0 25px rgba(217,155,53,.12);
 }
 
-
-/* =========================
-   CATEGORIES
-========================= */
+.search span{
+  position:absolute;
+  right:20px;
+  top:13px;
+  font-size:20px;
+  color:var(--gold);
+}
 
 .categories{
-
-    max-width:1100px;
-
-    margin:auto;
-
-    padding:
-        5px 18px 28px;
-
-    display:flex;
-
-    gap:9px;
-
-    overflow-x:auto;
-
-    scrollbar-width:none;
-
+  width:min(1400px,92%);
+  margin:auto;
+  display:flex;
+  gap:9px;
+  overflow-x:auto;
+  padding-bottom:10px;
 }
-
 
 .categories::-webkit-scrollbar{
-
-    display:none;
-
+  height:3px;
 }
 
-
-.category{
-
-    flex:
-        0 0 auto;
-
-    border:
-        1px solid var(--border);
-
-    background:
-        #101010;
-
-    color:#999;
-
-    padding:
-        10px 17px;
-
-    border-radius:100px;
-
-    font-family:inherit;
-
-    font-size:11px;
-
-    font-weight:800;
-
-    cursor:pointer;
-
-    transition:.25s;
-
+.categories button{
+  white-space:nowrap;
+  border:1px solid #333;
+  background:#101010;
+  color:#ccc;
+  padding:11px 19px;
+  border-radius:25px;
+  font-family:inherit;
+  cursor:pointer;
+  transition:.3s;
 }
 
-
-.category.active{
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--gold-light),
-            var(--gold)
-        );
-
-    color:#111;
-
-    border-color:transparent;
-
-    box-shadow:
-        0 8px 25px rgba(214,173,96,.15);
-
+.categories button:hover,
+.categories button.active{
+  background:linear-gradient(135deg,var(--gold2),var(--gold));
+  color:#111;
+  border-color:var(--gold2);
+  box-shadow:0 0 25px rgba(217,155,53,.2);
 }
 
+/* ===== MAIN ===== */
 
-/* =========================
-   MENU
-========================= */
-
-.menu{
-
-    max-width:1100px;
-
-    margin:auto;
-
-    padding:
-        0 18px 150px;
-
+.main{
+  width:min(1400px,92%);
+  margin:30px auto 70px;
+  display:grid;
+  grid-template-columns:1fr 320px;
+  gap:22px;
 }
 
-
-.menu-heading{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:14px;
-
-    margin:
-        15px 0 18px;
-
+.section-title{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  border-bottom:1px solid var(--line);
+  padding-bottom:15px;
+  margin-bottom:20px;
 }
 
-
-.menu-heading h2{
-
-    font-family:"Bodoni Moda",serif;
-
-    font-size:25px;
-
+.section-title h2{
+  font-size:30px;
 }
 
-
-.menu-line{
-
-    flex:1;
-
-    height:1px;
-
-    background:
-        linear-gradient(
-            to left,
-            transparent,
-            var(--border)
-        );
-
+.section-title span{
+  color:var(--gold2);
+  letter-spacing:4px;
+  font-size:11px;
 }
 
-
-/* =========================
-   PRODUCTS GRID
-========================= */
+/* ===== PRODUCTS ===== */
 
 .products{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(2,minmax(0,1fr));
-
-    gap:12px;
-
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
 }
-
 
 .product{
-
-    position:relative;
-
-    overflow:hidden;
-
-    border:
-        1px solid var(--border);
-
-    border-radius:22px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #151515,
-            #0d0d0d
-        );
-
-    padding:10px;
-
-    transition:
-        transform .25s,
-        border-color .25s;
-
+  position:relative;
+  overflow:hidden;
+  border:1px solid #292929;
+  border-radius:18px;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.01)),
+    #0c0c0c;
+  transition:.45s cubic-bezier(.2,.8,.2,1);
+  animation:cardIn .7s both;
 }
 
+@keyframes cardIn{
+  from{
+    opacity:0;
+    transform:translateY(30px) scale(.97);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
 
 .product:hover{
-
-    transform:
-        translateY(-4px);
-
-    border-color:
-        rgba(214,173,96,.45);
-
+  transform:translateY(-8px);
+  border-color:rgba(255,204,104,.7);
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.7),
+    0 0 25px rgba(217,155,53,.1);
 }
 
-
-.product-visual{
-
-    height:145px;
-
-    border-radius:17px;
-
-    overflow:hidden;
-
-    position:relative;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    background:
-
-        radial-gradient(
-            circle at 50% 20%,
-            rgba(255,255,255,.14),
-            transparent 30%
-        ),
-
-        linear-gradient(
-            145deg,
-            #292929,
-            #0e0e0e
-        );
-
+.product-img{
+  height:190px;
+  position:relative;
+  overflow:hidden;
 }
 
-
-.product-visual::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:100px;
-
-    height:100px;
-
-    border-radius:50%;
-
-    background:
-        rgba(214,173,96,.08);
-
-    filter:blur(5px);
-
+.product-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.7s;
 }
 
-
-.product-icon{
-
-    position:relative;
-
-    z-index:2;
-
-    font-size:62px;
-
-    filter:
-        drop-shadow(
-            0 12px 12px rgba(0,0,0,.5)
-        );
-
+.product:hover .product-img img{
+  transform:scale(1.08);
 }
 
-
-.product-tag{
-
-    position:absolute;
-
-    top:9px;
-
-    right:9px;
-
-    z-index:4;
-
-    padding:
-        5px 8px;
-
-    border-radius:8px;
-
-    background:
-        rgba(0,0,0,.65);
-
-    border:
-        1px solid rgba(255,255,255,.08);
-
-    color:var(--gold-light);
-
-    font-size:8px;
-
-    font-weight:800;
-
+.product-img::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.75));
 }
 
-
-.product-content{
-
-    padding:
-        13px 3px 3px;
-
+.badge{
+  position:absolute;
+  top:12px;
+  right:12px;
+  z-index:2;
+  background:rgba(0,0,0,.7);
+  border:1px solid var(--gold2);
+  color:var(--gold2);
+  padding:5px 10px;
+  border-radius:20px;
+  font-size:10px;
+  font-weight:700;
 }
 
-
-.product-name{
-
-    font-size:14px;
-
-    font-weight:900;
-
+.product-body{
+  padding:15px;
 }
 
-
-.product-description{
-
-    color:#777;
-
-    font-size:9px;
-
-    margin-top:3px;
-
-    min-height:18px;
-
+.product h3{
+  font-size:18px;
+  margin-bottom:4px;
 }
 
+.product p{
+  color:#888;
+  font-size:11px;
+  min-height:22px;
+}
 
 .product-bottom{
-
-    margin-top:11px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:8px;
-
+  margin-top:13px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
 
-
-.product-price{
-
-    color:var(--gold-light);
-
-    font-size:16px;
-
-    font-weight:900;
-
+.price{
+  color:var(--gold2);
+  font-size:19px;
+  font-weight:800;
 }
 
-
-.currency{
-
-    color:#777;
-
-    font-size:9px;
-
-    font-weight:600;
-
+.add{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  border:1px solid var(--gold);
+  background:transparent;
+  color:var(--gold2);
+  font-size:23px;
+  cursor:pointer;
+  transition:.3s;
 }
 
-
-.add-button{
-
-    width:37px;
-
-    height:37px;
-
-    border:0;
-
-    border-radius:12px;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--gold-light),
-            var(--gold)
-        );
-
-    color:#111;
-
-    font-size:22px;
-
-    font-weight:900;
-
-    cursor:pointer;
-
-    transition:.2s;
-
+.add:hover{
+  background:var(--gold);
+  color:#111;
+  transform:rotate(90deg) scale(1.08);
 }
 
+/* ===== CART ===== */
 
-.add-button:active{
-
-    transform:scale(.88);
-
+.cart{
+  position:sticky;
+  top:92px;
+  height:max-content;
+  border:1px solid var(--line);
+  border-radius:22px;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.01)),
+    #0b0b0b;
+  padding:22px;
+  box-shadow:0 20px 50px rgba(0,0,0,.45);
 }
 
+.cart h2{
+  font-size:25px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
 
-/* =========================
-   EMPTY
-========================= */
+.cart-count{
+  color:#111;
+  background:var(--gold2);
+  min-width:30px;
+  height:30px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-size:13px;
+}
 
 .empty{
-
-    display:none;
-
-    text-align:center;
-
-    padding:50px 20px;
-
-    color:#777;
-
+  text-align:center;
+  padding:50px 10px;
+  color:#777;
 }
 
-
-/* =========================
-   CART BAR
-========================= */
-
-.cart-bar{
-
-    position:fixed;
-
-    z-index:2000;
-
-    bottom:15px;
-
-    left:15px;
-
-    right:15px;
-
-    max-width:650px;
-
-    margin:auto;
-
-    display:none;
-
-    padding:10px;
-
-    border:
-        1px solid rgba(214,173,96,.35);
-
-    border-radius:20px;
-
-    background:
-        rgba(17,17,17,.94);
-
-    backdrop-filter:
-        blur(20px);
-
-    box-shadow:
-        0 20px 70px rgba(0,0,0,.6);
-
+.empty-icon{
+  font-size:50px;
+  margin-bottom:10px;
+  opacity:.5;
 }
 
-
-.cart-inner{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:10px;
-
+.cart-items{
+  max-height:350px;
+  overflow:auto;
+  margin:15px 0;
 }
-
-
-.cart-left{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:10px;
-
-}
-
-
-.cart-icon{
-
-    width:44px;
-
-    height:44px;
-
-    border-radius:14px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    background:#222;
-
-    font-size:20px;
-
-}
-
-
-.cart-title{
-
-    font-size:12px;
-
-    font-weight:900;
-
-}
-
-
-.cart-summary{
-
-    color:var(--gold-light);
-
-    font-size:10px;
-
-    margin-top:2px;
-
-}
-
-
-.cart-button{
-
-    border:0;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--gold-light),
-            var(--gold)
-        );
-
-    color:#111;
-
-    border-radius:13px;
-
-    padding:
-        12px 17px;
-
-    font-family:inherit;
-
-    font-weight:900;
-
-    font-size:11px;
-
-    cursor:pointer;
-
-}
-
-
-/* =========================
-   MODAL
-========================= */
-
-.modal{
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:5000;
-
-    background:
-        rgba(0,0,0,.78);
-
-    backdrop-filter:
-        blur(10px);
-
-    display:none;
-
-    align-items:flex-end;
-
-    justify-content:center;
-
-}
-
-
-.modal.show{
-
-    display:flex;
-
-}
-
-
-.modal-box{
-
-    width:100%;
-
-    max-width:650px;
-
-    max-height:92vh;
-
-    overflow:auto;
-
-    background:
-        #101010;
-
-    border:
-        1px solid var(--border);
-
-    border-radius:
-        28px 28px 0 0;
-
-    padding:20px;
-
-    animation:
-        slideUp .3s ease;
-
-}
-
-
-@keyframes slideUp{
-
-    from{
-        transform:translateY(100%);
-    }
-
-    to{
-        transform:translateY(0);
-    }
-
-}
-
-
-.modal-head{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    margin-bottom:15px;
-
-}
-
-
-.modal-title{
-
-    font-family:"Bodoni Moda",serif;
-
-    font-size:24px;
-
-}
-
-
-.close{
-
-    width:38px;
-
-    height:38px;
-
-    border:
-        1px solid var(--border);
-
-    background:#181818;
-
-    color:white;
-
-    border-radius:12px;
-
-    cursor:pointer;
-
-    font-size:20px;
-
-}
-
-
-/* =========================
-   CART ITEMS
-========================= */
 
 .cart-item{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:12px;
-
-    padding:
-        14px 0;
-
-    border-bottom:
-        1px solid #222;
-
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:8px;
+  padding:12px 0;
+  border-bottom:1px solid #252525;
 }
 
-
-.cart-item-name{
-
-    font-size:13px;
-
-    font-weight:800;
-
+.cart-item strong{
+  display:block;
 }
 
-
-.cart-item-price{
-
-    color:var(--gold-light);
-
-    font-size:10px;
-
-    margin-top:3px;
-
+.cart-item small{
+  color:var(--gold2);
 }
 
-
-.quantity{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:7px;
-
+.qty{
+  display:flex;
+  align-items:center;
+  gap:8px;
 }
 
-
-.quantity button{
-
-    width:30px;
-
-    height:30px;
-
-    border:
-        1px solid var(--border);
-
-    border-radius:9px;
-
-    background:#181818;
-
-    color:white;
-
-    cursor:pointer;
-
+.qty button{
+  width:25px;
+  height:25px;
+  border-radius:50%;
+  border:1px solid #555;
+  background:#151515;
+  color:#fff;
+  cursor:pointer;
 }
-
-
-.quantity span{
-
-    min-width:20px;
-
-    text-align:center;
-
-    font-weight:900;
-
-}
-
 
 .total{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    padding:
-        18px 0;
-
-    font-size:18px;
-
-    font-weight:900;
-
+  display:flex;
+  justify-content:space-between;
+  padding:18px 0;
+  border-top:1px solid var(--line);
+  font-size:20px;
 }
 
-
-.total span:last-child{
-
-    color:var(--gold-light);
-
+.total strong{
+  color:var(--gold2);
 }
 
-
-/* =========================
-   FORM
-========================= */
-
-.form{
-
-    display:grid;
-
-    gap:10px;
-
+.order{
+  width:100%;
+  border:0;
+  padding:14px;
+  border-radius:30px;
+  background:linear-gradient(135deg,var(--gold2),var(--gold));
+  color:#111;
+  font-family:inherit;
+  font-size:16px;
+  font-weight:900;
+  cursor:pointer;
+  transition:.3s;
 }
 
-
-.input,
-.select{
-
-    width:100%;
-
-    padding:14px;
-
-    background:#171717;
-
-    border:
-        1px solid #292929;
-
-    color:#fff;
-
-    border-radius:13px;
-
-    outline:none;
-
-    font-family:inherit;
-
-    font-size:12px;
-
+.order:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 30px rgba(217,155,53,.25);
 }
 
+/* ===== PROMO ===== */
 
-.input:focus,
-.select:focus{
-
-    border-color:var(--gold);
-
+.promo{
+  margin-top:18px;
+  min-height:170px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:22px;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.9),rgba(0,0,0,.2)),
+    url("https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=800&q=85")
+    center/cover;
+  display:flex;
+  align-items:end;
 }
 
-
-.order-button{
-
-    width:100%;
-
-    border:0;
-
-    margin-top:5px;
-
-    padding:16px;
-
-    border-radius:14px;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--gold-light),
-            var(--gold)
-        );
-
-    color:#111;
-
-    font-family:inherit;
-
-    font-size:13px;
-
-    font-weight:900;
-
-    cursor:pointer;
-
+.promo h3{
+  font-size:25px;
+  color:var(--gold2);
 }
 
+/* ===== FOOTER ===== */
 
-/* =========================
-   FOOTER
-========================= */
-
-.footer{
-
-    text-align:center;
-
-    padding:
-        10px 20px 120px;
-
-    color:#555;
-
-    font-size:9px;
-
+footer{
+  border-top:1px solid var(--line);
+  background:#070707;
+  padding:45px 5%;
+  text-align:center;
 }
 
-
-.footer strong{
-
-    color:var(--gold);
-
+.footer-logo{
+  font-family:"Playfair Display",serif;
+  font-size:30px;
+  letter-spacing:5px;
 }
 
+footer p{
+  color:#777;
+  margin:10px 0;
+}
 
-/* =========================
-   TOAST
-========================= */
+.footer-owner{
+  color:var(--gold2);
+  font-size:18px;
+}
+
+/* ===== TOAST ===== */
 
 .toast{
-
-    position:fixed;
-
-    z-index:9000;
-
-    top:85px;
-
-    left:50%;
-
-    transform:
-        translateX(-50%)
-        translateY(-20px);
-
-    background:#191919;
-
-    border:
-        1px solid var(--border);
-
-    color:#fff;
-
-    padding:
-        12px 18px;
-
-    border-radius:14px;
-
-    font-size:11px;
-
-    opacity:0;
-
-    pointer-events:none;
-
-    transition:.3s;
-
+  position:fixed;
+  left:50%;
+  bottom:25px;
+  transform:translate(-50%,120px);
+  background:#151515;
+  border:1px solid var(--gold);
+  color:#fff;
+  padding:13px 22px;
+  border-radius:30px;
+  z-index:9999;
+  transition:.4s;
+  box-shadow:0 10px 40px rgba(0,0,0,.6);
 }
-
 
 .toast.show{
-
-    opacity:1;
-
-    transform:
-        translateX(-50%)
-        translateY(0);
-
+  transform:translate(-50%,0);
 }
 
+/* ===== MOBILE ===== */
 
-/* =========================
-   DESKTOP
-========================= */
+@media(max-width:1000px){
+  .main{
+    grid-template-columns:1fr;
+  }
 
-@media(min-width:700px){
+  .cart{
+    position:fixed;
+    left:12px;
+    right:12px;
+    bottom:12px;
+    top:auto;
+    z-index:500;
+    max-height:80vh;
+    transform:translateY(calc(100% - 68px));
+    transition:.4s;
+  }
 
-    .products{
+  .cart.open{
+    transform:translateY(0);
+  }
 
-        grid-template-columns:
-            repeat(3,1fr);
+  .cart h2{
+    cursor:pointer;
+  }
 
-    }
-
-    .product-visual{
-
-        height:190px;
-
-    }
-
-    .modal{
-
-        align-items:center;
-
-    }
-
-    .modal-box{
-
-        border-radius:25px;
-
-    }
-
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
 }
 
+@media(max-width:650px){
 
-@media(max-width:380px){
+  .nav{
+    height:64px;
+    padding:0 4%;
+  }
 
-    .products{
+  .brand strong{
+    font-size:16px;
+  }
 
-        grid-template-columns:1fr;
+  .brand small{
+    font-size:7px;
+  }
 
-    }
+  .logo{
+    width:40px;
+    height:40px;
+  }
 
-    .product-visual{
+  .home{
+    padding:8px 13px;
+    font-size:12px;
+  }
 
-        height:175px;
+  .hero{
+    width:94%;
+    min-height:430px;
+    padding:35px 25px;
+    border-radius:22px;
+    background-position:65% center;
+  }
 
-    }
+  .hero h1{
+    font-size:64px;
+  }
 
+  .hero p{
+    font-size:13px;
+  }
+
+  .info{
+    width:94%;
+    grid-template-columns:1fr;
+  }
+
+  .info-box{
+    border-left:0;
+    border-bottom:1px solid var(--line);
+  }
+
+  .info-box:last-child{
+    border-bottom:0;
+  }
+
+  .toolbar,
+  .categories,
+  .main{
+    width:94%;
+  }
+
+  .products{
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+
+  .product-img{
+    height:140px;
+  }
+
+  .product-body{
+    padding:11px;
+  }
+
+  .product h3{
+    font-size:14px;
+  }
+
+  .product p{
+    font-size:9px;
+  }
+
+  .price{
+    font-size:15px;
+  }
+
+  .add{
+    width:34px;
+    height:34px;
+    font-size:20px;
+  }
+
+  .section-title h2{
+    font-size:23px;
+  }
 }
 
+@media(max-width:400px){
+  .products{
+    grid-template-columns:1fr;
+  }
+
+  .product-img{
+    height:190px;
+  }
+}
 </style>
-
 </head>
-
 
 <body>
 
-
-<!-- =========================
-     HEADER
-========================= -->
-
-<header class="header">
-
-<div class="header-inner">
-
-<div class="brand">
-
-<div class="logo">
-
-TRANSIT<br>
-CAFE
-
+<div class="particles">
+  <span></span><span></span><span></span>
+  <span></span><span></span><span></span>
 </div>
 
-<div>
+<!-- NAV -->
+<nav class="nav">
+  <div class="brand">
+    <div class="logo">☕</div>
+    <div>
+      <strong>TRANSIT CAFE</strong>
+      <small>ABU KEBIR • SHARQIA</small>
+    </div>
+  </div>
 
-<div class="brand-title">
-TRANSIT CAFE
-</div>
+  <a href="index.html" class="home">⌂ الموقع الرئيسي</a>
+</nav>
 
-<div class="brand-sub">
-ABO KEBIR • PREMIUM CAFE
-</div>
-
-</div>
-
-</div>
-
-
-<a
-class="main-btn"
-href="index.html">
-
-الموقع الرئيسي
-
-</a>
-
-</div>
-
-</header>
-
-
-
-<!-- =========================
-     HERO
-========================= -->
-
+<!-- HERO -->
 <section class="hero">
+  <div class="hero-content">
 
-<div class="hero-label">
+    <div class="overline">DIGITAL MENU</div>
 
-<span class="dot"></span>
+    <h1>
+      TRANSIT
+      <span>CAFE</span>
+    </h1>
 
-DIGITAL MENU
+    <p>
+      أهلاً بيك في ترانزيت كافيه.
+      اختار طلبك واستمتع بتجربة مختلفة
+      من أول رشفة لآخر لقمة.
+    </p>
 
-</div>
+    <div class="owner">
+      👑 <span>OWNER : <b>مؤمن العطار</b></span>
+    </div>
 
+  </div>
+</section>
 
-<h1>
+<!-- INFO -->
+<section class="info">
 
-TRANSIT
+  <div class="info-box">
+    <div class="info-icon">📍</div>
+    <div>
+      <strong>أبو كبير</strong>
+      <small>SHARQIA</small>
+    </div>
+  </div>
 
-<span>CAFE</span>
+  <div class="info-box">
+    <div class="info-icon">◷</div>
+    <div>
+      <strong>8 AM — 2 AM</strong>
+      <small>DAILY</small>
+    </div>
+  </div>
 
-</h1>
-
-
-<p class="hero-description">
-
-أهلاً بيك في ترانزيت كافيه.
-<br>
-
-اختار طلبك واستمتع بتجربة مختلفة
-من أول رشفة لآخر لقمة.
-
-</p>
-
-
-
-<!-- OWNER -->
-
-<div class="owner-card">
-
-<div class="owner-icon">
-♛
-</div>
-
-
-<div class="owner-text">
-
-<div class="owner-label">
-OWNER &amp; FOUNDER
-</div>
-
-<div class="owner-name">
-مؤمن العطار
-</div>
-
-</div>
-
-</div>
+  <div class="info-box">
+    <div class="info-icon">☕</div>
+    <div>
+      <strong>PREMIUM</strong>
+      <small>COFFEE & FOOD</small>
+    </div>
+  </div>
 
 </section>
 
-
-
-<!-- =========================
-     INFO
-========================= -->
-
-<div class="info-strip">
-
-<div class="info-box">
-
-<strong>
-أبو كبير
-</strong>
-
-<span>
-SHARQIA
-</span>
-
+<!-- SEARCH -->
+<div class="toolbar">
+  <div class="search">
+    <span>⌕</span>
+    <input
+      id="search"
+      type="text"
+      placeholder="ابحث عن منتج..."
+      oninput="searchProducts()"
+    >
+  </div>
 </div>
 
-
-<div class="info-box">
-
-<strong>
-8 AM — 2 AM
-</strong>
-
-<span>
-DAILY
-</span>
-
-</div>
-
-
-<div class="info-box">
-
-<strong>
-PREMIUM
-</strong>
-
-<span>
-COFFEE &amp; FOOD
-</span>
-
-</div>
-
-</div>
-
-
-
-<!-- =========================
-     SEARCH
-========================= -->
-
-<div class="search-area">
-
-<div class="search-box">
-
-<span class="search-icon">
-⌕
-</span>
-
-<input
-id="search"
-class="search"
-type="search"
-placeholder="ابحث عن قهوة، أكل، مشروب..."
->
-
-</div>
-
-</div>
-
-
-
-<!-- =========================
-     CATEGORIES
-========================= -->
-
+<!-- CATEGORIES -->
 <div class="categories">
 
-<button
-class="category active"
-data-category="all">
+  <button class="active" onclick="filterProducts('all',this)">
+    الكل
+  </button>
 
-الكل
+  <button onclick="filterProducts('breakfast',this)">
+    🍳 فطار
+  </button>
 
-</button>
+  <button onclick="filterProducts('coffee',this)">
+    ☕ قهوة
+  </button>
 
+  <button onclick="filterProducts('cold',this)">
+    🧊 مشروبات
+  </button>
 
-<button
-class="category"
-data-category="breakfast">
+  <button onclick="filterProducts('cans',this)">
+    🥤 كانزات
+  </button>
 
-🍳 فطار
-
-</button>
-
-
-<button
-class="category"
-data-category="coffee">
-
-☕ قهوة
-
-</button>
-
-
-<button
-class="category"
-data-category="cold">
-
-🧊 ساقع
-
-</button>
-
-
-<button
-class="category"
-data-category="cans">
-
-🥤 كانزات
-
-</button>
-
-
-<button
-class="category"
-data-category="dessert">
-
-🍰 حلويات
-
-</button>
+  <button onclick="filterProducts('dessert',this)">
+    🍰 حلويات
+  </button>
 
 </div>
 
+<!-- MAIN -->
+<main class="main">
 
+  <section>
 
-<!-- =========================
-     MENU
-========================= -->
+    <div class="section-title">
+      <div>
+        <span>OUR MENU</span>
+        <h2>قائمة ترانزيت</h2>
+      </div>
 
-<main class="menu">
+      <span>FRESH • PREMIUM</span>
+    </div>
 
+    <div class="products" id="products">
 
-<div class="menu-heading">
+      <!-- 1 -->
+      <article class="product"
+        data-category="breakfast"
+        data-name="بان كيك بالعسل">
 
-<h2>
-Our Menu
-</h2>
+        <div class="product-img">
+          <span class="badge">BREAKFAST</span>
+          <img src="https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&w=900&q=90">
+        </div>
 
-<div class="menu-line"></div>
+        <div class="product-body">
+          <h3>بان كيك بالعسل</h3>
+          <p>بان كيك طازج بالعسل</p>
 
-</div>
+          <div class="product-bottom">
+            <span class="price">110 ج.م</span>
+            <button class="add" onclick="addToCart('بان كيك بالعسل',110)">+</button>
+          </div>
+        </div>
+      </article>
 
+      <!-- 2 -->
+      <article class="product"
+        data-category="breakfast"
+        data-name="بيض بنديكت">
 
-<div
-id="products"
-class="products">
-</div>
+        <div class="product-img">
+          <span class="badge">BREAKFAST</span>
+          <img src="https://images.unsplash.com/photo-1608039829572-78524f79c4c7?auto=format&fit=crop&w=900&q=90">
+        </div>
 
+        <div class="product-body">
+          <h3>بيض بنديكت</h3>
+          <p>بيض بطريقة بنديكت</p>
 
-<div
-id="empty"
-class="empty">
+          <div class="product-bottom">
+            <span class="price">95 ج.م</span>
+            <button class="add" onclick="addToCart('بيض بنديكت',95)">+</button>
+          </div>
+        </div>
+      </article>
 
-مفيش منتجات مطابقة للبحث 🔎
+      <!-- 3 -->
+      <article class="product"
+        data-category="breakfast"
+        data-name="أفوكادو توست">
 
-</div>
+        <div class="product-img">
+          <span class="badge">BREAKFAST</span>
+          <img src="https://images.unsplash.com/photo-1541519227354-08fa5d50c44d?auto=format&fit=crop&w=900&q=90">
+        </div>
+
+        <div class="product-body">
+          <h3>أفوكادو توست</h3>
+          <p>توست بالأفوكادو الطازج</p>
+
+          <div class="product-bottom">
+            <span class="price">105 ج.م</span>
+            <button class="add" onclick="addToCart('أفوكادو توست',105)">+</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="product"
+        data-category="breakfast"
+        data-name="شكشوكة ترانزيت">
+
+        <div class="product-img">
+          <span class="badge">SIGNATURE</span>
+          <img src="https://images.unsplash.com/photo-1590412200988-a436970781fa?auto=format&fit=crop&w=900&q=90">
+        </div>
+
+        <div class="product-body">
+          <h3>شكشوكة ترانزيت</h3>
+          <p>شكشوكة على طريقة ترانزيت</p>
+
+          <div class="product-bottom">
+            <span class="price">75 ج.م</span>
+            <button class="add" onclick="addToCart('شكشوكة ترانزيت',75)">+</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5 -->
+      <article class="product"
+        data-category="breakfast"
+        data-name="فول وطعمية بلدي">
+
+        <div class="product-img">
+          <span class="badge">EGYPTIAN</span>
+          <img src="https://images.unsplash.com/photo-1628102491629-778571d893a3?auto=format&fit=crop&w=900&q=90">
+        </div>
+
+        <div class="product-body">
+          <h3>فول وطعمية بلدي</h3>
+          <p>فطار مصري أصيل</p>
+
+          <div class="product-bottom">
+            <span class="price">60 ج.م</span>
+            <button class="add" onclick="addToCart('فول وطعمية بلدي',60)">+</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6 -->
+      <article class="product"
+        data-category="breakfast"
+        data-name="أومليت جبنة">
+
+        <div class="product-img">
+          <span class="badge">BREAKFAST</span>
+          <img src="https://images.unsplash.com/photo-1510693206972-df098f7b9c1a?auto=format&fit=crop&w=900&q=90">
+        </div>
+
+        <div class="product-body">
+          <h3>أومليت جبنة</h3>
+          <p>أومليت بالجبنة</p>
+
+          <div class="product-bottom">
+            <span class="price">85 ج.م</span>
+            <button class="add" onclick="addToCart('أومليت جبنة',85)">+</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 7 -->
+      <article class="product"
+        data-category="coffee"
+        data-name="كابتشينو">
+
+        <div class="product-img">
+          <span class="badge">COFFEE</span>
+          <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=900&q=90">
+        </div>
+
+        <div class="product-body">
+          <h3>كابتشينو</h3>
+          <p>إسبريسو وحليب ورغوة</p>
+
+          <div class="product-bottom">
+            <span class="price">65 ج.م</span>
+            <button class="add" onclick="addToCart('كابتشينو',65)">+</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 8 -->
+      <article class="product"
+        data-category="coffee"
+        data-name="لاتيه">
+
+        <div class="product-img">
+          <span class="badge">COFFEE</span>
+          <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=900&q=90">
+        </div>
+
+        <div class="product-body">
+          <h3>لاتيه</h3>
+          <p>قهوة ناعمة بالحليب</p>
+
+          <div class="product-bottom">
+            <span class="price">70 ج.م</span>
+            <button class="add" onclick="addToCart('لاتيه',70)">+</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 9 -->
+      <article class="product"
+        data-category="coffee"
+        data-name="سبانش لاتيه">
+
+        <div class="product-img">
+          <span class="badge">POPULAR</span>
+          <img src="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?auto=format&fit=crop&w=900&q=90">
+        </div>
+
+        <div class="product-body">
+          <h3>سبانش لاتيه</h3>
+          <p>لاتيه بنكهة سبانش</p>
+
+          <div class="product-bottom">
+            <span class="price">85 ج.م</span>
+            <button class="add" onclick="addToCart('سبانش لاتيه',85)">+</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 10 -->
+      <article class="product"
+        data-category="coffee"
+        data-name="موكا">
+
+        <div class="product-img">
+          <span class="badge">COFFEE</span>
+          <img src="https://images.unsplash.com/photo-1579888071069-c107a6f79d82?auto=format&fit=crop&w=900&q=90">
+        </div>
+
+        <div class="product-body">
+          <h3>موكا</h3>
+          <p>قهوة وشوكولاتة</p>
+
+          <div class="product-bottom">
+            <span class="price">80 ج.م</span>
+            <button class="add" onclick="addToCart('موكا',80)">+</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 11 -->
+      <article class="product"
+        data-category="coffee"
+        data-name="إسبريسو">
+
+        <div class="product-img">
+          <span class="badge">CLASSIC</span>
+          <img src="https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?auto=format&fit=crop&w=900&q=90">
+        </div>
+
+        <div class="product-body">
+          <h3>إسبريسو</h3>
+          <p>شوت إسبريسو مركز</p>
+
+          <div class="product-bottom">
+            <span class="price">45 ج.م</span>
+            <button class="add" onclick="addToCart('إسبريسو',45)">+</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 12 -->
+      <article class="product"
+        data-category="coffee"
+        data-name="قهوة تركي">
+
+        <div class="product-img">
+          <span class="badge">CLASSIC</span>
+          <img src="https://images.unsplash.com/photo-1610889556528-9a770e32642f?auto=format&fit=crop&w=900&q=90">
+        </div>
+
+        <div class="product-body">
+          <h3>قهوة تركي</h3>
+          <p>قهوة تركي أصيلة</p>
+
+          <div class="product-bottom">
+            <span class="price">40 ج.م</span>
+            <button class="add" onclick="addToCart('قهوة تركي',40)">+</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 13 -->
+      <article class="product"
+        data-category="cold"
+        data-name="آيس كوفي">
+
+        <div class="product-img">
+          <span class="badge">COLD</span>
+          <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=900&q=90">
+        </div>
+
+        <div class="product-body">
+          <h3>آيس كوفي</h3>
+          <p>قهوة باردة منعشة</p>
+
+          <div class="product-bottom">
+            <span class="price">75 ج.م</span>
+            <button class="add" onclick="addToCart('آيس كوفي',75)">+</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 14 -->
+      <article class="product"
+        data-category="cold"
+        data-name="آيس لاتيه">
+
+        <div class="product-img">
+          <span class="badge">COLD</span>
+          <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=900&q=90">
+        </div>
+
+        <div class="product-body">
+          <h3>آيس لاتيه</h3>
+          <p>لاتيه مثلج</p>
+
+          <div class="product-bottom">
+            <span class="price">75 ج.م</span>
+            <button class="add" onclick="addToCart('آيس لاتيه',75)">+</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 15 -->
+      <article class="product"
+        data-category="cold"
+        data-name="موهيتو">
+
+        <div class="product-img">
+          <span class="badge">FRESH</span>
+          <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=900&q=90">
+        </div>
+
+        <div class="product-body">
+          <h3>موهيتو</h3>
+          <p>مشروب منعش</p>
+
+          <div class="product-bottom">
+            <span class="price">80 ج.م</span>
+            <button class="add" onclick="addToCart('موهيتو',80)">+</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 16 -->
+      <article class="product"
+        data-category="cold"
+        data-name="فرابتشينو">
+
+        <div class="product-img">
+          <span class="badge">SPECIAL</span>
+          <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=900&q=90">
+        </div>
+
+        <div class="product-body">
+          <h3>فرابتشينو</h3>
+          <p>قهوة مثلجة كريمية</p>
+
+          <div class="product-bottom">
+            <span class="price">95 ج.م</span>
+            <button class="add" onclick="addToCart('فرابتشينو',95)">+</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 17 -->
+      <article class="product"
+        data-category="dessert"
+        data-name="وافل نوتيلا">
+
+        <div class="product-img">
+          <span class="badge">DESSERT</span>
+          <img src="https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=900&q=90">
+        </div>
+
+        <div class="product-body">
+          <h3>وافل نوتيلا</h3>
+          <p>وافل مع نوتيلا</p>
+
+          <div class="product-bottom">
+            <span class="price">95 ج.م</span>
+            <button class="add" onclick="addToCart('وافل نوتيلا',95)">+</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 18 -->
+      <article class="product"
+        data-category="dessert"
+        data-name="تشيز كيك">
+
+        <div class="product-img">
+          <span class="badge">DESSERT</span>
+          <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=900&q=90">
+        </div>
+
+        <div class="product-body">
+          <h3>تشيز كيك</h3>
+          <p>تشيز كيك كريمي</p>
+
+          <div class="product-bottom">
+            <span class="price">85 ج.م</span>
+            <button class="add" onclick="addToCart('تشيز كيك',85)">+</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 19 -->
+      <article class="product"
+        data-category="dessert"
+        data-name="براوني">
+
+        <div class="product-img">
+          <span class="badge">DESSERT</span>
+          <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=900&q=90">
+        </div>
+
+        <div class="product-body">
+          <h3>براوني</h3>
+          <p>براوني شوكولاتة</p>
+
+          <div class="product-bottom">
+            <span class="price">75 ج.م</span>
+            <button class="add" onclick="addToCart('براوني',75)">+</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- CART -->
+  <aside class="cart" id="cart">
+
+    <h2 onclick="toggleCart()">
+      🛒 طلبك الحالي
+      <span class="cart-count" id="cartCount">0</span>
+    </h2>
+
+    <div class="cart-items" id="cartItems">
+
+      <div class="empty">
+        <div class="empty-icon">🛍️</div>
+        <p>مفيش منتجات في السلة</p>
+        <small>اختار اللي يعجبك واضفه للطلب</small>
+      </div>
+
+    </div>
+
+    <div class="total">
+      <span>الإجمالي</span>
+      <strong><span id="total">0</span> ج.م</strong>
+    </div>
+
+    <button class="order" onclick="sendOrder()">
+      إرسال الطلب عبر واتساب
+    </button>
+
+    <div class="promo">
+      <h3>Good Coffee.<br>Better Mood.</h3>
+    </div>
+
+  </aside>
 
 </main>
 
+<footer>
 
+  <div class="footer-logo">TRANSIT CAFE</div>
 
-<!-- =========================
-     FOOTER
-========================= -->
+  <p>ABU KEBIR • SHARQIA</p>
 
-<footer class="footer">
+  <div class="footer-owner">
+    👑 مؤمن العطار
+  </div>
 
-<div>
-TRANSIT CAFE
-</div>
+  <p>
+    📍 أبو كبير — بعد مطعم الصياد — الطريق الرئيسي
+  </p>
 
-<div>
-Owner &amp; Founder:
-<strong>
-مؤمن العطار
-</strong>
-</div>
+  <p>
+    ☎ 01030516417
+  </p>
 
-<div style="margin-top:6px">
-ABO KEBIR • SHARQIA
-</div>
+  <p>
+    © 2026 TRANSIT CAFE — All Rights Reserved
+  </p>
 
 </footer>
 
-
-
-<!-- =========================
-     CART BAR
-========================= -->
-
-<div
-id="cartBar"
-class="cart-bar">
-
-<div class="cart-inner">
-
-
-<div class="cart-left">
-
-<div class="cart-icon">
-🛒
+<div class="toast" id="toast">
+  تمت إضافة المنتج للسلة ✓
 </div>
-
-
-<div>
-
-<div class="cart-title">
-طلبك الحالي
-</div>
-
-<div
-id="cartSummary"
-class="cart-summary">
-
-0 منتج • 0 ج.م
-
-</div>
-
-</div>
-
-</div>
-
-
-<button
-class="cart-button"
-onclick="openCart()">
-
-عرض الطلب
-
-</button>
-
-
-</div>
-
-</div>
-
-
-
-<!-- =========================
-     CART MODAL
-========================= -->
-
-<div
-id="modal"
-class="modal">
-
-<div class="modal-box">
-
-
-<div class="modal-head">
-
-<div class="modal-title">
-طلبك
-</div>
-
-<button
-class="close"
-onclick="closeCart()">
-
-×
-
-</button>
-
-</div>
-
-
-<div id="cartItems">
-</div>
-
-
-<div class="total">
-
-<span>
-الإجمالي
-</span>
-
-<span id="total">
-0 ج.م
-</span>
-
-</div>
-
-
-
-<div class="form">
-
-
-<input
-id="customer"
-class="input"
-placeholder="اسمك (اختياري)"
->
-
-
-<select
-id="table"
-class="select">
-
-<option value="تيك أواي">
-🥡 تيك أواي
-</option>
-
-<option value="ترابيزة 1">
-ترابيزة 1
-</option>
-
-<option value="ترابيزة 2">
-ترابيزة 2
-</option>
-
-<option value="ترابيزة 3">
-ترابيزة 3
-</option>
-
-<option value="ترابيزة 4">
-ترابيزة 4
-</option>
-
-<option value="ترابيزة 5">
-ترابيزة 5
-</option>
-
-<option value="ترابيزة 6">
-ترابيزة 6
-</option>
-
-<option value="ترابيزة 7">
-ترابيزة 7
-</option>
-
-<option value="ترابيزة 8">
-ترابيزة 8
-</option>
-
-<option value="ترابيزة 9">
-ترابيزة 9
-</option>
-
-<option value="ترابيزة 10">
-ترابيزة 10
-</option>
-
-<option value="ترابيزة 11">
-ترابيزة 11
-</option>
-
-<option value="ترابيزة 12">
-ترابيزة 12
-</option>
-
-</select>
-
-
-<button
-class="order-button"
-onclick="sendOrder()">
-
-📲 إرسال الطلب على واتساب
-
-</button>
-
-
-</div>
-
-</div>
-
-</div>
-
-
-
-<div
-id="toast"
-class="toast">
-</div>
-
-
 
 <script>
 
 /* =========================
-   PRODUCTS
-========================= */
-
-const products = [
-
-/* BREAKFAST */
-
-{
-id:1,
-category:"breakfast",
-name:"بان كيك بالعسل",
-desc:"بان كيك طازج بالعسل",
-price:110,
-icon:"🥞",
-tag:"BREAKFAST"
-},
-
-{
-id:2,
-category:"breakfast",
-name:"بيض بنيديكت",
-desc:"بيض بطريقة بنيديكت",
-price:95,
-icon:"🍳",
-tag:"BREAKFAST"
-},
-
-{
-id:3,
-category:"breakfast",
-name:"أفوكادو توست",
-desc:"توست بالأفوكادو الطازج",
-price:105,
-icon:"🥑",
-tag:"BREAKFAST"
-},
-
-{
-id:4,
-category:"breakfast",
-name:"شكشوكة ترانزيت",
-desc:"شكشوكة على طريقة ترانزيت",
-price:75,
-icon:"🍳",
-tag:"SIGNATURE"
-},
-
-{
-id:5,
-category:"breakfast",
-name:"فول وطعمية بلدي",
-desc:"فطار مصري أصيل",
-price:60,
-icon:"🫘",
-tag:"EGYPTIAN"
-},
-
-{
-id:6,
-category:"breakfast",
-name:"أومليت جبنة",
-desc:"أومليت بالجبنة",
-price:85,
-icon:"🍳",
-tag:"BREAKFAST"
-},
-
-
-/* COFFEE */
-
-{
-id:7,
-category:"coffee",
-name:"كابتشينو",
-desc:"إسبريسو وحليب ورغوة",
-price:65,
-icon:"☕",
-tag:"COFFEE"
-},
-
-{
-id:8,
-category:"coffee",
-name:"لاتيه",
-desc:"قهوة ناعمة بالحليب",
-price:70,
-icon:"☕",
-tag:"COFFEE"
-},
-
-{
-id:9,
-category:"coffee",
-name:"سبانش لاتيه",
-desc:"لاتيه بنكهة سبانش",
-price:85,
-icon:"🥛",
-tag:"POPULAR"
-},
-
-{
-id:10,
-category:"coffee",
-name:"موكا",
-desc:"قهوة وشوكولاتة",
-price:80,
-icon:"🍫",
-tag:"COFFEE"
-},
-
-{
-id:11,
-category:"coffee",
-name:"إسبريسو",
-desc:"شوت إسبريسو مركز",
-price:45,
-icon:"☕",
-tag:"CLASSIC"
-},
-
-{
-id:12,
-category:"coffee",
-name:"قهوة تركي",
-desc:"قهوة تركي أصيلة",
-price:40,
-icon:"☕",
-tag:"CLASSIC"
-},
-
-
-/* COLD */
-
-{
-id:13,
-category:"cold",
-name:"آيس كوفي",
-desc:"قهوة مثلجة منعشة",
-price:75,
-icon:"🧊",
-tag:"COLD"
-},
-
-{
-id:14,
-category:"cold",
-name:"آيس لاتيه",
-desc:"لاتيه مثلج",
-price:75,
-icon:"🥛",
-tag:"COLD"
-},
-
-{
-id:15,
-category:"cold",
-name:"موهيتو",
-desc:"مشروب منعش بالنعناع",
-price:80,
-icon:"🍋",
-tag:"POPULAR"
-},
-
-{
-id:16,
-category:"cold",
-name:"فرابتشينو",
-desc:"قهوة باردة كريمية",
-price:95,
-icon:"🥤",
-tag:"SIGNATURE"
-},
-
-{
-id:17,
-category:"cold",
-name:"ميلك شيك",
-desc:"ميلك شيك كريمي",
-price:90,
-icon:"🥤",
-tag:"COLD"
-},
-
-
-/* CANS */
-
-{
-id:18,
-category:"cans",
-name:"Red Bull",
-desc:"مشروب طاقة",
-price:90,
-icon:"🔴",
-tag:"CAN"
-},
-
-{
-id:19,
-category:"cans",
-name:"Red Bull Sugar Free",
-desc:"مشروب طاقة بدون سكر",
-price:90,
-icon:"⚪",
-tag:"CAN"
-},
-
-{
-id:20,
-category:"cans",
-name:"Fury",
-desc:"مشروب طاقة",
-price:35,
-icon:"⚡",
-tag:"CAN"
-},
-
-{
-id:21,
-category:"cans",
-name:"Sting",
-desc:"مشروب طاقة",
-price:30,
-icon:"🔴",
-tag:"CAN"
-},
-
-{
-id:22,
-category:"cans",
-name:"Pepsi",
-desc:"بيبسي كان",
-price:25,
-icon:"🥤",
-tag:"CAN"
-},
-
-{
-id:23,
-category:"cans",
-name:"Pepsi Diet",
-desc:"بيبسي دايت",
-price:25,
-icon:"🥤",
-tag:"CAN"
-},
-
-{
-id:24,
-category:"cans",
-name:"7UP",
-desc:"مشروب غازي",
-price:25,
-icon:"🟢",
-tag:"CAN"
-},
-
-{
-id:25,
-category:"cans",
-name:"Mirinda",
-desc:"مشروب غازي",
-price:25,
-icon:"🟠",
-tag:"CAN"
-},
-
-{
-id:26,
-category:"cans",
-name:"مياه معدنية",
-desc:"مياه معدنية",
-price:15,
-icon:"💧",
-tag:"WATER"
-},
-
-
-/* DESSERT */
-
-{
-id:27,
-category:"dessert",
-name:"وافل نوتيلا",
-desc:"وافل بصوص نوتيلا",
-price:95,
-icon:"🧇",
-tag:"DESSERT"
-},
-
-{
-id:28,
-category:"dessert",
-name:"تشيز كيك",
-desc:"تشيز كيك كريمي",
-price:85,
-icon:"🍰",
-tag:"DESSERT"
-},
-
-{
-id:29,
-category:"dessert",
-name:"براوني",
-desc:"براوني شوكولاتة",
-price:75,
-icon:"🍫",
-tag:"DESSERT"
-}
-
-];
-
-
-/* =========================
-   STATE
+   CART
 ========================= */
 
 let cart = [];
 
-let currentCategory = "all";
+function addToCart(name,price){
 
+  const existing = cart.find(item => item.name === name);
 
-/* =========================
-   ELEMENTS
-========================= */
+  if(existing){
+    existing.qty++;
+  }else{
+    cart.push({
+      name:name,
+      price:price,
+      qty:1
+    });
+  }
 
-const productsEl =
-document.getElementById("products");
-
-const emptyEl =
-document.getElementById("empty");
-
-const searchEl =
-document.getElementById("search");
-
-const cartBar =
-document.getElementById("cartBar");
-
-const cartSummary =
-document.getElementById("cartSummary");
-
-
-/* =========================
-   RENDER PRODUCTS
-========================= */
-
-function renderProducts(){
-
-const search =
-searchEl.value
-.toLowerCase()
-.trim();
-
-
-const filtered =
-products.filter(product=>{
-
-const categoryMatch =
-currentCategory === "all" ||
-product.category === currentCategory;
-
-
-const searchMatch =
-product.name
-.toLowerCase()
-.includes(search)
-||
-product.desc
-.toLowerCase()
-.includes(search);
-
-
-return categoryMatch &&
-searchMatch;
-
-});
-
-
-productsEl.innerHTML = "";
-
-
-if(filtered.length === 0){
-
-emptyEl.style.display =
-"block";
-
-return;
-
+  renderCart();
+  showToast("تمت إضافة " + name + " للسلة ✓");
 }
 
+function removeItem(name){
 
-emptyEl.style.display =
-"none";
+  const item = cart.find(x => x.name === name);
 
+  if(!item) return;
 
-filtered.forEach(product=>{
+  item.qty--;
 
-const card =
-document.createElement("article");
+  if(item.qty <= 0){
+    cart = cart.filter(x => x.name !== name);
+  }
 
-card.className =
-"product";
-
-
-card.innerHTML = `
-
-<div class="product-visual">
-
-<div class="product-tag">
-${product.tag}
-</div>
-
-<div class="product-icon">
-${product.icon}
-</div>
-
-</div>
-
-
-<div class="product-content">
-
-<div class="product-name">
-${product.name}
-</div>
-
-<div class="product-description">
-${product.desc}
-</div>
-
-
-<div class="product-bottom">
-
-<div class="product-price">
-
-${product.price}
-
-<span class="currency">
-ج.م
-</span>
-
-</div>
-
-
-<button
-class="add-button"
-onclick="addToCart(${product.id})">
-
-+
-
-</button>
-
-</div>
-
-</div>
-
-`;
-
-
-productsEl.appendChild(card);
-
-});
-
+  renderCart();
 }
-
-
-/* =========================
-   ADD TO CART
-========================= */
-
-function addToCart(id){
-
-const product =
-products.find(p=>p.id===id);
-
-
-const existing =
-cart.find(p=>p.id===id);
-
-
-if(existing){
-
-existing.qty++;
-
-}else{
-
-cart.push({
-
-...product,
-
-qty:1
-
-});
-
-}
-
-
-updateCart();
-
-showToast(
-"تم إضافة " +
-product.name +
-" ✓"
-);
-
-}
-
-
-/* =========================
-   CHANGE QUANTITY
-========================= */
-
-function changeQty(id,amount){
-
-const item =
-cart.find(p=>p.id===id);
-
-
-if(!item) return;
-
-
-item.qty += amount;
-
-
-if(item.qty <= 0){
-
-cart =
-cart.filter(
-p=>p.id!==id
-);
-
-}
-
-
-updateCart();
-
-renderCart();
-
-}
-
-
-/* =========================
-   UPDATE CART
-========================= */
-
-function updateCart(){
-
-const count =
-cart.reduce(
-(sum,item)=>
-sum + item.qty,
-0
-);
-
-
-const total =
-cart.reduce(
-(sum,item)=>
-sum +
-(item.price * item.qty),
-0
-);
-
-
-if(count > 0){
-
-cartBar.style.display =
-"block";
-
-
-cartSummary.textContent =
-count +
-" منتج • " +
-total +
-" ج.م";
-
-}else{
-
-cartBar.style.display =
-"none";
-
-}
-
-}
-
-
-/* =========================
-   OPEN CART
-========================= */
-
-function openCart(){
-
-if(cart.length === 0){
-
-showToast(
-"ضيف حاجة للطلب الأول"
-);
-
-return;
-
-}
-
-
-renderCart();
-
-
-document
-.getElementById("modal")
-.classList.add("show");
-
-}
-
-
-/* =========================
-   CLOSE CART
-========================= */
-
-function closeCart(){
-
-document
-.getElementById("modal")
-.classList.remove("show");
-
-}
-
-
-/* =========================
-   RENDER CART
-========================= */
 
 function renderCart(){
 
-const container =
-document.getElementById("cartItems");
+  const container = document.getElementById("cartItems");
+  const count = document.getElementById("cartCount");
+  const total = document.getElementById("total");
 
+  let totalQty = 0;
+  let totalPrice = 0;
 
-container.innerHTML = "";
+  cart.forEach(item=>{
+    totalQty += item.qty;
+    totalPrice += item.price * item.qty;
+  });
 
+  count.textContent = totalQty;
+  total.textContent = totalPrice;
 
-let total = 0;
+  if(cart.length === 0){
 
+    container.innerHTML = `
+      <div class="empty">
+        <div class="empty-icon">🛍️</div>
+        <p>مفيش منتجات في السلة</p>
+        <small>اختار اللي يعجبك واضفه للطلب</small>
+      </div>
+    `;
 
-cart.forEach(item=>{
+    return;
+  }
 
-const subtotal =
-item.price *
-item.qty;
+  container.innerHTML = cart.map(item => `
 
+    <div class="cart-item">
 
-total += subtotal;
+      <div>
+        <strong>${item.name}</strong>
+        <small>${item.price} ج.م × ${item.qty}</small>
+      </div>
 
+      <div class="qty">
+        <button onclick="removeItem('${item.name}')">−</button>
+        <b>${item.qty}</b>
+        <button onclick="addToCart('${item.name}',${item.price})">+</button>
+      </div>
 
-const row =
-document.createElement("div");
+    </div>
 
-
-row.className =
-"cart-item";
-
-
-row.innerHTML = `
-
-<div>
-
-<div class="cart-item-name">
-
-${item.icon}
-${item.name}
-
-</div>
-
-<div class="cart-item-price">
-
-${subtotal} ج.م
-
-</div>
-
-</div>
-
-
-<div class="quantity">
-
-<button
-onclick="changeQty(${item.id},-1)">
-
-−
-
-</button>
-
-
-<span>
-
-${item.qty}
-
-</span>
-
-
-<button
-onclick="changeQty(${item.id},1)">
-
-+
-
-</button>
-
-</div>
-
-`;
-
-
-container.appendChild(row);
-
-});
-
-
-document
-.getElementById("total")
-.textContent =
-total + " ج.م";
-
+  `).join("");
 }
 
-
 /* =========================
-   SEND WHATSAPP ORDER
+   WHATSAPP
 ========================= */
 
 function sendOrder(){
 
-if(cart.length === 0){
+  if(cart.length === 0){
 
-showToast(
-"الطلب فاضي"
-);
+    showToast("ضيف منتجات للسلة الأول 😄");
+    return;
+  }
 
-return;
+  let message = "☕ *TRANSIT CAFE*\n";
+  message += "━━━━━━━━━━━━━━\n";
+  message += "🛒 *طلب جديد*\n\n";
 
+  cart.forEach(item => {
+
+    message +=
+      "• " +
+      item.name +
+      " × " +
+      item.qty +
+      " = " +
+      (item.price * item.qty) +
+      " ج.م\n";
+
+  });
+
+  let totalPrice = cart.reduce(
+    (sum,item) => sum + item.price * item.qty,
+    0
+  );
+
+  message += "\n━━━━━━━━━━━━━━\n";
+  message += "💰 *الإجمالي: " + totalPrice + " ج.م*\n";
+  message += "━━━━━━━━━━━━━━\n";
+  message += "📍 TRANSIT CAFE - أبو كبير";
+
+  const phone = "201030516417";
+
+  const url =
+    "https://wa.me/" +
+    phone +
+    "?text=" +
+    encodeURIComponent(message);
+
+  window.open(url,"_blank");
 }
-
-
-const customer =
-document
-.getElementById("customer")
-.value
-.trim()
-|| "عميل";
-
-
-const table =
-document
-.getElementById("table")
-.value;
-
-
-let total = 0;
-
-
-let message =
-
-"☕ *TRANSIT CAFE*\n" +
-
-"━━━━━━━━━━━━━━\n" +
-
-"👑 *Owner: مؤمن العطار*\n\n" +
-
-"🧾 *طلب جديد*\n\n";
-
-
-cart.forEach(item=>{
-
-const subtotal =
-item.price *
-item.qty;
-
-
-total += subtotal;
-
-
-message +=
-
-item.icon +
-" *" +
-item.name +
-"*\n" +
-
-"الكمية: " +
-item.qty +
-"\n" +
-
-"السعر: " +
-subtotal +
-" ج.م\n\n";
-
-});
-
-
-message +=
-
-"━━━━━━━━━━━━━━\n" +
-
-"👤 الاسم: " +
-customer +
-"\n" +
-
-"📍 المكان: " +
-table +
-"\n" +
-
-"💰 *الإجمالي: " +
-total +
-" ج.م*\n\n" +
-
-"TRANSIT CAFE\n" +
-
-"ABO KEBIR • SHARQIA";
-
-
-const phone =
-"201030516417";
-
-
-const url =
-
-"https://wa.me/" +
-
-phone +
-
-"?text=" +
-
-encodeURIComponent(message);
-
-
-window.open(
-url,
-"_blank"
-);
-
-}
-
 
 /* =========================
-   TOAST
+   FILTER
 ========================= */
 
-function showToast(message){
+function filterProducts(category,button){
 
-const toast =
-document.getElementById("toast");
+  document
+    .querySelectorAll(".categories button")
+    .forEach(btn => btn.classList.remove("active"));
 
+  button.classList.add("active");
 
-toast.textContent =
-message;
+  document
+    .querySelectorAll(".product")
+    .forEach(product => {
 
+      if(
+        category === "all" ||
+        product.dataset.category === category
+      ){
+        product.style.display = "";
+      }else{
+        product.style.display = "none";
+      }
 
-toast.classList.add("show");
-
-
-setTimeout(()=>{
-
-toast.classList.remove("show");
-
-},2000);
-
+    });
 }
-
-
-/* =========================
-   CATEGORIES
-========================= */
-
-document
-.querySelectorAll(".category")
-.forEach(button=>{
-
-button.addEventListener(
-"click",
-()=>{
-
-document
-.querySelectorAll(".category")
-.forEach(btn=>
-btn.classList.remove("active")
-);
-
-
-button.classList.add("active");
-
-
-currentCategory =
-button.dataset.category;
-
-
-renderProducts();
-
-
-window.scrollTo({
-
-top:260,
-
-behavior:"smooth"
-
-});
-
-});
-
-});
-
 
 /* =========================
    SEARCH
 ========================= */
 
-searchEl.addEventListener(
-"input",
-renderProducts
-);
+function searchProducts(){
 
+  const value =
+    document
+      .getElementById("search")
+      .value
+      .trim()
+      .toLowerCase();
+
+  document
+    .querySelectorAll(".product")
+    .forEach(product => {
+
+      const name =
+        product.dataset.name.toLowerCase();
+
+      product.style.display =
+        name.includes(value)
+          ? ""
+          : "none";
+
+    });
+}
 
 /* =========================
-   CLOSE MODAL
+   TOAST
 ========================= */
 
-document
-.getElementById("modal")
-.addEventListener(
-"click",
-event=>{
+function showToast(text){
 
-if(
-event.target.id === "modal"
-){
+  const toast =
+    document.getElementById("toast");
 
-closeCart();
+  toast.textContent = text;
+
+  toast.classList.add("show");
+
+  setTimeout(()=>{
+    toast.classList.remove("show");
+  },2200);
+}
+
+/* =========================
+   MOBILE CART
+========================= */
+
+function toggleCart(){
+
+  if(window.innerWidth <= 1000){
+
+    document
+      .getElementById("cart")
+      .classList.toggle("open");
+
+  }
 
 }
 
-});
-
-
 /* =========================
-   START
+   REVEAL ANIMATION
 ========================= */
 
-renderProducts();
+const observer =
+  new IntersectionObserver(
+    entries => {
+
+      entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+          entry.target.style.animationPlayState = "running";
+
+        }
+
+      });
+
+    },
+    {threshold:.08}
+  );
+
+document
+  .querySelectorAll(".product")
+  .forEach(product => {
+
+    product.style.animationPlayState = "paused";
+
+    observer.observe(product);
+
+  });
 
 </script>
 
 </body>
-
 </html>
