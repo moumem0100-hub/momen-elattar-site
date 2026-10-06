@@ -1,1767 +1,1388 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
+  <!-- ================================
+       BASIC META
+  ================================= -->
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>TRANSIT CAFE | مؤمن العطار — أبو كبير</title>
-  <meta name="description" content="TRANSIT CAFE — تجربة قهوة وطعام Premium في أبو كبير. مؤمن العطار. اكتشف المنيو واطلب الآن.">
-  <meta name="theme-color" content="#050505">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  <meta property="og:title" content="TRANSIT CAFE — Abu Kebir">
-  <meta property="og:description" content="Good Coffee. Better Mood.">
-  <meta property="og:type" content="website">
+  <meta
+    name="description"
+    content="NOIRÉ — A contemporary specialty coffee experience built around exceptional coffee, thoughtful craft and unforgettable moments."
+  >
+
+  <meta
+    name="theme-color"
+    content="#080807"
+  >
+
+  <meta name="robots" content="index, follow">
+
+  <title>NOIRÉ — Specialty Coffee</title>
+
+
+  <!-- ================================
+       OPEN GRAPH
+  ================================= -->
+
+  <meta
+    property="og:title"
+    content="NOIRÉ — Specialty Coffee"
+  >
+
+  <meta
+    property="og:description"
+    content="Coffee beyond ordinary."
+  >
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+
+  <!-- ================================
+       FONTS
+  ================================= -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
 
-  <style>
-    :root{
-      --black:#050505;
-      --black2:#0b0b0b;
-      --card:#111111;
-      --gold:#c9953b;
-      --gold2:#f2d18a;
-      --cream:#f5ebdd;
-      --muted:#aaa39a;
-      --line:rgba(255,255,255,.09);
-      --glass:rgba(12,12,12,.72);
-      --max:1250px;
-    }
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  >
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
 
-    html{
-      scroll-behavior:smooth;
-    }
+  <!-- ================================
+       MAIN STYLESHEET
+  ================================= -->
 
-    body{
-      background:var(--black);
-      color:var(--cream);
-      font-family:"Cairo",sans-serif;
-      overflow-x:hidden;
-    }
+  <link rel="stylesheet" href="style.css">
 
-    a{
-      color:inherit;
-      text-decoration:none;
-    }
-
-    img{
-      max-width:100%;
-      display:block;
-    }
-
-    button{
-      font-family:inherit;
-    }
-
-    /* ================= LOADER ================= */
-
-    #loader{
-      position:fixed;
-      inset:0;
-      background:#050505;
-      z-index:99999;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      transition:.8s ease;
-    }
-
-    .loader-inner{
-      text-align:center;
-    }
-
-    .loader-logo{
-      font-family:"Playfair Display",serif;
-      font-size:42px;
-      letter-spacing:8px;
-      color:var(--gold2);
-      animation:pulse 1.6s infinite;
-    }
-
-    .loader-sub{
-      margin-top:8px;
-      color:#777;
-      font-size:11px;
-      letter-spacing:5px;
-    }
-
-    @keyframes pulse{
-      50%{opacity:.35;transform:scale(.98)}
-    }
-
-    /* ================= NAVBAR ================= */
-
-    .navbar{
-      position:fixed;
-      top:0;
-      left:0;
-      right:0;
-      z-index:1000;
-      padding:18px 24px;
-      transition:.35s;
-    }
-
-    .nav-inner{
-      max-width:var(--max);
-      margin:auto;
-      height:70px;
-      padding:0 22px;
-      border:1px solid var(--line);
-      background:rgba(5,5,5,.62);
-      backdrop-filter:blur(18px);
-      border-radius:20px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-    }
-
-    .navbar.scrolled .nav-inner{
-      background:rgba(5,5,5,.92);
-      box-shadow:0 15px 50px rgba(0,0,0,.35);
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
-
-    .brand-mark{
-      width:43px;
-      height:43px;
-      border:1px solid rgba(201,149,59,.7);
-      border-radius:50%;
-      display:grid;
-      place-items:center;
-      color:var(--gold2);
-      font-family:"Playfair Display",serif;
-      font-size:18px;
-    }
-
-    .brand-text strong{
-      display:block;
-      font-family:"Playfair Display",serif;
-      letter-spacing:2px;
-      font-size:17px;
-    }
-
-    .brand-text span{
-      font-size:9px;
-      color:#777;
-      letter-spacing:2px;
-    }
-
-    .nav-links{
-      display:flex;
-      align-items:center;
-      gap:28px;
-    }
-
-    .nav-links a{
-      font-size:13px;
-      color:#c9c4bd;
-      transition:.25s;
-    }
-
-    .nav-links a:hover{
-      color:var(--gold2);
-    }
-
-    .nav-order{
-      background:linear-gradient(135deg,var(--gold),#9e6c20);
-      color:#090909 !important;
-      padding:11px 19px;
-      border-radius:999px;
-      font-weight:800;
-    }
-
-    .menu-btn{
-      display:none;
-      border:0;
-      background:none;
-      color:white;
-      font-size:27px;
-      cursor:pointer;
-    }
-
-    /* ================= HERO ================= */
-
-    .hero{
-      min-height:100vh;
-      position:relative;
-      display:flex;
-      align-items:center;
-      overflow:hidden;
-    }
-
-    .hero-bg{
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(90deg,rgba(0,0,0,.94) 0%,rgba(0,0,0,.62) 45%,rgba(0,0,0,.72) 100%),
-        url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=2200&q=90")
-        center/cover;
-      transform:scale(1.04);
-      animation:heroZoom 12s ease-out forwards;
-    }
-
-    @keyframes heroZoom{
-      to{transform:scale(1)}
-    }
-
-    .hero-glow{
-      position:absolute;
-      width:500px;
-      height:500px;
-      background:rgba(201,149,59,.11);
-      filter:blur(100px);
-      border-radius:50%;
-      top:20%;
-      right:5%;
-    }
-
-    .hero-content{
-      width:min(var(--max),calc(100% - 40px));
-      margin:auto;
-      position:relative;
-      z-index:2;
-      padding-top:80px;
-    }
-
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:12px;
-      color:var(--gold2);
-      font-size:12px;
-      letter-spacing:3px;
-      margin-bottom:22px;
-    }
-
-    .eyebrow::before{
-      content:"";
-      width:38px;
-      height:1px;
-      background:var(--gold);
-    }
-
-    .hero h1{
-      font-family:"Playfair Display",serif;
-      font-size:clamp(62px,10vw,145px);
-      line-height:.84;
-      letter-spacing:-5px;
-      max-width:900px;
-    }
-
-    .hero h1 span{
-      color:var(--gold2);
-      display:block;
-    }
-
-    .hero-copy{
-      max-width:620px;
-      margin-top:30px;
-      color:#c0bbb4;
-      font-size:18px;
-      line-height:2;
-    }
-
-    .hero-owner{
-      margin-top:16px;
-      color:#999;
-      font-size:14px;
-    }
-
-    .hero-owner b{
-      color:var(--cream);
-    }
-
-    .hero-actions{
-      display:flex;
-      gap:13px;
-      margin-top:30px;
-      flex-wrap:wrap;
-    }
-
-    .btn{
-      border:1px solid rgba(255,255,255,.14);
-      padding:14px 24px;
-      border-radius:999px;
-      font-size:13px;
-      font-weight:700;
-      transition:.3s;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-    }
-
-    .btn-gold{
-      background:linear-gradient(135deg,var(--gold2),var(--gold));
-      color:#090909;
-      border:none;
-    }
-
-    .btn-dark{
-      background:rgba(255,255,255,.05);
-      backdrop-filter:blur(10px);
-    }
-
-    .btn:hover{
-      transform:translateY(-3px);
-      box-shadow:0 12px 35px rgba(0,0,0,.3);
-    }
-
-    .scroll-down{
-      position:absolute;
-      bottom:25px;
-      right:50%;
-      transform:translateX(50%);
-      color:#777;
-      font-size:10px;
-      letter-spacing:3px;
-      writing-mode:vertical-rl;
-    }
-
-    /* ================= GENERAL ================= */
-
-    section{
-      padding:110px 20px;
-      position:relative;
-    }
-
-    .container{
-      max-width:var(--max);
-      margin:auto;
-    }
-
-    .section-head{
-      display:flex;
-      justify-content:space-between;
-      gap:30px;
-      align-items:end;
-      margin-bottom:50px;
-    }
-
-    .section-kicker{
-      color:var(--gold);
-      font-size:11px;
-      letter-spacing:3px;
-      margin-bottom:10px;
-    }
-
-    .section-title{
-      font-family:"Playfair Display",serif;
-      font-size:clamp(38px,5vw,65px);
-      line-height:1;
-    }
-
-    .section-description{
-      color:#888;
-      max-width:420px;
-      line-height:1.9;
-      font-size:14px;
-    }
-
-    /* ================= INFO STRIP ================= */
-
-    .info-strip{
-      background:#0b0b0b;
-      border-top:1px solid var(--line);
-      border-bottom:1px solid var(--line);
-      padding:25px 20px;
-    }
-
-    .info-grid{
-      max-width:var(--max);
-      margin:auto;
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-    }
-
-    .info-item{
-      text-align:center;
-      padding:10px;
-      border-left:1px solid var(--line);
-    }
-
-    .info-item:last-child{
-      border-left:0;
-    }
-
-    .info-item strong{
-      display:block;
-      color:var(--gold2);
-      font-size:16px;
-    }
-
-    .info-item span{
-      color:#777;
-      font-size:11px;
-    }
-
-    /* ================= WHY ================= */
-
-    .why{
-      background:
-        radial-gradient(circle at 20% 20%,rgba(201,149,59,.07),transparent 30%),
-        #080808;
-    }
-
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-    }
-
-    .lux-card{
-      background:linear-gradient(145deg,#151515,#0d0d0d);
-      border:1px solid var(--line);
-      border-radius:24px;
-      padding:34px;
-      min-height:250px;
-      transition:.4s;
-      position:relative;
-      overflow:hidden;
-    }
-
-    .lux-card::after{
-      content:"";
-      position:absolute;
-      width:130px;
-      height:130px;
-      background:rgba(201,149,59,.08);
-      border-radius:50%;
-      filter:blur(35px);
-      top:-40px;
-      left:-40px;
-    }
-
-    .lux-card:hover{
-      transform:translateY(-8px);
-      border-color:rgba(201,149,59,.35);
-    }
-
-    .card-number{
-      color:var(--gold);
-      font-family:"Playfair Display",serif;
-      font-size:24px;
-    }
-
-    .lux-card h3{
-      margin-top:45px;
-      font-size:20px;
-    }
-
-    .lux-card p{
-      color:#888;
-      margin-top:12px;
-      line-height:1.9;
-      font-size:13px;
-    }
-
-    /* ================= SIGNATURE ================= */
-
-    .signature-grid{
-      display:grid;
-      grid-template-columns:1.2fr .8fr;
-      gap:20px;
-    }
-
-    .experience{
-      min-height:500px;
-      border-radius:28px;
-      overflow:hidden;
-      position:relative;
-      background-size:cover;
-      background-position:center;
-      display:flex;
-      align-items:end;
-      padding:35px;
-      border:1px solid var(--line);
-    }
-
-    .experience:first-child{
-      background-image:
-        linear-gradient(0deg,rgba(0,0,0,.85),transparent 65%),
-        url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1200&q=85");
-    }
-
-    .experience:nth-child(2){
-      background-image:
-        linear-gradient(0deg,rgba(0,0,0,.88),transparent 65%),
-        url("https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&w=1000&q=85");
-    }
-
-    .experience:nth-child(3){
-      background-image:
-        linear-gradient(0deg,rgba(0,0,0,.88),transparent 65%),
-        url("https://images.unsplash.com/photo-1572449043416-55f4685c9bb7?auto=format&fit=crop&w=1000&q=85");
-    }
-
-    .experience-content h3{
-      font-family:"Playfair Display",serif;
-      font-size:32px;
-    }
-
-    .experience-content p{
-      color:#bbb;
-      margin-top:7px;
-      font-size:13px;
-    }
-
-    .experience-small{
-      display:grid;
-      grid-template-rows:1fr 1fr;
-      gap:20px;
-    }
-
-    /* ================= MENU ================= */
-
-    .menu-section{
-      background:#090909;
-    }
-
-    .products{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:16px;
-    }
-
-    .product{
-      background:#111;
-      border:1px solid var(--line);
-      border-radius:22px;
-      overflow:hidden;
-      transition:.35s;
-    }
-
-    .product:hover{
-      transform:translateY(-6px);
-      border-color:rgba(201,149,59,.35);
-    }
-
-    .product-img{
-      height:190px;
-      background-size:cover;
-      background-position:center;
-    }
-
-    .product:nth-child(1) .product-img{
-      background-image:url("https://images.unsplash.com/photo-1572449043416-55f4685c9bb7?auto=format&fit=crop&w=700&q=85");
-    }
-
-    .product:nth-child(2) .product-img{
-      background-image:url("https://images.unsplash.com/photo-1561043433-aaf687c491e2?auto=format&fit=crop&w=700&q=85");
-    }
-
-    .product:nth-child(3) .product-img{
-      background-image:url("https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=85");
-    }
-
-    .product:nth-child(4) .product-img{
-      background-image:url("https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=700&q=85");
-    }
-
-    .product-body{
-      padding:20px;
-    }
-
-    .product-body small{
-      color:var(--gold);
-      font-size:10px;
-      letter-spacing:2px;
-    }
-
-    .product-body h3{
-      margin:6px 0;
-      font-size:16px;
-    }
-
-    .product-body p{
-      color:#777;
-      font-size:11px;
-      min-height:35px;
-    }
-
-    .price{
-      margin-top:13px;
-      color:var(--gold2);
-      font-weight:800;
-      font-size:17px;
-    }
-
-    .menu-button-wrap{
-      text-align:center;
-      margin-top:35px;
-    }
-
-    /* ================= OFFER ================= */
-
-    .offer{
-      padding-top:70px;
-    }
-
-    .offer-box{
-      min-height:330px;
-      border-radius:30px;
-      border:1px solid rgba(201,149,59,.25);
-      background:
-        linear-gradient(90deg,rgba(0,0,0,.92),rgba(0,0,0,.5)),
-        url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1800&q=85")
-        center/cover;
-      padding:55px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:30px;
-    }
-
-    .offer-label{
-      color:var(--gold2);
-      letter-spacing:4px;
-      font-size:11px;
-    }
-
-    .offer h2{
-      font-family:"Playfair Display",serif;
-      font-size:clamp(40px,5vw,65px);
-      max-width:650px;
-      margin:10px 0;
-    }
-
-    .offer p{
-      color:#aaa;
-      max-width:600px;
-    }
-
-    /* ================= ABOUT ================= */
-
-    .about-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:70px;
-      align-items:center;
-    }
-
-    .about-image{
-      min-height:580px;
-      border-radius:30px;
-      background:
-        linear-gradient(0deg,rgba(0,0,0,.45),transparent),
-        url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=85")
-        center/cover;
-      border:1px solid var(--line);
-    }
-
-    .about-text p{
-      color:#999;
-      line-height:2;
-      margin-top:20px;
-      font-size:15px;
-    }
-
-    .owner{
-      margin-top:30px;
-      padding:22px;
-      border:1px solid var(--line);
-      border-radius:20px;
-      background:#101010;
-      display:flex;
-      align-items:center;
-      gap:18px;
-    }
-
-    .owner-avatar{
-      width:65px;
-      height:65px;
-      border-radius:50%;
-      overflow:hidden;
-      border:1px solid var(--gold);
-      background:#181818;
-    }
-
-    .owner-avatar img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-
-    .owner small{
-      color:#777;
-    }
-
-    .owner strong{
-      display:block;
-      color:var(--gold2);
-      font-size:18px;
-    }
-
-    /* ================= GALLERY ================= */
-
-    .gallery{
-      background:#080808;
-    }
-
-    .gallery-grid{
-      display:grid;
-      grid-template-columns:2fr 1fr 1fr;
-      grid-template-rows:260px 260px;
-      gap:14px;
-    }
-
-    .gallery-item{
-      border-radius:20px;
-      overflow:hidden;
-      background-size:cover;
-      background-position:center;
-      border:1px solid var(--line);
-      transition:.5s;
-    }
-
-    .gallery-item:hover{
-      transform:scale(.98);
-    }
-
-    .gallery-item:nth-child(1){
-      grid-row:span 2;
-      background-image:url("https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1000&q=85");
-    }
-
-    .gallery-item:nth-child(2){
-      background-image:url("https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=800&q=85");
-    }
-
-    .gallery-item:nth-child(3){
-      background-image:url("https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=800&q=85");
-    }
-
-    .gallery-item:nth-child(4){
-      background-image:url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=800&q=85");
-    }
-
-    .gallery-item:nth-child(5){
-      background-image:url("https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=85");
-    }
-
-    /* ================= REVIEWS ================= */
-
-    .reviews{
-      text-align:center;
-    }
-
-    .review-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-      text-align:right;
-    }
-
-    .review{
-      background:#111;
-      border:1px solid var(--line);
-      border-radius:22px;
-      padding:30px;
-    }
-
-    .stars{
-      color:var(--gold2);
-      letter-spacing:4px;
-    }
-
-    .review p{
-      color:#999;
-      line-height:1.9;
-      font-size:13px;
-      margin:20px 0;
-    }
-
-    .review strong{
-      font-size:13px;
-    }
-
-    /* ================= FAQ ================= */
-
-    .faq{
-      background:#080808;
-    }
-
-    .faq-list{
-      max-width:850px;
-      margin:auto;
-    }
-
-    details{
-      border-bottom:1px solid var(--line);
-      padding:22px 0;
-    }
-
-    summary{
-      cursor:pointer;
-      font-weight:700;
-      list-style:none;
-      display:flex;
-      justify-content:space-between;
-    }
-
-    summary::after{
-      content:"+";
-      color:var(--gold);
-      font-size:22px;
-    }
-
-    details[open] summary::after{
-      content:"−";
-    }
-
-    details p{
-      color:#888;
-      line-height:1.9;
-      padding-top:15px;
-      font-size:13px;
-    }
-
-    /* ================= CONTACT ================= */
-
-    .contact-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:20px;
-    }
-
-    .contact-card{
-      border:1px solid var(--line);
-      border-radius:26px;
-      padding:35px;
-      background:#101010;
-    }
-
-    .contact-card h3{
-      font-family:"Playfair Display",serif;
-      font-size:32px;
-    }
-
-    .contact-list{
-      margin-top:25px;
-    }
-
-    .contact-row{
-      padding:17px 0;
-      border-bottom:1px solid var(--line);
-      display:flex;
-      justify-content:space-between;
-      gap:20px;
-    }
-
-    .contact-row span{
-      color:#777;
-      font-size:12px;
-    }
-
-    .contact-row strong{
-      color:#ddd;
-      font-size:13px;
-      text-align:left;
-    }
-
-    .map{
-      min-height:420px;
-      border-radius:26px;
-      border:1px solid var(--line);
-      background:
-        linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.65)),
-        url("https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=1200&q=85")
-        center/cover;
-      display:flex;
-      align-items:end;
-      padding:30px;
-    }
-
-    .map-box{
-      background:rgba(0,0,0,.8);
-      backdrop-filter:blur(10px);
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:20px;
-      width:100%;
-    }
-
-    .map-box strong{
-      color:var(--gold2);
-    }
-
-    .map-box p{
-      color:#999;
-      font-size:12px;
-      margin-top:5px;
-    }
-
-    /* ================= CTA ================= */
-
-    .cta{
-      text-align:center;
-      padding:130px 20px;
-      background:
-        radial-gradient(circle,rgba(201,149,59,.12),transparent 40%),
-        #070707;
-    }
-
-    .cta h2{
-      font-family:"Playfair Display",serif;
-      font-size:clamp(45px,7vw,90px);
-      line-height:1;
-    }
-
-    .cta p{
-      color:#888;
-      margin:20px auto 30px;
-      max-width:500px;
-    }
-
-    /* ================= FOOTER ================= */
-
-    footer{
-      background:#040404;
-      border-top:1px solid var(--line);
-      padding:65px 20px 25px;
-    }
-
-    .footer-grid{
-      max-width:var(--max);
-      margin:auto;
-      display:grid;
-      grid-template-columns:1.5fr 1fr 1fr 1fr;
-      gap:40px;
-    }
-
-    .footer-brand{
-      font-family:"Playfair Display",serif;
-      font-size:30px;
-      color:var(--gold2);
-    }
-
-    footer p{
-      color:#777;
-      line-height:1.9;
-      font-size:12px;
-      margin-top:12px;
-      max-width:320px;
-    }
-
-    footer h4{
-      margin-bottom:18px;
-      color:#ddd;
-    }
-
-    .footer-links{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-    }
-
-    .footer-links a{
-      color:#777;
-      font-size:12px;
-      transition:.2s;
-    }
-
-    .footer-links a:hover{
-      color:var(--gold2);
-    }
-
-    .copyright{
-      max-width:var(--max);
-      margin:50px auto 0;
-      padding-top:20px;
-      border-top:1px solid var(--line);
-      display:flex;
-      justify-content:space-between;
-      color:#555;
-      font-size:10px;
-    }
-
-    /* ================= FLOATING WHATSAPP ================= */
-
-    .whatsapp{
-      position:fixed;
-      left:20px;
-      bottom:20px;
-      width:57px;
-      height:57px;
-      border-radius:50%;
-      display:grid;
-      place-items:center;
-      background:#20b968;
-      color:white;
-      z-index:999;
-      font-size:25px;
-      box-shadow:0 10px 30px rgba(0,0,0,.4);
-      transition:.3s;
-    }
-
-    .whatsapp:hover{
-      transform:scale(1.1);
-    }
-
-    /* ================= REVEAL ================= */
-
-    .reveal{
-      opacity:0;
-      transform:translateY(35px);
-      transition:1s ease;
-    }
-
-    .reveal.show{
-      opacity:1;
-      transform:none;
-    }
-
-    /* ================= MOBILE ================= */
-
-    @media(max-width:900px){
-
-      .nav-links{
-        position:absolute;
-        top:78px;
-        right:20px;
-        left:20px;
-        padding:20px;
-        border:1px solid var(--line);
-        background:rgba(5,5,5,.96);
-        border-radius:20px;
-        flex-direction:column;
-        align-items:stretch;
-        display:none;
-      }
-
-      .nav-links.open{
-        display:flex;
-      }
-
-      .nav-order{
-        text-align:center;
-      }
-
-      .menu-btn{
-        display:block;
-      }
-
-      .cards,
-      .products,
-      .review-grid{
-        grid-template-columns:repeat(2,1fr);
-      }
-
-      .signature-grid,
-      .about-grid,
-      .contact-grid{
-        grid-template-columns:1fr;
-      }
-
-      .footer-grid{
-        grid-template-columns:1fr 1fr;
-      }
-
-      .info-grid{
-        grid-template-columns:repeat(2,1fr);
-      }
-
-      .info-item:nth-child(2){
-        border-left:0;
-      }
-
-      .gallery-grid{
-        grid-template-columns:1fr 1fr;
-        grid-template-rows:220px 180px 180px;
-      }
-
-      .gallery-item:nth-child(1){
-        grid-row:span 1;
-        grid-column:span 2;
-      }
-
-      .offer-box{
-        padding:35px;
-        flex-direction:column;
-        align-items:flex-start;
-      }
-    }
-
-    @media(max-width:600px){
-
-      .navbar{
-        padding:12px;
-      }
-
-      .nav-inner{
-        height:62px;
-      }
-
-      .hero-content{
-        width:calc(100% - 30px);
-      }
-
-      .hero h1{
-        font-size:60px;
-        letter-spacing:-3px;
-      }
-
-      .hero-copy{
-        font-size:14px;
-      }
-
-      section{
-        padding:80px 15px;
-      }
-
-      .section-head{
-        display:block;
-      }
-
-      .section-description{
-        margin-top:20px;
-      }
-
-      .cards,
-      .products,
-      .review-grid{
-        grid-template-columns:1fr;
-      }
-
-      .experience{
-        min-height:370px;
-      }
-
-      .experience-small{
-        grid-template-rows:300px 300px;
-      }
-
-      .about-image{
-        min-height:400px;
-      }
-
-      .gallery-grid{
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        grid-template-rows:220px 160px 160px;
-      }
-
-      .footer-grid{
-        grid-template-columns:1fr;
-      }
-
-      .copyright{
-        display:block;
-        line-height:2;
-      }
-
-      .copyright span{
-        display:block;
-      }
-
-      .contact-row{
-        display:block;
-      }
-
-      .contact-row strong{
-        display:block;
-        text-align:right;
-        margin-top:5px;
-      }
-
-      .offer h2{
-        font-size:42px;
-      }
-    }
-  </style>
 </head>
+
 
 <body>
 
-  <!-- LOADER -->
-  <div id="loader">
-    <div class="loader-inner">
-      <div class="loader-logo">TRANSIT</div>
-      <div class="loader-sub">CAFE • ABU KEBIR</div>
+  <!-- =========================================
+       PRELOADER
+  ========================================= -->
+
+  <div
+    class="preloader"
+    id="preloader"
+    aria-hidden="true"
+  >
+
+    <div class="preloader-inner">
+
+      <div class="preloader-logo">
+        NOIR<span>É</span>
+      </div>
+
+      <div class="preloader-line">
+        <span></span>
+      </div>
+
+      <div class="preloader-text">
+        SPECIALTY COFFEE
+      </div>
+
     </div>
+
   </div>
 
-  <!-- NAVBAR -->
-  <header class="navbar" id="navbar">
-    <div class="nav-inner">
 
-      <a href="#" class="brand">
-        <div class="brand-mark">T</div>
-        <div class="brand-text">
-          <strong>TRANSIT</strong>
-          <span>CAFE • ABU KEBIR</span>
-        </div>
+  <!-- =========================================
+       CUSTOM CURSOR
+  ========================================= -->
+
+  <div
+    class="cursor"
+    id="cursor"
+    aria-hidden="true"
+  ></div>
+
+  <div
+    class="cursor-follower"
+    id="cursorFollower"
+    aria-hidden="true"
+  ></div>
+
+
+  <!-- =========================================
+       NOISE / GRAIN
+  ========================================= -->
+
+  <div
+    class="noise"
+    aria-hidden="true"
+  ></div>
+
+
+  <!-- =========================================
+       NAVIGATION
+  ========================================= -->
+
+  <header
+    class="site-header"
+    id="siteHeader"
+  >
+
+    <nav
+      class="navbar"
+      aria-label="Main navigation"
+    >
+
+      <!-- LOGO -->
+
+      <a
+        href="#home"
+        class="logo magnetic"
+        aria-label="NOIRÉ home"
+      >
+        NOIR<span>É</span>
       </a>
 
-      <nav class="nav-links" id="navLinks">
-        <a href="#home">الرئيسية</a>
-        <a href="#why">عن TRANSIT</a>
-        <a href="#menu">المنيو</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#contact">تواصل</a>
-        <a href="menu.html" class="nav-order">اطلب الآن</a>
-      </nav>
 
-      <button class="menu-btn" id="menuBtn">☰</button>
+      <!-- DESKTOP NAV -->
+
+      <ul class="nav-links">
+
+        <li>
+          <a
+            href="#story"
+            class="nav-link"
+          >
+            Story
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="#experience"
+            class="nav-link"
+          >
+            Experience
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="#menu"
+            class="nav-link"
+          >
+            Menu
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="#gallery"
+            class="nav-link"
+          >
+            Gallery
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="#night"
+            class="nav-link"
+          >
+            Night
+          </a>
+        </li>
+
+      </ul>
+
+
+      <!-- NAV ACTION -->
+
+      <a
+        href="#reservation"
+        class="nav-button magnetic"
+      >
+        <span>Reserve</span>
+        <span class="button-arrow">↗</span>
+      </a>
+
+
+      <!-- MOBILE BUTTON -->
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Open navigation"
+        aria-expanded="false"
+      >
+
+        <span></span>
+        <span></span>
+
+      </button>
+
+    </nav>
+
+
+    <!-- =====================================
+         MOBILE NAVIGATION
+    ====================================== -->
+
+    <div
+      class="mobile-menu"
+      id="mobileMenu"
+      aria-hidden="true"
+    >
+
+      <div class="mobile-menu-inner">
+
+        <div class="mobile-menu-label">
+          NAVIGATION
+        </div>
+
+        <a href="#story">
+          <span>01</span>
+          Story
+        </a>
+
+        <a href="#experience">
+          <span>02</span>
+          Experience
+        </a>
+
+        <a href="#menu">
+          <span>03</span>
+          Menu
+        </a>
+
+        <a href="#gallery">
+          <span>04</span>
+          Gallery
+        </a>
+
+        <a href="#night">
+          <span>05</span>
+          Night
+        </a>
+
+        <a href="#reservation">
+          <span>06</span>
+          Reservation
+        </a>
+
+      </div>
 
     </div>
+
   </header>
 
-  <!-- HERO -->
+
   <main>
 
-    <section class="hero" id="home">
 
-      <div class="hero-bg"></div>
-      <div class="hero-glow"></div>
+    <!-- =========================================
+         HERO
+    ========================================= -->
 
-      <div class="hero-content reveal">
+    <section
+      class="hero"
+      id="home"
+      aria-label="NOIRÉ introduction"
+    >
 
-        <div class="eyebrow">
-          EST. 2024 • PREMIUM CAFE
+      <!-- BACKGROUND -->
+
+      <div
+        class="hero-media"
+        data-parallax="0.08"
+      >
+
+        <img
+          src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=2400&q=90"
+          alt="Specialty coffee being prepared"
+          fetchpriority="high"
+        >
+
+      </div>
+
+
+      <!-- DARK CINEMATIC OVERLAY -->
+
+      <div
+        class="hero-overlay"
+        aria-hidden="true"
+      ></div>
+
+
+      <!-- HERO CONTENT -->
+
+      <div class="hero-content">
+
+        <div
+          class="eyebrow reveal"
+          data-delay="100"
+        >
+          <span class="eyebrow-line"></span>
+
+          <span>
+            Specialty Coffee
+          </span>
+
+          <span class="eyebrow-dot">•</span>
+
+          <span>
+            Since 2018
+          </span>
         </div>
 
-        <h1>
-          TRANSIT
-          <span>CAFE.</span>
+
+        <h1
+          class="hero-title"
+          data-split-text
+        >
+          Coffee
+          <br>
+
+          <em>Beyond</em>
+
+          <br>
+
+          Ordinary.
         </h1>
 
-        <p class="hero-copy">
-          مكانك للكوفي، الفطار، والمود الحلو.
-          تجربة مختلفة في أبو كبير، من أول رشفة لآخر لحظة.
+
+        <div class="hero-bottom reveal">
+
+          <p class="hero-description">
+
+            A contemporary coffee house built around
+            exceptional beans, thoughtful craft and
+            the art of slowing down.
+
+          </p>
+
+
+          <a
+            href="#experience"
+            class="hero-scroll magnetic"
+          >
+
+            <span class="scroll-text">
+              Discover
+            </span>
+
+            <span class="scroll-line"></span>
+
+            <span class="scroll-arrow">
+              ↓
+            </span>
+
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- HERO SIDE INFO -->
+
+      <div
+        class="hero-side-info"
+        aria-hidden="true"
+      >
+
+        <span>25° 12' N</span>
+
+        <span class="vertical-line"></span>
+
+        <span>31° 18' E</span>
+
+      </div>
+
+
+      <!-- HERO COUNTER -->
+
+      <div
+        class="hero-counter"
+        aria-hidden="true"
+      >
+
+        <span>01</span>
+
+        <span>/</span>
+
+        <span>05</span>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         INTRO / STORY
+    ========================================= -->
+
+    <section
+      class="story section"
+      id="story"
+    >
+
+      <div class="section-label reveal">
+
+        <span>01</span>
+
+        <span class="label-line"></span>
+
+        <span>THE STORY</span>
+
+      </div>
+
+
+      <div class="story-grid">
+
+        <div class="story-heading reveal">
+
+          <p class="micro-label">
+            OUR PHILOSOPHY
+          </p>
+
+          <h2 class="display-title">
+
+            Crafted
+
+            <br>
+
+            with
+
+            <em>intention.</em>
+
+          </h2>
+
+        </div>
+
+
+        <div class="story-content reveal">
+
+          <p class="large-copy">
+
+            NOIRÉ was created around a simple idea:
+
+            exceptional coffee deserves an
+            exceptional atmosphere.
+
+          </p>
+
+
+          <p class="body-copy">
+
+            From carefully selected origins to the
+            final pour, every detail is considered.
+
+            Not to impress.
+
+            But to create a moment worth remembering.
+
+          </p>
+
+
+          <div class="story-signature">
+            Slow coffee.
+            <span>Deep moments.</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- STORY STATS -->
+
+      <div class="story-stats reveal">
+
+        <div class="stat">
+
+          <strong>08</strong>
+
+          <span>
+            YEARS OF<br>
+            CRAFT
+          </span>
+
+        </div>
+
+
+        <div class="stat">
+
+          <strong>12</strong>
+
+          <span>
+            ORIGINS<br>
+            SOURCED
+          </span>
+
+        </div>
+
+
+        <div class="stat">
+
+          <strong>01</strong>
+
+          <span>
+            SIGNATURE<br>
+            EXPERIENCE
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         EXPERIENCE
+    ========================================= -->
+
+    <section
+      class="experience section-dark"
+      id="experience"
+    >
+
+      <div class="experience-top">
+
+        <div class="section-label reveal">
+
+          <span>02</span>
+
+          <span class="label-line"></span>
+
+          <span>EXPERIENCE</span>
+
+        </div>
+
+
+        <div class="experience-intro reveal">
+
+          <h2 class="display-title">
+
+            More than
+
+            <br>
+
+            <em>coffee.</em>
+
+          </h2>
+
+
+          <p>
+            Designed for mornings that matter,
+            conversations that last and nights
+            that shouldn't end too early.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- EXPERIENCE CARDS -->
+
+      <div class="experience-grid">
+
+        <!-- LARGE -->
+
+        <article
+          class="experience-card experience-card-large reveal"
+        >
+
+          <div class="card-image">
+
+            <img
+              src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1600&q=85"
+              alt="Elegant coffee house interior"
+              loading="lazy"
+            >
+
+          </div>
+
+
+          <div class="card-overlay"></div>
+
+
+          <div class="card-content">
+
+            <span class="card-number">
+              01 / MORNING RITUAL
+            </span>
+
+            <h3>
+              The First Pour
+            </h3>
+
+            <span class="card-arrow">
+              ↗
+            </span>
+
+          </div>
+
+        </article>
+
+
+        <!-- RIGHT COLUMN -->
+
+        <div class="experience-column">
+
+          <article
+            class="experience-card reveal"
+          >
+
+            <div class="card-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1400&q=85"
+                alt="Barista preparing specialty coffee"
+                loading="lazy"
+              >
+
+            </div>
+
+            <div class="card-overlay"></div>
+
+            <div class="card-content">
+
+              <span class="card-number">
+                02 / CRAFT
+              </span>
+
+              <h3>
+                The Art of Coffee
+              </h3>
+
+              <span class="card-arrow">
+                ↗
+              </span>
+
+            </div>
+
+          </article>
+
+
+          <article
+            class="experience-card reveal"
+          >
+
+            <div class="card-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=1400&q=85"
+                alt="Coffee and atmosphere"
+                loading="lazy"
+              >
+
+            </div>
+
+            <div class="card-overlay"></div>
+
+            <div class="card-content">
+
+              <span class="card-number">
+                03 / ATMOSPHERE
+              </span>
+
+              <h3>
+                Your Place
+              </h3>
+
+              <span class="card-arrow">
+                ↗
+              </span>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         SIGNATURE MENU
+    ========================================= -->
+
+    <section
+      class="menu-section section"
+      id="menu"
+    >
+
+      <div class="menu-header">
+
+        <div>
+
+          <div class="section-label reveal">
+
+            <span>03</span>
+
+            <span class="label-line"></span>
+
+            <span>SIGNATURE MENU</span>
+
+          </div>
+
+
+          <h2 class="display-title reveal">
+
+            Made to be
+
+            <br>
+
+            <em>remembered.</em>
+
+          </h2>
+
+        </div>
+
+
+        <p class="menu-intro reveal">
+
+          Carefully sourced ingredients.
+          Precise preparation.
+          Nothing unnecessary.
+
         </p>
 
-        <div class="hero-owner">
-          Crafted with passion by <b>مؤمن العطار</b>
-        </div>
+      </div>
 
-        <div class="hero-actions">
-          <a href="menu.html" class="btn btn-gold">
-            اكتشف المنيو
-          </a>
 
-          <a href="https://wa.me/201030516417" class="btn btn-dark">
-            اطلب على WhatsApp
-          </a>
-        </div>
+      <!-- MENU FILTER -->
+
+      <div
+        class="menu-filters reveal"
+        role="tablist"
+        aria-label="Menu categories"
+      >
+
+        <button
+          class="filter-button active"
+          data-filter="all"
+          type="button"
+        >
+          All
+        </button>
+
+        <button
+          class="filter-button"
+          data-filter="coffee"
+          type="button"
+        >
+          Coffee
+        </button>
+
+        <button
+          class="filter-button"
+          data-filter="signature"
+          type="button"
+        >
+          Signatures
+        </button>
+
+        <button
+          class="filter-button"
+          data-filter="cold"
+          type="button"
+        >
+          Cold
+        </button>
 
       </div>
 
-      <div class="scroll-down">
-        SCROLL
-      </div>
 
-    </section>
+      <!-- MENU LIST -->
 
-    <!-- INFO -->
-    <div class="info-strip">
-      <div class="info-grid">
+      <div
+        class="menu-list"
+        id="menuList"
+      >
 
-        <div class="info-item">
-          <strong>08 AM — 02 AM</strong>
-          <span>Every Day</span>
-        </div>
+        <!-- ITEM -->
 
-        <div class="info-item">
-          <strong>ABU KEBIR</strong>
-          <span>Sharqia, Egypt</span>
-        </div>
+        <article
+          class="menu-item reveal"
+          data-category="coffee"
+        >
 
-        <div class="info-item">
-          <strong>PREMIUM</strong>
-          <span>Coffee & Food</span>
-        </div>
+          <span class="menu-index">
+            01
+          </span>
 
-        <div class="info-item">
-          <strong>2024</strong>
-          <span>Our Beginning</span>
-        </div>
+          <div class="menu-item-main">
 
-      </div>
-    </div>
-
-    <!-- WHY -->
-    <section class="why" id="why">
-
-      <div class="container">
-
-        <div class="section-head reveal">
-          <div>
-            <div class="section-kicker">WHY TRANSIT</div>
-            <h2 class="section-title">More Than<br>Just Coffee.</h2>
-          </div>
-
-          <p class="section-description">
-            إحنا مش مجرد مكان تشرب فيه قهوة.
-            TRANSIT معمول عشان كل زيارة يكون ليها مود مختلف.
-          </p>
-        </div>
-
-        <div class="cards">
-
-          <div class="lux-card reveal">
-            <div class="card-number">01</div>
-            <h3>Premium Taste</h3>
-            <p>
-              مشروبات وأكلات مختارة بعناية عشان كل تفصيلة في التجربة تكون مختلفة.
-            </p>
-          </div>
-
-          <div class="lux-card reveal">
-            <div class="card-number">02</div>
-            <h3>Your Daily Escape</h3>
-            <p>
-              مكان مناسب للقعدة، الفطار، القهوة، أو حتى آخر اليوم مع أصحابك.
-            </p>
-          </div>
-
-          <div class="lux-card reveal">
-            <div class="card-number">03</div>
-            <h3>Made With Passion</h3>
-            <p>
-              كل حاجة في TRANSIT معمولة بحب واهتمام بالتفاصيل.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SIGNATURE EXPERIENCE -->
-    <section>
-
-      <div class="container">
-
-        <div class="section-head reveal">
-          <div>
-            <div class="section-kicker">THE EXPERIENCE</div>
-            <h2 class="section-title">Your Kind<br>of Place.</h2>
-          </div>
-
-          <p class="section-description">
-            صباح هادي، قهوة مظبوطة، فطار حلو أو قعدة ليلية.
-            اختار الـmood بتاعك.
-          </p>
-        </div>
-
-        <div class="signature-grid">
-
-          <div class="experience reveal">
-            <div class="experience-content">
-              <h3>Coffee Moments</h3>
-              <p>وقت القهوة له طعم تاني في TRANSIT.</p>
-            </div>
-          </div>
-
-          <div class="experience-small">
-
-            <div class="experience reveal">
-              <div class="experience-content">
-                <h3>Breakfast</h3>
-                <p>ابدأ يومك صح.</p>
-              </div>
-            </div>
-
-            <div class="experience reveal">
-              <div class="experience-content">
-                <h3>Late Night</h3>
-                <p>قعدتك لحد 2 صباحًا.</p>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- MENU -->
-    <section class="menu-section" id="menu">
-
-      <div class="container">
-
-        <div class="section-head reveal">
-          <div>
-            <div class="section-kicker">SIGNATURE MENU</div>
-            <h2 class="section-title">A Taste<br>Worth Remembering.</h2>
-          </div>
-
-          <p class="section-description">
-            مجموعة من اختياراتنا المميزة.
-            وللمنيو الكامل اضغط على الزر بالأسفل.
-          </p>
-        </div>
-
-        <div class="products">
-
-          <article class="product reveal">
-            <div class="product-img"></div>
-            <div class="product-body">
-              <small>COFFEE</small>
-              <h3>سبانش لاتيه</h3>
-              <p>قهوة كريمية بطعم غني ومميز.</p>
-              <div class="price">85 EGP</div>
-            </div>
-          </article>
-
-          <article class="product reveal">
-            <div class="product-img"></div>
-            <div class="product-body">
-              <small>BREAKFAST</small>
-              <h3>أفوكادو توست</h3>
-              <p>اختيار خفيف ومميز لبداية اليوم.</p>
-              <div class="price">105 EGP</div>
-            </div>
-          </article>
-
-          <article class="product reveal">
-            <div class="product-img"></div>
-            <div class="product-body">
-              <small>DESSERT</small>
-              <h3>تشيز كيك</h3>
-              <p>حلوى ناعمة لنهاية مثالية.</p>
-              <div class="price">85 EGP</div>
-            </div>
-          </article>
-
-          <article class="product reveal">
-            <div class="product-img"></div>
-            <div class="product-body">
-              <small>DESSERT</small>
-              <h3>وافل نوتيلا</h3>
-              <p>وافل دافئ مع نوتيلا.</p>
-              <div class="price">95 EGP</div>
-            </div>
-          </article>
-
-        </div>
-
-        <div class="menu-button-wrap">
-          <a href="menu.html" class="btn btn-gold">
-            View Full Menu →
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- OFFER -->
-    <section class="offer">
-
-      <div class="container">
-
-        <div class="offer-box reveal">
-
-          <div>
-            <div class="offer-label">TRANSIT MOMENT</div>
-            <h2>Your Coffee.<br>Your Mood.</h2>
-            <p>
-              اختار مشروبك، اطلبه، وخلي TRANSIT يبقى جزء من يومك.
-            </p>
-          </div>
-
-          <a href="menu.html" class="btn btn-gold">
-            Explore Menu
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about">
-
-      <div class="container">
-
-        <div class="about-grid">
-
-          <div class="about-image reveal"></div>
-
-          <div class="about-text reveal">
-
-            <div class="section-kicker">OUR STORY</div>
-
-            <h2 class="section-title">
-              Built For<br>
-              Good Moments.
-            </h2>
+            <h3>
+              Noiré Espresso
+            </h3>
 
             <p>
-              TRANSIT CAFE هو مساحة اتعملت عشان تجمع بين جودة القهوة،
-              الأكل الحلو، والـatmosphere اللي يخليك تحب ترجع تاني.
+              Deep chocolate, caramel and
+              a subtle roasted finish.
             </p>
-
-            <p>
-              من أول اختيار المنتجات لحد شكل المكان والتفاصيل الصغيرة،
-              هدفنا واحد: إن كل زيارة تكون تجربة تستاهل تتكرر.
-            </p>
-
-            <div class="owner">
-
-              <div class="owner-avatar">
-                <img src="owner.jpg" alt="مؤمن العطار">
-              </div>
-
-              <div>
-                <small>FOUNDER & OWNER</small>
-                <strong>مؤمن العطار</strong>
-              </div>
-
-            </div>
 
           </div>
 
-        </div>
+          <span class="menu-tag">
+            CLASSIC
+          </span>
+
+          <span class="menu-price">
+            85
+          </span>
+
+          <span class="menu-currency">
+            EGP
+          </span>
+
+        </article>
+
+
+        <!-- ITEM -->
+
+        <article
+          class="menu-item reveal"
+          data-category="coffee"
+        >
+
+          <span class="menu-index">
+            02
+          </span>
+
+          <div class="menu-item-main">
+
+            <h3>
+              Velvet Latte
+            </h3>
+
+            <p>
+              Silky microfoam balanced with
+              our signature espresso.
+            </p>
+
+          </div>
+
+          <span class="menu-tag">
+            MILK
+          </span>
+
+          <span class="menu-price">
+            110
+          </span>
+
+          <span class="menu-currency">
+            EGP
+          </span>
+
+        </article>
+
+
+        <!-- ITEM -->
+
+        <article
+          class="menu-item reveal"
+          data-category="signature"
+        >
+
+          <span class="menu-index">
+            03
+          </span>
+
+          <div class="menu-item-main">
+
+            <h3>
+              Black Honey
+            </h3>
+
+            <p>
+              Espresso, honey and textured
+              milk with a warm finish.
+            </p>
+
+          </div>
+
+          <span class="menu-tag">
+            SIGNATURE
+          </span>
+
+          <span class="menu-price">
+            120
+          </span>
+
+          <span class="menu-currency">
+            EGP
+          </span>
+
+        </article>
+
+
+        <!-- ITEM -->
+
+        <article
+          class="menu-item reveal"
+          data-category="cold"
+        >
+
+          <span class="menu-index">
+            04
+          </span>
+
+          <div class="menu-item-main">
+
+            <h3>
+              Cold Noir
+            </h3>
+
+            <p>
+              Slow brewed cold coffee with
+              dark cocoa notes.
+            </p>
+
+          </div>
+
+          <span class="menu-tag">
+            COLD
+          </span>
+
+          <span class="menu-price">
+            105
+          </span>
+
+          <span class="menu-currency">
+            EGP
+          </span>
+
+        </article>
+
+
+        <!-- ITEM -->
+
+        <article
+          class="menu-item reveal"
+          data-category="signature"
+        >
+
+          <span class="menu-index">
+            05
+          </span>
+
+          <div class="menu-item-main">
+
+            <h3>
+              Signature Mocha
+            </h3>
+
+            <p>
+              Single origin espresso,
+              dark chocolate and cream.
+            </p>
+
+          </div>
+
+          <span class="menu-tag">
+            SIGNATURE
+          </span>
+
+          <span class="menu-price">
+            125
+          </span>
+
+          <span class="menu-currency">
+            EGP
+          </span>
+
+        </article>
+
+      </div>
+
+
+      <!-- MENU CTA -->
+
+      <div class="menu-cta reveal">
+
+        <a
+          href="#reservation"
+          class="outline-button magnetic"
+        >
+
+          <span>
+            Explore the full menu
+          </span>
+
+          <span>
+            ↗
+          </span>
+
+        </a>
 
       </div>
 
     </section>
 
-    <!-- GALLERY -->
-    <section class="gallery" id="gallery">
 
-      <div class="container">
+    <!-- =========================================
+         CINEMATIC GALLERY
+    ========================================= -->
 
-        <div class="section-head reveal">
-          <div>
-            <div class="section-kicker">VISUAL JOURNEY</div>
-            <h2 class="section-title">Inside<br>TRANSIT.</h2>
-          </div>
+    <section
+      class="gallery section-dark"
+      id="gallery"
+    >
 
-          <p class="section-description">
-            كل لحظة ليها صورة، وكل صورة ليها mood.
-          </p>
-        </div>
+      <div class="gallery-header">
 
-        <div class="gallery-grid">
+        <div class="section-label reveal">
 
-          <div class="gallery-item reveal"></div>
-          <div class="gallery-item reveal"></div>
-          <div class="gallery-item reveal"></div>
-          <div class="gallery-item reveal"></div>
-          <div class="gallery-item reveal"></div>
+          <span>04</span>
+
+          <span class="label-line"></span>
+
+          <span>THE GALLERY</span>
 
         </div>
 
-      </div>
-    </section>
 
-    <!-- REVIEWS -->
-    <section class="reviews">
+        <h2 class="display-title reveal">
 
-      <div class="container">
+          Moments
 
-        <div class="section-head reveal">
-          <div>
-            <div class="section-kicker">GOOD WORDS</div>
-            <h2 class="section-title">The TRANSIT<br>Feeling.</h2>
-          </div>
-        </div>
+          <br>
 
-        <div class="review-grid">
+          <em>between.</em>
 
-          <div class="review reveal">
-            <div class="stars">★★★★★</div>
-            <p>
-              مكان جميل جدًا والقهوة طعمها ممتاز، والـatmosphere مريح جدًا.
-            </p>
-            <strong>TRANSIT Guest</strong>
-          </div>
-
-          <div class="review reveal">
-            <div class="stars">★★★★★</div>
-            <p>
-              من الأماكن اللي بتحب ترجع لها تاني. الفطار والقهوة ممتازين.
-            </p>
-            <strong>TRANSIT Guest</strong>
-          </div>
-
-          <div class="review reveal">
-            <div class="stars">★★★★★</div>
-            <p>
-              تجربة مختلفة ومكان مناسب للقعدة مع أصحابك.
-            </p>
-            <strong>TRANSIT Guest</strong>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="faq">
-
-      <div class="container">
-
-        <div class="section-head reveal">
-          <div>
-            <div class="section-kicker">FAQ</div>
-            <h2 class="section-title">Good To<br>Know.</h2>
-          </div>
-        </div>
-
-        <div class="faq-list">
-
-          <details class="reveal">
-            <summary>مواعيد العمل إيه؟</summary>
-            <p>
-              يوميًا من 8 صباحًا حتى 2 صباحًا.
-            </p>
-          </details>
-
-          <details class="reveal">
-            <summary>فين TRANSIT CAFE؟</summary>
-            <p>
-              أبو كبير — الشرقية، بعد مطعم الصياد على الطريق الرئيسي.
-            </p>
-          </details>
-
-          <details class="reveal">
-            <summary>هل أقدر أشوف المنيو أونلاين؟</summary>
-            <p>
-              طبعًا. تقدر تدخل على Digital Menu من زر المنيو أو QR Code الخاص بالكافيه.
-            </p>
-          </details>
-
-          <details class="reveal">
-            <summary>هل أقدر أطلب عن طريق WhatsApp؟</summary>
-            <p>
-              نعم، اضغط على زر WhatsApp وابدأ الطلب مباشرة.
-            </p>
-          </details>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-
-      <div class="container">
-
-        <div class="section-head reveal">
-          <div>
-            <div class="section-kicker">FIND US</div>
-            <h2 class="section-title">Come Say<br>Hello.</h2>
-          </div>
-
-          <p class="section-description">
-            مستنيينك في TRANSIT CAFE — أبو كبير.
-          </p>
-        </div>
-
-        <div class="contact-grid">
-
-          <div class="contact-card reveal">
-
-            <h3>TRANSIT CAFE</h3>
-
-            <div class="contact-list">
-
-              <div class="contact-row">
-                <span>ADDRESS</span>
-                <strong>أبو كبير — الشرقية<br>بعد مطعم الصياد، الطريق الرئيسي</strong>
-              </div>
-
-              <div class="contact-row">
-                <span>PHONE</span>
-                <strong>01030516417</strong>
-              </div>
-
-              <div class="contact-row">
-                <span>WHATSAPP</span>
-                <strong>01030516417</strong>
-              </div>
-
-              <div class="contact-row">
-                <span>VODAFONE CASH</span>
-                <strong>01132674811</strong>
-              </div>
-
-              <div class="contact-row">
-                <span>OPENING HOURS</span>
-                <strong>8:00 AM — 2:00 AM</strong>
-              </div>
-
-            </div>
-
-            <div class="hero-actions">
-
-              <a href="tel:01030516417" class="btn btn-gold">
-                اتصل بنا
-              </a>
-
-              <a href="https://wa.me/201030516417" class="btn btn-dark">
-                WhatsApp
-              </a>
-
-            </div>
-
-          </div>
-
-          <div class="map reveal">
-
-            <div class="map-box">
-              <strong>📍 TRANSIT CAFE</strong>
-              <p>
-                Abu Kebir, Sharqia — After El-Sayyad Restaurant
-              </p>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta">
-
-      <div class="container reveal">
-
-        <div class="section-kicker">
-          SEE YOU AT TRANSIT
-        </div>
-
-        <h2>
-          Your Next<br>
-          Favorite Coffee.
         </h2>
 
-        <p>
-          المنيو مستنيك. اختار اللي نفسك فيه وخلي الباقي علينا.
+      </div>
+
+
+      <div class="gallery-grid">
+
+        <figure class="gallery-item gallery-item-large reveal">
+
+          <img
+            src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=1600&q=85"
+            alt="Coffee cup on table"
+            loading="lazy"
+          >
+
+          <figcaption>
+            The quiet beginning.
+          </figcaption>
+
+        </figure>
+
+
+        <figure class="gallery-item reveal">
+
+          <img
+            src="https://images.unsplash.com/photo-1510707577719-ae7c14805e32?auto=format&fit=crop&w=1200&q=85"
+            alt="Coffee beans"
+            loading="lazy"
+          >
+
+          <figcaption>
+            Origin.
+          </figcaption>
+
+        </figure>
+
+
+        <figure class="gallery-item reveal">
+
+          <img
+            src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1200&q=85"
+            alt="Roasted coffee beans"
+            loading="lazy"
+          >
+
+          <figcaption>
+            Craft.
+          </figcaption>
+
+        </figure>
+
+
+        <figure class="gallery-item gallery-item-wide reveal">
+
+          <img
+            src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1800&q=85"
+            alt="Barista making coffee"
+            loading="lazy"
+          >
+
+          <figcaption>
+            The final pour.
+          </figcaption>
+
+        </figure>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         NIGHT EXPERIENCE
+    ========================================= -->
+
+    <section
+      class="night-section"
+      id="night"
+    >
+
+      <div
+        class="night-media"
+        data-parallax="0.04"
+      >
+
+        <img
+          src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=2400&q=90"
+          alt="Elegant cafe at night"
+          loading="lazy"
+        >
+
+      </div>
+
+
+      <div class="night-overlay"></div>
+
+
+      <div class="night-content">
+
+        <div class="section-label reveal">
+
+          <span>05</span>
+
+          <span class="label-line"></span>
+
+          <span>AFTER DARK</span>
+
+        </div>
+
+
+        <h2 class="night-title reveal">
+
+          Stay
+
+          <br>
+
+          a little
+
+          <br>
+
+          <em>longer.</em>
+
+        </h2>
+
+
+        <p class="night-description reveal">
+
+          When the city gets quieter,
+          NOIRÉ changes.
+
+          Lower lights, deeper conversations
+          and coffee designed for the night.
+
         </p>
 
-        <div class="hero-actions" style="justify-content:center">
 
-          <a href="menu.html" class="btn btn-gold">
-            افتح المنيو
-          </a>
+        <a
+          href="#reservation"
+          class="gold-button magnetic reveal"
+        >
 
-          <a href="https://wa.me/201030516417" class="btn btn-dark">
-            اطلب WhatsApp
+          <span>
+            Discover the Night
+          </span>
+
+          <span>
+            ↗
+          </span>
+
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         QUOTE
+    ========================================= -->
+
+    <section class="quote-section section">
+
+      <div
+        class="quote-mark reveal"
+        aria-hidden="true"
+      >
+        “
+      </div>
+
+
+      <blockquote class="quote-text reveal">
+
+        Great coffee isn't just something
+        you drink.
+
+        <br>
+
+        It's somewhere you
+        <em>go.</em>
+
+      </blockquote>
+
+
+      <div class="quote-author reveal">
+
+        <span></span>
+
+        NOIRÉ — SPECIALTY COFFEE
+
+        <span></span>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         RESERVATION / VISIT
+    ========================================= -->
+
+    <section
+      class="reservation section-dark"
+      id="reservation"
+    >
+
+      <div class="reservation-grid">
+
+        <div class="reservation-copy reveal">
+
+          <div class="section-label">
+
+            <span>06</span>
+
+            <span class="label-line"></span>
+
+            <span>YOUR TABLE</span>
+
+          </div>
+
+
+          <h2 class="display-title">
+
+            Make a
+
+            <br>
+
+            <em>moment.</em>
+
+          </h2>
+
+
+          <p>
+            Whether it's your first coffee of the day
+            or the last conversation of the night,
+            there's always a place for you at NOIRÉ.
+          </p>
+
+        </div>
+
+
+        <div class="reservation-card reveal">
+
+          <div class="reservation-card-top">
+
+            <span>
+              VISIT US
+            </span>
+
+            <span>
+              07
+            </span>
+
+          </div>
+
+
+          <div class="reservation-details">
+
+            <div>
+
+              <small>
+                LOCATION
+              </small>
+
+              <p>
+                Downtown District
+              </p>
+
+            </div>
+
+
+            <div>
+
+              <small>
+                HOURS
+              </small>
+
+              <p>
+                Daily<br>
+                08:00 — 01:00
+              </p>
+
+            </div>
+
+
+            <div>
+
+              <small>
+                CONTACT
+              </small>
+
+              <p>
+                +20 000 000 0000
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <a
+            href="tel:+200000000000"
+            class="gold-button reservation-button magnetic"
+          >
+
+            <span>
+              Call to Reserve
+            </span>
+
+            <span>
+              ↗
+            </span>
+
           </a>
 
         </div>
@@ -1772,182 +1393,137 @@
 
   </main>
 
-  <!-- FOOTER -->
-  <footer>
 
-    <div class="footer-grid">
+  <!-- =========================================
+       FOOTER
+  ========================================= -->
 
-      <div>
-        <div class="footer-brand">TRANSIT CAFE</div>
+  <footer class="site-footer">
 
-        <p>
-          Premium coffee, food & good moments.
-          Abu Kebir, Sharqia.
-        </p>
+    <div class="footer-main">
 
-        <p>
-          Founded by <strong>مؤمن العطار</strong>
-        </p>
+      <div class="footer-title reveal">
+
+        See you
+
+        <br>
+
+        at <em>NOIRÉ.</em>
+
       </div>
 
-      <div>
-        <h4>EXPLORE</h4>
 
-        <div class="footer-links">
-          <a href="#home">الرئيسية</a>
-          <a href="#about">عن TRANSIT</a>
-          <a href="#menu">المنيو</a>
-          <a href="#gallery">Gallery</a>
+      <div class="footer-grid">
+
+        <div class="footer-column">
+
+          <span class="footer-label">
+            VISIT
+          </span>
+
+          <p>
+            Downtown District
+          </p>
+
+          <p>
+            Open Daily — 08:00 / 01:00
+          </p>
+
         </div>
-      </div>
 
-      <div>
-        <h4>QUICK LINKS</h4>
 
-        <div class="footer-links">
-          <a href="menu.html">Digital Menu</a>
-          <a href="cashier.html">Cashier</a>
-          <a href="https://wa.me/201030516417">WhatsApp</a>
-          <a href="tel:01030516417">Call Us</a>
+        <div class="footer-column">
+
+          <span class="footer-label">
+            EXPLORE
+          </span>
+
+          <a href="#story">
+            Our Story
+          </a>
+
+          <a href="#experience">
+            Experience
+          </a>
+
+          <a href="#menu">
+            Menu
+          </a>
+
+          <a href="#gallery">
+            Gallery
+          </a>
+
+          <a href="#night">
+            Night
+          </a>
+
         </div>
-      </div>
 
-      <div>
-        <h4>VISIT US</h4>
 
-        <div class="footer-links">
-          <a href="#contact">أبو كبير — الشرقية</a>
-          <a href="#contact">8 AM — 2 AM</a>
-          <a href="tel:01030516417">01030516417</a>
-          <a href="https://wa.me/201030516417">Chat on WhatsApp</a>
+        <div class="footer-column">
+
+          <span class="footer-label">
+            CONNECT
+          </span>
+
+          <a href="#">
+            Instagram
+          </a>
+
+          <a href="#">
+            Facebook
+          </a>
+
+          <a href="#reservation">
+            Contact
+          </a>
+
         </div>
+
       </div>
 
-    </div>
 
-    <div class="copyright">
-      <span>© 2026 TRANSIT CAFE. All Rights Reserved.</span>
-      <span>ABU KEBIR • SHARQIA • EGYPT</span>
+      <div class="footer-bottom">
+
+        <span>
+          © 2026 NOIRÉ Coffee House
+        </span>
+
+        <span>
+          Crafted with intention.
+        </span>
+
+        <span>
+          Specialty Coffee / Since 2018
+        </span>
+
+      </div>
+
     </div>
 
   </footer>
 
-  <!-- FLOATING WHATSAPP -->
-  <a
-    class="whatsapp"
-    href="https://wa.me/201030516417"
-    aria-label="WhatsApp"
+
+  <!-- =========================================
+       BACK TO TOP
+  ========================================= -->
+
+  <button
+    class="back-to-top magnetic"
+    id="backToTop"
+    type="button"
+    aria-label="Back to top"
   >
-    ☎
-  </a>
-
-  <script>
-
-    /* LOADER */
-
-    window.addEventListener("load", function(){
-
-      setTimeout(function(){
-
-        const loader = document.getElementById("loader");
-
-        loader.style.opacity = "0";
-        loader.style.pointerEvents = "none";
-
-        setTimeout(function(){
-          loader.remove();
-        },800);
-
-      },700);
-
-    });
+    ↑
+  </button>
 
 
-    /* NAVBAR */
+  <!-- =========================================
+       JAVASCRIPT
+  ========================================= -->
 
-    const navbar = document.getElementById("navbar");
-
-    window.addEventListener("scroll",function(){
-
-      if(window.scrollY > 40){
-        navbar.classList.add("scrolled");
-      }else{
-        navbar.classList.remove("scrolled");
-      }
-
-    });
-
-
-    /* MOBILE MENU */
-
-    const menuBtn = document.getElementById("menuBtn");
-    const navLinks = document.getElementById("navLinks");
-
-    menuBtn.addEventListener("click",function(){
-
-      navLinks.classList.toggle("open");
-
-      menuBtn.textContent =
-        navLinks.classList.contains("open") ? "×" : "☰";
-
-    });
-
-    document.querySelectorAll(".nav-links a").forEach(function(link){
-
-      link.addEventListener("click",function(){
-        navLinks.classList.remove("open");
-        menuBtn.textContent = "☰";
-      });
-
-    });
-
-
-    /* REVEAL ON SCROLL */
-
-    const observer = new IntersectionObserver(function(entries){
-
-      entries.forEach(function(entry){
-
-        if(entry.isIntersecting){
-
-          entry.target.classList.add("show");
-
-          observer.unobserve(entry.target);
-
-        }
-
-      });
-
-    },{
-      threshold:.12
-    });
-
-
-    document.querySelectorAll(".reveal").forEach(function(el){
-      observer.observe(el);
-    });
-
-
-    /* SIMPLE PARALLAX */
-
-    const heroBg = document.querySelector(".hero-bg");
-
-    window.addEventListener("scroll",function(){
-
-      if(window.innerWidth > 700){
-
-        const y = window.scrollY;
-
-        if(y < window.innerHeight){
-          heroBg.style.transform =
-            "scale(1) translateY(" + y * .12 + "px)";
-        }
-
-      }
-
-    });
-
-  </script>
+  <script src="script.js"></script>
 
 </body>
 </html>
