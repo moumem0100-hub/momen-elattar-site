@@ -1,1 +1,2093 @@
-<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TRANSIT CASHIER - مؤمن العطار</title><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;800;900&display=swap" rel="stylesheet"><style>:root{--gold:#e8c27a;--bg:#0a0a0a;--card:#141414;--border:#232323}*{margin:0;padding:0;box-sizing:border-box}body{background:var(--bg);color:#fff;font-family:'Cairo',sans-serif;display:grid;grid-template-columns:1fr 380px;height:100vh;overflow:hidden}.left{padding:16px;overflow-y:auto;background:#0a0a0a}.top{display:flex;justify-content:space-between;align-items:center;background:#111;border:1px solid var(--border);padding:12px 16px;border-radius:14px;margin-bottom:12px}.top b{color:var(--gold);font-size:20px}.tabs{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}.tab{padding:8px 16px;border-radius:999px;border:1px solid var(--border);background:#111;color:#777;font-weight:800;font-size:13px;cursor:pointer}.tab.active{background:var(--gold);color:#000;border-color:var(--gold)}.grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px}.item{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px;text-align:center;cursor:pointer;transition:.2s}.item:hover{border-color:var(--gold);transform:translateY(-2px);background:#1a1a1a}.item b{display:block;font-size:14px;margin-bottom:4px}.item span{color:var(--gold);font-weight:900;font-size:15px}.item small{color:#666;font-size:11px;display:block}.right{background:#111;border-right:1px solid var(--border);display:flex;flex-direction:column}.bill-head{padding:16px;border-bottom:1px solid var(--border);background:#0e0e0e}.bill-head h2{color:var(--gold);font-size:18px}.bill-body{flex:1;overflow-y:auto;padding:12px}.row{display:flex;justify-content:space-between;align-items:center;background:#151515;border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin-bottom:8px}.row b{font-size:13px}.qty{display:flex;gap:6px;align-items:center}.qty button{width:26px;height:26px;border-radius:50%;border:1px solid var(--border);background:#222;color:#fff;font-weight:900;cursor:pointer}.qty button:hover{border-color:var(--gold)}.bill-foot{padding:16px;border-top:1px solid var(--border);background:#0e0e0e}.line
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>TRANSIT CAFE | مؤمن العطار - أبو كبير</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Bodoni+Moda:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+:root{
+  --gold:#d7ad55;
+  --gold2:#f3d486;
+  --bg:#080808;
+  --card:#111;
+  --card2:#171717;
+  --text:#fff;
+  --muted:#999;
+  --line:rgba(215,173,85,.22);
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:
+  radial-gradient(circle at 15% 0%,rgba(215,173,85,.13),transparent 28%),
+  radial-gradient(circle at 100% 30%,rgba(215,173,85,.07),transparent 30%),
+  var(--bg);
+  color:var(--text);
+  font-family:Cairo,sans-serif;
+  overflow-x:hidden;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button{
+  font-family:Cairo,sans-serif;
+}
+
+/* LOADER */
+
+.loader{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  background:#080808;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:.6s;
+}
+
+.loader.hide{
+  opacity:0;
+  visibility:hidden;
+}
+
+.loader-logo{
+  text-align:center;
+}
+
+.loader-logo h1{
+  font-family:"Bodoni Moda",serif;
+  font-size:42px;
+  color:var(--gold2);
+}
+
+.loader-logo p{
+  color:#777;
+  letter-spacing:4px;
+  font-size:10px;
+}
+
+/* TOPBAR */
+
+.topbar{
+  background:#050505;
+  border-bottom:1px solid var(--line);
+  color:#aaa;
+  padding:8px 15px;
+  font-size:11px;
+  text-align:center;
+}
+
+.topbar span{
+  color:var(--gold2);
+}
+
+/* NAV */
+
+nav{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(8,8,8,.88);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.nav-inner{
+  max-width:1200px;
+  margin:auto;
+  min-height:75px;
+  padding:10px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo{
+  font-family:"Bodoni Moda",serif;
+  color:var(--gold2);
+  font-size:25px;
+  white-space:nowrap;
+}
+
+.logo small{
+  display:block;
+  font-family:Cairo;
+  font-size:8px;
+  letter-spacing:3px;
+  color:#777;
+  text-align:center;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:22px;
+}
+
+.nav-links a{
+  color:#bbb;
+  font-size:13px;
+  transition:.2s;
+}
+
+.nav-links a:hover{
+  color:var(--gold2);
+}
+
+.nav-btn{
+  background:var(--gold);
+  color:#111;
+  border:0;
+  padding:10px 17px;
+  border-radius:12px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.menu-toggle{
+  display:none;
+  border:1px solid var(--line);
+  background:#111;
+  color:#fff;
+  border-radius:10px;
+  padding:8px 11px;
+  cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+  min-height:calc(100vh - 120px);
+  max-width:1200px;
+  margin:auto;
+  padding:70px 20px;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  align-items:center;
+  gap:50px;
+}
+
+.hero-text .eyebrow{
+  color:var(--gold2);
+  letter-spacing:3px;
+  font-size:11px;
+  margin-bottom:18px;
+}
+
+.hero h1{
+  font-family:"Bodoni Moda",serif;
+  font-size:clamp(48px,8vw,92px);
+  line-height:.95;
+  font-weight:700;
+}
+
+.hero h1 span{
+  color:var(--gold);
+}
+
+.hero h2{
+  margin-top:20px;
+  font-size:18px;
+  font-weight:500;
+  color:#ccc;
+}
+
+.hero p{
+  color:#888;
+  max-width:560px;
+  margin-top:15px;
+  line-height:2;
+}
+
+.hero-buttons{
+  margin-top:28px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.btn{
+  padding:13px 20px;
+  border-radius:13px;
+  font-weight:800;
+  display:inline-block;
+  border:1px solid var(--line);
+}
+
+.btn.gold{
+  background:var(--gold);
+  color:#111;
+}
+
+.btn.dark{
+  background:#141414;
+}
+
+/* HERO CARD */
+
+.hero-card{
+  position:relative;
+  min-height:470px;
+  border:1px solid var(--line);
+  border-radius:30px;
+  background:
+  linear-gradient(145deg,rgba(215,173,85,.14),transparent 45%),
+  #111;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.hero-card::before{
+  content:"";
+  position:absolute;
+  width:300px;
+  height:300px;
+  border:1px solid rgba(215,173,85,.18);
+  border-radius:50%;
+}
+
+.hero-card::after{
+  content:"";
+  position:absolute;
+  width:430px;
+  height:430px;
+  border:1px solid rgba(215,173,85,.08);
+  border-radius:50%;
+}
+
+.hero-logo{
+  position:relative;
+  z-index:2;
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  border:2px solid var(--gold);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  text-align:center;
+  background:#0c0c0c;
+  box-shadow:0 0 70px rgba(215,173,85,.12);
+}
+
+.hero-logo strong{
+  font-family:"Bodoni Moda",serif;
+  color:var(--gold2);
+  font-size:29px;
+}
+
+.hero-logo small{
+  color:#777;
+  font-size:9px;
+  letter-spacing:2px;
+}
+
+/* SECTION */
+
+section{
+  scroll-margin-top:90px;
+}
+
+.section{
+  max-width:1200px;
+  margin:auto;
+  padding:85px 20px;
+}
+
+.section-head{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.section-head .mini{
+  color:var(--gold2);
+  font-size:11px;
+  letter-spacing:3px;
+}
+
+.section-head h2{
+  font-family:"Bodoni Moda",serif;
+  font-size:clamp(32px,5vw,55px);
+  margin-top:8px;
+}
+
+.section-head p{
+  color:#777;
+  margin-top:8px;
+}
+
+/* FEATURES */
+
+.features{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.feature{
+  background:linear-gradient(145deg,#171717,#0e0e0e);
+  border:1px solid rgba(255,255,255,.06);
+  padding:28px;
+  border-radius:22px;
+}
+
+.feature-icon{
+  font-size:28px;
+  margin-bottom:15px;
+}
+
+.feature h3{
+  font-size:18px;
+}
+
+.feature p{
+  color:#777;
+  font-size:13px;
+  line-height:1.8;
+  margin-top:8px;
+}
+
+/* MENU */
+
+.menu-tools{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-bottom:30px;
+}
+
+.filter{
+  border:1px solid var(--line);
+  background:#111;
+  color:#aaa;
+  padding:9px 17px;
+  border-radius:30px;
+  cursor:pointer;
+}
+
+.filter.active,
+.filter:hover{
+  background:var(--gold);
+  color:#111;
+}
+
+.search{
+  width:min(500px,100%);
+  display:block;
+  margin:0 auto 25px;
+  background:#111;
+  border:1px solid var(--line);
+  color:#fff;
+  padding:14px 17px;
+  border-radius:15px;
+  outline:none;
+  font-family:Cairo;
+}
+
+/* MENU GRID */
+
+.menu-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.m-card{
+  background:#111;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:21px;
+  padding:20px;
+  transition:.25s;
+  position:relative;
+}
+
+.m-card:hover{
+  transform:translateY(-5px);
+  border-color:var(--line);
+}
+
+.m-top{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.m-icon{
+  width:54px;
+  height:54px;
+  border-radius:15px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#1c1c1c;
+  font-size:27px;
+}
+
+.m-card h3{
+  margin-top:14px;
+  font-size:17px;
+}
+
+.m-card p{
+  color:#777;
+  font-size:11px;
+  margin-top:4px;
+  min-height:20px;
+}
+
+.price{
+  color:var(--gold2);
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.m-actions{
+  margin-top:17px;
+  display:flex;
+  gap:8px;
+}
+
+.add-btn{
+  flex:1;
+  border:0;
+  background:var(--gold);
+  color:#111;
+  border-radius:11px;
+  padding:9px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.fav-btn{
+  width:42px;
+  border:1px solid var(--line);
+  background:#171717;
+  color:#aaa;
+  border-radius:11px;
+  cursor:pointer;
+}
+
+/* OFFERS */
+
+.offer{
+  border:1px solid var(--line);
+  border-radius:28px;
+  padding:45px 30px;
+  background:
+    radial-gradient(circle at 80% 50%,rgba(215,173,85,.17),transparent 35%),
+    #111;
+  text-align:center;
+}
+
+.offer h2{
+  font-family:"Bodoni Moda",serif;
+  font-size:40px;
+  color:var(--gold2);
+}
+
+.offer p{
+  color:#aaa;
+  margin:10px auto 20px;
+}
+
+/* GALLERY */
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+.gallery-item{
+  min-height:240px;
+  border-radius:20px;
+  border:1px solid var(--line);
+  background:
+    linear-gradient(145deg,#202020,#0d0d0d);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:45px;
+}
+
+/* CONTACT */
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.contact{
+  background:#111;
+  border:1px solid rgba(255,255,255,.06);
+  padding:25px;
+  border-radius:20px;
+  text-align:center;
+}
+
+.contact-icon{
+  font-size:27px;
+}
+
+.contact h3{
+  margin-top:10px;
+}
+
+.contact p{
+  color:#888;
+  font-size:12px;
+  line-height:1.8;
+  margin-top:5px;
+}
+
+/* CART */
+
+.cart{
+  position:fixed;
+  left:-430px;
+  top:0;
+  width:min(410px,100%);
+  height:100vh;
+  background:#101010;
+  z-index:500;
+  transition:.3s;
+  box-shadow:20px 0 60px #000;
+  display:flex;
+  flex-direction:column;
+}
+
+.cart.open{
+  left:0;
+}
+
+.cart-head{
+  padding:20px;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.close{
+  background:none;
+  border:0;
+  color:#fff;
+  font-size:27px;
+  cursor:pointer;
+}
+
+.cart-items{
+  flex:1;
+  overflow:auto;
+  padding:15px;
+}
+
+.cart-item{
+  padding:14px 0;
+  border-bottom:1px solid #242424;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.cart-item small{
+  color:#777;
+  display:block;
+}
+
+.qty{
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+
+.qty button{
+  width:27px;
+  height:27px;
+  border:1px solid var(--line);
+  border-radius:7px;
+  background:#191919;
+  color:#fff;
+  cursor:pointer;
+}
+
+.cart-footer{
+  padding:18px;
+  border-top:1px solid var(--line);
+}
+
+.total{
+  display:flex;
+  justify-content:space-between;
+  font-size:19px;
+  font-weight:800;
+  margin-bottom:13px;
+}
+
+.whatsapp{
+  width:100%;
+  border:0;
+  background:#25d366;
+  color:#fff;
+  padding:14px;
+  border-radius:13px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+  border-top:1px solid var(--line);
+  padding:40px 20px;
+  text-align:center;
+  color:#666;
+  font-size:12px;
+}
+
+footer strong{
+  color:var(--gold2);
+  font-family:"Bodoni Moda",serif;
+  font-size:20px;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:74px;
+    right:0;
+    left:0;
+    background:#0b0b0b;
+    padding:18px;
+    border-bottom:1px solid var(--line);
+    flex-direction:column;
+  }
+
+  .nav-links.show{
+    display:flex;
+  }
+
+  .menu-toggle{
+    display:block;
+  }
+
+  .nav-btn{
+    display:none;
+  }
+
+  .hero{
+    grid-template-columns:1fr;
+    text-align:center;
+    padding-top:50px;
+  }
+
+  .hero p{
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .hero-buttons{
+    justify-content:center;
+  }
+
+  .hero-card{
+    min-height:350px;
+  }
+
+  .features,
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+
+  .menu-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .gallery{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:500px){
+
+  .logo{
+    font-size:20px;
+  }
+
+  .hero h1{
+    font-size:48px;
+  }
+
+  .section{
+    padding:60px 14px;
+  }
+
+  .menu-grid{
+    gap:10px;
+  }
+
+  .m-card{
+    padding:13px;
+  }
+
+  .m-icon{
+    width:45px;
+    height:45px;
+    font-size:22px;
+  }
+
+  .m-card h3{
+    font-size:14px;
+  }
+
+  .m-card p{
+    font-size:9px;
+  }
+
+  .price{
+    font-size:14px;
+  }
+
+  .add-btn{
+    font-size:11px;
+  }
+
+  .gallery-item{
+    min-height:150px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOADER -->
+
+<div class="loader" id="loader">
+  <div class="loader-logo">
+    <h1>TRANSIT</h1>
+    <p>CAFE • ABO KEBIR</p>
+  </div>
+</div>
+
+<!-- TOPBAR -->
+
+<div class="topbar">
+  TRANSIT CAFE
+  <span>•</span>
+  مؤمن العطار
+  <span>•</span>
+  01030516417
+  <span>•</span>
+  أبو كبير — الشرقية
+</div>
+
+<!-- NAV -->
+
+<nav>
+  <div class="nav-inner">
+
+    <a href="#" class="logo">
+      TRANSIT CAFE
+      <small>PREMIUM • ABO KEBIR</small>
+    </a>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#home">الرئيسية</a>
+      <a href="#about">عن ترانزيت</a>
+      <a href="#menu">المنيو</a>
+      <a href="#offers">العروض</a>
+      <a href="#contact">تواصل معنا</a>
+    </div>
+
+    <div style="display:flex;gap:8px;align-items:center">
+
+      <button class="nav-btn" onclick="openCart()">
+        🛒 الطلب
+        <span id="cartCount">0</span>
+      </button>
+
+      <button class="menu-toggle" onclick="toggleNav()">
+        ☰
+      </button>
+
+    </div>
+
+  </div>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+  <div class="hero-text">
+
+    <div class="eyebrow">
+      PREMIUM CAFE EXPERIENCE
+    </div>
+
+    <h1>
+      TRANSIT<br>
+      <span>CAFE</span>
+    </h1>
+
+    <h2>
+      A taste of morning delight.
+    </h2>
+
+    <p>
+      مكانك المختلف في أبو كبير للقهوة والمشروبات
+      والأكل والحلويات، بتجربة تجمع بين الفخامة
+      والراحة والطعم اللي يخليك ترجع تاني.
+    </p>
+
+    <div class="hero-buttons">
+
+      <a href="#menu" class="btn gold">
+        ☕ شوف المنيو
+      </a>
+
+      <a
+        href="https://wa.me/201030516417"
+        class="btn dark"
+        target="_blank"
+      >
+        💬 واتساب
+      </a>
+
+    </div>
+
+  </div>
+
+  <div class="hero-card">
+
+    <div class="hero-logo">
+      <strong>TRANSIT</strong>
+      <strong>CAFE</strong>
+      <small>EST. 2024 • ABO KEBIR</small>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="section" id="about">
+
+  <div class="section-head">
+    <div class="mini">WHY TRANSIT?</div>
+    <h2>مش مجرد كافيه</h2>
+    <p>تجربة كاملة معمولة عشانك.</p>
+  </div>
+
+  <div class="features">
+
+    <div class="feature">
+      <div class="feature-icon">☕</div>
+      <h3>قهوة بجودة عالية</h3>
+      <p>
+        اختيارات متنوعة من القهوة والمشروبات
+        الساخنة والباردة بطابع ترانزيت الخاص.
+      </p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">✨</div>
+      <h3>أجواء مختلفة</h3>
+      <p>
+        تصميم عصري وإضاءة وأجواء مناسبة
+        للقعدة الهادية أو الخروجة مع أصحابك.
+      </p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">❤️</div>
+      <h3>تفاصيل تفرق</h3>
+      <p>
+        من أول الطلب لحد آخر رشفة،
+        بنهتم بالتفاصيل الصغيرة قبل الكبيرة.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- MENU -->
+
+<section class="section" id="menu">
+
+  <div class="section-head">
+    <div class="mini">OUR MENU</div>
+    <h2>المنيو</h2>
+    <p>اختار اللي على مزاجك.</p>
+  </div>
+
+  <input
+    class="search"
+    id="menuSearch"
+    type="text"
+    placeholder="🔎 ابحث عن مشروب أو أكلة..."
+    oninput="filterMenu()"
+  >
+
+  <div class="menu-tools">
+
+    <button class="filter active" onclick="setFilter('all',this)">
+      الكل
+    </button>
+
+    <button class="filter" onclick="setFilter('breakfast',this)">
+      🍳 فطار
+    </button>
+
+    <button class="filter" onclick="setFilter('coffee',this)">
+      ☕ قهوة
+    </button>
+
+    <button class="filter" onclick="setFilter('cold',this)">
+      🧊 ساقع
+    </button>
+
+    <button class="filter" onclick="setFilter('cans',this)">
+      🥤 كانزات
+    </button>
+
+    <button class="filter" onclick="setFilter('dessert',this)">
+      🍰 حلويات
+    </button>
+
+  </div>
+
+  <div class="menu-grid" id="menuGrid">
+
+    <!-- BREAKFAST -->
+
+    <div class="m-card"
+      data-category="breakfast"
+      data-name="بان كيك بالعسل"
+      data-price="110">
+
+      <div class="m-top">
+        <div class="m-icon">🥞</div>
+        <div class="price">110 ج.م</div>
+      </div>
+
+      <h3>بان كيك بالعسل</h3>
+      <p>بان كيك طازج بالعسل.</p>
+
+      <div class="m-actions">
+        <button class="add-btn" onclick="addItem('بان كيك بالعسل',110)">
+          + إضافة للطلب
+        </button>
+        <button class="fav-btn">♡</button>
+      </div>
+
+    </div>
+
+    <div class="m-card"
+      data-category="breakfast"
+      data-name="بيض بنيديكت"
+      data-price="95">
+
+      <div class="m-top">
+        <div class="m-icon">🍳</div>
+        <div class="price">95 ج.م</div>
+      </div>
+
+      <h3>بيض بنيديكت</h3>
+      <p>بيض بنيديكت بطريقة ترانزيت.</p>
+
+      <div class="m-actions">
+        <button class="add-btn" onclick="addItem('بيض بنيديكت',95)">
+          + إضافة للطلب
+        </button>
+        <button class="fav-btn">♡</button>
+      </div>
+
+    </div>
+
+    <div class="m-card"
+      data-category="breakfast"
+      data-name="أفوكادو توست"
+      data-price="105">
+
+      <div class="m-top">
+        <div class="m-icon">🥑</div>
+        <div class="price">105 ج.م</div>
+      </div>
+
+      <h3>أفوكادو توست</h3>
+      <p>توست بالأفوكادو الطازج.</p>
+
+      <div class="m-actions">
+        <button class="add-btn" onclick="addItem('أفوكادو توست',105)">
+          + إضافة للطلب
+        </button>
+        <button class="fav-btn">♡</button>
+      </div>
+
+    </div>
+
+    <div class="m-card"
+      data-category="breakfast"
+      data-name="شكشوكة ترانزيت"
+      data-price="75">
+
+      <div class="m-top">
+        <div class="m-icon">🍅</div>
+        <div class="price">75 ج.م</div>
+      </div>
+
+      <h3>شكشوكة ترانزيت</h3>
+      <p>شكشوكة ساخنة بطريقتنا.</p>
+
+      <div class="m-actions">
+        <button class="add-btn" onclick="addItem('شكشوكة ترانزيت',75)">
+          + إضافة للطلب
+        </button>
+        <button class="fav-btn">♡</button>
+      </div>
+
+    </div>
+
+    <div class="m-card"
+      data-category="breakfast"
+      data-name="فول وطعمية بلدي"
+      data-price="60">
+
+      <div class="m-top">
+        <div class="m-icon">🥙</div>
+        <div class="price">60 ج.م</div>
+      </div>
+
+      <h3>فول وطعمية بلدي</h3>
+      <p>فطار مصري أصيل.</p>
+
+      <div class="m-actions">
+        <button class="add-btn" onclick="addItem('فول وطعمية بلدي',60)">
+          + إضافة للطلب
+        </button>
+        <button class="fav-btn">♡</button>
+      </div>
+
+    </div>
+
+    <div class="m-card"
+      data-category="breakfast"
+      data-name="أومليت جبنة"
+      data-price="85">
+
+      <div class="m-top">
+        <div class="m-icon">🍳</div>
+        <div class="price">85 ج.م</div>
+      </div>
+
+      <h3>أومليت جبنة</h3>
+      <p>أومليت بالجبنة.</p>
+
+      <div class="m-actions">
+        <button class="add-btn" onclick="addItem('أومليت جبنة',85)">
+          + إضافة للطلب
+        </button>
+        <button class="fav-btn">♡</button>
+      </div>
+
+    </div>
+
+    <!-- COFFEE -->
+
+    <div class="m-card"
+      data-category="coffee"
+      data-name="كابتشينو"
+      data-price="65">
+
+      <div class="m-top">
+        <div class="m-icon">☕</div>
+        <div class="price">65 ج.م</div>
+      </div>
+
+      <h3>كابتشينو</h3>
+      <p>إسبريسو مع حليب وفوم.</p>
+
+      <div class="m-actions">
+        <button class="add-btn" onclick="addItem('كابتشينو',65)">
+          + إضافة للطلب
+        </button>
+        <button class="fav-btn">♡</button>
+      </div>
+
+    </div>
+
+    <div class="m-card"
+      data-category="coffee"
+      data-name="لاتيه"
+      data-price="70">
+
+      <div class="m-top">
+        <div class="m-icon">☕</div>
+        <div class="price">70 ج.م</div>
+      </div>
+
+      <h3>لاتيه</h3>
+      <p>قهوة ناعمة بالحليب.</p>
+
+      <div class="m-actions">
+        <button class="add-btn" onclick="addItem('لاتيه',70)">
+          + إضافة للطلب
+        </button>
+        <button class="fav-btn">♡</button>
+      </div>
+
+    </div>
+
+    <div class="m-card"
+      data-category="coffee"
+      data-name="سبانش لاتيه"
+      data-price="85">
+
+      <div class="m-top">
+        <div class="m-icon">🥛</div>
+        <div class="price">85 ج.م</div>
+      </div>
+
+      <h3>سبانش لاتيه</h3>
+      <p>سبانش لاتيه كريمي.</p>
+
+      <div class="m-actions">
+        <button class="add-btn" onclick="addItem('سبانش لاتيه',85)">
+          + إضافة للطلب
+        </button>
+        <button class="fav-btn">♡</button>
+      </div>
+
+    </div>
+
+    <div class="m-card"
+      data-category="coffee"
+      data-name="موكا"
+      data-price="80">
+
+      <div class="m-top">
+        <div class="m-icon">🍫</div>
+        <div class="price">80 ج.م</div>
+      </div>
+
+      <h3>موكا</h3>
+      <p>قهوة بالشوكولاتة.</p>
+
+      <div class="m-actions">
+        <button class="add-btn" onclick="addItem('موكا',80)">
+          + إضافة للطلب
+        </button>
+        <button class="fav-btn">♡</button>
+      </div>
+
+    </div>
+
+    <div class="m-card"
+      data-category="coffee"
+      data-name="إسبريسو"
+      data-price="45">
+
+      <div class="m-top">
+        <div class="m-icon">☕</div>
+        <div class="price">45 ج.م</div>
+      </div>
+
+      <h3>إسبريسو</h3>
+      <p>إسبريسو كلاسيك.</p>
+
+      <div class="m-actions">
+        <button class="add-btn" onclick="addItem('إسبريسو',45)">
+          + إضافة للطلب
+        </button>
+        <button class="fav-btn">♡</button>
+      </div>
+
+    </div>
+
+    <div class="m-card"
+      data-category="coffee"
+      data-name="قهوة تركي"
+      data-price="40">
+
+      <div class="m-top">
+        <div class="m-icon">☕</div>
+        <div class="price">40 ج.م</div>
+      </div>
+
+      <h3>قهوة تركي</h3>
+      <p>قهوة تركي مظبوط.</p>
+
+      <div class="m-actions">
+        <button class="add-btn" onclick="addItem('قهوة تركي',40)">
+          + إضافة للطلب
+        </button>
+        <button class="fav-btn">♡</button>
+      </div>
+
+    </div>
+
+    <!-- COLD -->
+
+    <div class="m-card"
+      data-category="cold"
+      data-name="آيس كوفي"
+      data-price="75">
+
+      <div class="m-top">
+        <div class="m-icon">🧊</div>
+        <div class="price">75 ج.م</div>
+      </div>
+
+      <h3>آيس كوفي</h3>
+      <p>قهوة باردة ومنعشة.</p>
+
+      <div class="m-actions">
+        <button class="add-btn" onclick="addItem('آيس كوفي',75)">
+          + إضافة للطلب
+        </button>
+        <button class="fav-btn">♡</button>
+      </div>
+
+    </div>
+
+    <div class="m-card"
+      data-category="cold"
+      data-name="آيس لاتيه"
+      data-price="75">
+
+      <div class="m-top">
+        <div class="m-icon">🧊</div>
+        <div class="price">75 ج.م</div>
+      </div>
+
+      <h3>آيس لاتيه</h3>
+      <p>لاتيه بارد.</p>
+
+      <div class="m-actions">
+        <button class="add-btn" onclick="addItem('آيس لاتيه',75)">
+          + إضافة للطلب
+        </button>
+        <button class="fav-btn">♡</button>
+      </div>
+
+    </div>
+
+    <div class="m-card"
+      data-category="cold"
+      data-name="موهيتو"
+      data-price="80">
+
+      <div class="m-top">
+        <div class="m-icon">🍋</div>
+        <div class="price">80 ج.م</div>
+      </div>
+
+      <h3>موهيتو</h3>
+      <p>ليمون ونعناع منعش.</p>
+
+      <div class="m-actions">
+        <button class="add-btn" onclick="addItem('موهيتو',80)">
+          + إضافة للطلب
+        </button>
+        <button class="fav-btn">♡</button>
+      </div>
+
+    </div>
+
+    <div class="m-card"
+      data-category="cold"
+      data-name="فرابتشينو"
+      data-price="95">
+
+      <div class="m-top">
+        <div class="m-icon">🥤</div>
+        <div class="price">95 ج.م</div>
+      </div>
+
+      <h3>فرابتشينو</h3>
+      <p>مشروب فرابتشينو كريمي.</p>
+
+      <div class="m-actions">
+        <button class="add-btn" onclick="addItem('فرابتشينو',95)">
+          + إضافة للطلب
+        </button>
+        <button class="fav-btn">♡</button>
+      </div>
+
+    </div>
+
+    <div class="m-card"
+      data-category="cold"
+      data-name="ميلك شيك"
+      data-price="90">
+
+      <div class="m-top">
+        <div class="m-icon">🥛</div>
+        <div class="price">90 ج.م</div>
+      </div>
+
+      <h3>ميلك شيك</h3>
+      <p>ميلك شيك كريمي.</p>
+
+      <div class="m-actions">
+        <button class="add-btn" onclick="addItem('ميلك شيك',90)">
+          + إضافة للطلب
+        </button>
+        <button class="fav-btn">♡</button>
+      </div>
+
+    </div>
+
+    <!-- CANS -->
+
+    <div class="m-card"
+      data-category="cans"
+      data-name="Red Bull"
+      data-price="90">
+
+      <div class="m-top">
+        <div class="m-icon">🥤</div>
+        <div class="price">90 ج.م</div>
+      </div>
+
+      <h3>Red Bull</h3>
+      <p>ريد بول.</p>
+
+      <div class="m-actions">
+        <button class="add-btn" onclick="addItem('Red Bull',90)">
+          + إضافة للطلب
+        </button>
+        <button class="fav-btn">♡</button>
+      </div>
+
+    </div>
+
+    <div class="m-card"
+      data-category="cans"
+      data-name="Red Bull Sugar Free"
+      data-price="90">
+
+      <div class="m-top">
+        <div class="m-icon">🥤</div>
+        <div class="price">90 ج.م</div>
+      </div>
+
+      <h3>Red Bull Sugar Free</h3>
+      <p>ريد بول بدون سكر.</p>
+
+      <div class="m-actions">
+        <button class="add-btn" onclick="addItem('Red Bull Sugar Free',90)">
+          + إضافة للطلب
+        </button>
+        <button class="fav-btn">♡</button>
+      </div>
+
+    </div>
+
+    <div class="m-card"
+      data-category="cans"
+      data-name="Fury"
+      data-price="35">
+
+      <div class="m-top">
+        <div class="m-icon">🥤</div>
+        <div class="price">35 ج.م</div>
+      </div>
+
+      <h3>Fury</h3>
+      <p>فوري.</p>
+
+      <div class="m-actions">
+        <button class="add-btn" onclick="addItem('Fury',35)">
+          + إضافة للطلب
+        </button>
+        <button class="fav-btn">♡</button>
+      </div>
+
+    </div>
+
+    <div class="m-card"
+      data-category="cans"
+      data-name="Sting"
+      data-price="30">
+
+      <div class="m-top">
+        <div class="m-icon">🥤</div>
+        <div class="price">30 ج.م</div>
+      </div>
+
+      <h3>Sting</h3>
+      <p>ستينج.</p>
+
+      <div class="m-actions">
+        <button class="add-btn" onclick="addItem('Sting',30)">
+          + إضافة للطلب
+        </button>
+        <button class="fav-btn">♡</button>
+      </div>
+
+    </div>
+
+    <div class="m-card"
+      data-category="cans"
+      data-name="Pepsi"
+      data-price="25">
+
+      <div class="m-top">
+        <div class="m-icon">🥤</div>
+        <div class="price">25 ج.م</div>
+      </div>
+
+      <h3>Pepsi</h3>
+      <p>بيبسي كان.</p>
+
+      <div class="m-actions">
+        <button class="add-btn" onclick="addItem('Pepsi',25)">
+          + إضافة للطلب
+        </button>
+        <button class="fav-btn">♡</button>
+      </div>
+
+    </div>
+
+    <div class="m-card"
+      data-category="cans"
+      data-name="7UP"
+      data-price="25">
+
+      <div class="m-top">
+        <div class="m-icon">🥤</div>
+        <div class="price">25 ج.م</div>
+      </div>
+
+      <h3>7UP</h3>
+      <p>سفن أب.</p>
+
+      <div class="m-actions">
+        <button class="add-btn" onclick="addItem('7UP',25)">
+          + إضافة للطلب
+        </button>
+        <button class="fav-btn">♡</button>
+      </div>
+
+    </div>
+
+    <div class="m-card"
+      data-category="cans"
+      data-name="Mirinda"
+      data-price="25">
+
+      <div class="m-top">
+        <div class="m-icon">🥤</div>
+        <div class="price">25 ج.م</div>
+      </div>
+
+      <h3>Mirinda</h3>
+      <p>ميرندا.</p>
+
+      <div class="m-actions">
+        <button class="add-btn" onclick="addItem('Mirinda',25)">
+          + إضافة للطلب
+        </button>
+        <button class="fav-btn">♡</button>
+      </div>
+
+    </div>
+
+    <div class="m-card"
+      data-category="cans"
+      data-name="مياه معدنية"
+      data-price="15">
+
+      <div class="m-top">
+        <div class="m-icon">💧</div>
+        <div class="price">15 ج.م</div>
+      </div>
+
+      <h3>مياه معدنية</h3>
+      <p>مياه معدنية.</p>
+
+      <div class="m-actions">
+        <button class="add-btn" onclick="addItem('مياه معدنية',15)">
+          + إضافة للطلب
+        </button>
+        <button class="fav-btn">♡</button>
+      </div>
+
+    </div>
+
+    <!-- DESSERT -->
+
+    <div class="m-card"
+      data-category="dessert"
+      data-name="وافل نوتيلا"
+      data-price="95">
+
+      <div class="m-top">
+        <div class="m-icon">🧇</div>
+        <div class="price">95 ج.م</div>
+      </div>
+
+      <h3>وافل نوتيلا</h3>
+      <p>وافل بالنوتيلا.</p>
+
+      <div class="m-actions">
+        <button class="add-btn" onclick="addItem('وافل نوتيلا',95)">
+          + إضافة للطلب
+        </button>
+        <button class="fav-btn">♡</button>
+      </div>
+
+    </div>
+
+    <div class="m-card"
+      data-category="dessert"
+      data-name="تشيز كيك"
+      data-price="85">
+
+      <div class="m-top">
+        <div class="m-icon">🍰</div>
+        <div class="price">85 ج.م</div>
+      </div>
+
+      <h3>تشيز كيك</h3>
+      <p>تشيز كيك كريمي.</p>
+
+      <div class="m-actions">
+        <button class="add-btn" onclick="addItem('تشيز كيك',85)">
+          + إضافة للطلب
+        </button>
+        <button class="fav-btn">♡</button>
+      </div>
+
+    </div>
+
+    <div class="m-card"
+      data-category="dessert"
+      data-name="براوني"
+      data-price="75">
+
+      <div class="m-top">
+        <div class="m-icon">🍫</div>
+        <div class="price">75 ج.م</div>
+      </div>
+
+      <h3>براوني</h3>
+      <p>براوني شوكولاتة.</p>
+
+      <div class="m-actions">
+        <button class="add-btn" onclick="addItem('براوني',75)">
+          + إضافة للطلب
+        </button>
+        <button class="fav-btn">♡</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- OFFER -->
+
+<section class="section" id="offers">
+
+  <div class="offer">
+
+    <div class="mini">TRANSIT SPECIAL</div>
+
+    <h2>خلي يومك ألذ ☕</h2>
+
+    <p>
+      قهوة، مشروب ساقع، حاجة حلوة...
+      وكل ده في أجواء ترانزيت.
+    </p>
+
+    <a href="#menu" class="btn gold">
+      اطلب دلوقتي
+    </a>
+
+  </div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section class="section">
+
+  <div class="section-head">
+    <div class="mini">THE VIBE</div>
+    <h2>أجواء ترانزيت</h2>
+    <p>مكان معمول للقعدة اللي تستاهل تتكرر.</p>
+  </div>
+
+  <div class="gallery">
+
+    <div class="gallery-item">☕</div>
+    <div class="gallery-item">🥤</div>
+    <div class="gallery-item">🍰</div>
+    <div class="gallery-item">✨</div>
+    <div class="gallery-item">🧊</div>
+    <div class="gallery-item">❤️</div>
+
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="section" id="contact">
+
+  <div class="section-head">
+    <div class="mini">CONTACT</div>
+    <h2>مستنيينك</h2>
+    <p>تعالى جرّب TRANSIT بنفسك.</p>
+  </div>
+
+  <div class="contact-grid">
+
+    <div class="contact">
+      <div class="contact-icon">📍</div>
+      <h3>العنوان</h3>
+      <p>
+        أبو كبير — الشرقية<br>
+        بعد مطعم الصياد
+      </p>
+    </div>
+
+    <div class="contact">
+      <div class="contact-icon">📞</div>
+      <h3>اتصل بنا</h3>
+      <p>
+        01030516417
+      </p>
+    </div>
+
+    <div class="contact">
+      <div class="contact-icon">💳</div>
+      <h3>Vodafone Cash</h3>
+      <p>
+        01132674811
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CART -->
+
+<div class="cart" id="cart">
+
+  <div class="cart-head">
+
+    <h2>🛒 طلبك</h2>
+
+    <button class="close" onclick="closeCart()">
+      ×
+    </button>
+
+  </div>
+
+  <div class="cart-items" id="cartItems">
+
+    <div style="text-align:center;color:#777;padding:50px 10px">
+      السلة فاضية
+    </div>
+
+  </div>
+
+  <div class="cart-footer">
+
+    <div class="total">
+      <span>الإجمالي</span>
+      <span id="cartTotal">0 ج.م</span>
+    </div>
+
+    <button class="whatsapp" onclick="sendOrder()">
+      📲 إرسال الطلب واتساب
+    </button>
+
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+
+  <strong>TRANSIT CAFE</strong>
+
+  <br><br>
+
+  مؤمن العطار • أبو كبير • الشرقية
+
+  <br>
+
+  يوميًا من 8 صباحًا حتى 2 صباحًا
+
+  <br><br>
+
+  © 2026 TRANSIT CAFE
+
+</footer>
+
+<script>
+
+/* LOADER */
+
+window.addEventListener("load",()=>{
+
+  setTimeout(()=>{
+
+    document.getElementById("loader")
+      .classList.add("hide");
+
+  },700);
+
+});
+
+
+/* NAV */
+
+function toggleNav(){
+
+  document
+    .getElementById("navLinks")
+    .classList.toggle("show");
+
+}
+
+
+/* FILTER */
+
+let currentFilter="all";
+
+function setFilter(filter,button){
+
+  currentFilter=filter;
+
+  document
+    .querySelectorAll(".filter")
+    .forEach(btn=>btn.classList.remove("active"));
+
+  button.classList.add("active");
+
+  filterMenu();
+
+}
+
+
+function filterMenu(){
+
+  const search=
+    document
+      .getElementById("menuSearch")
+      .value
+      .toLowerCase()
+      .trim();
+
+  document
+    .querySelectorAll(".m-card")
+    .forEach(card=>{
+
+      const category=card.dataset.category;
+      const name=card.dataset.name.toLowerCase();
+
+      const categoryMatch=
+        currentFilter==="all" ||
+        category===currentFilter;
+
+      const searchMatch=
+        name.includes(search);
+
+      card.style.display=
+        categoryMatch && searchMatch
+        ? ""
+        : "none";
+
+    });
+
+}
+
+
+/* CART */
+
+let cart=[];
+
+
+function addItem(name,price){
+
+  const item=
+    cart.find(x=>x.name===name);
+
+  if(item){
+
+    item.qty++;
+
+  }else{
+
+    cart.push({
+      name:name,
+      price:price,
+      qty:1
+    });
+
+  }
+
+  updateCart();
+
+  openCart();
+
+}
+
+
+function updateCart(){
+
+  const count=
+    cart.reduce(
+      (sum,item)=>sum+item.qty,
+      0
+    );
+
+  document
+    .getElementById("cartCount")
+    .textContent=count;
+
+
+  const container=
+    document.getElementById("cartItems");
+
+
+  if(!cart.length){
+
+    container.innerHTML=`
+      <div style="
+        text-align:center;
+        color:#777;
+        padding:50px 10px
+      ">
+        🛒<br>
+        السلة فاضية
+      </div>
+    `;
+
+    document
+      .getElementById("cartTotal")
+      .textContent="0 ج.م";
+
+    return;
+  }
+
+
+  let total=0;
+
+
+  container.innerHTML=
+    cart.map((item,index)=>{
+
+      total+=item.price*item.qty;
+
+      return`
+
+      <div class="cart-item">
+
+        <div>
+
+          <strong>
+            ${item.name}
+          </strong>
+
+          <small>
+            ${item.price} ج.م
+          </small>
+
+        </div>
+
+        <div class="qty">
+
+          <button
+            onclick="changeQty(${index},-1)"
+          >
+            −
+          </button>
+
+          <b>
+            ${item.qty}
+          </b>
+
+          <button
+            onclick="changeQty(${index},1)"
+          >
+            +
+          </button>
+
+        </div>
+
+      </div>
+
+      `;
+
+    }).join("");
+
+
+  document
+    .getElementById("cartTotal")
+    .textContent=
+      total+" ج.م";
+
+}
+
+
+function changeQty(index,amount){
+
+  cart[index].qty+=amount;
+
+  if(cart[index].qty<=0){
+
+    cart.splice(index,1);
+
+  }
+
+  updateCart();
+
+}
+
+
+function openCart(){
+
+  document
+    .getElementById("cart")
+    .classList.add("open");
+
+}
+
+
+function closeCart(){
+
+  document
+    .getElementById("cart")
+    .classList.remove("open");
+
+}
+
+
+/* WHATSAPP ORDER */
+
+function sendOrder(){
+
+  if(!cart.length){
+
+    alert("ضيف حاجة للطلب الأول 😄");
+
+    return;
+
+  }
+
+
+  let message=
+    "طلب جديد من TRANSIT CAFE%0A%0A";
+
+
+  let total=0;
+
+
+  cart.forEach(item=>{
+
+    const subtotal=
+      item.price*item.qty;
+
+    total+=subtotal;
+
+    message+=
+      "• "+
+      encodeURIComponent(item.name)+
+      " × "+
+      item.qty+
+      " = "+
+      subtotal+
+      " ج.م%0A";
+
+  });
+
+
+  message+=
+    "%0Aالإجمالي: "+
+    total+
+    " ج.م";
+
+
+  const phone=
+    "201030516417";
+
+
+  window.open(
+    "https://wa.me/"+
+    phone+
+    "?text="+
+    message,
+    "_blank"
+  );
+
+}
+
+
+/* FAVORITES */
+
+document
+  .querySelectorAll(".fav-btn")
+  .forEach(btn=>{
+
+    btn.addEventListener("click",()=>{
+
+      if(btn.textContent==="♡"){
+
+        btn.textContent="♥";
+        btn.style.color="#d7ad55";
+
+      }else{
+
+        btn.textContent="♡";
+        btn.style.color="";
+
+      }
+
+    });
+
+  });
+
+</script>
+
+</body>
+</html>
