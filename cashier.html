@@ -1,1441 +1,308 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" class="dark">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<title>TRANSIT CAFE | Cashier</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Bodoni+Moda:wght@600;700&display=swap" rel="stylesheet">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRANSIT CAFE | النظام الاحترافي لإدارة الكاشير والمخزون - أبو كبير</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-:root{
-  --gold:#d7ad55;
-  --gold2:#f3d486;
-  --bg:#080808;
-  --panel:#111;
-  --panel2:#171717;
-  --line:rgba(215,173,85,.22);
-  --text:#fff;
-  --muted:#888;
-  --green:#25d366;
-  --red:#e05252;
-}
-
-body{
-  background:
-    radial-gradient(circle at 10% 0%,rgba(215,173,85,.10),transparent 28%),
-    var(--bg);
-  color:var(--text);
-  font-family:Cairo,sans-serif;
-  min-height:100vh;
-}
-
-button,input,select{
-  font-family:Cairo,sans-serif;
-}
-
-/* HEADER */
-
-header{
-  position:sticky;
-  top:0;
-  z-index:50;
-  background:rgba(8,8,8,.94);
-  backdrop-filter:blur(15px);
-  border-bottom:1px solid var(--line);
-}
-
-.header{
-  max-width:1400px;
-  margin:auto;
-  min-height:75px;
-  padding:10px 18px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-}
-
-.logo{
-  font-family:"Bodoni Moda",serif;
-  color:var(--gold2);
-  font-size:24px;
-}
-
-.logo small{
-  display:block;
-  text-align:center;
-  color:#666;
-  font-family:Cairo;
-  font-size:8px;
-  letter-spacing:3px;
-}
-
-.header-right{
-  display:flex;
-  gap:9px;
-  align-items:center;
-}
-
-.badge{
-  border:1px solid var(--line);
-  background:#121212;
-  color:#aaa;
-  padding:8px 12px;
-  border-radius:10px;
-  font-size:11px;
-}
-
-/* DASHBOARD */
-
-.dashboard{
-  max-width:1400px;
-  margin:auto;
-  padding:22px 18px 40px;
-}
-
-.stats{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
-  margin-bottom:20px;
-}
-
-.stat{
-  background:linear-gradient(145deg,#171717,#0e0e0e);
-  border:1px solid rgba(255,255,255,.06);
-  border-radius:17px;
-  padding:18px;
-}
-
-.stat-icon{
-  font-size:22px;
-}
-
-.stat-title{
-  color:#777;
-  font-size:11px;
-  margin-top:8px;
-}
-
-.stat-value{
-  color:var(--gold2);
-  font-size:23px;
-  font-weight:800;
-  margin-top:3px;
-}
-
-/* LAYOUT */
-
-.cashier{
-  display:grid;
-  grid-template-columns:1fr 390px;
-  gap:18px;
-  align-items:start;
-}
-
-/* PRODUCTS */
-
-.products-panel{
-  background:var(--panel);
-  border:1px solid rgba(255,255,255,.06);
-  border-radius:22px;
-  overflow:hidden;
-}
-
-.panel-head{
-  padding:18px;
-  border-bottom:1px solid #242424;
-}
-
-.panel-head h2{
-  font-size:20px;
-}
-
-.panel-head p{
-  color:#666;
-  font-size:11px;
-  margin-top:3px;
-}
-
-.search{
-  width:100%;
-  margin-top:14px;
-  padding:13px 15px;
-  background:#181818;
-  border:1px solid #292929;
-  border-radius:12px;
-  color:#fff;
-  outline:none;
-}
-
-.categories{
-  display:flex;
-  gap:8px;
-  padding:14px 18px;
-  overflow-x:auto;
-  scrollbar-width:none;
-}
-
-.categories::-webkit-scrollbar{
-  display:none;
-}
-
-.cat{
-  flex:0 0 auto;
-  border:1px solid var(--line);
-  background:#151515;
-  color:#aaa;
-  padding:8px 14px;
-  border-radius:25px;
-  cursor:pointer;
-}
-
-.cat.active,
-.cat:hover{
-  background:var(--gold);
-  color:#111;
-}
-
-.products{
-  padding:0 18px 20px;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:11px;
-}
-
-.product{
-  background:#171717;
-  border:1px solid rgba(255,255,255,.05);
-  border-radius:15px;
-  padding:14px;
-  cursor:pointer;
-  transition:.2s;
-}
-
-.product:hover{
-  transform:translateY(-2px);
-  border-color:var(--line);
-}
-
-.product-icon{
-  width:44px;
-  height:44px;
-  border-radius:12px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#202020;
-  font-size:22px;
-}
-
-.product-name{
-  font-weight:800;
-  margin-top:9px;
-  font-size:14px;
-}
-
-.product-price{
-  color:var(--gold2);
-  font-weight:800;
-  font-size:13px;
-  margin-top:3px;
-}
-
-/* ORDER */
-
-.order-panel{
-  position:sticky;
-  top:95px;
-  background:var(--panel);
-  border:1px solid rgba(255,255,255,.07);
-  border-radius:22px;
-  overflow:hidden;
-}
-
-.order-head{
-  padding:18px;
-  border-bottom:1px solid #242424;
-}
-
-.order-title{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.order-title h2{
-  font-size:20px;
-}
-
-.clear{
-  border:0;
-  background:#291515;
-  color:#e77;
-  padding:7px 10px;
-  border-radius:9px;
-  cursor:pointer;
-  font-size:11px;
-}
-
-.order-info{
-  padding:15px 18px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:9px;
-}
-
-.field label{
-  display:block;
-  color:#777;
-  font-size:10px;
-  margin-bottom:4px;
-}
-
-.field input,
-.field select{
-  width:100%;
-  background:#181818;
-  border:1px solid #292929;
-  color:#fff;
-  padding:10px;
-  border-radius:10px;
-  outline:none;
-}
-
-.cart{
-  max-height:400px;
-  overflow:auto;
-  padding:0 18px;
-}
-
-.empty{
-  color:#666;
-  text-align:center;
-  padding:45px 10px;
-}
-
-.cart-item{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:8px;
-  padding:13px 0;
-  border-bottom:1px solid #242424;
-}
-
-.item-name{
-  font-weight:700;
-  font-size:13px;
-}
-
-.item-price{
-  color:#777;
-  font-size:10px;
-}
-
-.quantity{
-  display:flex;
-  align-items:center;
-  gap:6px;
-}
-
-.quantity button{
-  width:27px;
-  height:27px;
-  border:1px solid var(--line);
-  background:#181818;
-  color:#fff;
-  border-radius:7px;
-  cursor:pointer;
-}
-
-.quantity b{
-  min-width:20px;
-  text-align:center;
-}
-
-.item-total{
-  color:var(--gold2);
-  font-weight:800;
-  font-size:12px;
-}
-
-.summary{
-  border-top:1px solid #292929;
-  margin-top:10px;
-  padding:16px 18px;
-}
-
-.summary-row{
-  display:flex;
-  justify-content:space-between;
-  margin-bottom:9px;
-  color:#999;
-  font-size:13px;
-}
-
-.summary-row.total{
-  color:#fff;
-  font-size:21px;
-  font-weight:800;
-  padding-top:8px;
-  border-top:1px solid #292929;
-}
-
-.payment{
-  padding:0 18px 16px;
-}
-
-.payment-title{
-  color:#777;
-  font-size:11px;
-  margin-bottom:8px;
-}
-
-.payment-methods{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:7px;
-}
-
-.payment-method{
-  border:1px solid #292929;
-  background:#181818;
-  color:#aaa;
-  border-radius:10px;
-  padding:9px 4px;
-  cursor:pointer;
-  font-size:11px;
-}
-
-.payment-method.active{
-  border-color:var(--gold);
-  background:rgba(215,173,85,.12);
-  color:var(--gold2);
-}
-
-.cash-box{
-  display:none;
-  margin-top:9px;
-}
-
-.cash-box.show{
-  display:block;
-}
-
-.cash-box input{
-  width:100%;
-  background:#181818;
-  border:1px solid #292929;
-  color:#fff;
-  padding:11px;
-  border-radius:10px;
-  outline:none;
-}
-
-.change{
-  color:var(--green);
-  font-size:12px;
-  margin-top:6px;
-}
-
-.actions{
-  padding:0 18px 18px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:8px;
-}
-
-.action{
-  border:0;
-  padding:13px;
-  border-radius:11px;
-  font-weight:800;
-  cursor:pointer;
-}
-
-.print{
-  background:var(--gold);
-  color:#111;
-}
-
-.save{
-  background:#1c492b;
-  color:#9ff0b6;
-}
-
-/* TOAST */
-
-.toast{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  z-index:999;
-  background:#181818;
-  border:1px solid var(--line);
-  color:#fff;
-  padding:13px 18px;
-  border-radius:12px;
-  transform:translateY(100px);
-  opacity:0;
-  transition:.3s;
-  font-size:12px;
-}
-
-.toast.show{
-  transform:translateY(0);
-  opacity:1;
-}
-
-/* PRINT */
-
-.receipt{
-  display:none;
-}
-
-/* MOBILE */
-
-@media(max-width:1000px){
-
-  .cashier{
-    grid-template-columns:1fr;
-  }
-
-  .order-panel{
-    position:relative;
-    top:auto;
-  }
-
-  .stats{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
-
-@media(max-width:650px){
-
-  .header{
-    padding:10px 12px;
-  }
-
-  .logo{
-    font-size:19px;
-  }
-
-  .badge{
-    display:none;
-  }
-
-  .dashboard{
-    padding:15px 10px 30px;
-  }
-
-  .stats{
-    gap:8px;
-  }
-
-  .stat{
-    padding:13px;
-  }
-
-  .stat-value{
-    font-size:18px;
-  }
-
-  .products{
-    grid-template-columns:repeat(2,1fr);
-    padding:0 10px 15px;
-  }
-
-  .panel-head{
-    padding:14px;
-  }
-
-  .categories{
-    padding:12px 10px;
-  }
-
-  .order-info{
-    padding:13px 12px;
-  }
-
-  .cart{
-    padding:0 12px;
-  }
-
-  .summary,
-  .payment,
-  .actions{
-    padding-left:12px;
-    padding-right:12px;
-  }
-}
+body { font-family: 'Cairo', sans-serif; background-color: #030712; color: #f3f4f6; }
+.luxury-font { font-family: 'Playfair Display', serif; }
+@media print {
+  body * { visibility: hidden!important; }
+  #print-iframe, #print-iframe * { visibility: visible!important; }
+  #print-iframe { position: absolute; left: 0; top: 0; width: 100%; height: 100%; border: none; }
+}
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: #030712; }
+::-webkit-scrollbar-thumb { background: #d97706; border-radius: 4px; }
 </style>
 </head>
-
-<body>
-
-<header>
-  <div class="header">
-
-    <div class="logo">
-      TRANSIT CAFE
-      <small>CASHIER SYSTEM</small>
+<body class="h-screen overflow-hidden flex flex-col select-none">
+<div id="loginModal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="bg-gray-900 border border-amber-500/40 rounded-3xl w-full max-w-sm p-6 shadow-2xl text-center space-y-5">
+        <div class="w-16 h-16 bg-amber-500 rounded-full mx-auto grid place-items-center text-gray-950 text-2xl font-black shadow-lg">TC</div>
+        <div>
+            <h2 class="luxury-font text-xl font-bold text-amber-400">TRANSIT CAFE</h2>
+            <p class="text-[11px] text-gray-400 mt-1">أبو كبير - بعد مطعم الصياد | إدارة: م. مؤمن العطار</p>
+        </div>
+        <div class="space-y-2">
+            <label class="text-xs font-bold text-gray-300 block">أدخل رمز الدخول (PIN):</label>
+            <div id="pin-display" class="w-full py-3 bg-gray-950 border border-gray-800 rounded-xl text-center text-amber-400 font-black tracking-widest text-lg">****</div>
+        </div>
+        <div class="grid grid-cols-3 gap-2">
+            <button onclick="pressPin('1')" class="py-3 bg-gray-800 hover:bg-gray-700 text-white font-bold rounded-xl text-sm transition">1</button>
+            <button onclick="pressPin('2')" class="py-3 bg-gray-800 hover:bg-gray-700 text-white font-bold rounded-xl text-sm transition">2</button>
+            <button onclick="pressPin('3')" class="py-3 bg-gray-800 hover:bg-gray-700 text-white font-bold rounded-xl text-sm transition">3</button>
+            <button onclick="pressPin('4')" class="py-3 bg-gray-800 hover:bg-gray-700 text-white font-bold rounded-xl text-sm transition">4</button>
+            <button onclick="pressPin('5')" class="py-3 bg-gray-800 hover:bg-gray-700 text-white font-bold rounded-xl text-sm transition">5</button>
+            <button onclick="pressPin('6')" class="py-3 bg-gray-800 hover:bg-gray-700 text-white font-bold rounded-xl text-sm transition">6</button>
+            <button onclick="pressPin('7')" class="py-3 bg-gray-800 hover:bg-gray-700 text-white font-bold rounded-xl text-sm transition">7</button>
+            <button onclick="pressPin('8')" class="py-3 bg-gray-800 hover:bg-gray-700 text-white font-bold rounded-xl text-sm transition">8</button>
+            <button onclick="pressPin('9')" class="py-3 bg-gray-800 hover:bg-gray-700 text-white font-bold rounded-xl text-sm transition">9</button>
+            <button onclick="clearPin()" class="py-3 bg-red-950/40 text-red-400 font-bold rounded-xl text-xs transition">مسح</button>
+            <button onclick="pressPin('0')" class="py-3 bg-gray-800 hover:bg-gray-700 text-white font-bold rounded-xl text-sm transition">0</button>
+            <button onclick="submitPin()" class="py-3 bg-amber-500 hover:bg-amber-400 text-gray-950 font-black rounded-xl text-xs transition">دخول</button>
+        </div>
+        <p id="pin-error" class="text-xs text-red-500 h-4 font-bold"></p>
     </div>
-
-    <div class="header-right">
-      <div class="badge">👤 CASHIER</div>
-      <div class="badge" id="clock">--:--</div>
+</div>
+<header class="bg-gray-900 border-b border-amber-500/20 px-6 h-16 flex items-center justify-between shrink-0 shadow-lg">
+    <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-amber-500 grid place-items-center text-gray-950 font-black shadow">TC</div>
+        <div>
+            <h1 class="luxury-font text-base font-bold text-amber-500 leading-tight">TRANSIT CAFE</h1>
+            <p class="text-[10px] text-gray-400">الكاشير النشط: <span class="text-amber-400 font-bold">م. مؤمن العطار</span></p>
+        </div>
     </div>
-
-  </div>
+    <div class="flex items-center gap-3 text-xs font-bold">
+        <button onclick="openInventoryModal()" class="bg-gray-950 px-3 py-1.5 rounded-xl border border-amber-500/30 text-amber-400 hover:bg-amber-500/10 transition"><i class="fa-solid fa-boxes-stacked ml-1"></i> إدارة المخزون</button>
+        <span class="hidden sm:inline-flex bg-gray-950 px-3 py-1.5 rounded-xl border border-amber-500/30 text-amber-300"><i class="fa-solid fa-wallet ml-1"></i> فودافون كاش: 01132674811</span>
+        <span class="bg-gray-950 px-3 py-1.5 rounded-xl border border-amber-500/30 text-gray-300"><i class="fa-solid fa-clock ml-1"></i> <span id="live-time"></span></span>
+        <button onclick="lockScreen()" class="bg-red-600/80 hover:bg-red-600 text-white px-3 py-1.5 rounded-xl transition shadow" title="قفل السيستم"><i class="fa-solid fa-lock"></i></button>
+    </div>
 </header>
-
-<main class="dashboard">
-
-  <!-- STATS -->
-
-  <div class="stats">
-
-    <div class="stat">
-      <div class="stat-icon">💰</div>
-      <div class="stat-title">مبيعات اليوم</div>
-      <div class="stat-value" id="todaySales">0 ج.م</div>
+<div class="flex-1 flex overflow-hidden">
+    <div class="w-56 bg-gray-900/60 border-l border-amber-500/10 p-4 flex flex-col gap-2 shrink-0 overflow-y-auto">
+        <h3 class="text-xs font-bold text-amber-400 mb-2 px-1"><i class="fa-solid fa-layer-group ml-1"></i> أقسام المنيو</h3>
+        <button onclick="filterCategory('all')" id="cat-btn-all" class="w-full text-right px-4 py-3 rounded-xl bg-amber-500 text-gray-950 font-bold text-xs transition shadow flex items-center justify-between"><span>الكل</span><span class="bg-gray-950/20 px-2 py-0.5 rounded text-[10px]">22</span></button>
+        <button onclick="filterCategory('hot')" id="cat-btn-hot" class="w-full text-right px-4 py-3 rounded-xl bg-gray-900 border border-amber-500/20 text-xs text-gray-300 hover:border-amber-500 transition flex items-center justify-between"><span>مشروبات ساخنة</span><span class="text-amber-500 font-bold">5</span></button>
+        <button onclick="filterCategory('coffee')" id="cat-btn-coffee" class="w-full text-right px-4 py-3 rounded-xl bg-gray-900 border border-amber-500/20 text-xs text-gray-300 hover:border-amber-500 transition flex items-center justify-between"><span>قهوة مختصة</span><span class="text-amber-500 font-bold">7</span></button>
+        <button onclick="filterCategory('cold')" id="cat-btn-cold" class="w-full text-right px-4 py-3 rounded-xl bg-gray-900 border border-amber-500/20 text-xs text-gray-300 hover:border-amber-500 transition flex items-center justify-between"><span>مشروبات باردة</span><span class="text-amber-500 font-bold">4</span></button>
+        <button onclick="filterCategory('juice')" id="cat-btn-juice" class="w-full text-right px-4 py-3 rounded-xl bg-gray-900 border border-amber-500/20 text-xs text-gray-300 hover:border-amber-500 transition flex items-center justify-between"><span>عصائر فريش</span><span class="text-amber-500 font-bold">3</span></button>
+        <button onclick="filterCategory('dessert')" id="cat-btn-dessert" class="w-full text-right px-4 py-3 rounded-xl bg-gray-900 border border-amber-500/20 text-xs text-gray-300 hover:border-amber-500 transition flex items-center justify-between"><span>حلويات فاخرة</span><span class="text-amber-500 font-bold">3</span></button>
     </div>
-
-    <div class="stat">
-      <div class="stat-icon">🧾</div>
-      <div class="stat-title">الفواتير</div>
-      <div class="stat-value" id="todayOrders">0</div>
+    <div class="flex-1 flex flex-col p-4 overflow-hidden bg-gray-950">
+        <div class="mb-3 flex gap-2">
+            <div class="relative flex-1">
+                <i class="fa-solid fa-search absolute right-3 top-3 text-gray-500 text-xs"></i>
+                <input type="text" id="search-input" oninput="searchProducts()" placeholder="ابحث عن أي صنف في المنيو..." class="w-full bg-gray-900 border border-amber-500/20 rounded-xl pr-9 pl-4 py-2.5 text-xs text-white focus:border-amber-500 outline-none">
+            </div>
+        </div>
+        <div id="products-grid" class="flex-1 overflow-y-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 content-start pr-1"></div>
     </div>
-
-    <div class="stat">
-      <div class="stat-icon">🛒</div>
-      <div class="stat-title">الطلب الحالي</div>
-      <div class="stat-value" id="currentTotal">0 ج.م</div>
+    <div class="w-full max-w-[440px] bg-gray-900/90 backdrop-blur flex flex-col justify-between p-4 shadow-2xl shrink-0 border-r border-amber-500/10">
+        <div>
+            <div class="flex justify-between items-center pb-3 border-b border-gray-800">
+                <span class="font-bold text-amber-400 text-xs flex items-center gap-1"><i class="fa-solid fa-receipt"></i> الفاتورة الحالية</span>
+                <button onclick="clearCart()" class="text-[11px] text-red-400 hover:text-red-300 transition"><i class="fa-solid fa-trash ml-1"></i> إفراغ العربة</button>
+            </div>
+            <div class="grid grid-cols-3 gap-2 my-3">
+                <button onclick="setOrderType('صالة')" id="type-dine" class="py-1.5 rounded-lg bg-amber-500 text-gray-950 font-bold text-xs transition shadow">صالة</button>
+                <button onclick="setOrderType('توصيل')" id="type-delivery" class="py-1.5 rounded-lg bg-gray-950 border border-gray-800 text-gray-400 font-bold text-xs transition">توصيل</button>
+                <button onclick="setOrderType('تيك أواي')" id="type-takeaway" class="py-1.5 rounded-lg bg-gray-950 border border-gray-800 text-gray-400 font-bold text-xs transition">تيك أواي</button>
+            </div>
+        </div>
+        <div id="cart-items-list" class="flex-1 overflow-y-auto space-y-2 my-2 pr-1">
+            <p class="text-center text-gray-500 text-xs py-20">اضغط على أي صنف لإضافته إلى الفاتورة</p>
+        </div>
+        <div class="border-t border-gray-800 pt-3 space-y-2 text-xs">
+            <div class="grid grid-cols-2 gap-2 bg-gray-950 p-2.5 rounded-xl border border-gray-800">
+                <div><label class="text-[10px] text-gray-400 block mb-1">خصم (%):</label><input type="number" id="discount-pct" value="0" min="0" max="100" oninput="calculateTotals()" class="w-full bg-gray-900 border border-gray-800 rounded-lg p-1.5 text-center text-amber-400 font-bold"></div>
+                <div><label class="text-[10px] text-gray-400 block mb-1">خصم ثابت (ج.م):</label><input type="number" id="discount-val" value="0" min="0" oninput="calculateTotals()" class="w-full bg-gray-900 border border-gray-800 rounded-lg p-1.5 text-center text-amber-400 font-bold"></div>
+            </div>
+            <div class="space-y-1 text-gray-400 px-1">
+                <div class="flex justify-between"><span>المجموع الفرعي:</span> <span id="subtotal-amount" class="text-white font-bold">0 ج.م</span></div>
+                <div class="flex justify-between"><span>إجمالي الخصم:</span> <span id="discount-amount" class="text-red-400 font-bold">0 ج.م</span></div>
+                <div class="flex justify-between text-sm font-black pt-1 border-t border-gray-800"><span class="text-gray-200">الإجمالي النهائي:</span><span id="grand-total-amount" class="text-amber-500 text-base">0 ج.م</span></div>
+            </div>
+            <div class="grid grid-cols-3 gap-2 pt-2">
+                <button onclick="openPaymentModal('كاش')" class="py-2.5 bg-amber-500 text-gray-950 rounded-xl font-black text-xs hover:bg-amber-400 transition shadow"><i class="fa-solid fa-money-bill-wave ml-1"></i> كاش</button>
+                <button onclick="openPaymentModal('فودافون كاش')" class="py-2.5 bg-red-600 text-white rounded-xl font-black text-xs hover:bg-red-500 transition shadow"><i class="fa-solid fa-mobile-screen ml-1"></i> فودافون كاش</button>
+                <button onclick="openPaymentModal('بطاقة')" class="py-2.5 bg-blue-600 text-white rounded-xl font-black text-xs hover:bg-blue-500 transition shadow"><i class="fa-solid fa-credit-card ml-1"></i> كارد</button>
+            </div>
+            <button onclick="openSplitModal()" class="w-full py-2 bg-gray-800 text-amber-400 hover:bg-gray-700 rounded-xl font-bold text-xs transition border border-amber-500/20"><i class="fa-solid fa-file-invoice-dollar ml-1"></i> تقسيم الفاتورة (Split Payment)</button>
+        </div>
     </div>
-
-    <div class="stat">
-      <div class="stat-icon">☕</div>
-      <div class="stat-title">الحالة</div>
-      <div class="stat-value">مفتوح</div>
+</div>
+<div id="inventoryModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-gray-900 border border-amber-500/40 rounded-3xl w-full max-w-2xl p-6 space-y-4 shadow-2xl text-xs flex flex-col max-h-[85vh]">
+        <div class="flex justify-between items-center pb-3 border-b border-gray-800"><h3 class="font-bold text-amber-400 text-sm"><i class="fa-solid fa-boxes-stacked ml-1"></i> إدارة مخزون المنيو (الكمية الافتتاحية 30 لكل صنف)</h3><button onclick="closeInventoryModal()" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-base"></i></button></div>
+        <div class="flex-1 overflow-y-auto space-y-2 pr-1" id="inventory-list"></div>
+        <div class="pt-3 border-t border-gray-800 flex justify-between items-center"><button onclick="resetAllStock()" class="py-2 px-4 bg-red-950/40 text-red-400 hover:bg-red-900/40 rounded-xl font-bold transition">إعادة تعيين الكل إلى 30 قطعة</button><button onclick="closeInventoryModal()" class="py-2 px-6 bg-amber-500 text-gray-950 rounded-xl font-black transition">إغلاق</button></div>
     </div>
-
-  </div>
-
-  <!-- CASHIER -->
-
-  <div class="cashier">
-
-    <!-- PRODUCTS -->
-
-    <section class="products-panel">
-
-      <div class="panel-head">
-        <h2>🛍️ المنتجات</h2>
-        <p>اضغط على المنتج لإضافته للطلب</p>
-
-        <input
-          class="search"
-          id="search"
-          placeholder="🔎 ابحث عن منتج..."
-          oninput="renderProducts()"
-        >
-      </div>
-
-      <div class="categories">
-
-        <button class="cat active" onclick="setCategory('all',this)">
-          الكل
-        </button>
-
-        <button class="cat" onclick="setCategory('breakfast',this)">
-          🍳 فطار
-        </button>
-
-        <button class="cat" onclick="setCategory('coffee',this)">
-          ☕ قهوة
-        </button>
-
-        <button class="cat" onclick="setCategory('cold',this)">
-          🧊 ساقع
-        </button>
-
-        <button class="cat" onclick="setCategory('cans',this)">
-          🥤 كانزات
-        </button>
-
-        <button class="cat" onclick="setCategory('dessert',this)">
-          🍰 حلويات
-        </button>
-
-      </div>
-
-      <div class="products" id="products"></div>
-
-    </section>
-
-    <!-- ORDER -->
-
-    <aside class="order-panel">
-
-      <div class="order-head">
-
-        <div class="order-title">
-
-          <h2>🧾 الطلب الحالي</h2>
-
-          <button class="clear" onclick="clearCart()">
-            مسح الطلب
-          </button>
-
+</div>
+<div id="noteModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-gray-900 border border-amber-500/40 rounded-2xl w-full max-w-sm p-5 space-y-4"><h3 class="font-bold text-amber-400 text-sm">إضافة ملاحظة للصنف</h3><p id="note-item-title" class="text-xs text-gray-300"></p><input type="text" id="item-note-input" placeholder="مثلاً: بدون سكر، زيادة نعناع..." class="w-full bg-gray-950 border border-gray-800 rounded-xl p-3 text-xs text-white focus:border-amber-500 outline-none"><div class="flex gap-2"><button onclick="saveItemNote()" class="flex-1 py-2.5 bg-amber-500 text-gray-950 rounded-xl font-bold text-xs">حفظ</button><button onclick="closeNoteModal()" class="py-2.5 px-4 bg-gray-800 text-gray-300 rounded-xl text-xs">إلغاء</button></div></div>
+</div>
+<div id="paymentModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-gray-900 border border-amber-500/40 rounded-3xl w-full max-w-md p-6 space-y-4 shadow-2xl">
+        <div class="flex justify-between items-center pb-3 border-b border-gray-800"><h3 class="font-bold text-amber-400 text-sm" id="payment-modal-title">إتمام الدفع</h3><button onclick="closePaymentModal()" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button></div>
+        <div class="space-y-3 text-xs">
+            <div class="bg-gray-950 p-3 rounded-xl border border-gray-800 flex justify-between"><span class="text-gray-400">المطلوب سداده:</span><span id="pay-modal-total" class="font-black text-amber-500 text-sm">0 ج.م</span></div>
+            <div><label class="text-gray-400 block mb-1">المبلغ المستلم من العميل (المدفوع):</label><input type="number" id="cash-given" oninput="calculateChange()" placeholder="0" class="w-full bg-gray-950 border border-gray-800 rounded-xl p-3 text-center text-lg font-black text-white focus:border-amber-500 outline-none"></div>
+            <div class="grid grid-cols-4 gap-1.5"><button onclick="addCashGiven(50)" class="py-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-xs font-bold">+50</button><button onclick="addCashGiven(100)" class="py-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-xs font-bold">+100</button><button onclick="addCashGiven(200)" class="py-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-xs font-bold">+200</button><button onclick="document.getElementById('cash-given').value = currentGrandTotal; calculateChange();" class="py-2 bg-amber-500/20 text-amber-400 hover:bg-amber-500/30 rounded-lg text-xs font-bold">المبلغ بالضبط</button></div>
+            <div class="bg-gray-950 p-4 rounded-xl border border-gray-800 flex justify-between items-center"><span class="text-gray-400 font-bold">الباقي للعميل (Change):</span><span id="change-amount" class="font-black text-emerald-400 text-lg">0 ج.م</span></div>
         </div>
-
-      </div>
-
-      <div class="order-info">
-
-        <div class="field">
-
-          <label>رقم الترابيزة</label>
-
-          <select id="table">
-            <option>تيك أواي</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-            <option>11</option>
-            <option>12</option>
-          </select>
-
+        <button onclick="confirmCheckout()" class="w-full py-3 bg-amber-500 text-gray-950 rounded-xl font-black text-xs hover:bg-amber-400 transition shadow-lg">تأكيد الدفع وطباعة الفاتورة 🖨️</button>
+    </div>
+</div>
+<div id="splitModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-gray-900 border border-amber-500/40 rounded-3xl w-full max-w-md p-6 space-y-4 shadow-2xl text-xs">
+        <div class="flex justify-between items-center pb-3 border-b border-gray-800"><h3 class="font-bold text-amber-400 text-sm">تقسيم الفاتورة (Split Payment)</h3><button onclick="closeSplitModal()" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button></div>
+        <div class="space-y-3">
+            <div class="bg-gray-950 p-3 rounded-xl border border-gray-800 flex justify-between"><span class="text-gray-400">إجمالي الفاتورة:</span><span id="split-total-display" class="font-black text-amber-500 text-sm">0 ج.م</span></div>
+            <div class="grid grid-cols-2 gap-3"><div><label class="text-gray-400 block mb-1">الجزء المدفوع كاش:</label><input type="number" id="split-cash" oninput="calculateSplit()" placeholder="0" class="w-full bg-gray-950 border border-gray-800 rounded-xl p-2.5 text-center font-bold text-white outline-none focus:border-amber-500"></div><div><label class="text-gray-400 block mb-1">الجزء المدفوع فودافون كاش:</label><input type="number" id="split-voda" oninput="calculateSplit()" placeholder="0" class="w-full bg-gray-950 border border-gray-800 rounded-xl p-2.5 text-center font-bold text-white outline-none focus:border-amber-500"></div></div>
+            <div class="bg-gray-950 p-3 rounded-xl border border-gray-800 flex justify-between"><span class="text-gray-400">المتبقي للتغطية:</span><span id="split-remaining" class="font-black text-red-400">0 ج.م</span></div>
         </div>
-
-        <div class="field">
-
-          <label>اسم العميل</label>
-
-          <input
-            id="customer"
-            placeholder="اختياري"
-          >
-
-        </div>
-
-      </div>
-
-      <div class="cart" id="cart">
-
-        <div class="empty">
-          🛒<br>
-          مفيش منتجات في الطلب
-        </div>
-
-      </div>
-
-      <div class="summary">
-
-        <div class="summary-row">
-          <span>عدد المنتجات</span>
-          <span id="itemsCount">0</span>
-        </div>
-
-        <div class="summary-row">
-          <span>الإجمالي</span>
-          <span id="subtotal">0 ج.م</span>
-        </div>
-
-        <div class="summary-row total">
-          <span>المطلوب</span>
-          <span id="total">0 ج.م</span>
-        </div>
-
-      </div>
-
-      <div class="payment">
-
-        <div class="payment-title">
-          طريقة الدفع
-        </div>
-
-        <div class="payment-methods">
-
-          <button
-            class="payment-method active"
-            onclick="setPayment('cash',this)"
-          >
-            💵 نقدي
-          </button>
-
-          <button
-            class="payment-method"
-            onclick="setPayment('card',this)"
-          >
-            💳 بطاقة
-          </button>
-
-          <button
-            class="payment-method"
-            onclick="setPayment('vodafone',this)"
-          >
-            📱 Vodafone
-          </button>
-
-        </div>
-
-        <div class="cash-box" id="cashBox">
-
-          <input
-            id="paid"
-            type="number"
-            placeholder="المبلغ المدفوع"
-            oninput="calculateChange()"
-          >
-
-          <div class="change" id="change">
-            الباقي: 0 ج.م
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="actions">
-
-        <button class="action print" onclick="printReceipt()">
-          🖨️ طباعة
-        </button>
-
-        <button class="action save" onclick="completeOrder()">
-          ✓ إتمام البيع
-        </button>
-
-      </div>
-
-    </aside>
-
-  </div>
-
-</main>
-
-<div class="toast" id="toast"></div>
-
-<!-- PRINT RECEIPT -->
-
-<div class="receipt" id="receipt"></div>
-
+        <button onclick="confirmSplitCheckout()" class="w-full py-3 bg-amber-500 text-gray-950 rounded-xl font-black text-xs hover:bg-amber-400 transition shadow-lg">تأكيد التقسيم وطباعة الفاتورة 🖨️</button>
+    </div>
+</div>
+<iframe id="print-iframe" class="hidden"></iframe>
 <script>
-
-const productsData=[
-
-/* BREAKFAST */
-
-{id:1,name:"بان كيك بالعسل",price:110,cat:"breakfast",icon:"🥞"},
-{id:2,name:"بيض بنيديكت",price:95,cat:"breakfast",icon:"🍳"},
-{id:3,name:"أفوكادو توست",price:105,cat:"breakfast",icon:"🥑"},
-{id:4,name:"شكشوكة ترانزيت",price:75,cat:"breakfast",icon:"🍅"},
-{id:5,name:"فول وطعمية بلدي",price:60,cat:"breakfast",icon:"🥙"},
-{id:6,name:"أومليت جبنة",price:85,cat:"breakfast",icon:"🍳"},
-
-/* COFFEE */
-
-{id:7,name:"كابتشينو",price:65,cat:"coffee",icon:"☕"},
-{id:8,name:"لاتيه",price:70,cat:"coffee",icon:"☕"},
-{id:9,name:"سبانش لاتيه",price:85,cat:"coffee",icon:"🥛"},
-{id:10,name:"موكا",price:80,cat:"coffee",icon:"🍫"},
-{id:11,name:"إسبريسو",price:45,cat:"coffee",icon:"☕"},
-{id:12,name:"قهوة تركي",price:40,cat:"coffee",icon:"☕"},
-
-/* COLD */
-
-{id:13,name:"آيس كوفي",price:75,cat:"cold",icon:"🧊"},
-{id:14,name:"آيس لاتيه",price:75,cat:"cold",icon:"🧊"},
-{id:15,name:"موهيتو",price:80,cat:"cold",icon:"🍋"},
-{id:16,name:"فرابتشينو",price:95,cat:"cold",icon:"🥤"},
-{id:17,name:"ميلك شيك",price:90,cat:"cold",icon:"🥛"},
-
-/* CANS */
-
-{id:18,name:"Red Bull",price:90,cat:"cans",icon:"🥤"},
-{id:19,name:"Red Bull Sugar Free",price:90,cat:"cans",icon:"🥤"},
-{id:20,name:"Fury",price:35,cat:"cans",icon:"🥤"},
-{id:21,name:"Sting",price:30,cat:"cans",icon:"🥤"},
-{id:22,name:"Pepsi",price:25,cat:"cans",icon:"🥤"},
-{id:23,name:"Pepsi Diet",price:25,cat:"cans",icon:"🥤"},
-{id:24,name:"7UP",price:25,cat:"cans",icon:"🥤"},
-{id:25,name:"Mirinda",price:25,cat:"cans",icon:"🥤"},
-{id:26,name:"مياه معدنية",price:15,cat:"cans",icon:"💧"},
-
-/* DESSERT */
-
-{id:27,name:"وافل نوتيلا",price:95,cat:"dessert",icon:"🧇"},
-{id:28,name:"تشيز كيك",price:85,cat:"dessert",icon:"🍰"},
-{id:29,name:"براوني",price:75,cat:"dessert",icon:"🍫"}
-
+let defaultMenu = [
+    { id: 1, name: "شاي عادي", cat: "hot", price: 25, stock: 30, img: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=600" },
+    { id: 2, name: "شاي نعناع", cat: "hot", price: 30, stock: 30, img: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=600" },
+    { id: 3, name: "قهوة تركي", cat: "hot", price: 35, stock: 30, img: "https://images.unsplash.com/photo-1504630083234-14187a9df0f5?w=600" },
+    { id: 4, name: "تركي دبل", cat: "hot", price: 45, stock: 30, img: "https://images.unsplash.com/photo-1504630083234-14187a9df0f5?w=600" },
+    { id: 5, name: "نسكافيه", cat: "hot", price: 40, stock: 30, img: "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600" },
+    { id: 6, name: "إسبريسو سنجل", cat: "coffee", price: 40, stock: 30, img: "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=600" },
+    { id: 7, name: "دبل", cat: "coffee", price: 55, stock: 30, img: "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=600" },
+    { id: 8, name: "أمريكانو", cat: "coffee", price: 50, stock: 30, img: "https://images.unsplash.com/photo-1494314671902-399b18174975?w=600" },
+    { id: 9, name: "لاتيه", cat: "coffee", price: 55, stock: 30, img: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=600" },
+    { id: 10, name: "كابتشينو", cat: "coffee", price: 55, stock: 30, img: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=600" },
+    { id: 11, name: "إسبانيش لاتيه", cat: "coffee", price: 65, stock: 30, img: "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=600" },
+    { id: 12, name: "V60", cat: "coffee", price: 60, stock: 30, img: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600" },
+    { id: 13, name: "آيس لاتيه", cat: "cold", price: 60, stock: 30, img: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600" },
+    { id: 14, name: "آيس وايت موكا", cat: "cold", price: 70, stock: 30, img: "https://images.unsplash.com/photo-1485808191679-5f86510681a2?w=600" },
+    { id: 15, name: "آيس كراميل", cat: "cold", price: 65, stock: 30, img: "https://images.unsplash.com/photo-1485808191679-5f86510681a2?w=600" },
+    { id: 16, name: "موهيتو", cat: "cold", price: 60, stock: 30, img: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=600" },
+    { id: 17, name: "مانجو", cat: "juice", price: 50, stock: 30, img: "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=600" },
+    { id: 18, name: "فراولة", cat: "juice", price: 50, stock: 30, img: "https://images.unsplash.com/photo-1543528176-96e40a56ae85?w=600" },
+    { id: 19, name: "موز لبن", cat: "juice", price: 45, stock: 30, img: "https://images.unsplash.com/photo-1577805947697-89e18249d767?w=600" },
+    { id: 20, name: "تشيز كيك", cat: "dessert", price: 75, stock: 30, img: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=600" },
+    { id: 21, name: "مولتن", cat: "dessert", price: 80, stock: 30, img: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=600" },
+    { id: 22, name: "وافل", cat: "dessert", price: 70, stock: 30, img: "https://images.unsplash.com/photo-1562376552-0d160a2f238d?w=600" }
 ];
-
-let category="all";
-let cart=[];
-let payment="cash";
-
-
-/* CLOCK */
-
-function updateClock(){
-
-  const now=new Date();
-
-  document.getElementById("clock")
-    .textContent=
-      now.toLocaleTimeString("ar-EG",{
-        hour:"2-digit",
-        minute:"2-digit"
-      });
-
-}
-
-setInterval(updateClock,1000);
-updateClock();
-
-
-/* PRODUCTS */
-
-function renderProducts(){
-
-  const search=
-    document.getElementById("search")
-    .value
-    .toLowerCase()
-    .trim();
-
-  const list=
-    productsData.filter(product=>{
-
-      const categoryMatch=
-        category==="all" ||
-        product.cat===category;
-
-      const searchMatch=
-        product.name
-        .toLowerCase()
-        .includes(search);
-
-      return categoryMatch && searchMatch;
-
+let MENU_ITEMS = localStorage.getItem('transit_menu_stock')? JSON.parse(localStorage.getItem('transit_menu_stock')) : defaultMenu;
+let cart = [];
+let currentOrderType = 'صالة';
+let currentPin = '';
+let currentGrandTotal = 0;
+let selectedPaymentMethod = 'كاش';
+let editingItemId = null;
+let orderCounter = localStorage.getItem('transit_order_id')? parseInt(localStorage.getItem('transit_order_id')) : 1001;
+function saveStockToLocalStorage() { localStorage.setItem('transit_menu_stock', JSON.stringify(MENU_ITEMS)); }
+setInterval(() => { document.getElementById('live-time').innerText = new Date().toLocaleTimeString('ar-EG'); }, 1000);
+function pressPin(num) { if(currentPin.length < 4) { currentPin += num; updatePinDisplay(); } }
+function clearPin() { currentPin = ''; updatePinDisplay(); document.getElementById('pin-error').innerText = ''; }
+function updatePinDisplay() { let display = ''; for(let i=0; i<4; i++) { display += i < currentPin.length? '•' : '*'; } document.getElementById('pin-display').innerText = display; }
+function submitPin() { if(currentPin === '1234') { document.getElementById('loginModal').classList.add('hidden'); renderProducts(MENU_ITEMS); } else { document.getElementById('pin-error').innerText = 'الرمز غير صحيح! الرمز الصحيح هو 1234'; currentPin = ''; updatePinDisplay(); } }
+function lockScreen() { currentPin = ''; updatePinDisplay(); document.getElementById('pin-error').innerText = ''; document.getElementById('loginModal').classList.remove('hidden'); }
+function renderProducts(items) {
+    const grid = document.getElementById('products-grid'); grid.innerHTML = '';
+    items.forEach(item => {
+        let isOutOfStock = item.stock <= 0;
+        let card = document.createElement('div');
+        card.className = `bg-gray-900 border ${isOutOfStock? 'border-red-500/40 opacity-60' : 'border-amber-500/20 hover:border-amber-500 cursor-pointer'} rounded-xl p-3 flex flex-col justify-between transition select-none group`;
+        if(!isOutOfStock) { card.onclick = () => addToCart(item.id); }
+        card.innerHTML = `<div class="h-24 rounded-lg overflow-hidden mb-2 relative"><img src="${item.img}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"><span class="absolute top-1 left-1 bg-gray-950/80 backdrop-blur text-[10px] px-2 py-0.5 rounded-md font-bold ${isOutOfStock? 'text-red-400' : 'text-amber-400'}">${isOutOfStock? 'نفد المخزون' : 'متبقي: ' + item.stock}</span></div><div><h4 class="font-bold text-xs text-gray-200 truncate">${item.name}</h4><p class="text-amber-500 font-black text-xs mt-1">${item.price} ج.م</p></div>`;
+        grid.appendChild(card);
     });
-
-  document.getElementById("products")
-    .innerHTML=
-      list.map(product=>`
-
-        <div
-          class="product"
-          onclick="addProduct(${product.id})"
-        >
-
-          <div class="product-icon">
-            ${product.icon}
-          </div>
-
-          <div class="product-name">
-            ${product.name}
-          </div>
-
-          <div class="product-price">
-            ${product.price} ج.م
-          </div>
-
-        </div>
-
-      `).join("");
-
 }
-
-
-function setCategory(cat,button){
-
-  category=cat;
-
-  document
-    .querySelectorAll(".cat")
-    .forEach(x=>x.classList.remove("active"));
-
-  button.classList.add("active");
-
-  renderProducts();
-
-}
-
-
-/* CART */
-
-function addProduct(id){
-
-  const product=
-    productsData.find(x=>x.id===id);
-
-  const existing=
-    cart.find(x=>x.id===id);
-
-  if(existing){
-
-    existing.qty++;
-
-  }else{
-
-    cart.push({
-      ...product,
-      qty:1
+function filterCategory(cat) {
+    ['all', 'hot', 'coffee', 'cold', 'juice', 'dessert'].forEach(c => {
+        const btn = document.getElementById('cat-btn-' + c);
+        if(btn) { btn.className = c === cat? "w-full text-right px-4 py-3 rounded-xl bg-amber-500 text-gray-950 font-bold text-xs transition shadow flex items-center justify-between" : "w-full text-right px-4 py-3 rounded-xl bg-gray-900 border border-amber-500/20 text-xs text-gray-300 hover:border-amber-500 transition flex items-center justify-between"; }
     });
-
-  }
-
-  renderCart();
-
-  toast("تمت إضافة "+product.name+" ✓");
-
+    if(cat === 'all') { renderProducts(MENU_ITEMS); } else { renderProducts(MENU_ITEMS.filter(i => i.cat === cat)); }
 }
-
-
-function renderCart(){
-
-  const container=
-    document.getElementById("cart");
-
-  if(!cart.length){
-
-    container.innerHTML=`
-      <div class="empty">
-        🛒<br>
-        مفيش منتجات في الطلب
-      </div>
-    `;
-
-  }else{
-
-    container.innerHTML=
-      cart.map((item,index)=>`
-
-        <div class="cart-item">
-
-          <div>
-            <div class="item-name">
-              ${item.icon} ${item.name}
-            </div>
-
-            <div class="item-price">
-              ${item.price} ج.م
-            </div>
-          </div>
-
-          <div class="quantity">
-
-            <button
-              onclick="changeQty(${index},-1)"
-            >
-              −
-            </button>
-
-            <b>${item.qty}</b>
-
-            <button
-              onclick="changeQty(${index},1)"
-            >
-              +
-            </button>
-
-          </div>
-
-          <div class="item-total">
-            ${item.price*item.qty}
-          </div>
-
-        </div>
-
-      `).join("");
-
-  }
-
-  updateSummary();
-
+function searchProducts() { let q = document.getElementById('search-input').value.toLowerCase(); let filtered = MENU_ITEMS.filter(i => i.name.toLowerCase().includes(q)); renderProducts(filtered); }
+function openInventoryModal() {
+    const list = document.getElementById('inventory-list'); list.innerHTML = '';
+    MENU_ITEMS.forEach(item => {
+        let row = document.createElement('div'); row.className = "bg-gray-950 p-2.5 rounded-xl border border-gray-800 flex justify-between items-center";
+        row.innerHTML = `<div><span class="font-bold text-gray-200">${item.name}</span><span class="text-[10px] text-gray-400 block">السعر: ${item.price} ج.م</span></div><div class="flex items-center gap-2"><button onclick="updateStock(${item.id}, -5)" class="w-7 h-7 bg-gray-800 hover:bg-gray-700 text-red-400 rounded-lg font-bold">-5</button><button onclick="updateStock(${item.id}, -1)" class="w-7 h-7 bg-gray-800 hover:bg-gray-700 text-red-400 rounded-lg font-bold">-</button><span class="w-10 text-center font-black text-amber-400 text-sm">${item.stock}</span><button onclick="updateStock(${item.id}, 1)" class="w-7 h-7 bg-gray-800 hover:bg-gray-700 text-emerald-400 rounded-lg font-bold">+</button><button onclick="updateStock(${item.id}, 10)" class="w-7 h-7 bg-gray-800 hover:bg-gray-700 text-emerald-400 rounded-lg font-bold">+10</button></div>`;
+        list.appendChild(row);
+    });
+    document.getElementById('inventoryModal').classList.remove('hidden');
 }
-
-
-function changeQty(index,amount){
-
-  cart[index].qty+=amount;
-
-  if(cart[index].qty<=0){
-    cart.splice(index,1);
-  }
-
-  renderCart();
-
+function closeInventoryModal() { document.getElementById('inventoryModal').classList.add('hidden'); renderProducts(MENU_ITEMS); }
+function updateStock(id, amount) { let item = MENU_ITEMS.find(x => x.id === id); if(item) { item.stock = Math.max(0, item.stock + amount); saveStockToLocalStorage(); openInventoryModal(); } }
+function resetAllStock() { if(confirm('هل أنت متأكد من إعادة تعيين مخزون كل الأاصناف إلى 30 قطعة؟')) { MENU_ITEMS.forEach(i => i.stock = 30); saveStockToLocalStorage(); openInventoryModal(); } }
+function addToCart(id) {
+    let item = MENU_ITEMS.find(x => x.id === id); if(!item || item.stock <= 0) return alert('عذراً، هذا الصنف نفد من المخزون!');
+    let exist = cart.find(x => x.id === id); let currentQtyInCart = exist? exist.qty : 0;
+    if(currentQtyInCart + 1 > item.stock) { return alert('الكمية المطلوبة تتجاوز المتبقي في المخزون (' + item.stock + ' فقط)'); }
+    if(exist) { exist.qty++; } else { cart.push({...item, qty: 1, note: '' }); } renderCart();
 }
-
-
-function clearCart(){
-
-  if(!cart.length)return;
-
-  if(confirm("متأكد إنك عايز تمسح الطلب؟")){
-
-    cart=[];
-
-    document.getElementById("paid").value="";
-
-    renderCart();
-
-  }
-
+function changeQty(id, delta) {
+    let item = MENU_ITEMS.find(x => x.id === id); let cartItem = cart.find(x => x.id === id); if(!cartItem) return;
+    let newQty = cartItem.qty + delta; if(delta > 0 && newQty > item.stock) { return alert('عذراً، الكمية المتاحة في المخزون هي ' + item.stock + ' فقط!'); }
+    cartItem.qty = newQty; if(cartItem.qty <= 0) { cart = cart.filter(x => x.id!== id); } renderCart();
 }
-
-
-/* SUMMARY */
-
-function updateSummary(){
-
-  let total=0;
-  let count=0;
-
-  cart.forEach(item=>{
-
-    total+=item.price*item.qty;
-    count+=item.qty;
-
-  });
-
-  document.getElementById("itemsCount")
-    .textContent=count;
-
-  document.getElementById("subtotal")
-    .textContent=total+" ج.م";
-
-  document.getElementById("total")
-    .textContent=total+" ج.م";
-
-  document.getElementById("currentTotal")
-    .textContent=total+" ج.م";
-
-  calculateChange();
-
+function removeFromCart(id) { cart = cart.filter(x => x.id!== id); renderCart(); }
+function clearCart() { cart = []; document.getElementById('discount-pct').value = 0; document.getElementById('discount-val').value = 0; renderCart(); }
+function setOrderType(type) {
+    currentOrderType = type;
+    ['صالة', 'توصيل', 'تيك أواي'].forEach(t => {
+        let btnId = t === 'صالة'? 'type-dine' : (t === 'توصيل'? 'type-delivery' : 'type-takeaway');
+        document.getElementById(btnId).className = t === type? "py-1.5 rounded-lg bg-amber-500 text-gray-950 font-bold text-xs transition shadow" : "py-1.5 rounded-lg bg-gray-950 border border-gray-800 text-gray-400 font-bold text-xs transition";
+    });
 }
-
-
-/* PAYMENT */
-
-function setPayment(type,button){
-
-  payment=type;
-
-  document
-    .querySelectorAll(".payment-method")
-    .forEach(x=>x.classList.remove("active"));
-
-  button.classList.add("active");
-
-  const cashBox=
-    document.getElementById("cashBox");
-
-  if(type==="cash"){
-
-    cashBox.classList.add("show");
-
-  }else{
-
-    cashBox.classList.remove("show");
-
-  }
-
+function openNoteModal(id) { editingItemId = id; let item = cart.find(x => x.id === id); document.getElementById('note-item-title').innerText = item.name; document.getElementById('item-note-input').value = item.note || ''; document.getElementById('noteModal').classList.remove('hidden'); }
+function closeNoteModal() { document.getElementById('noteModal').classList.add('hidden'); editingItemId = null; }
+function saveItemNote() { if(editingItemId!== null) { let item = cart.find(x => x.id === editingItemId); if(item) item.note = document.getElementById('item-note-input').value; } closeNoteModal(); renderCart(); }
+function calculateTotals() {
+    let subtotal = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+    let discPct = parseFloat(document.getElementById('discount-pct').value) || 0;
+    let discVal = parseFloat(document.getElementById('discount-val').value) || 0;
+    let totalDiscount = discVal + (subtotal * (discPct / 100)); if(totalDiscount > subtotal) totalDiscount = subtotal;
+    currentGrandTotal = Math.max(0, subtotal - totalDiscount);
+    document.getElementById('subtotal-amount').innerText = subtotal + ' ج.م';
+    document.getElementById('discount-amount').innerText = totalDiscount.toFixed(1) + ' ج.م';
+    document.getElementById('grand-total-amount').innerText = currentGrandTotal.toFixed(1) + ' ج.م';
 }
-
-
-function calculateChange(){
-
-  const total=
-    cart.reduce(
-      (sum,item)=>sum+item.price*item.qty,
-      0
-    );
-
-  const paid=
-    Number(
-      document.getElementById("paid").value
-    ) || 0;
-
-  const change=
-    Math.max(0,paid-total);
-
-  document.getElementById("change")
-    .textContent=
-      "الباقي: "+change+" ج.م";
-
+function renderCart() {
+    const list = document.getElementById('cart-items-list'); list.innerHTML = '';
+    if(!cart.length) { list.innerHTML = '<p class="text-center text-gray-500 text-xs py-20">اضغط على أي صنف لإضافته إلى الفاتورة</p>'; calculateTotals(); return; }
+    cart.forEach(i => {
+        let div = document.createElement('div'); div.className = "bg-gray-950 border border-gray-800 p-2.5 rounded-xl text-xs space-y-1.5";
+        div.innerHTML = `<div class="flex justify-between items-center"><span class="font-bold text-gray-200">${i.name}</span><span class="text-amber-500 font-semibold">${i.price * i.qty} ج.م</span></div>${i.note? `<p class="text-[10px] text-amber-400 bg-amber-500/10 p-1 rounded">ملاحظة: ${i.note}</p>` : ''}<div class="flex justify-between items-center pt-1"><div class="flex items-center gap-1"><button onclick="changeQty(${i.id}, -1)" class="w-6 h-6 bg-gray-800 text-amber-400 rounded font-bold hover:bg-gray-700">-</button><span class="font-black px-1.5 text-white">${i.qty}</span><button onclick="changeQty(${i.id}, 1)" class="w-6 h-6 bg-gray-800 text-amber-400 rounded font-bold hover:bg-gray-700">+</button></div><div class="flex gap-2"><button onclick="openNoteModal(${i.id})" class="text-gray-400 hover:text-amber-400 text-[11px]" title="إضافة ملاحظة"><i class="fa-solid fa-comment-dots"></i></button><button onclick="removeFromCart(${i.id})" class="text-red-400 hover:text-red-300 text-[11px]" title="حذف الصنف"><i class="fa-solid fa-trash"></i></button></div></div>`;
+        list.appendChild(div);
+    }); calculateTotals();
 }
-
-
-/* COMPLETE SALE */
-
-function completeOrder(){
-
-  if(!cart.length){
-
-    toast("الطلب فاضي");
-
-    return;
-
-  }
-
-  const total=
-    cart.reduce(
-      (sum,item)=>sum+item.price*item.qty,
-      0
-    );
-
-  if(payment==="cash"){
-
-    const paid=
-      Number(
-        document.getElementById("paid").value
-      ) || 0;
-
-    if(paid<total){
-
-      toast("المبلغ المدفوع أقل من الإجمالي");
-
-      return;
-
-    }
-
-  }
-
-  const orders=
-    JSON.parse(
-      localStorage.getItem("transitSales") || "[]"
-    );
-
-  orders.push({
-
-    id:Date.now(),
-
-    time:new Date().toISOString(),
-
-    table:
-      document.getElementById("table").value,
-
-    customer:
-      document.getElementById("customer").value,
-
-    payment:payment,
-
-    total:total,
-
-    items:[...cart]
-
-  });
-
-  localStorage.setItem(
-    "transitSales",
-    JSON.stringify(orders)
-  );
-
-  toast("تم إتمام البيع بنجاح ✓");
-
-  cart=[];
-
-  document.getElementById("paid").value="";
-  document.getElementById("customer").value="";
-
-  renderCart();
-  updateStats();
-
+function openPaymentModal(method) {
+    if(!cart.length) return alert('العربة فارغة!'); selectedPaymentMethod = method;
+    document.getElementById('payment-modal-title').innerText = 'إتمام الدفع (' + method + ')';
+    document.getElementById('pay-modal-total').innerText = currentGrandTotal.toFixed(1) + ' ج.م';
+    document.getElementById('cash-given').value = ''; document.getElementById('change-amount').innerText = '0 ج.م';
+    document.getElementById('paymentModal').classList.remove('hidden');
 }
-
-
-/* STATS */
-
-function updateStats(){
-
-  const orders=
-    JSON.parse(
-      localStorage.getItem("transitSales") || "[]"
-    );
-
-  const today=
-    new Date().toDateString();
-
-  const todayOrders=
-    orders.filter(order=>
-      new Date(order.time).toDateString()===today
-    );
-
-  const sales=
-    todayOrders.reduce(
-      (sum,order)=>sum+order.total,
-      0
-    );
-
-  document.getElementById("todaySales")
-    .textContent=sales+" ج.م";
-
-  document.getElementById("todayOrders")
-    .textContent=todayOrders.length;
-
+function closePaymentModal() { document.getElementById('paymentModal').classList.add('hidden'); }
+function addCashGiven(amount) { let current = parseFloat(document.getElementById('cash-given').value) || 0; document.getElementById('cash-given').value = current + amount; calculateChange(); }
+function calculateChange() { let given = parseFloat(document.getElementById('cash-given').value) || 0; let change = given - currentGrandTotal; document.getElementById('change-amount').innerText = change >= 0? change.toFixed(1) + ' ج.م' : 'المبلغ غير كافٍ'; }
+function deductStockAfterCheckout() { cart.forEach(cartItem => { let menuItem = MENU_ITEMS.find(x => x.id === cartItem.id); if(menuItem) { menuItem.stock = Math.max(0, menuItem.stock - cartItem.qty); } }); saveStockToLocalStorage(); renderProducts(MENU_ITEMS); }
+function confirmCheckout() {
+    let given = parseFloat(document.getElementById('cash-given').value) || 0;
+    if(selectedPaymentMethod === 'كاش' && given < currentGrandTotal) { return alert('المبلغ المستلم أقل من إجمالي الفاتورة!'); }
+    deductStockAfterCheckout(); printThermalReceipt(selectedPaymentMethod, currentGrandTotal); closePaymentModal(); clearCart(); orderCounter++; localStorage.setItem('transit_order_id', orderCounter);
 }
-
-
-/* PRINT */
-
-function printReceipt(){
-
-  if(!cart.length){
-
-    toast("الطلب فاضي");
-
-    return;
-
-  }
-
-  const total=
-    cart.reduce(
-      (sum,item)=>sum+item.price*item.qty,
-      0
-    );
-
-  const table=
-    document.getElementById("table").value;
-
-  const customer=
-    document.getElementById("customer").value || "عميل";
-
-  const receipt=document.getElementById("receipt");
-
-  receipt.innerHTML=`
-
-    <div style="
-      width:280px;
-      margin:auto;
-      font-family:Arial;
-      color:#000;
-      direction:rtl;
-      text-align:center;
-    ">
-
-      <h2>TRANSIT CAFE</h2>
-
-      <div>
-        أبو كبير — الشرقية
-      </div>
-
-      <hr>
-
-      <div>
-        ${new Date().toLocaleString("ar-EG")}
-      </div>
-
-      <div>
-        الترابيزة: ${table}
-      </div>
-
-      <div>
-        العميل: ${customer}
-      </div>
-
-      <hr>
-
-      ${
-        cart.map(item=>`
-          <div style="
-            display:flex;
-            justify-content:space-between;
-            margin:8px 0;
-          ">
-            <span>
-              ${item.name} × ${item.qty}
-            </span>
-            <b>
-              ${item.price*item.qty}
-            </b>
-          </div>
-        `).join("")
-      }
-
-      <hr>
-
-      <h3>
-        الإجمالي: ${total} ج.م
-      </h3>
-
-      <p>
-        شكرًا لزيارتكم ❤️
-      </p>
-
-    </div>
-
-  `;
-
-  const printWindow=
-    window.open("","PRINT","width=400,height=700");
-
-  printWindow.document.write(`
-    <html>
-      <head>
-        <title>TRANSIT CAFE Receipt</title>
-      </head>
-      <body>
-        ${receipt.innerHTML}
-      </body>
-    </html>
-  `);
-
-  printWindow.document.close();
-
-  printWindow.focus();
-
-  printWindow.print();
-
-  printWindow.close();
-
+function openSplitModal() {
+    if(!cart.length) return alert('العربة فارغة!'); document.getElementById('split-total-display').innerText = currentGrandTotal.toFixed(1) + ' ج.م';
+    document.getElementById('split-cash').value = ''; document.getElementById('split-voda').value = ''; document.getElementById('split-remaining').innerText = currentGrandTotal.toFixed(1) + ' ج.م';
+    document.getElementById('splitModal').classList.remove('hidden');
 }
-
-
-/* TOAST */
-
-function toast(message){
-
-  const element=
-    document.getElementById("toast");
-
-  element.textContent=message;
-
-  element.classList.add("show");
-
-  setTimeout(()=>{
-    element.classList.remove("show");
-  },1800);
-
+function closeSplitModal() { document.getElementById('splitModal').classList.add('hidden'); }
+function calculateSplit() {
+    let cash = parseFloat(document.getElementById('split-cash').value) || 0; let voda = parseFloat(document.getElementById('split-voda').value) || 0;
+    let remaining = currentGrandTotal - (cash + voda); let remEl = document.getElementById('split-remaining');
+    remEl.innerText = remaining.toFixed(1) + ' ج.م'; remEl.className = remaining === 0? "font-black text-emerald-400" : "font-black text-red-400";
 }
-
-
-/* START */
-
-renderProducts();
-renderCart();
-updateStats();
-
+function confirmSplitCheckout() {
+    let cash = parseFloat(document.getElementById('split-cash').value) || 0; let voda = parseFloat(document.getElementById('split-voda').value) || 0;
+    if((cash + voda)!== currentGrandTotal) { return alert('مجموع الجزأين يجب أن يساوي إجمالي الفاتورة بالضبط!'); }
+    deductStockAfterCheckout(); printThermalReceipt('مقسم (كاش ' + cash + ' + فودافون ' + voda + ')', currentGrandTotal); closeSplitModal(); clearCart(); orderCounter++; localStorage.setItem('transit_order_id', orderCounter);
+}
+function printThermalReceipt(paymentMethod, finalTotal) {
+    let iframe = document.getElementById('print-iframe'); let doc = iframe.contentWindow.document; let itemsHtml = '';
+    cart.forEach(i => { itemsHtml += `<tr><td style="padding:4px 0; font-weight:bold;">${i.name} ${i.note? '<br><span style="font-size:9px; font-weight:normal;">(' + i.note + ')</span>' : ''}</td><td style="text-align:center; padding:4px 0;">${i.qty}</td><td style="text-align:left; padding:4px 0;">${i.price * i.qty} ج.م</td></tr>`; });
+    let receiptContent = `<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><style>body { font-family: 'Cairo', Tahoma, sans-serif; width: 72mm; margin: 0 auto; padding: 5px; color: #000; background: #fff; }.center { text-align: center; }.bold { font-weight: bold; } table { width: 100%; border-collapse: collapse; font-size: 11px; } hr { border: 0.5px dashed #000; margin: 6px 0; }.flex-between { display: flex; justify-content: space-between; font-size: 11px; margin: 3px 0; }</style></head><body><div class="center"><h2 style="font-size:16px; margin:0 0 2px 0; font-family:'Playfair Display', serif;">TRANSIT CAFE</h2><p style="font-size:10px; margin:0;">أبو كبير - بعد مطعم الصياد</p><p style="font-size:10px; margin:0;">تليفون: 01030516417</p><p style="font-size:10px; margin:0 0 5px 0;">فودافون كاش: 01132674811</p></div><hr><div style="font-size:10px;"><div class="flex-between"><span>رقم الأوردر: #${orderCounter}</span><span>النوع: ${currentOrderType}</span></div><div class="flex-between"><span>التاريخ: ${new Date().toLocaleDateString('ar-EG')}</span><span>الوقت: ${new Date().toLocaleTimeString('ar-EG')}</span></div><div class="flex-between"><span>الكاشير: م. مؤمن العطار</span><span>الدفع: ${paymentMethod}</span></div></div><hr><table><thead><tr style="border-bottom: 1px solid #000;"><th style="text-align:right; padding-bottom:3px;">الصنف</th><th style="text-align:center; padding-bottom:3px;">الكمية</th><th style="text-align:left; padding-bottom:3px;">السعر</th></tr></thead><tbody>${itemsHtml}</tbody></table><hr><div class="flex-between"><span>المجموع الفرعي:</span><span>${cart.reduce((s,i)=>s+(i.price*i.qty),0)} ج.م</span></div><div class="flex-between bold" style="font-size:13px; margin-top:4px;"><span>الإجمالي النهائي:</span><span>${finalTotal.toFixed(1)} ج.م</span></div><hr><div class="center" style="font-size:10px; margin-top:5px;"><p style="margin:2px 0;">شكراً لزيارتكم ترانزيت كافيه ☕</p><p style="margin:0; font-size:9px;">إدارة: م. مؤمن العطار</p></div></body></html>`;
+    doc.open(); doc.write(receiptContent); doc.close();
+    setTimeout(() => { iframe.contentWindow.focus(); iframe.contentWindow.print(); }, 300);
+}
 </script>
-
 </body>
 </html>
