@@ -1,99 +1,120 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" class="dark">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Transit Cafe | ترانزيت كافيه - أبو كبير - مؤمن العطار</title>
+<title>TRANSIT CAFE - منيو ترانزيت كافيه - 01030516417</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-<style>body{font-family:'Cairo',sans-serif}.luxury-font{font-family:'Playfair Display',serif}::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#111827}::-webkit-scrollbar-thumb{background:#d97706;border-radius:4px}</style>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
+<style>body{font-family:'Cairo',sans-serif}</style>
 </head>
-<body class="bg-gray-950 text-gray-100 selection:bg-amber-600 selection:text-white">
-<div id="toast-container" class="fixed bottom-5 left-5 z-50 flex flex-col gap-2"></div>
-
-<header class="fixed top-0 left-0 right-0 z-40 bg-gray-950/80 backdrop-blur-md border-b border-amber-500/20">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-<a href="#" class="flex items-center gap-3">
-<div class="w-11 h-11 rounded-full overflow-hidden border-2 border-amber-500 shadow-lg bg-gray-900 flex items-center justify-center"><img src="logo.jpg" alt="Logo" class="w-full h-full object-cover" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=text-amber-500 font-black>TC</span>'"></div>
-<div class="w-11 h-11 rounded-full overflow-hidden border-2 border-amber-500 shadow-lg bg-gray-800 grid place-items-center"><img src="owner.jpg" alt="مؤمن" class="w-full h-full object-cover" onerror="this.style.display='none'"><span class="text-amber-500 font-bold text-xs">M</span></div>
-<div class="flex flex-col"><span class="luxury-font text-xl font-bold text-amber-500">TRANSIT</span><span class="text-xs tracking-widest text-gray-400">CAFE & LOUNGE</span></div>
-</a>
-<nav class="hidden md:flex items-center gap-6 font-medium text-sm">
-<a href="#home" class="hover:text-amber-500">الرئيسية</a><a href="#story" class="hover:text-amber-500">قصتنا</a><a href="#menu" class="hover:text-amber-500">القائمة</a><a href="#events" class="hover:text-amber-500">الفعاليات</a><a href="cashier.html" class="text-amber-400 font-bold border border-amber-500/30 px-4 py-1.5 rounded-xl">الكاشير</a><a href="tel:01030516417" class="hover:text-amber-500">01030516417</a>
-</nav>
+<body class="bg-black text-white">
+<header class="fixed top-0 w-full z-50 bg-black/90 backdrop-blur border-b border-amber-500/20">
+<div class="max-w-7xl mx-auto px-4 h-[72px] flex justify-between items-center">
 <div class="flex items-center gap-3">
-<button onclick="toggleCart()" class="relative p-2.5 rounded-xl bg-gray-900 border border-amber-500/30 text-amber-400"><i class="fa-solid fa-cart-shopping"></i><span id="cart-badge" class="absolute -top-1.5 -right-1.5 bg-amber-500 text-gray-950 text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">0</span></button>
-<a href="#reservation" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-600 to-amber-500 text-gray-950 font-bold text-sm">احجز طاولتك</a>
-<button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-xl bg-gray-900 border border-amber-500/30 text-amber-400"><i class="fa-solid fa-bars"></i></button>
+<div class="w-10 h-10 rounded-full bg-amber-500 grid place-items-center text-black font-black">TC</div>
+<div><p class="font-black text-amber-500">TRANSIT CAFE</p><p class="text-[10px] text-zinc-500">أبو كبير • 01030516417</p></div>
 </div>
+<div class="flex items-center gap-2">
+<a href="tel:01030516417" class="px-5 py-2.5 bg-amber-500 text-black rounded-xl font-black text-sm">01030516417</a>
+<button onclick="document.getElementById('cartBox').classList.remove('hidden')" class="relative w-11 h-11 bg-zinc-900 border border-amber-500/20 rounded-xl grid place-items-center"><i class="fa-solid fa-bag-shopping text-amber-500"></i><span id="badge" class="absolute -top-2 -right-2 w-6 h-6 bg-amber-500 text-black text-xs font-black rounded-full grid place-items-center">0</span></button>
 </div>
-<div id="mobile-menu" class="hidden md:hidden bg-gray-950/95 border-b border-amber-500/20 px-6 py-6 flex flex-col gap-4 text-center">
-<a href="#home" onclick="toggleMobileMenu()">الرئيسية</a><a href="#menu" onclick="toggleMobileMenu()">القائمة</a><a href="cashier.html">الكاشير 01030516417</a>
 </div>
 </header>
-
-<section id="home" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-900 via-gray-950 to-black">
-<div class="absolute inset-0 opacity-20 bg-[radial-gradient(#d97706_1px,transparent_1px)] [background-size:24px_24px]"></div>
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 text-center">
-<div class="flex justify-center items-center gap-4 mb-6">
-<div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-4 border-amber-500 shadow-2xl bg-gray-900 flex items-center justify-center"><img src="logo.jpg" class="w-full h-full object-cover" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=luxury-font text-amber-500 font-bold text-2xl>TC</span>'"></div>
-<div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-4 border-amber-500 shadow-2xl bg-gray-800 grid place-items-center"><img src="owner.jpg" class="w-full h-full object-cover" onerror="this.style.display='none'"><span class="text-amber-500 font-bold">مؤمن</span></div>
+<section class="pt-32 pb-16 px-4 text-center">
+<div class="max-w-4xl mx-auto">
+<h1 class="text-5xl md:text-7xl font-black leading-none">منيو<br><span class="text-amber-500">TRANSIT CAFE</span></h1>
+<p class="mt-4 text-zinc-400 text-sm">أبو كبير بعد مطعم الصياد • توصيل 01030516417 • فودافون كاش 01132674811</p>
+<div class="mt-8 flex justify-center gap-3">
+<a href="#menu" class="px-8 py-4 bg-amber-500 text-black rounded-2xl font-black">شوف كل المشاريب</a>
+<a href="https://wa.me/201030516417" class="px-8 py-4 bg-[#25D366] text-white rounded-2xl font-black"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
 </div>
-<span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold uppercase mb-6">أفضل وجهة قهوة في أبو كبير - مؤمن العطار</span>
-<h1 class="luxury-font text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight">حيث تلتقي فخامة<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-amber-300 to-amber-600">القهوة المختصة والأجواء الراقية</span></h1>
-<p class="max-w-2xl mx-auto text-gray-400 text-base sm:text-lg mb-8 leading-relaxed">استمتع بتجربة استثنائية من أجود حبوب القهوة، الحلويات الفاخرة، والمشروبات المنعشة المصنوعة بشغف. صاحب المكان: <b style="color:#e8c27a">مؤمن هاني العطار</b> - أبو كبير بعد مطعم الصياد.</p>
-<div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-<a href="#menu" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-amber-600 to-amber-500 text-gray-950 font-bold text-base shadow-xl text-center"><i class="fa-solid fa-book-open ml-2"></i> استعرض القائمة</a>
-<a href="https://wa.me/201030516417" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#25D366] text-white font-bold text-base text-center"><i class="fa-brands fa-whatsapp ml-2"></i> واتساب 01030516417</a>
+<div class="mt-12 bg-zinc-900 border border-amber-500/20 rounded-[24px] p-6 grid md:grid-cols-[220px_1fr] gap-6 items-center text-right max-w-3xl mx-auto">
+<div class="bg-white rounded-2xl p-3 w-fit mx-auto">
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://moumem0100-hub.github.io/momen-elattar-site/" class="w-44 h-44">
+<p class="text-black font-black text-center text-xs mt-2">TRANSIT CAFE<br>SCAN MENU<br>01030516417</p>
 </div>
-
-<div class="max-w-4xl mx-auto bg-gray-900 border border-amber-500/30 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-8 text-right">
-<div class="bg-white p-4 rounded-2xl shadow-2xl"><img src="qr.jpg" alt="TRANSIT CAFE QR" class="w-48 h-48 object-contain" onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://moumem0100-hub.github.io/momen-elattar-site/'"><p class="text-black font-black text-center mt-2 text-xs tracking-widest">TRANSIT CAFE<br><span class="font-normal text-[10px]">SCAN FOR DIGITAL MENU</span></p></div>
-<div class="flex-1">
-<h3 class="luxury-font text-2xl font-bold text-amber-400 mb-3">امسح الـ QR بتاعنا</h3>
-<p class="text-gray-400 text-sm leading-relaxed mb-4">ده الـ QR الأصلي بتاع ترانزيت كافيه. امسحه بموبايلك هيدخلك على المنيو الرقمي. اطبعه وحطه على كل الطاولات والكاشير والمنيو الورقي.</p>
-<div class="space-y-2 text-sm">
-<p><i class="fa-solid fa-phone text-amber-500 ml-2"></i> <b class="text-white">01030516417</b> - موبايل وواتساب</p>
-<p><i class="fa-solid fa-wallet text-amber-500 ml-2"></i> <b class="text-amber-400">01132674811</b> - فودافون كاش</p>
-<p><i class="fa-solid fa-location-dot text-amber-500 ml-2"></i> أبو كبير - بعد مطعم الصياد</p>
+<div>
+<h3 class="font-black text-amber-500 text-xl">اطلب من المنيو الرقمي</h3>
+<p class="text-zinc-400 text-sm mt-2">اختار مشروبك ودوس أضف للسلة وهيتبعت واتساب على 01030516417 فورا - 22 صنف</p>
+<p class="mt-3 text-sm">📞 <b>01030516417</b> • 💳 <b class="text-amber-500">01132674811 فودافون كاش</b></p>
+<p class="mt-1 text-sm">📍 أبو كبير بعد مطعم الصياد</p>
 </div>
-<div class="mt-5 flex gap-3"><a href="tel:01030516417" class="px-6 py-2.5 rounded-xl bg-amber-500 text-gray-950 font-bold text-sm">اتصل الآن</a><a href="cashier.html" class="px-6 py-2.5 rounded-xl bg-gray-800 border border-amber-500/30 text-amber-400 font-bold text-sm">فتح الكاشير</a></div>
-</div>
-</div>
-
-<div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 pt-10 border-t border-amber-500/20 max-w-4xl mx-auto text-center">
-<div><h3 class="luxury-font text-3xl font-bold text-amber-500">100%</h3><p class="text-xs text-gray-400 mt-1">حبوب بن مختارة</p></div>
-<div><h3 class="luxury-font text-3xl font-bold text-amber-500">25+</h3><p class="text-xs text-gray-400 mt-1">صنف مشروب وحلويات</p></div>
-<div><h3 class="luxury-font text-3xl font-bold text-amber-500">VIP</h3><p class="text-xs text-gray-400 mt-1">جلسات عائلية وفردية</p></div>
-<div><h3 class="luxury-font text-3xl font-bold text-amber-500">4.9</h3><p class="text-xs text-gray-400 mt-1">تقييم العملاء</p></div>
 </div>
 </div>
 </section>
-
-<section id="story" class="py-24 bg-gray-900/50 border-t border-amber-500/10"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"><div class="relative"><div class="absolute -inset-2 bg-gradient-to-r from-amber-600 to-amber-400 rounded-2xl blur-lg opacity-30"></div><div class="relative bg-gray-900 border border-amber-500/30 rounded-2xl p-8 shadow-2xl"><div class="w-14 h-14 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-500 text-2xl mb-6"><i class="fa-solid fa-heart"></i></div><h2 class="luxury-font text-3xl font-bold mb-4 text-amber-400">قصة شغف تبدأ من حبة قهوة</h2><p class="text-gray-300 leading-relaxed mb-6">في قلب مدينة أبو كبير، انطلقنا في "Transit Cafe" لنقدم مفهوماً جديداً للمقاهي يجمع بين عراقة الضيافة الشرقية وحداثة القهوة العالمية المختصة. إدارة: <b class="text-amber-400">مؤمن آل العطار</b> - 01030516417</p><p class="text-gray-400 text-sm leading-relaxed">سواء كنت تبحث عن مكان هادئ للعمل، أو جلسة دافئة مع الأصدقاء والعائلة، فإن ترانزيت كافيه هو محطتك المفضلة دائماً.</p></div></div><div class="grid grid-cols-2 gap-4"><div class="bg-gray-900 border border-amber-500/20 p-6 rounded-2xl text-center"><i class="fa-solid fa-mug-saucer text-3xl text-amber-500 mb-3"></i><h4 class="font-bold text-lg mb-1">القهوة المختصة</h4><p class="text-xs text-gray-400">تحميص دقيق ومذاق غني</p></div><div class="bg-gray-900 border border-amber-500/20 p-6 rounded-2xl text-center mt-8"><i class="fa-solid fa-cake-candles text-3xl text-amber-500 mb-3"></i><h4 class="font-bold text-lg mb-1">حلويات فاخرة</h4><p class="text-xs text-gray-400">تُحضر طازجة يومياً</p></div><div class="bg-gray-900 border border-amber-500/20 p-6 rounded-2xl text-center"><i class="fa-solid fa-wifi text-3xl text-amber-500 mb-3"></i><h4 class="font-bold text-lg mb-1">بيئة مثالية للعمل</h4><p class="text-xs text-gray-400">واي فاي سريع ومجاني</p></div><div class="bg-gray-900 border border-amber-500/20 p-6 rounded-2xl text-center mt-8"><i class="fa-solid fa-couch text-3xl text-amber-500 mb-3"></i><h4 class="font-bold text-lg mb-1">جلسات راقية</h4><p class="text-xs text-gray-400">ديكورات عصرية</p></div></div></div></div></section>
-
-<section id="menu" class="py-24 bg-gray-950"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="text-center max-w-3xl mx-auto mb-16"><span class="text-amber-500 text-xs font-semibold uppercase tracking-widest block mb-2">القائمة الفاخرة</span><h2 class="luxury-font text-3xl sm:text-5xl font-bold mb-4">اختر ما يروق لحتك</h2><p class="text-gray-400 text-sm sm:text-base">تشكيلة واسعة من أشهى المشروبات الساخنة، الباردة، والحلويات.</p></div><div class="flex flex-wrap items-center justify-center gap-3 mb-12"><button onclick="filterMenu('all')" class="menu-tab px-6 py-2.5 rounded-xl bg-amber-500 text-gray-950 font-bold text-sm" data-category="all">الكل</button><button onclick="filterMenu('coffee')" class="menu-tab px-6 py-2.5 rounded-xl bg-gray-900 border border-amber-500/30 text-gray-300 font-semibold text-sm" data-category="coffee">قهوة مختصة</button><button onclick="filterMenu('cold')" class="menu-tab px-6 py-2.5 rounded-xl bg-gray-900 border border-amber-500/30 text-gray-300 font-semibold text-sm" data-category="cold">مشروبات باردة</button><button onclick="filterMenu('dessert')" class="menu-tab px-6 py-2.5 rounded-xl bg-gray-900 border border-amber-500/30 text-gray-300 font-semibold text-sm" data-category="dessert">حلويات</button></div><div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div></div></section>
-
-<section id="events" class="py-24 bg-gray-900/40 border-t border-amber-500/10"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="text-center max-w-3xl mx-auto mb-16"><span class="text-amber-500 text-xs font-semibold uppercase tracking-widest block mb-2">الأجواء الحية</span><h2 class="luxury-font text-3xl sm:text-5xl font-bold mb-4">الفعاليات والليالي المميزة</h2></div><div class="grid grid-cols-1 md:grid-cols-3 gap-8"><div class="bg-gray-900 border border-amber-500/20 rounded-2xl p-6"><div class="flex items-center justify-between mb-4"><span class="px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs font-bold">كل خميس</span><i class="fa-solid fa-music text-amber-500"></i></div><h3 class="luxury-font text-xl font-bold mb-2">ليالي الموسيقى الهادئة</h3><p class="text-gray-400 text-sm mb-4">أنغام العود والبيانو الحية وسط إضاءة دافئة.</p><span class="text-xs text-amber-500 font-bold">9:00 PM - 11:30 PM</span></div><div class="bg-gray-900 border border-amber-500/20 rounded-2xl p-6"><div class="flex items-center justify-between mb-4"><span class="px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs font-bold">مباريات كبرى</span><i class="fa-solid fa-tv text-amber-500"></i></div><h3 class="luxury-font text-xl font-bold mb-2">بث المباريات الحصرية</h3><p class="text-gray-400 text-sm mb-4">شجع فريقك المفضل على شاشات عملاقة.</p><span class="text-xs text-amber-500 font-bold">حسب المواعيد</span></div><div class="bg-gray-900 border border-amber-500/20 rounded-2xl p-6"><div class="flex items-center justify-between mb-4"><span class="px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs font-bold">السبت</span><i class="fa-solid fa-graduation-cap text-amber-500"></i></div><h3 class="luxury-font text-xl font-bold mb-2">ورش تذوق القهوة</h3><p class="text-gray-400 text-sm mb-4">تعرف على أسرار التحضير وفن رسم اللاتيه.</p><span class="text-xs text-amber-500 font-bold">5:00 PM - 7:00 PM</span></div></div></div></section>
-
-<section id="reservation" class="py-24 bg-gray-950"><div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"><div class="bg-gray-900 border border-amber-500/30 rounded-3xl p-8 sm:p-12 shadow-2xl"><div class="text-center max-w-xl mx-auto mb-10"><span class="text-amber-500 text-xs font-semibold uppercase tracking-widest block mb-2">حجز طاولة - 01030516417</span><h2 class="luxury-font text-3xl sm:text-4xl font-bold mb-3">احجز مكانك المميز الآن</h2><p class="text-gray-400 text-sm">املأ التفاصيل وسيتم تأكيد حجزك فوراً عبر الواتساب.</p></div><form id="reservation-form" onsubmit="submitReservation(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-6"><div><label class="block text-xs font-bold text-gray-400 mb-2">الاسم الكريم</label><input type="text" id="res-name" required placeholder="مثال: مؤمن العطار" class="w-full bg-gray-950 border border-amber-500/30 rounded-xl px-4 py-3 text-sm focus:border-amber-500 outline-none"></div><div><label class="block text-xs font-bold text-gray-400 mb-2">رقم الهاتف (واتساب) 01030516417</label><input type="tel" id="res-phone" required placeholder="01030516417" class="w-full bg-gray-950 border border-amber-500/30 rounded-xl px-4 py-3 text-sm focus:border-amber-500 outline-none"></div><div><label class="block text-xs font-bold text-gray-400 mb-2">عدد الأفراد</label><select id="res-guests" class="w-full bg-gray-950 border border-amber-500/30 rounded-xl px-4 py-3 text-sm focus:border-amber-500 outline-none"><option>1 شخص</option><option>2 أشخاص</option><option>4 أشخاص</option><option>6+ أشخاص</option></select></div><div><label class="block text-xs font-bold text-gray-400 mb-2">نوع الجلسة</label><select id="res-type" class="w-full bg-gray-950 border border-amber-500/30 rounded-xl px-4 py-3 text-sm focus:border-amber-500 outline-none"><option>تراس خارجي</option><option>صالة داخلية هادئة</option><option>منطقة العمل</option></select></div><div><label class="block text-xs font-bold text-gray-400 mb-2">تاريخ الحجز</label><input type="date" id="res-date" required class="w-full bg-gray-950 border border-amber-500/30 rounded-xl px-4 py-3 text-sm focus:border-amber-500 outline-none"></div><div><label class="block text-xs font-bold text-gray-400 mb-2">وقت الحجز</label><input type="time" id="res-time" required class="w-full bg-gray-950 border border-amber-500/30 rounded-xl px-4 py-3 text-sm focus:border-amber-500 outline-none"></div><div class="sm:col-span-2 mt-4"><button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-amber-600 to-amber-500 text-gray-950 font-bold text-base shadow-xl flex items-center justify-center gap-2"><i class="fa-brands fa-whatsapp text-lg"></i> تأكيد الحجز عبر واتساب 01030516417</button></div></form></div></div></section>
-
-<footer id="contact" class="bg-gray-950 border-t border-amber-500/20 pt-16 pb-12"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12"><div class="md:col-span-1"><div class="flex items-center gap-3 mb-4"><div class="w-10 h-10 rounded-full overflow-hidden border border-amber-500 bg-gray-900 flex items-center justify-center"><img src="logo.jpg" class="w-full h-full object-cover" onerror="this.style.display='none'"><span class="text-amber-500 font-bold text-xs">TC</span></div><span class="luxury-font text-xl font-bold text-amber-500">TRANSIT CAFE</span></div><p class="text-xs text-gray-400 leading-relaxed mb-6">وجهتك الفاخرة للقهوة المختصة في أبو كبير - إدارة مؤمن العطار.<br><b class="text-white">01030516417</b> - <b class="text-amber-400">01132674811 Vodafone Cash</b></p><div class="bg-white p-2 rounded-xl inline-block"><img src="qr.jpg" class="w-20 h-20" onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://moumem0100-hub.github.io/momen-elattar-site/'"></div></div><div><h4 class="font-bold text-sm text-amber-400 mb-4 uppercase">روابط سريعة</h4><ul class="space-y-2 text-xs text-gray-400"><li><a href="#home" class="hover:text-amber-500">الرئيسية</a></li><li><a href="#menu" class="hover:text-amber-500">القائمة</a></li><li><a href="cashier.html" class="hover:text-amber-500">الكاشير</a></li><li><a href="tel:01030516417" class="hover:text-amber-500">01030516417</a></li></ul></div><div><h4 class="font-bold text-sm text-amber-400 mb-4 uppercase">ساعات العمل</h4><ul class="space-y-2 text-xs text-gray-400"><li class="flex justify-between"><span>السبت - الأربعاء:</span><span class="text-amber-400">8 ص - 2 ص</span></li><li class="flex justify-between"><span>الخميس والجمعة:</span><span class="text-amber-400">8 ص - 3 ص</span></li></ul></div><div><h4 class="font-bold text-sm text-amber-400 mb-4 uppercase">معلومات التواصل</h4><ul class="space-y-3 text-xs text-gray-400"><li class="flex gap-2"><i class="fa-solid fa-location-dot text-amber-500 mt-0.5"></i><span>أبو كبير، محافظة الشرقية، بعد مطعم الصياد</span></li><li class="flex gap-2"><i class="fa-solid fa-phone text-amber-500"></i><span dir="ltr">01030516417</span></li><li class="flex gap-2"><i class="fa-solid fa-wallet text-amber-500"></i><span dir="ltr">Vodafone Cash 01132674811</span></li><li class="flex gap-2"><i class="fa-brands fa-whatsapp text-amber-500"></i><span>wa.me/201030516417</span></li></ul></div></div><div class="pt-8 border-t border-gray-900 text-center text-xs text-gray-500"><p>© 2026 Transit Cafe - مؤمن العطار - 01030516417 - Vodafone Cash 01132674811 - جميع الحقوق محفوظة.</p></div></div></footer>
-
-<div id="cart-drawer" class="fixed inset-0 z-50 hidden"><div class="absolute inset-0 bg-black/70 backdrop-blur-sm" onclick="toggleCart()"></div><div class="absolute top-0 bottom-0 left-0 w-full max-w-md bg-gray-950 border-r border-amber-500/20 p-6 flex flex-col shadow-2xl"><div class="flex items-center justify-between pb-4 border-b border-gray-800"><h3 class="luxury-font text-xl font-bold flex items-center gap-2 text-amber-500"><i class="fa-solid fa-cart-shopping"></i> عربة الطلبات</h3><button onclick="toggleCart()" class="p-2 text-gray-400 hover:text-amber-500"><i class="fa-solid fa-xmark text-lg"></i></button></div><div id="cart-items" class="flex-1 overflow-y-auto py-4 space-y-4"></div><div class="pt-4 border-t border-gray-800"><div class="flex justify-between text-base font-bold mb-4"><span>الإجمالي:</span><span id="cart-total-price" class="text-amber-500">0 ج.م</span></div><button onclick="checkoutWhatsApp()" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-amber-600 to-amber-500 text-gray-950 font-bold text-sm shadow-lg flex items-center justify-center gap-2"><i class="fa-brands fa-whatsapp text-lg"></i> إرسال الطلب عبر واتساب 01030516417</button></div></div></div>
-
+<section id="menu" class="py-10 px-4 max-w-7xl mx-auto">
+<div class="flex flex-wrap justify-center gap-2 mb-10">
+<button onclick="filterMenu('all')" id="btn-all" class="px-6 py-2.5 rounded-xl bg-amber-500 text-black font-black text-sm">الكل (22)</button>
+<button onclick="filterMenu('hot')" id="btn-hot" class="px-6 py-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-sm">سخن</button>
+<button onclick="filterMenu('coffee')" id="btn-coffee" class="px-6 py-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-sm">قهوة مختصة</button>
+<button onclick="filterMenu('cold')" id="btn-cold" class="px-6 py-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-sm">بارد</button>
+<button onclick="filterMenu('juice')" id="btn-juice" class="px-6 py-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-sm">عصائر</button>
+<button onclick="filterMenu('dessert')" id="btn-dessert" class="px-6 py-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-sm">حلويات</button>
+</div>
+<div id="menu-grid" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+</section>
+<footer class="border-t border-zinc-900 py-10 text-center">
+<p class="font-black text-amber-500">TRANSIT CAFE - 01030516417</p>
+<p class="text-zinc-500 text-xs mt-2">أبو كبير بعد مطعم الصياد • فودافون كاش 01132674811</p>
+<div class="mt-4 bg-white inline-block p-2 rounded-xl"><img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://moumem0100-hub.github.io/momen-elattar-site/" class="w-14 h-14"></div>
+<p class="text-[10px] text-zinc-600 mt-3">© 2026 مؤمن العطار</p>
+</footer>
+<div id="cartBox" class="hidden fixed inset-0 z-[80]"><div class="absolute inset-0 bg-black/80" onclick="this.parentElement.classList.add('hidden')"></div><div class="absolute left-0 top-0 bottom-0 w-full max-w-[400px] bg-zinc-950 border-r border-amber-500/20 p-6 flex flex-col"><div class="flex justify-between pb-4 border-b border-zinc-800"><b class="text-amber-500">سلة الطلبات - 01030516417</b><button onclick="document.getElementById('cartBox').classList.add('hidden')"><i class="fa-solid fa-xmark"></i></button></div><div id="cart-items" class="flex-1 overflow-auto py-4 space-y-3"></div><div class="border-t border-zinc-800 pt-4"><div class="flex justify-between font-black text-lg mb-4"><span>الإجمالي</span><span id="cart-total" class="text-amber-500">0 ج</span></div><button onclick="checkout()" class="w-full py-4 bg-amber-500 text-black rounded-xl font-black"><i class="fa-brands fa-whatsapp"></i> إرسال واتساب 01030516417</button><p class="text-center text-[10px] text-zinc-500 mt-2">الدفع كاش أو فودافون كاش 01132674811</p></div></div></div>
 <script>
-const menuItems=[{id:1,nameAr:"إسبانيش لاتيه فاخر",category:"coffee",price:65,descAr:"إسبريسو غني مع حليب مكثف محلى",image:"https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=600&q=80"},{id:2,nameAr:"في 60 قهوة مختصة",category:"coffee",price:55,descAr:"محصول إثيوبي محضر بالتقطير",image:"https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80"},{id:3,nameAr:"كابتشينو كلاسيكي",category:"coffee",price:50,descAr:"إسبريسو مع رغوة حليب مخملية",image:"https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=600&q=80"},{id:4,nameAr:"موهيتو ترانزيت المنعش",category:"cold",price:60,descAr:"مزيج النعناع الطازج والليمون",image:"https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=80"},{id:5,nameAr:"آيس وايت موكا",category:"cold",price:70,descAr:"شوكولاتة بيضاء فاخرة مع إسبريسو",image:"https://images.unsplash.com/photo-1530373239216-42518e6b4039?auto=format&fit=crop&w=600&q=80"},{id:6,nameAr:"تشيز كيك فواكه التوت",category:"dessert",price:75,descAr:"تشيز كيك غني مغطى بصوص التوت",image:"https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=600&q=80"},{id:7,nameAr:"مولتن كيك بالشوكولاتة",category:"dessert",price:80,descAr:"كيك شوكولاتة دافئ مع آيس كريم",image:"https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80"}];
-let cart=[];
-function renderMenu(category='all'){const grid=document.getElementById('menu-grid');grid.innerHTML='';const filtered=category==='all'?menuItems:menuItems.filter(item=>item.category===category);filtered.forEach(item=>{const card=document.createElement('div');card.className="bg-gray-900 border border-amber-500/20 rounded-2xl overflow-hidden hover:border-amber-500/60 transition-all group flex flex-col justify-between";card.innerHTML=`<div class="relative h-48 overflow-hidden"><img src="${item.image}" alt="${item.nameAr}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"><div class="absolute top-3 right-3 bg-gray-950/80 backdrop-blur-md px-3 py-1 rounded-full text-amber-400 font-bold text-xs border border-amber-500/30">${item.price} ج.م</div></div><div class="p-6 flex-1 flex flex-col justify-between"><div><h3 class="luxury-font text-xl font-bold mb-2 text-gray-100 group-hover:text-amber-400 transition-colors">${item.nameAr}</h3><p class="text-xs text-gray-400 leading-relaxed mb-4">${item.descAr}</p></div><button onclick="addToCart(${item.id})" class="w-full py-2.5 rounded-xl bg-gray-950 border border-amber-500/40 hover:bg-amber-500 hover:text-gray-950 text-amber-400 font-bold text-xs transition-all flex items-center justify-center gap-2"><i class="fa-solid fa-plus"></i> أضف للسلة - 01030516417</button></div>`;grid.appendChild(card);});}
-function filterMenu(cat){document.querySelectorAll('.menu-tab').forEach(tab=>{if(tab.getAttribute('data-category')===cat){tab.className="menu-tab px-6 py-2.5 rounded-xl bg-amber-500 text-gray-950 font-bold text-sm shadow-md transition-all"}else{tab.className="menu-tab px-6 py-2.5 rounded-xl bg-gray-900 border border-amber-500/30 text-gray-300 hover:border-amber-500 font-semibold text-sm transition-all"}});renderMenu(cat);}
-function addToCart(id){const item=menuItems.find(i=>i.id===id);const existing=cart.find(i=>i.id===id);if(existing){existing.qty++}else{cart.push({...item,qty:1})}updateCartUI();showToast(`تم إضافة ${item.nameAr} إلى السلة`)}
-function updateCartUI(){const badge=document.getElementById('cart-badge');const totalCount=cart.reduce((sum,item)=>sum+item.qty,0);badge.innerText=totalCount;const cartContainer=document.getElementById('cart-items');cartContainer.innerHTML='';let totalPrice=0;if(cart.length===0){cartContainer.innerHTML=`<div class="text-center text-gray-500 py-10 text-sm">عربة الطلبات فارغة حالياً - 01030516417</div>`}else{cart.forEach(item=>{totalPrice+=item.price*item.qty;const div=document.createElement('div');div.className="flex items-center justify-between bg-gray-900 border border-gray-800 p-3 rounded-xl";div.innerHTML=`<div><h4 class="font-bold text-xs text-gray-200">${item.nameAr}</h4><span class="text-xs text-amber-500">${item.price} ج.م × ${item.qty}</span></div><div class="flex items-center gap-2"><button onclick="changeQty(${item.id},-1)" class="w-7 h-7 rounded-lg bg-gray-800 text-amber-400 font-bold hover:bg-gray-700">-</button><span class="text-xs font-bold">${item.qty}</span><button onclick="changeQty(${item.id},1)" class="w-7 h-7 rounded-lg bg-gray-800 text-amber-400 font-bold hover:bg-gray-700">+</button></div>`;cartContainer.appendChild(div)})}document.getElementById('cart-total-price').innerText=`${totalPrice} ج.م`}
-function changeQty(id,delta){const item=cart.find(i=>i.id===id);if(item){item.qty+=delta;if(item.qty<=0){cart=cart.filter(i=>i.id!==id)}updateCartUI()}}
-function toggleCart(){const drawer=document.getElementById('cart-drawer');drawer.classList.toggle('hidden')}
-function checkoutWhatsApp(){if(cart.length===0){showToast('السلة فارغة!');return}let text='طلب جديد من موقع Transit Cafe:%0a';let total=0;cart.forEach(item=>{text+=`- ${item.nameAr} (${item.qty}x) = ${item.price*item.qty} ج.م%0a`;total+=item.price*item.qty});text+=`%0a*الإجمالي الكلي:* ${total} ج.م%0a*العنوان:* أبو كبير بعد مطعم الصياد%0a*رقم العميل:*`;window.open(`https://wa.me/201030516417?text=${text}`,'_blank')}
-function submitReservation(e){e.preventDefault();const name=document.getElementById('res-name').value;const phone=document.getElementById('res-phone').value;const guests=document.getElementById('res-guests').value;const type=document.getElementById('res-type').value;const date=document.getElementById('res-date').value;const time=document.getElementById('res-time').value;const text=`طلب حجز طاولة جديد في Transit Cafe:%0a- الاسم: ${name}%0a- الهاتف: ${phone}%0a- الأفراد: ${guests}%0a- الجلسة: ${type}%0a- التاريخ: ${date}%0a- الوقت: ${time}%0a- تواصل: 01030516417 - Vodafone Cash 01132674811`;window.open(`https://wa.me/201030516417?text=${text}`,'_blank');showToast('تم تحويلك للواتساب لإتمام الحجز!')}
-function toggleMobileMenu(){const menu=document.getElementById('mobile-menu');menu.classList.toggle('hidden')}
-function showToast(message){const container=document.getElementById('toast-container');const toast=document.createElement('div');toast.className="bg-amber-500 text-gray-950 font-bold px-4 py-3 rounded-xl shadow-xl text-xs flex items-center gap-2 animate-bounce";toast.innerHTML=`<i class="fa-solid fa-circle-check"></i> <span>${message}</span>`;container.appendChild(toast);setTimeout(()=>{toast.remove()},3500)}
-window.addEventListener('DOMContentLoaded',()=>{renderMenu('all')})
-</script
+const MENU=[
+{id:1,n:"شاي عادي",cat:"hot",p:25,d:"شاي سادة",img:"https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=600"},
+{id:2,n:"شاي بالنعناع",cat:"hot",p:30,d:"نعناع فريش",img:"https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=600"},
+{id:3,n:"قهوة تركي",cat:"hot",p:35,d:"بن تركي محوج",img:"https://images.unsplash.com/photo-1504630083234-14187a9df0f5?w=600"},
+{id:4,n:"قهوة تركي دبل",cat:"hot",p:45,d:"دبل شوت",img:"https://images.unsplash.com/photo-1504630083234-14187a9df0f5?w=600"},
+{id:5,n:"نسكافيه بلاك",cat:"hot",p:40,d:"نسكافيه سادة",img:"https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600"},
+{id:6,n:"إسبريسو سنجل",cat:"coffee",p:40,d:"شوت إسبريسو",img:"https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=600"},
+{id:7,n:"إسبريسو دبل",cat:"coffee",p:55,d:"دبل شوت",img:"https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=600"},
+{id:8,n:"أمريكانو",cat:"coffee",p:50,d:"إسبريسو + مياه",img:"https://images.unsplash.com/photo-1494314671902-399b18174975?w=600"},
+{id:9,n:"لاتيه",cat:"coffee",p:55,d:"إسبريسو + حليب",img:"https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=600"},
+{id:10,n:"كابتشينو",cat:"coffee",p:55,d:"رغوة حليب",img:"https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=600"},
+{id:11,n:"إسبانيش لاتيه",cat:"coffee",p:65,d:"حليب مكثف + إسبريسو",img:"https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=600"},
+{id:12,n:"V60 مختصة",cat:"coffee",p:60,d:"محصول إثيوبي",img:"https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600"},
+{id:13,n:"آيس لاتيه",cat:"cold",p:60,d:"مثلج بالحليب",img:"https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600"},
+{id:14,n:"آيس وايت موكا",cat:"cold",p:70,d:"شوكولاتة بيضاء مثلج",img:"https://images.unsplash.com/photo-1485808191679-5f86510681a2?w=600"},
+{id:15,n:"آيس كراميل",cat:"cold",p:65,d:"كراميل مثلج",img:"https://images.unsplash.com/photo-1485808191679-5f86510681a2?w=600"},
+{id:16,n:"موهيتو ليمون نعناع",cat:"cold",p:60,d:"ليمون نعناع صودا",img:"https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=600"},
+{id:17,n:"مانجو فريش",cat:"juice",p:50,d:"مانجو طبيعي",img:"https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=600"},
+{id:18,n:"فراولة فريش",cat:"juice",p:50,d:"فراولة طبيعي",img:"https://images.unsplash.com/photo-1543528176-96e40a56ae85?w=600"},
+{id:19,n:"موز باللبن",cat:"juice",p:45,d:"موز لبن",img:"https://images.unsplash.com/photo-1577805947697-89e18249d767?w=600"},
+{id:20,n:"تشيز كيك توت",cat:"dessert",p:75,d:"صوص توت",img:"https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=600"},
+{id:21,n:"مولتن كيك",cat:"dessert",p:80,d:"شوكولاتة سايحة + آيس كريم",img:"https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=600"},
+{id:22,n:"وافل نوتيلا",cat:"dessert",p:70,d:"نوتيلا + فراولة",img:"https://images.unsplash.com/photo-1562376552-0d160a2f238d?w=600"},
+];
+let CART=[];
+function filterMenu(c){
+document.querySelectorAll('[id^=btn-]').forEach(b=>b.className="px-6 py-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-sm text-zinc-400");
+document.getElementById('btn-'+c).className="px-6 py-2.5 rounded-xl bg-amber-500 text-black font-black text-sm";
+let grid=document.getElementById('menu-grid');grid.innerHTML='';
+let list=c==='all'?MENU:MENU.filter(x=>x.cat===c);
+list.forEach(it=>{
+let card=document.createElement('div');card.className="bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden";
+card.innerHTML=`<img src="${it.img}" class="w-full h-44 object-cover"><div class="p-4"><div class="flex justify-between items-start"><h3 class="font-black text-sm">${it.n}</h3><span class="text-amber-500 font-black text-sm">${it.p}ج</span></div><p class="text-[11px] text-zinc-500 mt-1">${it.d}</p><button onclick="addCart(${it.id})" class="mt-3 w-full py-2.5 bg-black border border-amber-500/30 text-amber-500 rounded-xl font-bold text-xs hover:bg-amber-500 hover:text-black">أضف للسلة +</button></div>`;
+grid.appendChild(card);
+})
+}
+function addCart(id){let it=MENU.find(x=>x.id===id);let ex=CART.find(x=>x.id===id);if(ex)ex.q++;else CART.push({...it,q:1});renderCart();document.getElementById('cartBox').classList.remove('hidden')}
+function renderCart(){
+document.getElementById('badge').innerText=CART.reduce((s,i)=>s+i.q,0);
+let box=document.getElementById('cart-items');box.innerHTML='';let total=0;
+if(!CART.length)box.innerHTML='<p class="text-center text-zinc-600 text-xs py-20">السلة فاضية</p>';
+CART.forEach(i=>{total+=i.p*i.q;let d=document.createElement('div');d.className="flex justify-between items-center bg-zinc-900 border border-zinc-800 p-3 rounded-xl text-xs";d.innerHTML=`<div><p class="font-bold">${i.n}</p><p class="text-zinc-500">${i.p}ج × ${i.q}</p></div><div class="flex items-center gap-2"><button onclick="chg(${i.id},-1)" class="w-7 h-7 bg-black border border-zinc-800 rounded-lg">-</button><span class="font-black">${i.q}</span><button onclick="chg(${i.id},1)" class="w-7 h-7 bg-black border border-zinc-800 rounded-lg">+</button></div>`;box.appendChild(d)});
+document.getElementById('cart-total').innerText=total+' ج';
+}
+function chg(id,d){let it=CART.find(x=>x.id===id);if(!it)return;it.q+=d;if(it.q<=0)CART=CART.filter(x=>x.id!==id);renderCart()}
+function checkout(){
+if(!CART.length)return alert('السلة فاضية');
+let txt='طلب جديد TRANSIT CAFE%0A%0A';let tot=0;
+CART.forEach(i=>{txt+=`${i.n} ${i.q}×${i.p}=${i.q*i.p}ج%0A`;tot+=i.q*i.p});
+txt+=`%0Aالإجمالي: ${tot}ج%0Aالدفع: كاش أو Vodafone Cash 01132674811%0Aالعنوان: `;
+window.open('https://wa.me/201030516417?text='+txt,'_blank');
+}
+filterMenu('all');
+</script>
+</body>
+</html>
