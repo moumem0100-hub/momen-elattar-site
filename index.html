@@ -25,7 +25,7 @@
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts - Cairo -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Cairo', sans-serif; }
         .hide-scrollbar::-webkit-scrollbar { display: none; }
@@ -35,159 +35,204 @@
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-slate-950">
 
     <!-- Header / Navbar -->
-    <header class="sticky top-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-amber-500/20 shadow-lg">
+    <header class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-amber-500/20 shadow-xl">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             
-            <!-- Left Controls: Mobile Menu & Lang -->
+            <!-- Left Actions -->
             <div class="flex items-center gap-3">
-                <button id="menu-toggle" class="md:hidden p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 hover:bg-amber-500/20 transition">
-                    <i class="fa-solid fa-bars text-lg"></i>
-                </button>
-                <button id="lang-btn" class="px-3 py-1.5 text-xs font-bold rounded-lg border border-amber-500/30 hover:bg-amber-500/10 transition text-amber-400">
-                    EN
+                <button id="lang-btn" class="px-3.5 py-1.5 text-xs font-bold rounded-xl border border-amber-500/30 hover:bg-amber-500/10 transition text-amber-400">
+                    EN / AR
                 </button>
             </div>
 
             <!-- Logo & Brand -->
             <div class="flex items-center gap-3">
                 <div class="text-right">
-                    <h1 class="text-lg font-bold tracking-wider text-amber-400">TRANSIT</h1>
-                    <span class="text-[10px] tracking-widest text-slate-400 uppercase">Cafe & Lounge</span>
+                    <h1 class="text-lg font-black tracking-wider text-amber-400">TRANSIT</h1>
+                    <span class="text-[10px] tracking-widest text-slate-400 uppercase font-semibold">Cafe & Lounge</span>
                 </div>
-                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-600 to-amber-400 flex items-center justify-center shadow-md shadow-amber-500/20">
-                    <i class="fa-solid fa-mug-hot text-slate-950 text-lg"></i>
+                <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-600 to-amber-400 flex items-center justify-center shadow-lg shadow-amber-500/20">
+                    <i class="fa-solid fa-mug-hot text-slate-950 text-xl"></i>
                 </div>
             </div>
 
-            <!-- Cart Button -->
+            <!-- Cart Trigger Button -->
             <div class="flex items-center gap-2">
-                <button id="cart-btn" class="relative p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/30 hover:bg-amber-500/20 transition text-amber-400">
+                <button id="cart-btn" class="relative p-3 rounded-2xl bg-amber-500/10 border border-amber-500/30 hover:bg-amber-500/20 transition text-amber-400 shadow-inner">
                     <i class="fa-solid fa-cart-shopping text-lg"></i>
-                    <span id="cart-count" class="absolute -top-1.5 -right-1.5 bg-amber-500 text-slate-950 text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow">0</span>
+                    <span id="cart-count" class="absolute -top-1 -right-1 bg-amber-500 text-slate-950 text-[11px] font-black w-5 h-5 rounded-full flex items-center justify-center shadow-md">0</span>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full space-y-12">
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full space-y-14">
 
-        <!-- Hero Section & Owner Profile -->
+        <!-- Hero Section & Owner Profile (owner.jpg) -->
         <section class="text-center">
-            <div class="max-w-3xl mx-auto bg-slate-900/60 p-8 rounded-3xl border border-amber-500/30 shadow-2xl backdrop-blur-md relative overflow-hidden">
-                <div class="absolute -top-24 -right-24 w-48 h-48 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="max-w-4xl mx-auto bg-slate-900/70 p-8 sm:p-10 rounded-3xl border border-amber-500/30 shadow-2xl backdrop-blur-xl relative overflow-hidden">
+                <div class="absolute -top-32 -right-32 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -bottom-32 -left-32 w-64 h-64 bg-amber-600/10 rounded-full blur-3xl pointer-events-none"></div>
                 
-                <!-- صورتك الشخصية owner.jpg -->
+                <!-- صورتك الشخصية owner.jpg مطابقة تماماً -->
                 <div class="flex justify-center mb-6">
-                    <div class="relative">
-                        <img src="owner.jpg" alt="المهندس مؤمن هاني العطار" class="w-36 h-36 md:w-44 md:h-44 rounded-full object-cover border-4 border-amber-500 shadow-xl shadow-amber-500/20">
-                        <div class="absolute bottom-1 right-1 bg-amber-500 text-slate-950 p-2.5 rounded-full shadow-md text-xs">
+                    <div class="relative group">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-amber-500 to-amber-600 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500"></div>
+                        <img src="owner.jpg" alt="المهندس مؤمن هاني العطار" class="relative w-36 h-36 md:w-44 md:h-44 rounded-full object-cover border-4 border-slate-900 shadow-2xl">
+                        <div class="absolute bottom-1 right-1 bg-amber-500 text-slate-950 p-3 rounded-full shadow-lg text-sm z-10">
                             <i class="fa-solid fa-code"></i>
                         </div>
                     </div>
                 </div>
 
-                <h2 class="text-2xl md:text-3xl font-black text-amber-400 mb-2">م. مؤمن هاني العطار</h2>
-                <p class="text-slate-400 text-sm md:text-base mb-4 font-medium">مطور المنصة • خبير الويب والذكاء الاصطناعي</p>
-                <p class="text-slate-300 text-sm md:text-base leading-relaxed bg-slate-950/40 p-4 rounded-2xl border border-slate-800">
-                    مرحباً بكم في <span class="text-amber-400 font-bold">Transit Cafe & Lounge</span>. استمتع بأرقى المشروبات وألذ الحلويات مع تجربة طلب رقمية حديثة وسريعة.
-                </p>
+                <h2 class="text-3xl md:text-4xl font-black text-amber-400 mb-2">م. مؤمن هاني العطار</h2>
+                <p class="text-slate-400 text-sm md:text-base mb-6 font-semibold tracking-wide">مطور المنصة • خبير الويب وتصميم الذكاء الاصطناعي</p>
+                
+                <div class="bg-slate-950/60 p-5 rounded-2xl border border-slate-800/80 max-w-2xl mx-auto shadow-inner">
+                    <p class="text-slate-300 text-sm md:text-base leading-relaxed">
+                        مرحباً بك في المنصة الرقمية الرسمية لـ <span class="text-amber-400 font-bold">Transit Cafe & Lounge</span>. تم هندسة وتطوير هذا الموقع بأعلى معايير الجودة والسرعة لضمان تجربة طلب استثنائية.
+                    </p>
+                </div>
             </div>
         </section>
 
-        <!-- Categories Filter -->
-        <section class="flex gap-3 overflow-x-auto hide-scrollbar pb-2">
-            <button class="category-btn px-5 py-2.5 rounded-xl bg-amber-500 text-slate-950 font-bold text-sm shadow-md transition whitespace-nowrap" data-category="all">الكل</button>
-            <button class="category-btn px-5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:border-amber-500/50 font-semibold text-sm transition whitespace-nowrap" data-category="coffee">مشروبات ساخنة</button>
-            <button class="category-btn px-5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:border-amber-500/50 font-semibold text-sm transition whitespace-nowrap" data-category="cold">مشروبات باردة</button>
-            <button class="category-btn px-5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:border-amber-500/50 font-semibold text-sm transition whitespace-nowrap" data-category="dessert">حلويات</button>
+        <!-- Search & Advanced Filter Section -->
+        <section class="space-y-6">
+            <div class="max-w-xl mx-auto">
+                <div class="relative">
+                    <input type="text" id="search-input" placeholder="ابحث عن مشروبك المفضّل، القهوة، أو الحلويات الفاخرة..." class="w-full bg-slate-900/90 border border-slate-800 rounded-2xl px-5 py-4 pr-12 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-500 transition text-sm shadow-xl">
+                    <i class="fa-solid fa-magnifying-glass absolute right-4 top-4.5 text-amber-500/70 text-lg"></i>
+                </div>
+            </div>
+
+            <!-- Categories Buttons -->
+            <div class="flex gap-3 overflow-x-auto hide-scrollbar pb-2 justify-start sm:justify-center">
+                <button class="category-btn px-6 py-3 rounded-2xl bg-amber-500 text-slate-950 font-bold text-sm shadow-lg shadow-amber-500/20 transition whitespace-nowrap" data-category="all">جميع المنتجات</button>
+                <button class="category-btn px-6 py-3 rounded-2xl bg-slate-900 border border-slate-800 text-slate-300 hover:border-amber-500/50 font-semibold text-sm transition whitespace-nowrap" data-category="coffee">مشروبات ساخنة</button>
+                <button class="category-btn px-6 py-3 rounded-2xl bg-slate-900 border border-slate-800 text-slate-300 hover:border-amber-500/50 font-semibold text-sm transition whitespace-nowrap" data-category="cold">مشروبات باردة</button>
+                <button class="category-btn px-6 py-3 rounded-2xl bg-slate-900 border border-slate-800 text-slate-300 hover:border-amber-500/50 font-semibold text-sm transition whitespace-nowrap" data-category="dessert">حلويات فاخرة</button>
+                <button class="category-btn px-6 py-3 rounded-2xl bg-slate-900 border border-slate-800 text-slate-300 hover:border-amber-500/50 font-semibold text-sm transition whitespace-nowrap" data-category="fresh">عصائر طازجة</button>
+            </div>
         </section>
 
-        <!-- Menu Grid Container -->
-        <section id="menu-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Items will be injected dynamically via JavaScript -->
+        <!-- Menu Products Grid -->
+        <section id="menu-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- يتم تعبئة المنتجات تلقائياً عبر الجافاسكريبت -->
+        </section>
+
+        <!-- Promotional Banner -->
+        <section class="bg-gradient-to-r from-amber-950/40 via-slate-900 to-slate-900 border border-amber-500/30 rounded-3xl p-8 sm:p-10 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+            <div class="space-y-3 text-center md:text-right">
+                <span class="bg-amber-500/20 text-amber-400 border border-amber-500/40 text-xs font-bold px-3.5 py-1 rounded-full uppercase tracking-wider">عرض خاص حصري</span>
+                <h3 class="text-2xl sm:text-3xl font-black text-slate-100">تجربة الضيافة الفاخرة في ترانزيت</h3>
+                <p class="text-slate-400 text-sm max-w-xl leading-relaxed">استمتع بأجواء الهادئة والخدمة الراقية، واطلب المذاق الأصلي المفضل لديك بضغطة زر واحدة.</p>
+            </div>
+            <a href="#menu-grid" class="px-8 py-3.5 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold rounded-2xl transition shadow-xl shadow-amber-500/20 whitespace-nowrap text-sm">اكتشف المنيو</a>
         </section>
 
         <!-- FAQ Section -->
         <section class="max-w-3xl mx-auto space-y-4 pt-6">
-            <h3 class="text-xl font-bold text-amber-400 text-center mb-6"><i class="fa-solid fa-circle-question"></i> الأسئلة الشائعة</h3>
+            <h3 class="text-2xl font-black text-amber-400 text-center mb-8 flex items-center justify-center gap-3"><i class="fa-solid fa-circle-question"></i> الأسئلة الشائعة</h3>
             
-            <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-5 shadow-lg">
-                <h4 class="font-bold text-slate-200 mb-2">هل توجد خدمة توصيل للمنازل؟</h4>
-                <p class="text-slate-400 text-sm">نعم، نوفر خدمة التوصيل السريع داخل المنطقة بأعلى جودة للحفاظ على طعم ونكهة المشروبات.</p>
+            <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-6 shadow-xl backdrop-blur-md">
+                <h4 class="font-bold text-slate-100 mb-2 text-base">هل توجد خدمة توصيل سريعة للمنازل؟</h4>
+                <p class="text-slate-400 text-sm leading-relaxed">نعم، نوفر خدمة توصيل مجهزة بعناية لضمان وصول المشروبات والحلويات بنفس الجودة والطزاجة.</p>
             </div>
 
-            <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-5 shadow-lg">
-                <h4 class="font-bold text-slate-200 mb-2">ما هي أوقات العمل في الكافيه؟</h4>
-                <p class="text-slate-400 text-sm">نستقبلكم طوال أيام الأسبوع من الساعة 10:00 صباحاً وحتى الساعة 2:00 بعد منتصف الليل.</p>
+            <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-6 shadow-xl backdrop-blur-md">
+                <h4 class="font-bold text-slate-100 mb-2 text-base">ما هي مواعيد العمل الرسمية في الكافيه؟</h4>
+                <p class="text-slate-400 text-sm leading-relaxed">نستقبلكم طوال أيام الأسبوع بكل حفاوة من الساعة 10:00 صباحاً وحتى الساعة 2:00 بعد منتصف الليل.</p>
+            </div>
+
+            <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-6 shadow-xl backdrop-blur-md">
+                <h4 class="font-bold text-slate-100 mb-2 text-base">هل يتوفر إنترنت فائق السرعة للزوار؟</h4>
+                <p class="text-slate-400 text-sm leading-relaxed">بالتأكيد، يتوفر واي فاي مجاني فائق السرعة لجميع ضيوفنا وزوار كافيه ترانزيت الكرام.</p>
             </div>
         </section>
 
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-900/80 border-t border-amber-500/20 py-6 mt-12 text-center text-xs text-slate-400">
-        <p>جميع الحقوق محفوظة &copy; 2026 <span class="text-amber-400 font-semibold">Transit Cafe</span> | تطوير م. مؤمن هاني العطار</p>
+    <footer class="bg-slate-900/90 border-t border-amber-500/20 py-10 mt-16 text-center text-xs text-slate-400 space-y-3 shadow-2xl">
+        <p class="text-sm font-bold text-slate-300">Transit Cafe & Lounge &copy; 2026</p>
+        <p>تم التصميم والتطوير البرمجي بواسطة المهندس: <span class="text-amber-400 font-bold">مؤمن هاني العطار</span></p>
     </footer>
 
-    <!-- Cart Modal / Drawer -->
-    <div id="cart-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex justify-end">
+    <!-- Cart Sidebar Modal -->
+    <div id="cart-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex justify-end transition-all">
         <div class="bg-slate-900 w-full max-w-md h-full p-6 flex flex-col justify-between border-l border-amber-500/20 shadow-2xl">
             <div>
                 <div class="flex items-center justify-between pb-4 border-b border-slate-800">
                     <h3 class="text-lg font-bold text-amber-400 flex items-center gap-2"><i class="fa-solid fa-cart-shopping"></i> سلة الطلبات</h3>
-                    <button id="close-cart" class="text-slate-400 hover:text-slate-100 text-lg"><i class="fa-solid fa-xmark"></i></button>
+                    <button id="close-cart" class="text-slate-400 hover:text-slate-100 text-xl p-2"><i class="fa-solid fa-xmark"></i></button>
                 </div>
                 <div id="cart-items" class="py-4 space-y-4 max-h-[60vh] overflow-y-auto">
-                    <!-- Cart items loaded dynamically -->
+                    <!-- عناصر السلة -->
                 </div>
             </div>
-            <div class="border-t border-slate-800 pt-4 space-y-4">
-                <div class="flex justify-between font-bold text-lg">
-                    <span>الإجمالي:</span>
+            <div class="border-t border-slate-800 pt-5 space-y-4">
+                <div class="flex justify-between font-black text-lg">
+                    <span>الإجمالي الكلي:</span>
                     <span id="cart-total" class="text-amber-400">0 ج.م</span>
                 </div>
-                <button id="whatsapp-order" class="w-full py-3 bg-green-600 hover:bg-green-500 text-white font-bold rounded-xl transition flex items-center justify-center gap-2 shadow-lg">
-                    <i class="fa-brands fa-whatsapp text-xl"></i> إتمام الطلب عبر واتساب
+                <button id="whatsapp-order" class="w-full py-3.5 bg-green-600 hover:bg-green-500 text-white font-bold rounded-2xl transition flex items-center justify-center gap-3 shadow-xl text-base">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i> إتمام الطلب عبر واتساب
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- JavaScript Logic -->
+    <!-- Complete JavaScript Program -->
     <script>
-        // بيانات المنتجات
         const products = [
-            { id: 1, name: "آيس وايت موكا", category: "cold", price: 70, desc: "شوكولاتة بيضاء فاخرة مع إسبريسو وحليب بارد", image: "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=500&q=80" },
-            { id: 2, name: "تشيز كيك توت", category: "dessert", price: 75, desc: "تشيز كيك غني مع صوص التوت البري الطبيعي", image: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=500&q=80" },
-            { id: 3, name: "إسبريسو دوبل", category: "coffee", price: 45, desc: "قهوة إسبريسو غنية ومركزة على الطريقة الأصلية", image: "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=500&q=80" },
-            { id: 4, name: "موكا باردة", category: "cold", price: 65, desc: "مزيج منعش من الشوكولاتة والقهوة والحليب", image: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=500&q=80" }
+            { id: 1, name: "آيس وايت موكا", category: "cold", price: 70, desc: "شوكولاتة بيضاء فاخرة مع إسبريسو وحليب بارد وثلج صافي", image: "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=500&q=80" },
+            { id: 2, name: "تشيز كيك توت بري", category: "dessert", price: 75, desc: "تشيز كيك غني وقشدي مع صوص التوت البري الطبيعي", image: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=500&q=80" },
+            { id: 3, name: "إسبريسو دوبل", category: "coffee", price: 45, desc: "قهوة إسبريسو غنية ومكثفة على الطريقة الإيطالية الأصلية", image: "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=500&q=80" },
+            { id: 4, name: "موكا باردة منعشة", category: "cold", price: 65, desc: "مزيج متناغم ومنعش من الشوكولاتة والقهوة الفاخرة والحليب", image: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=500&q=80" },
+            { id: 5, name: "كابتشينو إيطالي", category: "coffee", price: 55, desc: "إسبريسو غني مع حليب مبخر ورغوة مخملية ناعمة للغاية", image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=500&q=80" },
+            { id: 6, name: "عصير مانجو طازج", category: "fresh", price: 50, desc: "عصير مانجو طبيعي 100% طازج ومصنوع بحرفية عالية", image: "https://images.unsplash.com/photo-1622597467836-f3285f22381e?auto=format&fit=crop&w=500&q=80" }
         ];
 
         let cart = [];
+        let currentCategory = 'all';
+        let searchQuery = '';
 
-        // عرض المنتجات
-        function renderProducts(filter = 'all') {
+        function renderProducts() {
             const grid = document.getElementById('menu-grid');
             grid.innerHTML = '';
             
-            const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
+            const filtered = products.filter(p => {
+                const matchesCategory = currentCategory === 'all' || p.category === currentCategory;
+                const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) || p.desc.toLowerCase().includes(searchQuery.toLowerCase());
+                return matchesCategory && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-16 text-slate-500">
+                        <i class="fa-solid fa-mug-saucer text-5xl mb-4 text-slate-600"></i>
+                        <p class="text-base font-semibold">عذراً، لم نجد نتائج مطابقة لبحثك</p>
+                    </div>
+                `;
+                return;
+            }
             
             filtered.forEach(p => {
                 grid.innerHTML += `
-                    <div class="bg-slate-900/60 border border-slate-800 rounded-2xl overflow-hidden shadow-lg hover:border-amber-500/50 transition flex flex-col justify-between">
+                    <div class="bg-slate-900/70 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-amber-500/50 transition duration-300 flex flex-col justify-between backdrop-blur-md">
                         <div>
-                            <div class="h-48 overflow-hidden relative">
-                                <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover hover:scale-105 transition duration-500">
-                                <span class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-md text-amber-400 border border-amber-500/30 px-3 py-1 rounded-full text-xs font-bold">${p.price} ج.م</span>
+                            <div class="h-52 overflow-hidden relative">
+                                <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover hover:scale-105 transition duration-700">
+                                <span class="absolute top-4 right-4 bg-slate-950/85 backdrop-blur-md text-amber-400 border border-amber-500/30 px-3.5 py-1.5 rounded-full text-xs font-black shadow-lg">${p.price} ج.م</span>
                             </div>
-                            <div class="p-5">
-                                <h4 class="text-lg font-bold text-slate-100 mb-1">${p.name}</h4>
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-slate-100 mb-2">${p.name}</h4>
                                 <p class="text-slate-400 text-sm leading-relaxed">${p.desc}</p>
                             </div>
                         </div>
-                        <div class="p-5 pt-0">
-                            <button onclick="addToCart(${p.id})" class="w-full py-2.5 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold rounded-xl transition shadow-md shadow-amber-500/10 flex items-center justify-center gap-2 text-sm">
+                        <div class="p-6 pt-0">
+                            <button onclick="addToCart(${p.id})" class="w-full py-3 bg-amber-500 hover:bg-amber-600 text-slate-950 font-black rounded-2xl transition shadow-lg shadow-amber-500/10 flex items-center justify-center gap-2 text-sm">
                                 <i class="fa-solid fa-plus"></i> أضف للسلة
                             </button>
                         </div>
@@ -196,7 +241,6 @@
             });
         }
 
-        // إضافة للسلة
         function addToCart(id) {
             const item = products.find(p => p.id === id);
             const existing = cart.find(c => c.id === id);
@@ -208,22 +252,32 @@
             updateCartUI();
         }
 
-        // تحديث واجهة السلة
         function updateCartUI() {
-            document.getElementById('cart-count').innerText = cart.reduce((sum, i) => sum + i.qty, 0);
+            const totalCount = cart.reduce((sum, i) => sum + i.qty, 0);
+            document.getElementById('cart-count').innerText = totalCount;
+            
             const container = document.getElementById('cart-items');
             container.innerHTML = '';
+            
+            if (cart.length === 0) {
+                container.innerHTML = `<p class="text-center text-slate-500 py-10 text-sm font-medium">سلة الطلبات فارغة حالياً</p>`;
+                document.getElementById('cart-total').innerText = '0 ج.م';
+                return;
+            }
             
             let total = 0;
             cart.forEach(item => {
                 total += item.price * item.qty;
                 container.innerHTML += `
-                    <div class="flex justify-between items-center bg-slate-950/40 p-3 rounded-xl border border-slate-800">
+                    <div class="flex justify-between items-center bg-slate-950/60 p-3.5 rounded-2xl border border-slate-800">
                         <div>
-                            <h5 class="font-bold text-sm text-slate-200">${item.name}</h5>
-                            <span class="text-xs text-amber-400">${item.price} ج.م × ${item.qty}</span>
+                            <h5 class="font-bold text-sm text-slate-200 mb-0.5">${item.name}</h5>
+                            <span class="text-xs text-amber-400 font-semibold">${item.price} ج.م × ${item.qty}</span>
                         </div>
-                        <button onclick="removeFromCart(${item.id})" class="text-red-400 hover:text-red-300 text-sm p-1.5"><i class="fa-solid fa-trash"></i></button>
+                        <div class="flex items-center gap-3">
+                            <span class="text-sm font-black text-slate-100">${item.price * item.qty} ج.م</span>
+                            <button onclick="removeFromCart(${item.id})" class="text-red-400 hover:text-red-300 text-sm p-2 transition"><i class="fa-solid fa-trash"></i></button>
+                        </div>
                     </div>
                 `;
             });
@@ -235,7 +289,6 @@
             updateCartUI();
         }
 
-        // فتح وإغلاق السلة
         document.getElementById('cart-btn').addEventListener('click', () => {
             document.getElementById('cart-modal').classList.remove('hidden');
         });
@@ -243,20 +296,25 @@
             document.getElementById('cart-modal').classList.add('hidden');
         });
 
-        // فلترة التصنيفات
         document.querySelectorAll('.category-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 document.querySelectorAll('.category-btn').forEach(b => {
-                    b.classList.remove('bg-amber-500', 'text-slate-950');
+                    b.classList.remove('bg-amber-500', 'text-slate-950', 'shadow-lg', 'shadow-amber-500/20');
                     b.classList.add('bg-slate-900', 'border', 'border-slate-800', 'text-slate-300');
                 });
                 e.target.classList.remove('bg-slate-900', 'border', 'border-slate-800', 'text-slate-300');
-                e.target.classList.add('bg-amber-500', 'text-slate-950');
-                renderProducts(e.target.dataset.category);
+                e.target.classList.add('bg-amber-500', 'text-slate-950', 'shadow-lg', 'shadow-amber-500/20');
+                
+                currentCategory = e.target.dataset.category;
+                renderProducts();
             });
         });
 
-        // إرسال الطلب للواتساب
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            searchQuery = e.target.value;
+            renderProducts();
+        });
+
         document.getElementById('whatsapp-order').addEventListener('click', () => {
             if (cart.length === 0) {
                 alert('السلة فارغة حالياً!');
@@ -272,7 +330,6 @@
             window.open(`https://wa.me/201000000000?text=${text}`, '_blank');
         });
 
-        // تشغيل أولي
         renderProducts();
     </script>
 </body>
